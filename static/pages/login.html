@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리뷰</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/> -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+</head>
+<body>
+    <div id="wrap">
+        <!-- <header id="header"></header> -->
+        <!-- //header -->
+
+        <main id="main" class="login">
+            <div class="yellow-box"></div>
+            <section class="section1">
+                <div class="container">
+                   <div class="left-wrap">
+                       <div class="logo-wrap">
+                            <img src="../images/logo.svg" alt="">
+                       </div>
+                       <p class="sub">우리:뷰를 가입하고 캠페인을 공모해보세요.</p>
+                   </div>
+                   <div class="right-wrap">
+                        <div class="right-wrap-top">
+                            <ul class="login-tab">
+                                <li class="tab-link current" data-tab="tab-1">인플루언서</li>
+                                <li class="tab-link" data-tab="tab-2">기업 · 광고주</li>
+                            </ul>
+                        </div>
+                        <div class="right-wrap-contents">
+                            <div class="input-contents tab-content current" id="tab-1">
+                                <div class="input-wrap tab-1">
+                                    <input class="" type="text" placeholder="ID" autofocus>
+                                </div>
+                                <div class="input-wrap style2 btm">
+                                    <input class="" type="text" placeholder="PASSWORD">
+                                </div>
+                                  <!-- 정보가 일치 하지 않을경우 -->
+                                  <!-- <p class="warning-txt"> 
+                                    <i class="xi-warning"></i>ID 또는 PW가 일치하지 않습니다.
+                                </p> -->
+                                <!-- // -->
+                                <button class="login-btn">
+                                    로그인
+                                </button>
+                                <div class="right-wrap-btm">
+                                    <ul>
+                                        <li>
+                                            <a href="./find-id.html">아이디 찾기</a>
+                                        </li>
+                                        <li>
+                                            <a href="./find-pwd.html">비밀번호 찾기</a>
+                                        </li>
+                                    </ul>
+                                    <a href="./join-influencer.html" class="join-btn">인플루언서 회원가입</a>
+                                </div>
+                            </div>
+                            <div class="input-contents tab-content" id="tab-2">
+                                <div class="input-wrap tab-2">
+                                    <input class="" type="text" placeholder="ID"  autofocus>
+                                </div>
+                                <div class="input-wrap btm">
+                                    <input class="" type="text" placeholder="PASSWORD">
+                                </div>
+                                <!-- 정보가 일치 하지 않을경우 -->
+                                <p class="warning-txt"> 
+                                    <i class="xi-warning"></i>ID 또는 PW가 일치하지 않습니다.
+                                </p>
+                                <!-- // -->
+                                <button class="login-btn">
+                                    로그인
+                                </button>
+                                <div class="right-wrap-btm">
+                                    <ul>
+                                        <li>
+                                            <a href="./find-id.html">아이디 찾기</a>
+                                        </li>
+                                        <li>
+                                            <a href="./find-pwd.html">비밀번호 찾기</a>
+                                        </li>
+                                    </ul>
+                                    <a href="./join-company.html" class="join-btn">기업 · 광고주 회원가입</a>
+                                </div>
+                            </div>
+                            <div class="sns-btn-wrap">
+                                <p>SNS 계정 로그인</p>
+                                <div class="btn-wrap">
+                                    <button class="sns-btn naver">
+                                        <img src="../images/sns-naver.png" alt="우리뷰">
+                                    </button>
+                                    <button class="sns-btn kakao">
+                                        <img src="../images/sns-kakao.png" alt="우리뷰">
+                                    </button>
+                                    <button class="sns-btn google">
+                                        <img src="../images/sns-google.png" alt="우리뷰">
+                                    </button>
+                                    <button class="sns-btn apple">
+                                        <img src="../images/sns-apple.png" alt="우리뷰">
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                       
+                   </div>
+                </div>
+            </section>
+            <section class="section2">
+                <div class="container">
+                    <p>아직 회원이 아니신가요?</p>
+                    <a href="join-company.html">기업 · 광고주 회원가입</a>
+                </div>
+            </section>
+     
+        </main>
+        <!-- //main -->
+
+        <!-- <footer id="footer"></footer> -->
+        <!-- //footer -->
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="../js/swiper.min.js"></script>
+        <script>
+        $('.tab-link').click(function () {
+            var tab_id = $(this).attr('data-tab');
+    
+            $('.tab-link').removeClass('current');
+            $('.tab-content').removeClass('current');
+    
+            $(this).addClass('current');
+            $("#" + tab_id).addClass('current');
+    
+        });
+        </script>
+    </div>
+</body>
+</html>

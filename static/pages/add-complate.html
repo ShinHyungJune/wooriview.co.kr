@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리뷰</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/> -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+</head>
+<body>
+    <div id="wrap">
+        <!-- <header id="header"></header> -->
+        <!-- //header -->
+        <main id="main" class="add-info add-complate">
+            <div class="yellow-box"></div>
+            <section class="section1">
+                <div class="logo-wrap">
+                    <img src="../images/logo.svg" alt="">
+                </div>
+				<p class="title">
+					회원가입/추가정보 등록이 <br class="br-mb" /> 완료되었습니다.
+				</p>
+				<p class="sub">캠페인을 확인하고 광고를 지원해보세요!</p>
+				<div class="step-contents">
+					<ul class="step-list">
+						<li class="step-content now"></li>
+						<li class="step-content now"></li>
+						<li class="step-content now"></li>
+					</ul>
+					<ul class="step-text-list">
+						<li class="step-text now">
+							SNS
+						</li>
+						<li class="step-text now">
+							개인정보
+						</li>
+						<li class="step-text now">
+							완료
+						</li>
+					</ul>
+				</div>
+				<div class="btn-wrap">
+					<a href="./index.html">우리뷰 시작하기</a>
+				</div>
+            </section>
+
+        </main>
+        <!-- //main -->
+
+        <!-- <footer id="footer"></footer> -->
+        <!-- //footer -->
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="../js/swiper.min.js"></script>
+        <script>
+        $('.tab-link').click(function () {
+            var tab_id = $(this).attr('data-tab');
+    
+            $('.tab-link').removeClass('current');
+            $('.tab-content').removeClass('current');
+    
+            $(this).addClass('current');
+            $("#" + tab_id).addClass('current');
+    
+        });
+
+        $('.tab-content .input-wrap.style2').click(function () {
+    
+            $('.tab-content .input-wrap.tab-1 input').css("border","none")
+            $('.tab-content .input-wrap.tab-1').toggleClass('re-color');
+
+
+            // $(this).addClass('tab-1')
+    
+        });
+
+
+
+        </script>
+    </div>
+</body>
+</html>

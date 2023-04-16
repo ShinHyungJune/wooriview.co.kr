@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+    <defs>
+        <clipPath id="lzdkidniaa">
+            <circle data-name="타원 7" cx="30" cy="30" r="30" style="fill:#ddd"/>
+        </clipPath>
+        <clipPath id="simlbikznb">
+            <path data-name="사각형 51872" style="fill:none" d="M0 0h41.002v47.325H0z"/>
+        </clipPath>
+    </defs>
+    <g data-name="그룹 44229">
+        <circle data-name="타원 8" cx="30" cy="30" r="30" style="fill:#ddd"/>
+        <g data-name="마스크 그룹 1" style="clip-path:url(#lzdkidniaa)">
+            <g data-name="그룹 215">
+                <g data-name="그룹 214" style="clip-path:url(#simlbikznb)" transform="translate(9.28 12.579)">
+                    <path data-name="패스 245" d="M41.242 47.565c0-5.371-6.225-16.976-14.7-19.345a1.243 1.243 0 0 1-.119-2.351 12.863 12.863 0 0 0 7.77-11.8 13.072 13.072 0 1 0-18.677 11.8c1.325.629 1.28 2.046.136 2.351C7.2 30.6 1 42.374 1 47.565" transform="translate(-.62 -.62)" style="fill:#fff"/>
+                    <path data-name="패스 246" d="M41.242 47.565c0-5.371-6.225-16.976-14.7-19.345a1.243 1.243 0 0 1-.119-2.351 12.863 12.863 0 0 0 7.77-11.8 13.072 13.072 0 1 0-18.677 11.8c1.325.629 1.28 2.046.136 2.351C7.2 30.6 1 42.374 1 47.565" transform="translate(-.62 -.62)" style="fill:none"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

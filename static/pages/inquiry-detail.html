@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리뷰</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/> -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+</head>
+<body>
+    <div id="wrap">
+        <header id="header"></header>
+        <!-- //header -->
+
+        <main id="main" class="MyPage inquiry-detail">
+            <div class="route-wrap">
+				<div class="container3">
+					<div class="route-box">
+						<ul class="route">
+							<li>마이페이지</li>
+							<li><i class="xi-angle-right"></i></li>
+							<li>고객센터</li>
+						</ul>
+						<h2>고객센터</h2>
+						<div class="route-bg">
+							<img src="../images/route-bg-3.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section1">
+				<div class="container">
+					<div class="contents">
+						<p class="title">문의제목</p>
+						<div class="grey-box title-wrap">
+							<p class="content-title">[서비스이용] 안녕하세요 다름이 아니라 어떻게 하는지 잘몰라서 그런데요 잘몰라서 그런데요. 잘몰라서 그런데요. 잘몰라서 그런데요. 잘몰라서 그런데요. 잘몰라서 그런데요. 잘몰라서 그런데요. 잘몰라서 그런데요. 잘몰라서 그런데요.</p>
+							<p class="date">2023.00.00</p>
+					    </div>
+					</div>
+					<div class="contents">
+						<p class="title">추가내용</p>
+						<div class="grey-box content-wrap">
+							<p class="content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor accusamus magnam illum ducimus nostrum nisi eius inventore laborum dolores labore. 
+								Dignissimos ipsa cumque possimus et. Esse aliquid ipsam nisi asperiores.
+								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non sequi ipsa sit dignissimos porro consequatur quibusdam incidunt, explicabo provident facere, 
+								quae praesentium natus dolorum error itaque magni quos aliquam asperiores.
+								adipisicing elit. Dolor accusamus magnam illum ducimus nostrum nisi eius inventore laborum dolores labore. 
+								Dignissimos ipsa cumque possimus et. Esse aliquid ipsam nisi asperiores.
+								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non sequi ipsa sit dignissimos porro consequatur quibusdam incidunt, explicabo provident facere, 
+								quae praesentium natus dolorum error itaque magni quos aliquam asperiores.
+								adipisicing elit. Non sequi ipsa sit dignissimos porro consequatur quibusdam incidunt, explicabo provident facere, 
+								quae praesentium natus dolorum error itaque magni quos aliquam asperiores.
+								adipisicing elit. Dolor accusamus magnam illum ducimus nostrum nisi eius inventore laborum dolores labore. 
+								Dignissimos ipsa cumque possimus et. Esse aliquid ipsam nisi asperiores.
+								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non sequi ipsa sit digniss
+								dignissimos porro consequatur quibusdam incidunt, explicabo provident facere, 
+								quae praesentium natus dolorum error itaque magni quos aliquam asperiores.
+								adipisicing elit. Non sequi ipsa sit dignissimos porro consequatur quibusdam incidunt, explicabo provident facere, 
+								quae praesentium natus dolorum error itaque magni quos aliquam asperiores.
+								adipisicing elit. Dolor accusamus magnam illum ducimus nostrum nisi eius inventore laborum dolores labore. 
+								Dignissimos ipsa cumque possimus et. Esse aliquid ipsam nisi asperiores.
+								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non sequi ipsa sit digniss
+							</p>
+						</div>
+					</div>
+					<div class="grey-box answer">
+						<p class="answer-content">
+							안녕하세요 우리:뷰 담당자 권담당입니다. 
+							문의주신 내용은 내부에서 검토 한 결과 텍스트가 중복이 많아 자연스럽지 않다는 의견이있었습니다.
+							불편함을 느끼신데에 죄송하지만 정확한 텍스트로 다시 캠페인 참여를 당부드립니다. 
+							리뷰를 목적으로 광고주가 캠페인을 게시하는 만큼 글의 진정성과 필력이 굉장히 중요합니다. 
+							답변이 되셨길 바랍니다. 감사합니다.
+						</p>
+						<p class="answer-date">2023.00.00</p>
+					</div>
+
+
+
+					<div class="btn-wrap">
+						<a href="./inquiry-request.html">재 문의하기</a>
+					</div>
+				</div>
+			</div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer"></footer>
+        <!-- //footer -->
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="../js/swiper.min.js"></script>
+		<script>
+			// 셀렉트 박스     
+				const selectBoxElements = document.querySelectorAll(".select");
+		
+				function toggleSelectBox(selectBox) {
+						selectBox.classList.toggle("active");
+				}
+		
+				function selectOption(optionElement) {
+					const selectBox = optionElement.closest(".select");
+					const selectedElement = selectBox.querySelector(".selected-value");
+					selectedElement.textContent = optionElement.textContent;
+				}
+		
+				selectBoxElements.forEach(selectBoxElement => {
+					selectBoxElement.addEventListener("click", function (e) {
+						const targetElement = e.target;
+						const isOptionElement = targetElement.classList.contains("option");
+		
+					if (isOptionElement) {
+						selectOption(targetElement);
+					}
+		
+					toggleSelectBox(selectBoxElement);
+					});
+				});
+		
+				document.addEventListener("click", function (e) {
+					const targetElement = e.target;
+					const isSelect = targetElement.classList.contains("select") || targetElement.closest(".select");
+		
+					if (isSelect) {
+						return;
+					}
+		
+					const allSelectBoxElements = document.querySelectorAll(".select");
+		
+						allSelectBoxElements.forEach(boxElement => {
+						boxElement.classList.remove("active");
+						});
+				});
+	    </script>   
+
+    </div>
+</body>
+</html>

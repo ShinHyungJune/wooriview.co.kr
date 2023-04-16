@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리뷰</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/> -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+</head>
+<body>
+    <div id="wrap">
+        <header id="header"></header>
+        <!-- //header -->
+
+        <main id="main" class="MyPage Change_Information">
+            <div class="route-wrap">
+				<div class="container3">
+					<div class="route-box">
+						<ul class="route">
+							<li>마이페이지</li>
+							<li><i class="xi-angle-right"></i></li>
+							<li>회원정보 변경</li>
+						</ul>
+						<h2>회원정보 변경</h2>
+						<div class="route-bg">
+							<img src="../images/route-bg-1.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="write-section">
+				<div class="container3">
+					<div class="write-wrap">
+						<div class="write-wrap-le">
+
+							<div class="write-box">
+								<p class="write-labal">회원정보</p>
+								<div class="write-bundle">
+									<div class="input-wrap">
+										<input class="Deactivation" type="text" placeholder="abc1234@naver.com">
+									</div>
+									<div>
+										<button class="Password-Change-btn">비밀번호 변경 <i class="xi-angle-right"></i></button>
+										<div class="pop-box Password-Change-pop">
+											<button class="close-btn"><i class="xi-close"></i></button>
+											<div class="pop-scroll-wrap">
+												<div class="pop-txt">
+													<p class="top-txt">비밀번호를 변경하시겠습니까?</p>
+													<p class="bt-txt">새로운 비밀번호를 작성해주세요.</p>
+												</div>
+												<div class="write-bundle">
+													<div class="input-wrap">
+														<input type="text" placeholder="기존 비밀번호">
+													</div>
+													<div class="gap"></div>
+													<div class="input-wrap Add_Features">
+														<input type="text" placeholder="새로운 비밀번호">
+														<div class="Add_Features-box">
+															<p class="possibility">사용가능 <i class="xi-shield-checked"></i></p>
+														</div>
+													</div>
+													<div class="input-wrap Add_Features">
+														<input type="text" placeholder="새로운 비밀번호 확인">
+														<div class="Add_Features-box">
+															<p class="impossibility">사용불가 <i class="xi-security"></i></p>
+														</div>
+													</div>
+													<div class="gap"></div>
+													<div>
+														<a href="" class="Check-btn">확인</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="input-wrap">
+										<input class="Deactivation" type="text" placeholder="김리뷰">
+									</div>
+								</div>
+							</div>
+
+							<div class="write-box">
+								<p class="write-labal">SNS 계정 연동</p>
+								<div class="write-bundle">
+									<div class="sns-radio-box">
+										<input type="radio" name="1" id="a" checked>
+										<label for="a"><span><i class="xi-check-min"></i></span>인스타그램</label>
+									</div>
+									<div class="input-wrap">
+										<input class="" type="text" placeholder="정확한 미디어 주소를 입력해주세요.">
+									</div>
+
+									<div class="sns-radio-box">
+										<input type="radio" name="1" id="b">
+										<label for="b"><span><i class="xi-check-min"></i></span>네이버 블로그</label>
+									</div>
+									<div class="input-wrap">
+										<input class="Deactivation" type="text" placeholder="정확한 미디어 주소를 입력해주세요.">
+									</div>
+								</div>
+							</div>
+
+							<div class="write-box">
+								<p class="write-labal">개인정보</p>
+								<div class="write-bundle">
+
+									<div class="input-wrap">
+										<input type="text" placeholder="성명">
+									</div>
+
+									<div class="gap"></div>
+
+									<div class="radio-wrap1">
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Man" checked>
+											<label for="Man">남자</label>
+										</div>
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Woman">
+											<label for="Woman">여자</label>
+										</div>
+									</div>
+									
+									<div class="gap"></div>
+
+									<div class="input-wrap Add_Features">
+										<input type="text" placeholder="휴대폰 번호">
+										<div class="Add_Features-box">
+											<button>인증번호</button>
+										</div>
+									</div>
+									<div class="input-wrap">
+										<input class="Deactivation" type="text" placeholder="인증번호">
+									</div>
+
+									<div class="gap"></div>
+
+									<div class="input-wrap Add_Features">
+										<input type="text" placeholder="우편번호">
+										<div class="Add_Features-box">
+											<button>주소검색</button>
+										</div>
+									</div>
+									<div class="input-wrap">
+										<input type="text" placeholder="배송지 주소">
+									</div>
+									<div class="input-wrap">
+										<input class="Deactivation" type="text" placeholder="배송지 상세주소">
+									</div>
+								</div>
+							</div>
+
+							<div class="write-box">
+								<p class="write-labal">SNS 활동 분야 <span>SNS에서 주로 활동하는 분야를 클릭해주세요</span></p>
+								<div class="Field-ck-wrap">
+									<div class="category-ck food">
+										<input type="checkbox" name="" id="food">
+										<label for="food">
+											<div class="img-wrap"></div>
+											<p class="label-title">식음료</p>
+										</label>
+									</div>
+			
+									<div class="category-ck Fashion">
+										<input type="checkbox" name="" id="Fashion">
+										<label for="Fashion">
+											<div class="img-wrap"></div>
+											<p class="label-title">패션</p>
+										</label>
+									</div>
+			
+									<div class="category-ck Beauty">
+										<input type="checkbox" name="" id="Beauty">
+										<label for="Beauty">
+											<div class="img-wrap"></div>
+											<p class="label-title">뷰티</p>
+										</label>
+									</div>
+			
+									<div class="category-ck Childhood">
+										<input type="checkbox" name="" id="Childhood">
+										<label for="Childhood">
+											<div class="img-wrap"></div>
+											<p class="label-title">유아동</p>
+										</label>
+									</div>
+			
+									<div class="category-ck digital">
+										<input type="checkbox" name="" id="digital">
+										<label for="digital">
+											<div class="img-wrap"></div>
+											<p class="label-title">디지털</p>
+										</label>
+									</div>
+			
+									<div class="category-ck Culture">
+										<input type="checkbox" name="" id="Culture">
+										<label for="Culture">
+											<div class="img-wrap"></div>
+											<p class="label-title">문화</p>
+										</label>
+									</div>
+			
+									<div class="category-ck health">
+										<input type="checkbox" name="" id="health">
+										<label for="health">
+											<div class="img-wrap"></div>
+											<p class="label-title">건강/운동</p>
+										</label>
+									</div>
+									
+									<div class="category-ck pet">
+										<input type="checkbox" name="" id="pet">
+										<label for="pet">
+											<div class="img-wrap"></div>
+											<p class="label-title">반려동물</p>
+										</label>
+									</div>
+			
+									<div class="category-ck Hobby">
+										<input type="checkbox" name="" id="Hobby">
+										<label for="Hobby">
+											<div class="img-wrap"></div>
+											<p class="label-title">취미/레저</p>
+										</label>
+									</div>
+			
+									<div class="category-ck Car">
+										<input type="checkbox" name="" id="Car">
+										<label for="Car">
+											<div class="img-wrap"></div>
+											<p class="label-title">자동차</p>
+										</label>
+									</div>
+			
+									<div class="category-ck Living">
+										<input type="checkbox" name="" id="Living">
+										<label for="Living">
+											<div class="img-wrap"></div>
+											<p class="label-title">리빙</p>
+										</label>
+									</div>
+			
+									<div class="category-ck travel">
+										<input type="checkbox" name="" id="travel">
+										<label for="travel">
+											<div class="img-wrap"></div>
+											<p class="label-title">여행/파티</p>
+										</label>
+									</div>
+			
+									<div class="category-ck Education">
+										<input type="checkbox" name="" id="Education">
+										<label for="Education">
+											<div class="img-wrap"></div>
+											<p class="label-title">교육</p>
+										</label>
+									</div>
+			
+									<div class="category-ck something">
+										<input type="checkbox" name="" id="something">
+										<label for="something">
+											<div class="img-wrap"></div>
+											<p class="label-title">기타</p>
+										</label>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="write-wrap-ri">
+							
+							<div class="write-box">
+								<p class="write-labal">카메라</p>
+								<div class="write-bundle">
+									<div class="radio-wrap1">
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Man" checked>
+											<label for="Man">없음</label>
+										</div>
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Woman">
+											<label for="Woman">있음</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="write-box">
+								<p class="write-labal">얼굴 노출</p>
+								<div class="write-bundle">
+									<div class="radio-wrap1">
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Man" checked>
+											<label for="Man">없음</label>
+										</div>
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Woman">
+											<label for="Woman">있음</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="write-box">
+								<p class="write-labal">사이즈 정보 <span>비공개로 유지하고 싶으실 경우 빈칸으로 남겨주세요.</span></p>
+								<div class="write-bundle">
+									<div class="input-wrap">
+										<input type="text" placeholder="상의 사이즈를 작성해주세요.">
+									</div>
+									<div class="input-wrap">
+										<input type="text" placeholder="하의 사이즈를 작성해주세요.">
+									</div>
+									<div class="input-wrap">
+										<input type="text" placeholder="신발 사이즈를 작성해주세요.">
+									</div>
+									<div class="gap"></div>
+									<div class="input-wrap">
+										<input type="text" placeholder="키를 작성해주세요.">
+									</div>
+									<div class="input-wrap">
+										<input type="text" placeholder="피부타입을 작성해주세요. ex) 건성, 밝은 편">
+									</div>
+								</div>
+							</div>
+
+							<div class="write-box">
+								<p class="write-labal">결혼 여부</p>
+								<div class="write-bundle">
+									<div class="radio-wrap1">
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Man" checked>
+											<label for="Man">미혼</label>
+										</div>
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Woman">
+											<label for="Woman">기혼</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="write-box">
+								<p class="write-labal">자녀 여부</p>
+								<div class="write-bundle">
+									<div class="radio-wrap1">
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Man" checked>
+											<label for="Man">없음</label>
+										</div>
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Woman">
+											<label for="Woman">있음</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="write-box">
+								<p class="write-labal">반려동물</p>
+								<div class="write-bundle">
+									<div class="radio-wrap1">
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Man" checked>
+											<label for="Man">없음</label>
+										</div>
+										<div class="radio-box">
+											<input type="radio" name="Gender" id="Woman">
+											<label for="Woman">있음</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="write-box">
+								<p class="write-labal">소개글</p>
+								<div class="input-wrap">
+									<input type="text" placeholder="광고주에게 소개할 수 있는 인사말을 적어주세요.">
+								</div>
+							</div>
+
+							<div class="write-box">
+								<p class="write-labal">지난 활동 내역</p>
+
+								<div class="write-bundle">
+									<textarea name="" id="" placeholder="횔동 했던 경력을 적어주세요."></textarea>
+									<div class="Consent-form">
+										<div class="Consent-ck">
+											<input type="checkbox" name="1" id="Consent" checked>
+											<label for="Consent">
+												<span class="ck-from"><i class="xi-check-min"></i></span>
+												<span class="bold">(선택)</span> 
+												마케팅 정보수집 및 이벤트 수신에 동의합니다.
+											</label>
+										</div>
+										<a href=""><i class="xi-angle-right-thin"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="write-btn-wrap">
+						<a href="" class="Change_Information-btn">회원정보 변경</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="Withdrawal-section">
+				<div class="container3">
+					<p>서비스가 만족스럽지 못하신가요?</p>
+					<ul>
+						<li class="inquiry"><a href="./inquiry-request.html">문의하기</a></li>
+						<li class="Withdrawal"><a href="">회원탈퇴</a></li>
+					</ul>
+				</div>
+			</div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer"></footer>
+        <!-- //footer -->
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="../js/swiper.min.js"></script>
+
+		<!-- 팝업끄기 -->
+		<script>
+			$(".close-btn").click(function () {
+				$(this).parent(".pop-box").removeClass("open")
+			})
+		</script>
+
+		<!-- 비밀번호 변경팝업 -->
+		<script>
+			$(".Password-Change-btn").click(function () {
+				$(".Password-Change-pop").addClass("open");
+			})
+		</script>
+    </div>
+</body>
+</html>

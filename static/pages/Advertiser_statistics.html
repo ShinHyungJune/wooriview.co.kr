@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리뷰</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/> -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<!-- chart.js -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header"></header>
+        <!-- //header -->
+
+        <main id="main" class="MyPage statistics">
+				<div class="container3">
+					<div class="title-wrap">
+						<div class="img-wrap">
+							<img src="../images/Instagram-icon.svg" alt="">
+						</div>
+						<p>INSTAGRAM 통계</p>
+				    </div>
+			   </div>
+				<div class="route-wrap">
+					<div class="container3">
+						<div class="white-box">
+							<div class="left-box">
+								<div class="img-box">
+									<img src="" alt="">
+								</div>
+								<div class="info-box-wrap">
+									<div class="info-box-top">
+										<div class="info-box-top_top">
+											<div class="sticker-wrap">
+												<div class="sticker">
+													<img src="../images/live-icon.png" alt="우리뷰">
+												</div>
+												<div class="sticker">
+													<img src="../images/Blog-icon.svg" alt="우리뷰">
+												</div>
+											</div>
+											<p class="time-line">당일 14:00</p>
+										</div>
+										<p class="info-title">제로웨이스트 제품 인플 모집</p>
+										<P class="info-sub">수세미 & 빗 & 브러쉬 등</P>
+									</div>
+
+									<div class="info-box-btm">
+										<ul>
+											<li>
+												신청 <span class="application-unit">82</span>
+											</li>
+											<li>
+												모집 <span>30</span>
+											</li>
+											<li>
+												선정된 인플루언서 <span class="inful-unit">30</span>
+											</li>
+										</ul>
+									</div>
+									<!-- // -->
+								</div>
+							</div>
+							<div class="right-box">
+								<ul>
+									<li>
+										<p class="period-title">인플루언서 모집기간</p>
+										<P class="period">2023.00.00 ~ 2023.00.00</P>
+									</li>
+									<li>
+										<p class="period-title">인플루언서 선정기간</p>
+										<P class="period">2023.00.00 ~ 2023.00.00</P>
+									</li>
+									<li>
+										<p class="period-title">인플루언서 작성기간</p>
+										<P class="period">2023.00.00 ~ 2023.00.00</P>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="mid-wrap">
+					<a class="btn-list" href="/template/excel_mine_sample.xlsx" download >선정자 명단 다운로드</a>
+					<a class="btn-report" href="/template/excel_mine_sample.xlsx" download >보고서 다운로드</a>
+					<a class="btn-chat" href="./chat-advertiser.html">1:1 채팅</a>
+				</div>
+				<div class="grap-box">
+					<div class="grap-info-wrap">
+						<div class="left-wrap">
+							<p class="title">누적 성과</p>
+							<p class="period">2023.00.00 ~ 2023.00.00</p>
+						</div>
+						<div class="right-wrap">
+							<div class="data">
+								<div class="cir yellow"></div>
+								<p class="name">좋아요</p>
+							</div>
+							<div class="data">
+								<div class="cir black"></div>
+								<p class="name">댓글</p>
+							</div>
+						</div>
+					</div>
+					<div class="chart-wrap">
+						<div id="curve_chart"></div>
+					</div>
+					<div class="grap-statistics-wrap">
+						<ul>
+							<li>
+								<p class="title">등록된 리뷰</p>
+								<p class="count">48</p>
+							</li>
+							<li>
+								<p class="title">총 인게이지먼트(누적|평균)</p>
+								<div class="count-wrap">
+									<p class="count">2,766</p> 
+									| 
+									<p class="average">287</p> 
+								</div>
+							</li>
+							<li>
+								<p class="title">좋아요 수(누적|평균)</p>
+								<div class="count-wrap">
+									<p class="count">2,123</p> 
+									| 
+									<p class="average">500</p> 
+								</div>
+							</li>
+							<li>
+								<p class="title">댓글 수(누적|평균)</p>
+								<div class="count-wrap">
+									<p class="count">87</p> 
+									| 
+									<p class="average">8</p> 
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="table-section statistic-table">
+					<div class="container3">
+						<div class="table-tab-wrap">
+							<div class="table-wrap">
+								<ul class="thead">
+									<li class="th">
+										번호
+									</li>
+									<li class="th">
+										리뷰
+									</li>
+									<li class="th">
+										인게이지먼트
+									</li>
+									<li class="th">
+										좋아요
+									</li>
+									<li class="th">
+										댓글
+									</li>
+									<li class="th">
+										팔로우
+									</li>
+								</ul>
+								<ul class="tbody">
+									<li class="add-unit">
+										<span class="unit mb">번호</span>
+										<span class="num">1</span>
+									</li> 
+									<li class="review-li" >
+										<div class="img-wrap left">
+											<!-- <img src="" alt="우리뷰"> -->
+										</div>
+										<div class="review-info-wrap">
+											<div class="info-top">
+												<div class="user-wrap">
+													<div class="img-wrap">
+														<img src="../images/basic-user.png" alt="우리뷰">
+													</div>
+													<p class="user-name">다블리</p>
+												</div>
+												<button class="btn-url" href="">URL복사</button>
+											</div>
+											<div class="info-btm">
+												<p>
+													#협찬 #가벼운선글라스하나장만했네 #라피스센시블레 #캠핑선글라스쓰기좋고 이만한게 없는 듯 디자인도 예쁘고 김서림 방지가 
+													있어서 괜찮은듯 하넹 어두운곳이나 밝은곳에서 시야확보가 가능한 자외선 차단렌즈에요 :) 
+													협찬으로 받은 햇빛으로부터 눈보호가 필요한 더운 여름 날씨 필수템으로 유니크한 매력의 등산 선글라스입니다.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li class="add-unit">
+										<span class="unit mb">인게이지먼트: </span>
+										<span>1,670</span>
+									</li> 
+									<li class="add-unit">
+										<span class="unit mb">좋아요: </span>
+										<span>1,137</span>
+									</li>
+									<li class="add-unit">
+										<span class="unit mb">댓글: </span>
+										<span>48</span>
+									</li>
+									<li class="add-unit">
+										<span class="unit mb">팔로워: </span>
+										<span>3,137</span>
+									</li>
+								</ul>
+								<ul class="tbody">
+									<li>
+										1
+									</li>
+									<li class="review-li" >
+										<div class="img-wrap left">
+											<!-- <img src="" alt="우리뷰"> -->
+										</div>
+										<div class="review-info-wrap">
+											<div class="info-top">
+												<div class="user-wrap">
+													<div class="img-wrap">
+														<img src="../images/basic-user.png" alt="우리뷰">
+													</div>
+													<p class="user-name">그린그림은그린</p>
+												</div>
+												<button class="btn-url" href="">URL복사</button>
+											</div>
+											<div class="info-btm">
+												<p>
+													#협찬 #가벼운선글라스하나장만했네 #라피스센시블레 #캠핑선글라스쓰기좋고 이만한게 없는 듯 디자인도 예쁘고 김서림 방지가 
+													있어서 괜찮은듯 하넹 어두운곳이나 밝은곳에서 시야확보가 가능한 자외선 차단렌즈에요 :) 
+													협찬으로 받은 햇빛으로부터 눈보호가 필요한 더운 여름 날씨 필수템으로 유니크한 매력의 등산 선글라스입니다.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li class="add-unit">
+										<span class="unit mb">인게이지먼트: </span>
+										<span>1,670</span>
+									</li> 
+									<li class="add-unit">
+										<span class="unit mb">좋아요: </span>
+										<span>1,137</span>
+									</li>
+									<li class="add-unit">
+										<span class="unit mb">댓글: </span>
+										<span>48</span>
+									</li>
+									<li class="add-unit">
+										<span class="unit mb">팔로워: </span>
+										<span>3,137</span>
+									</li>
+								</ul>
+								<ul class="tbody">
+									<li>
+										1
+									</li>
+									<li class="review-li" >
+										<div class="img-wrap left">
+											<!-- <img src="" alt="우리뷰"> -->
+										</div>
+										<div class="review-info-wrap">
+											<div class="info-top">
+												<div class="user-wrap">
+													<div class="img-wrap">
+														<img src="../images/basic-user.png" alt="우리뷰">
+													</div>
+													<p class="user-name">장다발</p>
+												</div>
+												<button class="btn-url" href="">URL복사</button>
+											</div>
+											<div class="info-btm">
+												<p>
+													#협찬 #가벼운선글라스하나장만했네 #라피스센시블레 #캠핑선글라스쓰기좋고 이만한게 없는 듯 디자인도 예쁘고 김서림 방지가 
+													있어서 괜찮은듯 하넹 어두운곳이나 밝은곳에서 시야확보가 가능한 자외선 차단렌즈에요 :) 
+													협찬으로 받은 햇빛으로부터 눈보호가 필요한 더운 여름 날씨 필수템으로 유니크한 매력의 등산 선글라스입니다.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li class="add-unit">
+										<span class="unit mb">인게이지먼트: </span>
+										<span>1,670</span>
+									</li> 
+									<li class="add-unit">
+										<span class="unit mb">좋아요: </span>
+										<span>1,137</span>
+									</li>
+									<li class="add-unit">
+										<span class="unit mb">댓글: </span>
+										<span>48</span>
+									</li>
+									<li class="add-unit">
+										<span class="unit mb">팔로워: </span>
+										<span>3,137</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="Pagination-wrap">
+							<a href="" class="Prev"><i class="xi-angle-left-min"></i></a>
+							<ul class="Pagination-num">
+								<li><a href="" class="now">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">3</a></li>
+								<li><a href="">4</a></li>
+							</ul>
+							<a href="" class="next"><i class="xi-angle-right-min"></i></a>
+						</div>
+	
+					</div>
+				</div>
+
+        </main>
+        <!-- //main -->
+
+        <footer id="footer"></footer>
+        <!-- //footer -->
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="../js/swiper.min.js"></script>
+		<!-- 구글 차트 -->
+		<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+	  
+			function drawChart() {
+			  var data = google.visualization.arrayToDataTable([
+				['Year', '좋아요', '댓글'],
+				['2023\n00.00',  1000,  8999],
+				['2023\n00.00',   1170,   7000],
+				['2023\n00.00',   3000,   5000],
+				['2023\n00.00',   1030,   7000],
+				['2023\n00.00',  1000,      8000],
+				['2023\n00.00',   1170,   2110],
+				['2023\n00.00', 5000,     1000],
+				['2023\n00.00',  9000,      5400],
+				['2023\n00.00',  1000,      4000],
+				['2023\n00.00',   1170,      4600],
+				['2023\n00.00',   5060,       2120],
+				['2023\n00.00',  1030,      6090],
+				['2023\n00.00',   8060,       7120]
+			  ]);
+	  
+			  var options = {
+				curveType: 'function',
+				legend: { position: 'none' }, // 종류 안보이게
+				width: '100%', // 반응형을 위한 width
+				backgroundColor: '#f5f5f5',
+				fontSize: 12,
+				series: 
+				    {
+						0: { lineWidth: 3 },
+						1: { lineWidth: 3 }, //라인 굵기
+			        },
+				colors: ['#ffc800', '#202020' ], // 좋아요 라인 , 댓글 라인 색상
+				chartArea: {'width': '86%', 'height': '70%'}, // 차트가 차지하는 범위
+				scales: {
+					yAxes: [{
+						ticks: {
+							min: 0, //Y축 최소단위
+							stepSize : 1000, // Y축 간격
+						}
+					}],
+				},
+			  }
+	  
+			  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+			  chart.draw(data, options);
+			}
+		</script>
+		<!-- //구글 차트 -->
+		<!-- 가로스크롤  -->
+		<script>
+		$.fn.hasScrollBar = function() {
+			return (this.prop("scrollWidth") == 0 && this.prop("clientWidth") == 0)
+					|| (this.prop("scrollWidth") > this.prop("clientWidth"));
+		}; // 좌우 스크롤이 있는지 없는지 여부 검사
+		function wheel(name){
+		$(name).on('mousewheel',function(e){
+			var hasScroll = $(this).hasScrollBar();
+			if(!hasScroll){ //스크롤이 없으면 그냥 일반 스크롤
+			}else{ //있으면 아래 스크롤 받는값을 없애고 좌우스크롤
+				e.preventDefault(); 
+				var wheelDelta = e.originalEvent.wheelDelta;
+				if(wheelDelta > 0){
+					$(this).scrollLeft(-wheelDelta + $(this).scrollLeft());
+				}else{
+					$(this).scrollLeft(-wheelDelta + $(this).scrollLeft());
+				}
+			}
+		});
+		}
+		$(function(){
+			wheel('.chart-wrap #curve_chart');
+		});
+		
+		</script>
+	
+    </div>
+</body>
+</html>
