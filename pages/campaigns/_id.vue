@@ -230,7 +230,7 @@ export default {
             },
 
             form : new Form(this.$axios, {
-                campaign_id: this.$route.query.id,
+                campaign_id: this.$route.params.id,
                 order_by: "created_at",
                 page:1,
             }),
@@ -238,7 +238,7 @@ export default {
     },
     methods: {
         getCampaign(){
-            this.$axios.get("/api/campaigns/" + this.$route.query.id, {
+            this.$axios.get("/api/campaigns/" + this.$route.params.id, {
 
             }).then(response => {
                 this.campaign = response.data.data;
