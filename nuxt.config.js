@@ -3,7 +3,7 @@ let baseUrl = process.env.NODE_ENV === "production" ? "https://api-uriview.hones
 export default {
     target: "server",
     server: {
-        port: 3001
+        port: 3002
     },
     ssr: true,
     head: {
