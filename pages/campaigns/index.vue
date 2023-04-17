@@ -285,15 +285,25 @@ export default {
     mounted() {
         if (navigator.geolocation) {
             // 위치 정보를 가져올 수 있는 경우
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    this.y = position.coords.latitude;
-                    this.x = position.coords.longitude;
-                },
-                (error) => {
-                    console.error(error.message);
+            navigator.permissions.query({name:'geolocation'}).then(function(result) {
+                // 허용됨
+                if (result.state === 'granted') {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            console.log(position);
+                            this.y = position.coords.latitude;
+                            this.x = position.coords.longitude;
+                        },
+                        (error) => {
+                            console.error(error.message);
+                        }
+                    );
+                } else if (result.state === 'prompt') {
+                    // 사용자가 권한을 요청 중
+                } else {
+                    // 권한이 거부됨
                 }
-            );
+            });
         }
 
         $(".filter-hd").click(function () {
