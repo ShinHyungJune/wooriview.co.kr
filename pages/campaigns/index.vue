@@ -161,8 +161,8 @@ export default {
 
             infoWindows: [],
 
-            x: 33.450701,
-            y: 126.570667,
+            x: "127.7362176",
+            y: "37.8535936",
 
             form : new Form(this.$axios, {
                 word: this.$route.query.word ? this.$route.query.word : "",
@@ -285,25 +285,16 @@ export default {
     mounted() {
         if (navigator.geolocation) {
             // 위치 정보를 가져올 수 있는 경우
-            navigator.permissions.query({name:'geolocation'}).then(function(result) {
-                // 허용됨
-                if (result.state === 'granted') {
-                    navigator.geolocation.getCurrentPosition(
-                        (position) => {
-                            console.log(position);
-                            this.y = position.coords.latitude;
-                            this.x = position.coords.longitude;
-                        },
-                        (error) => {
-                            console.error(error.message);
-                        }
-                    );
-                } else if (result.state === 'prompt') {
-                    // 사용자가 권한을 요청 중
-                } else {
-                    // 권한이 거부됨
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    this.y = position.coords.latitude;
+                    this.x = position.coords.longitude;
+                    console.log(this.y, this.x);
+                },
+                (error) => {
+                    console.error(error.message);
                 }
-            });
+            );
         }
 
         $(".filter-hd").click(function () {
