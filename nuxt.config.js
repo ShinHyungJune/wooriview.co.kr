@@ -2,6 +2,9 @@ let baseUrl = process.env.NODE_ENV === "production" ? "https://api-uriview.hones
 
 export default {
     target: "server",
+    server: {
+        port: 3001
+    },
     ssr: true,
     head: {
         title: '우리뷰',
