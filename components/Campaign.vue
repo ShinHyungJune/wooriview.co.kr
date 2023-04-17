@@ -1,6 +1,6 @@
 <template>
     <li class="campaign-item">
-        <nuxt-link class="img-wrap" :to="`/campaigns/show?id=${campaign.id}`">
+        <nuxt-link class="img-wrap" :to="`/campaigns/${campaign.id}`">
             <img :src="campaign.img.url" alt="" v-if="campaign.img">
         </nuxt-link>
         <div class="like-wrap">
@@ -24,7 +24,7 @@
                 </ul>
                 <p class="Period">D - {{ campaign.d_day }}일</p>
             </div>
-            <nuxt-link :to="`/campaigns/show?id=${campaign.id}`" class="campaign-Title">
+            <nuxt-link :to="`/campaigns/${campaign.id}`" class="campaign-Title">
                 [{{ campaign.title_company }}]
                 {{campaign.title_product }}
             </nuxt-link>

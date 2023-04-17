@@ -252,7 +252,7 @@ export default {
                                 content:
                                     `<div class="infoWindow" style="">
 <h3 class="title">${campaign.title_product}</h3>
-<a href="/campaigns/show?id=${campaign.id}" class="btn">바로가기</a>
+<a href="/campaigns/${campaign.id}" class="btn">바로가기</a>
 </div>`,
                                 yAnchor: 1,
                             });
