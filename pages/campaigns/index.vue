@@ -2,7 +2,7 @@
     <main id="main" class="campaign-page">
         <section class="section1">
             <div class="container">
-                <div class="Map-Search-wrap" v-if="showMap" id="map">
+                <div class="Map-Search-wrap" id="map" ref="map" v-if="showMap">
 
                 </div>
                 <a class="img-wrap" href="#" @click.prevent="() => showMap = true" v-else>
@@ -181,9 +181,6 @@ export default {
             this.$axios.get("/api/campaigns", {
                 params: this.form
             }).then(response => {
-                console.log(this.form);
-                console.log(response.data);
-
                 if(loadMore)
                     return this.campaigns = {
                         ...response.data,
@@ -214,7 +211,7 @@ export default {
         },
 
         initMap() {
-            const container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
+            const container = this.$refs.map; //지도를 담을 영역의 DOM 레퍼런스
 
             const options = {
                 //지도를 생성할 때 필요한 기본 옵션

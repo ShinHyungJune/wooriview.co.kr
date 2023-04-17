@@ -32,7 +32,6 @@ export default {
             {rel: 'stylesheet', type: 'text/css', href: 'cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//uicdn.toast.com/editor/latest/toastui-editor.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'},
-            {rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '/css/swiper.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '/css/common.css'},
             {rel: 'stylesheet', type: 'text/css', href: '/css/style.css'},

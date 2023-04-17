@@ -48,6 +48,7 @@
                                     <nuxt-link to="/users/createCompany" class="join-btn" v-else>기업 · 광고주 회원가입</nuxt-link>
                                 </div>
                             </div>
+                            <!--
                             <div class="sns-btn-wrap" v-if="form.type === 'CUSTOMER'">
                                 <p>SNS 계정 로그인</p>
                                 <div class="btn-wrap">
@@ -65,6 +66,7 @@
                                     </a>
                                 </div>
                             </div>
+                            -->
                         </div>
 
                     </div>
