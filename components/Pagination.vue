@@ -7,18 +7,23 @@
 </template>
 <style>
 /* pagination */
-.pagination { justify-content: center; margin-top: 80px; justify-content: center; gap: 24px;}
+.pagination {display:flex; align-items: center; justify-content: center; margin-top: 40px; margin-bottom:40px; justify-content: center; gap: 24px;}
 .pagination li a{ font-size: 18px; opacity: 0.4; transition: .2s; }
 .pagination li a.active, .pagination li:hover a {opacity: 1;}
-.pagination li.nav-btn a { opacity: 1; position: relative; }
-.pagination li.nav-btn a::after { content: ""; display: block; position: absolute; width: 16px; height: 16px; border-radius: 50%; background: #fdb29c; opacity: 0.4; top: 50%; transform: translateY(-50%); transition: .2s; z-index: -1; }
-.pagination li.nav-btn.prev a::after { left: -4px; }
-.pagination li.nav-btn.next a::after { right: -4px; }
-.pagination li.nav-btn:hover a::after { opacity: 1; }
+.pagination li.nav-btn a {
+    background-color: #f5f5f5;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    opacity: 1; position: relative;
+}
 
 @media screen and (max-width:768px) {
     .pagination {margin-top: 40px; gap: 16px; }
-    .pagination li a { font-size: 12px; }
+    .pagination li a { font-size: 14px; }
     .pagination li.nav-btn a::after { width: 12px; height: 12px; }
 }
 </style>

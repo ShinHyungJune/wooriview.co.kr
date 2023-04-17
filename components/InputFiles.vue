@@ -1,9 +1,14 @@
 <template>
     <div class="upload" v-if="!onlyShow">
-        <label :for="id" class="find-file">
-            파일 선택
-            <input type="file" :id="id" @change="changeFile" multiple>
-        </label>
+        <div class="find-file-wrap">
+            <label :for="id" class="find-file">
+                {{title}}
+                <input type="file" :id="id" @change="changeFile" :accept="accept" multiple v-if="multiple">
+                <input type="file" :id="id" @change="changeFile" :accept="accept" v-else>
+            </label>
+
+            <p class="comment">{{ comment }}</p>
+        </div>
 
         <ul class="upload-list col-group" v-if="files.length > 0">
             <li v-for="(file, index) in files" :key="index">
@@ -30,33 +35,42 @@
 </template>
 <style>
 .upload {
-    display:flex; align-items: flex-start;
     width:100%;
 }
 .upload input {
     display:none;
 }
 .find-file {
-    display:block;
-    width: 125px !important; height: 42px;
-    margin-right:12px !important;
-    line-height: 40px; font-size: 16px; text-align: center;
-    border-radius: 21px;
-    background: #fff;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
-    transition: .2s;
-    color:#fff;
+    display: flex; flex:0 0 auto;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    height: 40px;
+    padding:0 20px;
+    border-radius: 20px;
+    background-color: #ffc800;
+    font-weight: 500;
+    color: #202020;
+    white-space: nowrap;
     cursor:pointer;
 }
+.find-file-wrap {
+    display:flex; align-items: center;
+}
+.find-file-wrap .comment {
+    width: calc(100% - 120px);
+    padding-left: 16px;
+    font-size: 14px;
+    color: #707070;
+}
 .upload-list {
-    width: 100%; min-height: 42px;
+    width: 100%; min-height: 48px; margin-top:8px;
     flex-flow: wrap; flex:auto;
     padding: 8px; gap: 8px;
     background: #f5f5f5; border-radius: 16px;
 }
 .upload-list li {
     display:flex; justify-content: space-between; align-items: center;
-    margin-bottom:8px;
     padding: 4px 16px; padding-right: 8px;
     font-size: 14px; align-items: center;
     background: #fff; border-radius: 12px;
@@ -65,6 +79,7 @@
     margin-bottom:0;
 }
 .upload-list li button {
+    margin-left:12px;
     font-size: 14px; font-weight: bold;
 }
 </style>
@@ -73,6 +88,9 @@ export default {
     props: {
         id: {
             default : "file"
+        },
+        accept: {
+            default: "*"
         },
         default: {
             default() {
@@ -84,12 +102,20 @@ export default {
         },
         title: {
             required: false,
+            default: "파일 선택",
         },
         multiple: {
             default: false
         },
         onlyShow: {
             default: false,
+        },
+
+        comment: {
+            default: ""
+        },
+        max: {
+            default: ""
         }
     },
 
@@ -101,6 +127,9 @@ export default {
 
     methods: {
         changeFile(event) {
+            if(this.max && this.max < Array.from(event.target.files).length)
+                return alert(`최대 ${this.max}개의 파일만 업로드할 수 있습니다.`);
+
             this.files = Array.from(event.target.files).map(file => {
                 return {
                     name: file.name,

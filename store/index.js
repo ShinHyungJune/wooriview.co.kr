@@ -1,7 +1,11 @@
 export const state = () => ({
-    domain : process.env.NODE_ENV === "production" ? "https://api.whatpick.com" : "http://localhost",
+    domain : process.env.NODE_ENV === "production" ? "https://api-uriview.honest-family.com" : "http://localhost",
     pop: null,
-    latestCommunities: [],
+    categories: {
+        data: []
+    },
+    instagram_client_id: "1662125527296137",
+    instagram_client_secret: "bc1ff483f107b2f837e5555a940a54b7",
 })
 
 export const mutations = {
@@ -9,30 +13,19 @@ export const mutations = {
     state.token = state;
   },*/
     init(state){
-        let latestCommunities = JSON.parse(localStorage.getItem("latestCommunities"));
 
-        state.latestCommunities = latestCommunities ? latestCommunities : [];
     },
 
     setPop (state, data){
         state.pop = data;
     },
 
-    addLatestCommunity(state, data){
-        let communities = state.latestCommunities.filter(latestCommunity => latestCommunity.id != data.id);
-
-        state.latestCommunities = [data, ...communities];
-
-        localStorage.setItem("latestCommunities", JSON.stringify(state.latestCommunities));
-    },
-
-    removeLatestCommunity(state, data) {
-        let communities = state.latestCommunities.filter(latestCommunity => latestCommunity.id != data.id);
-
-        state.latestCommunities = communities;
-
-        localStorage.setItem("latestCommunities", JSON.stringify(state.latestCommunities));
+    setCategories (state, data){
+        state.categories = data;
     }
+}
+
+export const actions = {
 
 }
 

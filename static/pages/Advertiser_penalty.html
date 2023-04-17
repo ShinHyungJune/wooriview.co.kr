@@ -103,7 +103,7 @@
 									</li>
 									<li class="state-sum">
 										경고 <span>1</span>회
-									</li> 
+									</li>
 								</ul>
 								<!-- 그룹 -->
 								<!-- 리스트 그룹 -->
@@ -119,7 +119,7 @@
 									</li>
 									<li class="state-sum">
 										경고 <span>10</span>회
-									</li> 
+									</li>
 								</ul>
 								<!-- 그룹 -->
 							</div>
@@ -153,7 +153,7 @@
 									</li>
 									<li class="state-sum">
 										경고 <span>10</span>회
-									</li> 
+									</li>
 								</ul>
 								<!-- 그룹 -->
 								<!-- 리스트 그룹 -->
@@ -168,10 +168,10 @@
 										제품 수령 후 리뷰 작성기간 1일 지연
 									</li>
 									<li class="state-sum">
-										경고 
+										경고
 										<span>1</span>
 										회
-									</li> 
+									</li>
 								</ul>
 								<!-- 그룹 -->
 								<!-- 리스트 그룹 -->
@@ -186,10 +186,10 @@
 										제품 수령 후 리뷰 작성기간 1일 지연
 									</li>
 									<li class="state-sum">
-										경고 
+										경고
 										<span>1</span>
 										회
-									</li> 
+									</li>
 								</ul>
 								<!-- 그룹 -->
 								<!-- 리스트 그룹 -->
@@ -204,10 +204,10 @@
 										제품 수령 후 리뷰 작성기간 1일 지연
 									</li>
 									<li class="state-sum">
-										경고 
+										경고
 										<span>1</span>
 										회
-									</li> 
+									</li>
 								</ul>
 								<!-- 그룹 -->
 							</div>
@@ -241,56 +241,56 @@
         <script src="../js/script.js"></script>
         <script src="../js/swiper.min.js"></script>
 		<script>
-			// 셀렉트 박스     
+			// 셀렉트 박스
 				const selectBoxElements = document.querySelectorAll(".select");
-		
+
 				function toggleSelectBox(selectBox) {
 						selectBox.classList.toggle("active");
 				}
-		
+
 				function selectOption(optionElement) {
 					const selectBox = optionElement.closest(".select");
 					const selectedElement = selectBox.querySelector(".selected-value");
 					selectedElement.textContent = optionElement.textContent;
 				}
-		
+
 				selectBoxElements.forEach(selectBoxElement => {
 					selectBoxElement.addEventListener("click", function (e) {
 						const targetElement = e.target;
 						const isOptionElement = targetElement.classList.contains("option");
-		
+
 					if (isOptionElement) {
 						selectOption(targetElement);
 					}
-		
+
 					toggleSelectBox(selectBoxElement);
 					});
 				});
-		
+
 				document.addEventListener("click", function (e) {
 					const targetElement = e.target;
 					const isSelect = targetElement.classList.contains("select") || targetElement.closest(".select");
-		
+
 					if (isSelect) {
 						return;
 					}
-		
+
 					const allSelectBoxElements = document.querySelectorAll(".select");
-		
+
 						allSelectBoxElements.forEach(boxElement => {
 						boxElement.classList.remove("active");
 						});
 				});
-	    </script>   
+	    </script>
 		<!-- 탭 스크립트 -->
 		<script>
 			$(document).ready(function(){
 				$('.table-tab-list li').click(function(){
 					var tab_id = $(this).attr('data-tab');
-	
+
 					$('.table-tab-list li').removeClass('Active');
 					$('.tab-content').removeClass('Active');
-	
+
 					$(this).addClass('Active');
 					$("#"+tab_id).addClass('Active');
 				});

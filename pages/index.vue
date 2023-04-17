@@ -4,8 +4,8 @@
             <div class="swiper mySwiper1">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" v-for="banner in banners.data" :key="banner.id">
-                        <img src="/images/main_slide1.png" class="pc" alt="">
-                        <img src="/images/main_slide_mb1.png" class="mb" alt="">
+                        <img :src="banner.pc.url" class="pc" alt="" v-if="banner.pc">
+                        <img :src="banner.mobile.url" class="mb" alt="" v-if="banner.mobile">
                         <nuxt-link :to="banner.url"></nuxt-link>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="swiper mySwiper2">
                 <div class="swiper-wrapper">
-                    <a :href="application.url_review" class="swiper-slide" v-for="application in applications.data" :key="application.id">
+                    <a :href="application.url_review" target="_blank" class="swiper-slide" v-for="application in applications.data" :key="application.id">
                         <div class="img-wrap">
                             <img :src="application.campaign.img.url" alt="" v-if="application.campaign.img">
                             <div class="sns_wrap">
@@ -145,6 +145,19 @@ export default {
                 }
             }).then(response => {
                 this.banners = response.data;
+
+                setTimeout(function(){
+                    var swiper = new Swiper(".mySwiper1", {
+                        slidesPerView: "auto",
+                        centeredSlides: true,
+                        loop: true,
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                    });
+
+                }, 10);
             });
         },
 
@@ -186,6 +199,22 @@ export default {
                 }
             }).then(response => {
                 this.applications = response.data;
+
+                setTimeout(function(){
+                    var swiper = new Swiper(".mySwiper2", {
+                        slidesPerView: "auto",
+                        spaceBetween: 48,
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        breakpoints: {
+                            768: {
+                                spaceBetween: 16,
+                            },
+                        }
+                    });
+                }, 10);
             });
         },
     },
@@ -196,6 +225,7 @@ export default {
         this.getLastCampaigns();
         this.getRecommendCampaigns();
         this.getApplications();
+
 
     }
 

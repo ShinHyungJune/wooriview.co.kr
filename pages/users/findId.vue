@@ -1,18 +1,26 @@
 <template>
-    <section class="space-box top top-space">
-        <div class="space-box-inner">
-            <div class="container">
-                <div class="title-box mb72">
-                    <img src="/images/img_page_logo.png" class="logo">
-                    <h2>아이디 찾기</h2>
-                </div>
-
-                <div class="form-box">
-                    <input-verify-number @verified="(data) => {form.email = data; this.store()}" />
+    <main id="main" class="result-page find-id">
+        <div class="yellow-box"></div>
+        <section class="section1">
+            <div class="logo-wrap">
+                <img src="/images/logo.svg" alt="">
+            </div>
+            <p class="title">아이디 찾기</p>
+            <p class="sub" style="margin-bottom:40px;">회원가입 시 등록했던 휴대폰번호로 아이디를 찾을 수 있습니다.</p>
+            <div class="write-section">
+                <div class="container3">
+                    <div class="write-wrap">
+                        <div class="write-box">
+                            <div class="write-bundle">
+                                <input-verify-number @verified="(data) => {form.contact = data; this.store()}" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 </template>
 
 <script>
@@ -22,7 +30,7 @@ export default {
     data(){
         return {
             form : new Form(this.$axios, {
-                email: ""
+                contact: ""
             }),
         }
     },

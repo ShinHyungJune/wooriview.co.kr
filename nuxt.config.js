@@ -1,4 +1,4 @@
-let baseUrl = process.env.NODE_ENV === "production" ? "https://api.uriview.com" : "http://localhost";
+let baseUrl = process.env.NODE_ENV === "production" ? "https://api-uriview.honest-family.com" : "http://localhost";
 
 export default {
     target: "server",
@@ -20,6 +20,7 @@ export default {
             {src: "//cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"},
             {src: "//unpkg.com/aos@2.3.1/dist/aos.js"},
             {src: "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"},
+            {src: "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=b93c6e67af109eb2377106556643ab7d&libraries=services"},
             {src: "/js/swiper.js"},
             // {src: "/js/common.js"},
         ],
@@ -28,9 +29,11 @@ export default {
             {rel: 'stylesheet', type: 'text/css', href: 'cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//uicdn.toast.com/editor/latest/toastui-editor.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'},
+            {rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '/css/swiper.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '/css/common.css'},
             {rel: 'stylesheet', type: 'text/css', href: '/css/style.css'},
+            {rel: 'stylesheet', type: 'text/css', href: '/css/developer.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//unpkg.com/aos@2.3.1/dist/aos.css'},
             {
                 rel: 'stylesheet',
@@ -81,7 +84,7 @@ export default {
     }, */
     auth: {
         redirect: {
-            login: "/login"
+            login: "/login",
         },
         /*redirect: {
             login: '/login',

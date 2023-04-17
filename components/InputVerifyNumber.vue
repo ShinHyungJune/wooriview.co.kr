@@ -1,43 +1,73 @@
 <template>
     <div @keyup="() => {form.errors.clear()}">
-        <div class="input-box mb16 mb-lg-10 mt20" v-if="mode === 'beforeSend'">
-            <div class="box">
-                <input type="text" placeholder="이메일 아이디를 작성해주세요." v-model="form.email">
-                <div class="box-inner">
-                    <div class="button-box">
-                        <a href="#" class="btn btn-active btn-sm px16 px-lg-8" @click.prevent="sendVerify">인증하기</a>
-                    </div>
+        <div v-if="mode === 'beforeSend'">
+            <div class="m-input-wrap m-input-withBtn">
+                <div class="m-input-text">
+                    <input type="text" placeholder="휴대폰 번호" v-model="form.contact">
+                </div>
+                <button type="button" class="m-input-btn" @click.prevent="sendVerify">인증번호발송</button>
+            </div>
+
+            <error :form="form" name="contact" />
+        </div>
+
+
+        <div v-if="mode === 'afterSend'">
+            <div class="m-input-wrap m-input-withBtn">
+                <div class="m-input-text">
+                    <input type="text" placeholder="인증번호" v-model="form.number">
+                </div>
+                <button type="button" class="m-input-btn" @click.prevent="verify">인증하기</button>
+            </div>
+
+            <error :form="form" name="number" />
+        </div>
+
+
+        <div v-if="mode === 'verified'">
+            <div class="m-input-wrap m-input-withBtn">
+                <div class="m-input-text">
+                    <input type="text" placeholder="휴대폰 번호" v-model="form.contact" disabled>
                 </div>
             </div>
 
-            <error :form="form" name="email" />
+            <error :form="form" name="contact" />
         </div>
 
-        <div class="input-box mb-lg-10" v-if="mode === 'afterSend'">
-            <div class="box">
-                <input type="text" placeholder="인증번호" v-model="form.number">
-                <div class="box-inner">
-                    <div class="button-box">
-                        <a href="#" class="btn btn-active btn-sm px16 px-lg-8" @click.prevent="verify">인증하기</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="input-box mb16 mb-lg-10" v-if="mode === 'verified'">
-            <div class="box">
-                <input type="text" placeholder="이메일 아이디를 작성해주세요." v-model="form.email" disabled>
-            </div>
-
-            <error :form="form" name="email" />
-            <!--                            <div class="message-box mt10 px30 px-lg-15">
-                                            <p>숫자와 특수기호(_),( )만 사용 가능합니다.</p>
-                                        </div>-->
-        </div>
     </div>
 
 </template>
+<style>
+.m-input-address {
+    flex:auto;
+}
+.m-input-text {
 
+}
+.m-input-text input {
+    height: 48px; width: 100%;
+    padding: 0 24px;
+    font-size: 16px;
+    border: 1px solid #e4e4e4;
+    border-radius:30px;
+}
+.m-input-withBtn {
+    display:flex;
+}
+.m-input-withBtn .m-input-text {
+    flex:auto;
+}
+.m-input-withBtn .m-input-btn {
+    flex:0 0 auto;
+    margin-left:10px;
+    padding: 0 20px;
+    font-size: 14px; font-weight: bold;     text-align: center;
+    border: 1px solid #e4e4e4;
+    border-radius:30px;
+    transition: .3s;
+
+}
+</style>
 <script>
 import Form from '../utils/Form';
 export default {
@@ -53,8 +83,8 @@ export default {
     data(){
         return {
             form: new Form(this.$axios, {
-                email: "",
                 number: "",
+                contact: "",
                 isRegister: this.isRegister
             }),
 
@@ -80,7 +110,7 @@ export default {
                 .then(response => {
                     this.mode = "verified";
 
-                    this.$emit("verified", this.form.email);
+                    this.$emit("verified", this.form.contact);
 
                     this.$store.commit("setPop", {
                         title: "인증번호",

@@ -1,27 +1,17 @@
 <template>
-    <section class="space-box center">
-        <div class="space-box-inner">
-            <div class="container">
-                <div class="title-box mb40">
-                    <img src="/images/img_page_logo.png" class="logo sm">
-                </div>
-                <div class="reg-order-box">
-                    <ul>
-<!--                        <li class="order-01 active"><p><b>1. 본인 인증</b></p></li>-->
-                        <li class="order-02 active"><p><b>1. 정보 입력</b></p></li>
-                        <li class="order-03 active on"><p><b>2. 가입 완료</b></p></li>
-                    </ul>
-                </div>
-                <div class="title-box mt80 pt20 mb80 pb80 mt-lg-50 pt-lg-0 mb-lg-50 pb-lg-0">
-                    <p>성공적으로 회원가입이 완료되었습니다.</p>
-                    <h2 class="mt16">파니사니에 오신 걸 환영해요!</h2>
-                </div>
-                <div class="button-box mx-box">
-                    <nuxt-link to="/login" class="btn btn-bd-active btn-md">로그인하기</nuxt-link>
-                </div>
+    <main id="main" class="result-page result-join">
+        <div class="yellow-box"></div>
+        <section class="section1">
+            <div class="logo-wrap">
+                <img src="/images/logo.svg" alt="">
             </div>
-        </div>
-    </section>
+            <p class="title">회원가입이 완료되었습니다.</p>
+            <p class="sub">로그인 후 우리뷰를 이용해보세요!</p>
+            <div class="btn-wrap">
+                <nuxt-link to="/login">로그인하기</nuxt-link>
+            </div>
+        </section>
+    </main>
 </template>
 
 <script>

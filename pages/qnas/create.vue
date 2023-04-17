@@ -1,94 +1,93 @@
 <template>
-    <article>
-        <div class="container lg">
-            <div class="cate-tab-box">
-                <ul>
-                    <li class="">
-                        <nuxt-link to="/notices">공지사항</nuxt-link>
-                    </li>
-                    <li class="active"><nuxt-link to="/qnas/create">고객의 소리</nuxt-link></li>
-                    <li><nuxt-link to="/suggestions/create">제휴 문의</nuxt-link></li>
-                </ul>
-            </div>
-            <div class="board-list-box">
-                <div class="form-box">
-                    <div class="title-box mt40 mt-lg-20">
-                        <h2 class="tl">파니사니는 항상<br>유저에게 열려있습니다.</h2>
-                        <p class="tl mt24 mt-lg-12">
-                            파니사니를 이용하면서<br>
-                            느끼신 불편사항이나 바라는 점을 알려주세요.<br><br>
-
-                            문의량이 많아 답변은 24시간 이상 소요될 수 있습니다.
-                        </p>
-                    </div>
-                    <div class="textarea-box gr mt36 mt-lg-20">
-                        <div class="box">
-							<textarea v-model="form.description" placeholder="의견을 남겨주세요&#13;&#10;
-문의 내용에 대한 답변은 가입당시 입력하신 이메일에서
-확인 가능합니다.
-
-내용 본문과 이미지에 고객님의 개인정보(주민번호 등)가
-포함되지 않도록 주의해주세요."></textarea>
-<!--                            <sub class="tr">0/500</sub>-->
-                        </div>
-                    </div>
-
-                    <div class="mt20"></div>
-
-                    <input-resize-imgs @change="data => form.files = data" />
-
-                    <div class="mt100 mt-lg-50">
-                        <div class="message-box">
-                            <p class="f18 tc">이미지 내 개인정보가 포함되지 않도록 주의해주세요. <br class="is-m">(주민번호, 전화번호 등)</p>
-                        </div>
-                        <div class="button-box mx-box mt24 mt-lg-15">
-                            <a href="#" class="btn btn-active" @click.prevent="store">보내기</a>
-                        </div>
+    <main id="main" class="MyPage inquiry-request">
+        <div class="route-wrap">
+            <div class="container3">
+                <div class="route-box">
+                    <ul class="route">
+                        <li>마이페이지</li>
+                        <li><i class="xi-angle-right"></i></li>
+                        <li>고객센터</li>
+                    </ul>
+                    <h2>고객센터</h2>
+                    <div class="route-bg">
+                        <img src="/images/route-bg-3.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
-    </article>
+        <div class="section1">
+            <div class="container">
+                <div class="top-wrap">
+                    <div class="category-wrap">
+                        <p class="title">문의 분류</p>
 
+                        <select name="" id="" v-model="form.category" class="select">
+                            <option value="" disabled>문의 분류 선택</option>
+                            <option value="캠페인">캠페인</option>
+                            <option value="서비스 이용">서비스 이용</option>
+                            <option value="광고 및 입점 문의">광고 및 입점 문의</option>
+                        </select>
+
+                        <error :form="form" name="category" />
+                    </div>
+                    <div class="user-title-wrap">
+                        <p class="title">문의 제목</p>
+                        <div class="input-wrap">
+                            <input type="text" v-model="form.title">
+                            <error :form="form" name="title" />
+                        </div>
+                    </div>
+                </div>
+                <div class="user-content-wrap">
+                    <p class="title">문의 내용</p>
+                    <div class="write-wrap">
+                        <textarea name="" id="" v-model="form.description"></textarea>
+                        <error :form="form" name="description" />
+                    </div>
+                </div>
+                <div class="btn-wrap request">
+                    <a href="#" @click.prevent="store">완료</a>
+                </div>
+            </div>
+        </div>
+    </main>
 </template>
+
 <script>
-import Form from "~/utils/Form";
+import Form from "../../utils/Form";
 export default {
     middleware: ["auth"],
+
     data(){
         return {
-            form: new Form(this.$axios, {
-                description: "",
-                files: []
-            }),
+            campaign: "",
 
-            notices: {
-                data: [],
-                links: {}
-            }
+            form : new Form(this.$axios, {
+                category: "",
+                title: "",
+                description: "",
+            }),
         }
     },
-
-    methods:{
+    methods: {
         store(){
             this.form.post("/api/qnas")
                 .then(response => {
                     this.$store.commit("setPop", {
-                        title: "문의접수",
-                        description: "성공적으로 처리되었습니다!"
+                        title : "문의완료",
+                        description: "성공적으로 처리되었습니다."
                     });
 
-                    this.$router.push("/");
+                    this.$router.back();
                 });
-        },
-
+        }
     },
 
     computed: {
 
     },
 
-    mounted(){
+    mounted() {
 
     }
 }

@@ -26,7 +26,7 @@ $(document).ready(function(){
             $(this).toggleClass("open");
             $(this).siblings(".sitemap-sub-list").stop().slideToggle();
         })
-        
+
     });
 
     $('#footer').load('../components/footer.html');

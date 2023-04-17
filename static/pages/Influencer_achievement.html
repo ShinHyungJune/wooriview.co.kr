@@ -114,7 +114,7 @@
 										당신에게 베스트 커플상을 드려요
 									</p>
 								</div>
-							</li>	
+							</li>
 							<!-- //베스트커플상 -->
 							<!-- 우리동네 활동상-->
 							<li>
@@ -165,47 +165,47 @@
         <script src="../js/script.js"></script>
         <script src="../js/swiper.min.js"></script>
 		<script>
-			// 셀렉트 박스     
+			// 셀렉트 박스
 				const selectBoxElements = document.querySelectorAll(".select");
-		
+
 				function toggleSelectBox(selectBox) {
 						selectBox.classList.toggle("active");
 				}
-		
+
 				function selectOption(optionElement) {
 					const selectBox = optionElement.closest(".select");
 					const selectedElement = selectBox.querySelector(".selected-value");
 					selectedElement.textContent = optionElement.textContent;
 				}
-		
+
 				selectBoxElements.forEach(selectBoxElement => {
 					selectBoxElement.addEventListener("click", function (e) {
 						const targetElement = e.target;
 						const isOptionElement = targetElement.classList.contains("option");
-		
+
 					if (isOptionElement) {
 						selectOption(targetElement);
 					}
-		
+
 					toggleSelectBox(selectBoxElement);
 					});
 				});
-		
+
 				document.addEventListener("click", function (e) {
 					const targetElement = e.target;
 					const isSelect = targetElement.classList.contains("select") || targetElement.closest(".select");
-		
+
 					if (isSelect) {
 						return;
 					}
-		
+
 					const allSelectBoxElements = document.querySelectorAll(".select");
-		
+
 						allSelectBoxElements.forEach(boxElement => {
 						boxElement.classList.remove("active");
 						});
 				});
-	    </script>   
+	    </script>
 
     </div>
 </body>

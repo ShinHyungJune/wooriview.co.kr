@@ -4,8 +4,9 @@
             <img :src="campaign.img.url" alt="" v-if="campaign.img">
         </nuxt-link>
         <div class="like-wrap">
-            <input type="checkbox" name="" id="asd" v-model="campaign.is_like" @click="like">
-            <label for="asd"><i class="xi-heart"></i></label>
+            <input type="checkbox" name="" v-if="campaign.is_like" checked>
+            <input type="checkbox" name="" v-else>
+            <label for="" @click="like"><i class="xi-heart"></i></label>
         </div>
         <div class="Information-wrap">
             <div class="Period-wrap">
@@ -41,7 +42,16 @@
 
 </template>
 <script>
+import Form from "../utils/Form";
 export default {
+    data(){
+        return {
+            form: new Form(this.$axios, {
+                campaign_id: ""
+            })
+        }
+    },
+
     props: {
         "campaign": {
             required: true
@@ -49,15 +59,20 @@ export default {
     },
 
     methods: {
-        like(){
+        like(e){
+            e.stopPropagation();
+            e.preventDefault();
+
             if(!this.$auth.user)
                 return alert("좋아요는 로그인 후 이용 가능합니다.");
 
+            this.form.campaign_id = this.campaign.id;
+
             this.campaign.is_like = !this.campaign.is_like;
 
-            this.form.post("/api/likes", {
-                campaign_id: this.campaign.id
-            });
+            console.log(this.campaign.is_like);
+
+            this.form.post("/api/likes");
         }
     }
 }

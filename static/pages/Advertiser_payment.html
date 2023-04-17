@@ -99,7 +99,7 @@
 								<p class="title-period">60일</p>
 								<p class="default">
 									기본요금 600,000원</p>
-							
+
 								<p class="default price">결제금액</p>
 								<p class="payment-price">
 									600,000원
@@ -137,7 +137,7 @@
 								<p class="bonus">+ 120일 연장</p>
 								<button class="buy-btn">구매하기</button>
 							</li>
-							
+
 						</ul>
 						<div class="table-section">
 							<div class="table-tab-wrap">
@@ -318,47 +318,47 @@
         <script src="../js/script.js"></script>
         <script src="../js/swiper.min.js"></script>
 		<script>
-			// 셀렉트 박스     
+			// 셀렉트 박스
 				const selectBoxElements = document.querySelectorAll(".select");
-		
+
 				function toggleSelectBox(selectBox) {
 						selectBox.classList.toggle("active");
 				}
-		
+
 				function selectOption(optionElement) {
 					const selectBox = optionElement.closest(".select");
 					const selectedElement = selectBox.querySelector(".selected-value");
 					selectedElement.textContent = optionElement.textContent;
 				}
-		
+
 				selectBoxElements.forEach(selectBoxElement => {
 					selectBoxElement.addEventListener("click", function (e) {
 						const targetElement = e.target;
 						const isOptionElement = targetElement.classList.contains("option");
-		
+
 					if (isOptionElement) {
 						selectOption(targetElement);
 					}
-		
+
 					toggleSelectBox(selectBoxElement);
 					});
 				});
-		
+
 				document.addEventListener("click", function (e) {
 					const targetElement = e.target;
 					const isSelect = targetElement.classList.contains("select") || targetElement.closest(".select");
-		
+
 					if (isSelect) {
 						return;
 					}
-		
+
 					const allSelectBoxElements = document.querySelectorAll(".select");
-		
+
 						allSelectBoxElements.forEach(boxElement => {
 						boxElement.classList.remove("active");
 						});
 				});
-	    </script>   
+	    </script>
 		<script>
 			$(function (){
 	           $(".toggle-box").click(function (){

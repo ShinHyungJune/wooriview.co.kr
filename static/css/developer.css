@@ -1,0 +1,78 @@
+.main .section1 .swiper-pagination {width:100%;}
+.category-ck label .img-wrap {
+    padding-top:0;
+}
+.category-ck label img {
+    display:block;
+}
+.category-ck label .active {
+    display:none;
+}
+.category-ck input:checked + label .active {
+    display:block;
+}
+.category-ck input:checked + label .inactive {
+    display:none;
+}
+
+.Application-btn.toggle {
+    background-color:#ffc800; color:#000 !important;
+}
+
+.infoWindow {
+    width: 200px;
+    background: #fff;
+    position: relative;
+    top: -45px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #e1e1e1;
+    border-radius: 15px;
+}
+.infoWindow .title {
+    font-size:18px; font-weight:bold;
+}
+.infoWindow .btn {
+    display:flex; align-items: center; justify-content: center;
+    margin-top:10px;
+    padding:8px 20px;
+    border-radius:10px;
+    background-color:#ffc800; color:#000;
+}
+
+.select {
+    width:100%; padding:0 20px;
+    font-size:18px;
+}
+
+.m-input-dates.type01 {
+    display:flex; align-items: center;
+}
+.m-input-dates.type01 .deco {
+    flex:0 0 auto;
+    margin:0 10px;
+}
+
+@media screen and (max-width:768px) {
+    .m-input-dates.type01 {
+        flex-wrap:wrap; justify-content: center;
+    }
+    .m-input-dates.type01 > * {
+        width:100%;
+    }
+    .m-input-dates.type01 .deco {
+        margin:4px 0;
+        text-align: center;
+    }
+}
+.MyPage.payment .payment-type-wrap .payment-type-list li:last-child .payment-price {
+    margin-bottom:64px;
+}
+@media screen and (max-width: 768px){
+    .MyPage.payment .payment-type-wrap .payment-type-list li:last-child .payment-price {
+        font-size: 24px;
+        margin-bottom: 44px;
+    }
+}
+.Campaign_Registration .temporary_storage_wrap input:checked + label { border: solid 1px #ffcb2e; }
+.Campaign_Registration .temporary_storage_wrap input:checked + label > p { color: #ffc800; }

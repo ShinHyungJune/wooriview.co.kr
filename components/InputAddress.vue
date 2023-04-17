@@ -31,12 +31,14 @@
     flex:auto;
 }
 .m-input-text {
-    border: 1px solid #c7c7c7;
+
 }
 .m-input-text input {
-    height: 56px; width: 100%;
-    padding: 0 16px;
-    font-size: 18px;
+    height: 48px; width: 100%;
+    padding: 0 24px;
+    font-size: 16px;
+    border: 1px solid #e4e4e4;
+    border-radius:30px;
 }
 .m-input-withBtn {
     display:flex;
@@ -49,7 +51,8 @@
     margin-left:10px;
     padding: 0 20px;
     font-size: 14px; font-weight: bold;     text-align: center;
-    border: 1px solid #c7c7c7;
+    border: 1px solid #e4e4e4;
+    border-radius:30px;
     transition: .3s;
 
 }
@@ -71,10 +74,17 @@ export default {
         address_zipcode: {
             default: "address_zipcode"
         },
+        x: {
+            default: "x"
+        },
+        y: {
+            default: "y"
+        },
         activated: false,
     },
     data(){
         return {
+
 
         }
     },
@@ -91,10 +101,13 @@ export default {
                 name: name,
                 value: value
             });
-        }
+        },
     },
 
     mounted() {
+
+        kakao.maps.load();
+
         let self = this;
 
         document.getElementById("find_address").addEventListener("click", function(){ //주소입력칸을 클릭하면
@@ -103,6 +116,7 @@ export default {
                 oncomplete: function(data) { //선택시 입력값 세팅
                     document.getElementById("address_detail").focus(); // 주소 넣기
 
+                    // self.emit(self.address, data.address);
                     self.emit(self.address, data.address);
                     self.emit(self.address_zipcode, data.zonecode);
                 }
