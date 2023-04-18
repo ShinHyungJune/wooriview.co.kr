@@ -1,4 +1,4 @@
-let baseUrl = process.env.NODE_ENV === "production" ? "https://api-uriview.honest-family.com" : "http://localhost";
+let baseUrl = process.env.NODE_ENV === "production" ? "https://api.wooriview.co.kr" : "http://localhost";
 
 export default {
     target: "server",
