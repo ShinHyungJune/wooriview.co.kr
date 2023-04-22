@@ -26,13 +26,13 @@
 
             <ul class="MyPage-btn-wrap">
                 <li>
-                    <a href="./MyCampaign-advertiser.html">
+                    <nuxt-link to="/mypage/campaignsCompany">
                         <div class="icon-wrap campaign"></div>
                         <div class="txt-wrap">
                             <p class="labal-p">나의 캠페인</p>
                             <p class="txt-p">등록한 캠페인을 열람하고 상세일정을 확인해 보세요</p>
                         </div>
-                    </a>
+                    </nuxt-link>
                 </li>
                 <li>
                     <nuxt-link to="/orders">
