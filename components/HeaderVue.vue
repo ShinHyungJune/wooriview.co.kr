@@ -141,7 +141,7 @@
                 <nuxt-link to="/mypage"><img src="/images/book.svg" alt=""></nuxt-link>
                 <nuxt-link to="/"><img src="/images/hd_logo.svg" alt=""></nuxt-link>
                 <nuxt-link to="/mypage"><img src="/images/heart.svg" alt=""></nuxt-link>
-                <nuxt-link to="/mypage"><img src="/images/My2.svg" alt=""></nuxt-link>
+                <nuxt-link to="/mypage"><img src="/images/My.svg" alt=""></nuxt-link>
             </div>
         </div>
     </header>
