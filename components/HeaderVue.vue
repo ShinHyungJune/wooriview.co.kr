@@ -8,19 +8,19 @@
                         <img src="/images/logo.svg" alt="">
                     </nuxt-link>
                     <ul class="header-nav">
-                        <li>
+                        <li :class="typeCampaign === 'REALTIME' ? 'active' : ''">
                             <nuxt-link to="/campaigns?type_campaign=REALTIME">실시간</nuxt-link>
                         </li>
-                        <li>
+                        <li :class="typeCampaign === 'VISIT' ? 'active' : ''">
                             <nuxt-link to="/campaigns?type_campaign=VISIT">방문형</nuxt-link>
                         </li>
-                        <li>
+                        <li :class="typeCampaign === 'DELIVERY' ? 'active' : ''">
                             <nuxt-link to="/campaigns?type_campaign=DELIVERY">배송형</nuxt-link>
                         </li>
-                        <li>
+                        <li :class="typeCampaign === 'REPORTER' ? 'active' : ''">
                             <nuxt-link to="/campaigns?type_campaign=REPORTER">기자단</nuxt-link>
                         </li>
-                        <li>
+                        <li :class="$route.path.includes('/qnas') ? 'active' : ''">
                             <nuxt-link to="/qnas">고객센터</nuxt-link>
                         </li>
                     </ul>
@@ -177,6 +177,15 @@ export default {
 
         search(){
             this.$router.push(`/campaigns?word=${this.word}`);
+        }
+    },
+
+    computed: {
+        typeCampaign() {
+            if(this.$route.query.type_campaign)
+                return this.$route.query.type_campaign;
+
+            return "";
         }
     },
 
