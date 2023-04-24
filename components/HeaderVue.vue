@@ -40,7 +40,7 @@
                                             <input type="text" v-model="word">
                                             <button class="Search-btn"><i class="xi-search"></i></button>
                                         </div>
-                                        <a href="" class="map-Search" @click.prevent="search"><img src="/images/Map_Search.png" alt=""></a>
+                                        <a href="#" class="map-Search" @click="() => {this.$router.push('/campaigns'); this.active = false;}"><img src="/images/Map_Search.png" alt=""></a>
                                     </div>
                                 </form>
 
@@ -102,45 +102,46 @@
                         </div>
 
                         <!-- 로그인 했을때 -->
-                        <!-- <div class="login_State_wrap">
+                        <div class="login_State_wrap" v-if="$auth.user">
                             <div class="img_wrap">
-                                <img src="" alt="">
+                                <img :src="$auth.user.data.img.url" alt="" v-if="$auth.user.data.img">
                             </div>
                             <div class="user_name_wrap">
                                 <p class="user_name">우리뷰</p>
-                                <p class="email">weView@gmail.com</p>
+                                <p class="email">{{ $auth.user.data.email }}</p>
                             </div>
-                        </div> -->
+                        </div>
 
                         <!-- 비로그인 일때 -->
-                        <div class="No_login_State_wrap">
-                            <a href="../pages/login.html">로그인 <i class="xi-angle-right"></i></a>
+                        <div class="No_login_State_wrap" v-else>
+                            <nuxt-link to="/login">로그인 <i class="xi-angle-right"></i></nuxt-link>
                             <p>다양한 서비스를 이용하시려면 로그인해주세요.</p>
                         </div>
 
                     </div>
+
                     <ul class="Mobile_Menu_Nav">
                         <li>
-                            <a href="../pages/campaign.html">실시간 방문형 캠페인 <i class="xi-angle-right-min"></i></a>
+                            <nuxt-link to="/campaigns?type_campaign=REALTIME">실시간 방문형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
                         </li>
                         <li>
-                            <a href="../pages/campaign.html">배송형 캠페인 <i class="xi-angle-right-min"></i></a>
+                            <nuxt-link to="/campaigns?type_campaign=DELIVERY">배송형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
                         </li>
                         <li>
-                            <a href="../pages/campaign.html">방문형 캠페인 <i class="xi-angle-right-min"></i></a>
+                            <nuxt-link to="/campaigns?type_campaign=VISIT">방문형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
                         </li>
                         <li>
-                            <a href="../pages/campaign.html">기자단 캠페인 <i class="xi-angle-right-min"></i></a>
+                            <nuxt-link to="/campaigns?type_campaign=REPORTER">기자단 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
                         </li>
                         <li>
-                            <a href="../pages/support.html">고객센터 <i class="xi-angle-right-min"></i></a>
+                            <nuxt-link to="/qnas">고객센터 <i class="xi-angle-right-min"></i></nuxt-link>
                         </li>
                     </ul>
                 </div>
-                <a href="../pages/MyCampaign-influencer.html"><img src="/images/book.svg" alt=""></a>
-                <a href="../pages/index.html"><img src="/images/hd_logo.svg" alt=""></a>
-                <a href="../pages/MyCampaign-influencer.html"><img src="/images/heart.svg" alt=""></a>
-                <a href="../pages/MyPage-advertiser.html"><img src="/images/My2.svg" alt=""></a>
+                <nuxt-link to="/mypage"><img src="/images/book.svg" alt=""></nuxt-link>
+                <nuxt-link to="/"><img src="/images/hd_logo.svg" alt=""></nuxt-link>
+                <nuxt-link to="/mypage"><img src="/images/heart.svg" alt=""></nuxt-link>
+                <nuxt-link to="/mypage"><img src="/images/My2.svg" alt=""></nuxt-link>
             </div>
         </div>
     </header>
@@ -180,29 +181,30 @@ export default {
     },
 
     mounted() {
-        /*
         $(".Mobile_Menu_open_btn").click(function () {
             $(".Mobile_Menu_wrap").toggleClass("open");
             $(".header").toggleClass("Mobile_Menu_open");
         });
-         */
 
+        $(".Mobile_Menu_Nav a").click(function(){
+            $(".Mobile_Menu_wrap").removeClass("open");
+            $(".header").removeClass("Mobile_Menu_open");
+        });
+
+        /*
         // 검색창 열고 닫기
-        /*$(".Search-Open-btn").click(function () {
+        $(".Search-Open-btn").click(function () {
             $(".header").addClass("Active");
             $(".Search-box").addClass("Active");
             $(".Search-close").addClass("Active");
-        });*/
+        });
 
-        /*
         $(".Search-close").click(function () {
             $(".header").removeClass("Active");
             $(".Search-box").removeClass("Active");
             $(".Search-close").removeClass("Active");
         });
-        */
 
-        /*
         // 알림창 열고 닫기
         $(".Notification-Open-btn").click(function () {
             $(".Notification-box").addClass("Active");
@@ -213,7 +215,7 @@ export default {
                 $(".Notification-close").removeClass("Active");
             })
         });
-         */
+        */
     }
 }
 </script>
