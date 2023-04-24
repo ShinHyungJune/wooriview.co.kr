@@ -7,13 +7,23 @@
         <section class="flex">
             <aside class="left-side"></aside>
 
-            <Nuxt />
+            <transition name="page" mode="out-in">
+                <Nuxt />
+            </transition>
         </section>
 
         <footer-vue />
     </div>
 
 </template>
+<style>
+.page-enter-active, .page-leave-active {
+    transition: opacity 1s;
+}
+.page-enter, .page-leave-active {
+    opacity: 0;
+}
+</style>
 <script>
 import HeaderVue from "../components/HeaderVue";
 import FooterVue from "../components/FooterVue";
