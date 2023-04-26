@@ -185,3 +185,7 @@
 .MyPage.delivery-edit .input-wrap input {
     padding-right:50px;
 }
+
+.table-tab-wrap .tab-content.Active .m-empty.type01 {
+    margin-top:0;
+}

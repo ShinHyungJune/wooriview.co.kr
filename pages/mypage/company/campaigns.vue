@@ -232,8 +232,9 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- 배송관리&방문관리 -->
-                    <div class="table-wrap tab-content Active"  id="tab-4">
+
+                    <!-- 인플루언서 작성 -->
+                    <div class="table-wrap tab-content Active"  id="tab-4" v-if="state === 'ongoingReview'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 작성기간
@@ -242,128 +243,53 @@
                                 캠페인 정보
                             </li>
                             <li class="th">
-                                선정
+                                모집
                             </li>
                             <li class="th">
-                                배송/방문
+                                선정
                             </li>
                             <li class="th">
                                 인플루언서
                             </li>
                         </ul>
+
+                        <empty v-if="campaigns.data.length == 0" />
+
                         <!-- 리스트 그룹 -->
-                        <ul class="tbody">
+                        <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
                             <li class="period">
                                 <span class="unit mb">인플루언서 작성 기간</span>
-                                2023.00.00 <br class="br-pc"/> ~ 2023.00.00
+                                {{ campaign.format_review_started_at }} <br class="br-pc"/> ~ {{campaign.format_review_finished_at}}
                             </li>
+
                             <!-- 캠페인 정보 -->
-                            <li class="campaign-info-wrap">
-                                <div class="campaign-img">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="info-box">
-                                    <div class="sticker-wrap">
-                                        <div class="sticker">
-                                            <img src="/static/images/time-icon.svg" alt="우리뷰">
-                                        </div>
-                                        <div class="sticker">
-                                            <img src="/static/images/Blog-icon.svg" alt="우리뷰">
-                                        </div>
-                                    </div>
-                                    <p class="info-title">제로웨이스트 제품 인플 모집</p>
-                                    <P class="info-sub">수세미 & 빗 & 브러쉬 등</P>
-                                </div>
-                            </li>
+                            <campaign :campaign="campaign" />
+
                             <!-- //캠페인 정보 -->
                             <li class="recruit-num num-re-po">
-                                <span class="unit mb">모집</span>
+                                <span class="unit mb">참여</span>
                                 <div class="default-wrap">
-                                    <span class="num">20</span>
+                                    <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
                                     <span class="unit">명</span>
                                 </div>
                             </li>
-                            <li class="application-num num-re-po">
-                                <span class="unit mb">배송/방문</span>
-                                <div class="default-wrap">
-                                    <span class="num">20</span>
-                                    <span class="unit">명</span>
-                                </div>
-                            </li>
-                            <li class="btn-wrap list">
-                                <a class="btn-list" href="./Advertiser_influenser-list-delivery.html">리스트보기</a>
-                            </li>
-                        </ul>
-                        <!-- //그룹 -->
-                    </div>
-                    <!-- //배송관리&방문관리  -->
-                    <!-- 인플루언서 작성  -->
-                    <div class="table-wrap tab-content Active"  id="tab-5">
-                        <ul class="thead">
-                            <li class="th">
-                                인플루언서 작성기간
-                            </li>
-                            <li class="th">
-                                캠페인 정보
-                            </li>
-                            <li class="th">
-                                선정
-                            </li>
-                            <li class="th">
-                                배송/방문
-                            </li>
-                            <li class="th">
-                                인플루언서
-                            </li>
-                        </ul>
-                        <!-- 리스트 그룹 -->
-                        <ul class="tbody">
-                            <li class="period">
-                                <span class="unit mb">인플루언서 작성 기간</span>
-                                2023.00.00 <br class="br-pc"/> ~ 2023.00.00
-                            </li>
-                            <!-- 캠페인 정보 -->
-                            <li class="campaign-info-wrap">
-                                <div class="campaign-img">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="info-box">
-                                    <div class="sticker-wrap">
-                                        <div class="sticker">
-                                            <img src="/static/images/time-icon.svg" alt="우리뷰">
-                                        </div>
-                                        <div class="sticker">
-                                            <img src="/static/images/Blog-icon.svg" alt="우리뷰">
-                                        </div>
-                                    </div>
-                                    <p class="info-title">제로웨이스트 제품 인플 모집</p>
-                                    <P class="info-sub">수세미 & 빗 & 브러쉬 등</P>
-                                </div>
-                            </li>
-                            <!-- //캠페인 정보 -->
+
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">선정</span>
                                 <div class="default-wrap">
-                                    <span class="num">20</span>
+                                    <span class="num">{{ campaign.count_select.toLocaleString() }}</span>
                                     <span class="unit">명</span>
                                 </div>
                             </li>
-                            <li class="application-num num-re-po">
-                                <span class="unit mb">배송/방문</span>
-                                <div class="default-wrap">
-                                    <!-- <span class="num">20</span> -->
-                                    <span class="unit">완료</span>
-                                </div>
-                            </li>
+
                             <li class="btn-wrap list">
-                                <a class="btn-list" href="./Advertiser_influenser-list-delivery.html">리스트보기</a>
+                                <nuxt-link :to="`/mypage/company/applications?campaign_id=${campaign.id}`" class="btn-list">리스트보기</nuxt-link>
                             </li>
                         </ul>
-                        <!-- //그룹 -->
                     </div>
-                    <!-- //인플루언서 작성 -->
-                    <!-- 마감및보고서확인  -->
-                    <div class="table-wrap tab-content Active"  id="tab-6">
+
+                    <!-- 마감및보고서확인 -->
+                    <div class="table-wrap tab-content Active"  id="tab-6" v-if="state === 'finishReview'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 작성기간
@@ -381,82 +307,34 @@
                                 통계
                             </li>
                         </ul>
+
+                        <empty v-if="campaigns.data.length == 0" />
+
                         <!-- 리스트 그룹 -->
-                        <!-- <ul class="tbody">
-                            <li class="period">
-                                <p class="br-mb">인플루언서 모집 기간</p>
-                                2023.00.00 <br /> ~ 2023.00.00
-                            </li>
-                            <li class="campaign-info-wrap">
-                                <div class="campaign-img">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="info-box">
-                                    <div class="sticker-wrap">
-                                        <div class="sticker">
-                                            <img src="/images/time-icon.svg" alt="우리뷰">
-                                        </div>
-                                        <div class="sticker">
-                                            <img src="/images/Blog-icon.svg" alt="우리뷰">
-                                        </div>
-                                    </div>
-                                    <p class="info-title">제로웨이스트 제품 인플 모집</p>
-                                    <P class="info-sub">수세미 & 빗 & 브러쉬 등</P>
-                                </div>
-                            </li>
-                            <li class="application-num">
-                                <span>20</span>명
-                            </li>
-                            <li class="btn-wrap list">
-                                <a class="btn-list" href="./chat.html">리스트보기</a>
-                            </li>
-                            <li class="btn-wrap statistics">
-                                <a class="btn-statistics" href="./chat.html">통계 보기</a>
-                            </li>
-                        </ul> -->
-                        <!-- //그룹 -->
-                        <!-- 리스트 그룹 -->
-                        <ul class="tbody">
+                        <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
                             <li class="period">
                                 <span class="unit mb">인플루언서 작성 기간</span>
-                                2023.00.00 <br class="br-pc"/> ~ 2023.00.00
+                                {{ campaign.format_review_started_at }} <br class="br-pc"/> ~ {{campaign.format_review_finished_at}}
                             </li>
+
                             <!-- 캠페인 정보 -->
-                            <li class="campaign-info-wrap">
-                                <div class="campaign-img">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="info-box">
-                                    <div class="sticker-wrap">
-                                        <div class="sticker">
-                                            <img src="/static/images/time-icon.svg" alt="우리뷰">
-                                        </div>
-                                        <div class="sticker">
-                                            <img src="/static/images/Blog-icon.svg" alt="우리뷰">
-                                        </div>
-                                    </div>
-                                    <p class="info-title">제로웨이스트 제품 인플 모집</p>
-                                    <P class="info-sub">수세미 & 빗 & 브러쉬 등</P>
-                                </div>
-                            </li>
-                            <!-- //캠페인 정보 -->
+                            <campaign :campaign="campaign" />
+
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">선정</span>
                                 <div class="default-wrap">
-                                    <span class="num">20</span>
+                                    <span class="num">{{ campaign.count_select.toLocaleString() }}</span>
                                     <span class="unit">명</span>
                                 </div>
                             </li>
                             <li class="btn-wrap list">
-                                <a class="btn-list" href="./Advertiser_influenser-list-delivery.html">리스트보기</a>
+                                <nuxt-link :to="`/mypage/company/applications?campaign_id=${campaign.id}`" class="btn-list">리스트보기</nuxt-link>
                             </li>
                             <li class="btn-wrap statistics">
-                                <a class="btn-statistics" href="./Advertiser_statistics.html">통계 보기</a>
+                                <nuxt-link class="btn-statistics" to="/mypage/company/chart">통계 보기</nuxt-link>
                             </li>
                         </ul>
-                        <!-- //그룹 -->
                     </div>
-                    <!-- //마감및보고서확인 -->
                 </div>
 
                 <pagination :meta="campaigns.meta" @paginate="(page) => {form.page = page; getCampaigns()}" />
@@ -541,6 +419,8 @@ export default {
         },
 
         getCampaigns(){
+            this.form.page = 1;
+
             this.$axios.get("/api/campaigns", {
                 params: this.form
             }).then(response => {
@@ -558,12 +438,14 @@ export default {
 
         reset(){
             this.form.set({
+                page:1,
                 user_id: this.$auth.user.data.id,
                 accept: 0,
                 ongoingHire: 0,
                 ongoingSelect: 0,
                 ongoingReview: 0,
                 ongoingFinishReview: 0,
+                finishReview: 0,
             });
         }
     },
