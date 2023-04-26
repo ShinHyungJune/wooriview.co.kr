@@ -189,3 +189,7 @@
 .table-tab-wrap .tab-content.Active .m-empty.type01 {
     margin-top:0;
 }
+
+.MyPage.infulenser-list .subscriber-name-wrap {
+    display: block;
+}

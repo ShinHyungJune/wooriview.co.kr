@@ -46,7 +46,9 @@ export default {
                 .then(response => {
                     this.$store.commit("setCategories", response.data);
                 })
-        }
+        },
+
+
     },
 
     mounted() {

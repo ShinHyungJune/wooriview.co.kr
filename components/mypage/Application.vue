@@ -1,6 +1,6 @@
 <template>
     <li>
-        <div class="subscriber-name-wrap">
+        <nuxt-link :to="`/chats?application_id=${application.id}`" class="subscriber-name-wrap">
             <div class="subscriber-img" :style="`background-image:url('${application.user.img.url}')`" v-if="application.user.img"></div>
             <div class="subscriber-img" v-else></div>
             <div class="Recommended_mark">
@@ -13,7 +13,7 @@
                 <!-- 브론즈 -->
                 <!-- <img src="/images/Recommended_mark_Bronze.svg" alt=""> -->
             </div>
-        </div>
+        </nuxt-link>
 
         <div class="info-box">
             <div class="subscriber-name">
@@ -72,10 +72,12 @@
                     </div>
                 </div>
             </div>
+
             <div class="btns" v-if="campaign && campaign.on_select">
                 <button type="button" class="m-btn type01 bg-revert-primary" v-if="application.selected">선정됨</button>
                 <button type="button" class="m-btn type01"  @click="select" v-else>선정하기</button>
             </div>
+
             <!--
             <div class="tracking-wrap">
                 <p class="tracking-title">
