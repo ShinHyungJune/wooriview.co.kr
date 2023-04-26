@@ -76,3 +76,112 @@
 }
 .Campaign_Registration .temporary_storage_wrap input:checked + label { border: solid 1px #ffcb2e; }
 .Campaign_Registration .temporary_storage_wrap input:checked + label > p { color: #ffc800; }
+
+.MyPage.delivery-edit .list-box .info-box {
+    display: flex; width: 100%; gap: 8px; flex-direction: unset;
+}
+.MyPage.delivery-edit .subscriber-name {
+    display:block; flex:0 0 auto;
+    width:100px; margin-left:12px;
+    padding-right:30px;
+}
+.MyPage.delivery-edit .subscriber-name * {
+    word-break: keep-all;
+}
+.MyPage.delivery-edit .subscriber-name .Address {
+    margin-top:4px; color:#999;
+}
+.MyPage.delivery-edit .list-box .info-box .contents .content {
+    display:flex; align-items: flex-start;
+    margin-top:12px;
+}
+.MyPage.delivery-edit .list-box .info-box .contents .content:first-of-type {
+    margin-top:0;
+}
+.MyPage.delivery-edit .list-box .info-box .contents .content .title {
+    flex:0 0 auto;
+    width:78px; padding-right:16px; margin-right:16px;
+    position:relative;
+    color:#888888;
+    font-size:14px;
+}
+.MyPage.delivery-edit .list-box .info-box .contents .content .body {
+    font-size:14px;
+}
+.MyPage.delivery-edit .list-box .info-box .contents .content .title:after {
+    content:"";
+    width:1px; height:6px;
+    position:absolute; top:50%; right:0; transform:translateY(-50%);
+    background-color:#e1e1e1;
+}
+.MyPage.delivery-edit .list-box .info-box .btns {
+    display: flex; align-items: center; flex: 0 0 auto;
+    margin-left:auto; padding-left:40px;
+}
+
+@media screen and (max-width:768px) {
+    .MyPage.infulenser-list .subscriber-name-wrap {
+        width:100%;
+    }
+    .MyPage.infulenser-list .subscriber-name-wrap .subscriber-img {
+        margin:0 auto;
+    }
+    .MyPage.delivery-edit .list-box .info-box {
+        width:100%;
+        flex-wrap:wrap;
+    }
+    .MyPage.delivery-edit .subscriber-name {
+        width:100%; padding-right:0; margin-left:0;
+        text-align: center;
+    }
+    .MyPage.delivery-edit .list-box .info-box .contents {
+        width:100%;
+    }
+    .MyPage.delivery-edit .list-box .info-box .contents .content {
+        font-size:14px;
+    }
+    .MyPage.delivery-edit .list-box .info-box .contents .content * {
+        word-break: keep-all;
+    }
+    .MyPage.delivery-edit .list-box .info-box .contents .content .title {
+        width:50px;
+        padding-right:10px; margin-right:10px;
+    }
+    .MyPage.infulenser-list .list-box ul li {
+        flex-wrap:wrap;
+    }
+    .MyPage.delivery-edit .list-box .info-box .btns {
+        width:100%;
+        padding-left:0;
+    }
+    .MyPage.delivery-edit .list-box .info-box .btns .m-btn {
+        width:100%;
+    }
+    .MyPage.infulenser-list .list-box {
+        margin-bottom:0;
+    }
+    .MyPage.infulenser-list .list-box .scroll-wrap {
+        max-height:none;
+    }
+}
+
+.m-btn.type01 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 122px;
+    height: 32px;
+    border-radius: 16px;
+    border: solid 1px #ffc800;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffc800;
+}
+.bg-revert-primary {
+    background-color: #ffc800 !important;
+    color: #000 !important;
+}
+
+.MyPage.delivery-edit .input-wrap input {
+    padding-right:50px;
+}

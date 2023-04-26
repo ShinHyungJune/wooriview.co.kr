@@ -10,7 +10,7 @@
                     </ul>
                     <h2>나의 캠페인</h2>
                     <div class="route-bg">
-                        <img src="/images/route-bg-2.png" alt="">
+                        <img src="/static/images/route-bg-2.png" alt="">
                     </div>
                 </div>
             </div>
@@ -19,6 +19,76 @@
         <div class="table-section">
             <div class="container3">
                 <div class="table-tab-wrap influencer-table_1 advertiser-table_1">
+                    <div class="filter-wrap">
+                        <div class="filter-hd">
+                            <p>FILTER</p>
+                            <i class="xi-angle-down"></i>
+                        </div>
+                        <div class="filter-bd">
+                            <div class="filter-li">
+                                <p class="filter-title">캠페인</p>
+                                <ul class="filter-ck-wrap">
+                                    <li class="filter-ck">
+                                        <input type="checkbox" name="" id="VISIT" value="VISIT" v-model="form.type_campaigns" @change="() => getCampaigns()">
+                                        <label for="VISIT">
+                                            <i class="xi-check-square"></i>
+                                            <i class="xi-checkbox-blank"></i>
+                                            방문 캠페인
+                                        </label>
+                                    </li>
+                                    <li class="filter-ck">
+                                        <input type="checkbox" name="" id="DELIVERY" value="DELIVERY" v-model="form.type_campaigns" @change="() => getCampaigns()">
+                                        <label for="DELIVERY">
+                                            <i class="xi-check-square"></i>
+                                            <i class="xi-checkbox-blank"></i>
+                                            배송 캠페인
+                                        </label>
+                                    </li>
+                                    <li class="filter-ck">
+                                        <input type="checkbox" name="" id="REPORTER" value="REPORTER" v-model="form.type_campaigns" @change="() => getCampaigns()">
+                                        <label for="REPORTER">
+                                            <i class="xi-check-square"></i>
+                                            <i class="xi-checkbox-blank"></i>
+                                            기자단 캠페인
+                                        </label>
+                                    </li>
+                                    <li class="filter-ck">
+                                        <input type="checkbox" name="" id="REALTIME" value="REALTIME" v-model="form.type_campaigns" @change="() => getCampaigns()">
+                                        <label for="REALTIME">
+                                            <i class="xi-check-square"></i>
+                                            <i class="xi-checkbox-blank"></i>
+                                            실시간 캠페인
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bar"></div>
+                            <div class="filter-li">
+                                <p class="filter-title">인플루언서</p>
+                                <ul class="filter-ck-wrap">
+                                    <li class="filter-ck">
+                                        <input type="checkbox" name="" id="INSTAGRAM" value="INSTAGRAM" v-model="form.type_snses" @change="() => getCampaigns()">
+                                        <label for="INSTAGRAM">
+                                            <i class="xi-check-square"></i>
+                                            <i class="xi-checkbox-blank"></i>
+                                            인스타그램
+                                        </label>
+                                    </li>
+                                    <li class="filter-ck">
+                                        <input type="checkbox" name="" id="NAVER" value="NAVER" v-model="form.type_snses" @change="() => getCampaigns()">
+                                        <label for="NAVER">
+                                            <i class="xi-check-square"></i>
+                                            <i class="xi-checkbox-blank"></i>
+                                            네이버 블로그
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:40px;"></div>
+
                     <div class="scroll-wrap">
                         <ul class="table-tab-list">
                             <li :class="`tab-link ${state === 'beforeAccept' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('beforeAccept')">캠페인 등록 심사<span>{{ counts.unaccept }}</span></li>
@@ -121,7 +191,7 @@
                     </div>
 
                     <!-- 인플루언서 선정 -->
-                    <div class="table-wrap tab-content Active"  id="tab-3">
+                    <div class="table-wrap tab-content Active"  id="tab-3"  v-if="state === 'ongoingSelect'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 선정 기간
@@ -136,80 +206,31 @@
                                 인플루언서
                             </li>
                         </ul>
+
+                        <empty v-if="campaigns.data.length == 0" />
+
                         <!-- 리스트 그룹 -->
-                        <ul class="tbody">
+                        <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
                             <li class="period">
                                 <span class="unit mb">인플루언서 선정 기간</span>
-                                2023.00.00 <br class="br-pc"/> ~ 2023.00.00
+                                {{ campaign.format_select_started_at }} <br class="br-pc"/> ~ {{campaign.format_select_finished_at}}
                             </li>
+
                             <!-- 캠페인 정보 -->
-                            <li class="campaign-info-wrap">
-                                <div class="campaign-img">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="info-box">
-                                    <div class="sticker-wrap">
-                                        <div class="sticker">
-                                            <img src="/images/time-icon.svg" alt="우리뷰">
-                                        </div>
-                                        <div class="sticker">
-                                            <img src="/images/Blog-icon.svg" alt="우리뷰">
-                                        </div>
-                                    </div>
-                                    <p class="info-title">제로웨이스트 제품 인플 모집</p>
-                                    <P class="info-sub">수세미 & 빗 & 브러쉬 등</P>
-                                </div>
-                            </li>
+                            <campaign :campaign="campaign" />
+
                             <!-- //캠페인 정보 -->
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">신청</span>
                                 <div class="default-wrap">
-                                    <span class="num">20</span>
+                                    <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
                                     <span class="unit">명</span>
                                 </div>
                             </li>
                             <li class="btn-wrap list">
-                                <a class="btn-list" href="./Advertiser_influenser-list-delivery.html">리스트보기</a>
+                                <nuxt-link :to="`/mypage/company/applications?campaign_id=${campaign.id}`" class="btn-list">리스트보기</nuxt-link>
                             </li>
                         </ul>
-                        <!-- //그룹 -->
-                        <!-- 리스트 그룹 -->
-                        <ul class="tbody">
-                            <li class="period">
-                                <span class="unit mb">인플루언서 선정 기간</span>
-                                2023.00.00 <br class="br-pc"/> ~ 2023.00.00
-                            </li>
-                            <!-- 캠페인 정보 -->
-                            <li class="campaign-info-wrap">
-                                <div class="campaign-img">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="info-box">
-                                    <div class="sticker-wrap">
-                                        <div class="sticker">
-                                            <img src="/images/time-icon.svg" alt="우리뷰">
-                                        </div>
-                                        <div class="sticker">
-                                            <img src="/images/Blog-icon.svg" alt="우리뷰">
-                                        </div>
-                                    </div>
-                                    <p class="info-title">제로웨이스트 제품 인플 모집</p>
-                                    <P class="info-sub">수세미 & 빗 & 브러쉬 등</P>
-                                </div>
-                            </li>
-                            <!-- //캠페인 정보 -->
-                            <li class="recruit-num num-re-po">
-                                <span class="unit mb">신청</span>
-                                <div class="default-wrap">
-                                    <span class="num">20</span>
-                                    <span class="unit">명</span>
-                                </div>
-                            </li>
-                            <li class="btn-wrap list">
-                                <a class="btn-list" href="./Advertiser_influenser-list-delivery.html">리스트보기</a>
-                            </li>
-                        </ul>
-                        <!-- //그룹 -->
                     </div>
                     <!-- 배송관리&방문관리 -->
                     <div class="table-wrap tab-content Active"  id="tab-4">
@@ -244,10 +265,10 @@
                                 <div class="info-box">
                                     <div class="sticker-wrap">
                                         <div class="sticker">
-                                            <img src="/images/time-icon.svg" alt="우리뷰">
+                                            <img src="/static/images/time-icon.svg" alt="우리뷰">
                                         </div>
                                         <div class="sticker">
-                                            <img src="/images/Blog-icon.svg" alt="우리뷰">
+                                            <img src="/static/images/Blog-icon.svg" alt="우리뷰">
                                         </div>
                                     </div>
                                     <p class="info-title">제로웨이스트 제품 인플 모집</p>
@@ -309,10 +330,10 @@
                                 <div class="info-box">
                                     <div class="sticker-wrap">
                                         <div class="sticker">
-                                            <img src="/images/time-icon.svg" alt="우리뷰">
+                                            <img src="/static/images/time-icon.svg" alt="우리뷰">
                                         </div>
                                         <div class="sticker">
-                                            <img src="/images/Blog-icon.svg" alt="우리뷰">
+                                            <img src="/static/images/Blog-icon.svg" alt="우리뷰">
                                         </div>
                                     </div>
                                     <p class="info-title">제로웨이스트 제품 인플 모집</p>
@@ -408,10 +429,10 @@
                                 <div class="info-box">
                                     <div class="sticker-wrap">
                                         <div class="sticker">
-                                            <img src="/images/time-icon.svg" alt="우리뷰">
+                                            <img src="/static/images/time-icon.svg" alt="우리뷰">
                                         </div>
                                         <div class="sticker">
-                                            <img src="/images/Blog-icon.svg" alt="우리뷰">
+                                            <img src="/static/images/Blog-icon.svg" alt="우리뷰">
                                         </div>
                                     </div>
                                     <p class="info-title">제로웨이스트 제품 인플 모집</p>
@@ -446,8 +467,8 @@
 </template>
 
 <script>
-import Campaign from "../../components/mypage/Campaign";
-import Form from "../../utils/Form";
+import Campaign from "../../../components/mypage/Campaign";
+import Form from "../../../utils/Form";
 export default {
     middleware: ["auth"],
 
@@ -462,6 +483,7 @@ export default {
                 ongoingReview: 0,
                 ongoingFinishReview: 0,
                 type_campaigns: ["VISIT", "REALTIME", "DELIVERY", "REPORTER"],
+                type_snses: ["NAVER", "INSTAGRAM"],
             }),
 
             campaigns: {
@@ -487,7 +509,6 @@ export default {
         },
 
         changeState(state){
-            console.log(state);
             this.state = state;
 
             this.reset();
@@ -523,6 +544,7 @@ export default {
             this.$axios.get("/api/campaigns", {
                 params: this.form
             }).then(response => {
+                console.log(response.data);
                 this.campaigns = response.data;
             });
         },
@@ -542,7 +564,6 @@ export default {
                 ongoingSelect: 0,
                 ongoingReview: 0,
                 ongoingFinishReview: 0,
-                type_campaigns: ["VISIT", "REALTIME", "DELIVERY", "REPORTER"],
             });
         }
     },
@@ -557,6 +578,11 @@ export default {
         this.getCounts();
 
         this.getCampaigns();
+
+        $(".filter-hd").click(function () {
+            $(".filter-bd").toggleClass("open");
+            $(this).toggleClass("open");
+        });
     },
 
     watch: {

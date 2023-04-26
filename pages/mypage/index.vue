@@ -26,7 +26,7 @@
 
             <ul class="MyPage-btn-wrap">
                 <li>
-                    <nuxt-link to="/mypage/campaignsCompany">
+                    <nuxt-link to="/mypage/company/campaigns">
                         <div class="icon-wrap campaign"></div>
                         <div class="txt-wrap">
                             <p class="labal-p">나의 캠페인</p>
