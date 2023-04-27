@@ -16,11 +16,11 @@
         </nuxt-link>
 
         <div class="info-box">
-            <div class="subscriber-name">
+            <nuxt-link :to="`/chats?application_id=${application.id}`" class="subscriber-name">
                 <p class="name">{{ application.user.nickname }}</p>
 
                 <p class="Address">{{ application.format_created_at }}</p>
-            </div>
+            </nuxt-link>
             <div class="contents">
                 <div class="content">
                     <h3 class="title">지원글</h3>
@@ -142,6 +142,10 @@ export default {
             this.form.visited_at = this.application.visited_at;
         },
 
+
+    },
+
+    mounted() {
 
     }
 }

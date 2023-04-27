@@ -34,7 +34,7 @@
                         </div>
                     </nuxt-link>
                 </li>
-                <li>
+                <li v-if="!$store.state.webview">
                     <nuxt-link to="/orders">
                         <div class="icon-wrap Payment"></div>
                         <div class="txt-wrap">
