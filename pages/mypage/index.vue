@@ -103,6 +103,8 @@ export default {
     },
 
     mounted() {
+        alert(navigator.userAgent);
+
         this.webview = /WebView/.test(navigator.userAgent);
     },
 

@@ -110,36 +110,38 @@
             </div>
 
             <!-- 광고주가 인플루언서를 누른 팝업 -->
-            <div class="pop-box profile-popup open">
+            <div class="pop-box profile-popup open" v-if="activeProfilePop && targetUser">
                 <div class="btn-wrap">
-                    <button class="back-btn">
+                    <button type="button" class="back-btn" @click="closeProfilePop">
                         <i class="xi-arrow-left mb"></i>
                         <i class="xi-close pc"></i>
                     </button>
-                    <button class="penalty-btn">
+                    <button type="button" class="penalty-btn" @click="openPenaltyPop" v-if="$auth.user.data.id == application.campaign.user.id && $auth.user.data.id != targetUser.id">
                         <i class="xi-error"></i>
                         <span>패널티</span>
                     </button>
                 </div>
                 <div class="profile-wrap">
                     <div class="subscriber-img">
-                        <img src="/images/user-sample.jpg" alt="">
+                        <img :src="targetUser.img.url" alt="" v-if="targetUser.img">
                     </div>
                     <div class="Recommended_mark">
-                        <!-- 골드 -->
-                        <!-- <img src="/images/Recommended_mark_Gold.svg" alt=""> -->
-                        <!-- 실버 -->
-                        <!-- <img src="/images/Recommended_mark_Silver.svg" alt=""> -->
-                        <!-- 브론즈 -->
-                        <img src="/images/Recommended_mark_Bronze.svg" alt="">
+                        <img src="/images/Recommended_mark_Gold.svg" alt="" v-if="targetUser.grade === 'GOLD'">
+                        <img src="/images/Recommended_mark_Silver.svg" alt="" v-if="targetUser.grade === 'SILVER'">
+                        <img src="/images/Recommended_mark_Bronze.svg" alt="" v-if="targetUser.grade === 'BRONZE'">
                     </div>
                     <div class="subscriver-name">
-                        <p class="name">다블리</p>
-                        <p class="Address">서울시 동대문구 약령서길 123-12</p>
+                        <p class="name">{{ targetUser.nickname ? targetUser.nickname : targetUser.company_name }}</p>
+                        <p class="Address">{{targetUser.address}} {{targetUser.address_detail}}</p>
                     </div>
-                    <div class="follower">
+                    <div class="follower" v-if="application.campaign.type_sns === 'INSTAGRAM'">
                         팔로워
-                        <span>16842</span>
+                        <span>{{ targetUser.count_follower_instagram }}</span>
+                        <span>명</span>
+                    </div>
+                    <div class="follower" v-if="application.campaign.type_sns === 'NAVER'">
+                        팔로워
+                        <span>{{ targetUser.count_follower_naver }}</span>
                         <span>명</span>
                     </div>
                 </div>
@@ -148,7 +150,7 @@
             <!-- //광고주가 -->
 
             <!-- 패널치 요청 팝업 -->
-            <div class="pop-box penalty-popup">
+            <div class="pop-box penalty-popup open" v-if="activePenaltyPop && targetUser">
                 <button class="back-btn mb">
                     <i class="xi-arrow-left"></i>
                 </button>
@@ -164,24 +166,22 @@
                                     <!-- <img src="/images/Blog-icon.svg" alt=""> -->
                                 </div>
                                 <div class="subscriber-name">
-                                    <p class="name">다블리</p>
-                                    <p class="Address">서울시 동대문구</p>
+                                    <p class="name">{{ targetUser.nickname }}</p>
+                                    <p class="Address">{{ targetUser.address }} {{targetUser.address_detail}}</p>
                                 </div>
                                 <div class="Recommended_mark">
                                     <!-- 골드 -->
-                                    <img src="/images/Recommended_mark_Gold.svg" alt="">
-                                    <!-- 실버 -->
-                                    <!-- <img src="/images/Recommended_mark_Silver.svg" alt=""> -->
-                                    <!-- 브론즈 -->
-                                    <!-- <img src="/images/Recommended_mark_Bronze.svg" alt=""> -->
+                                    <img src="/images/Recommended_mark_Gold.svg" alt="" v-if="targetUser.grade === 'GOLD'">
+                                    <img src="/images/Recommended_mark_Silver.svg" alt="" v-if="targetUser.grade === 'SILVER'">
+                                    <img src="/images/Recommended_mark_Bronze.svg" alt="" v-if="targetUser.grade === 'BRONZE'">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <p class="mid-title">패널티 대상 인플루언서</p>
                     <div class="btn-wrap">
-                        <a class="call-btn" href="./Advertiser_penalty-add.html">패널티 요청</a>
-                        <button class="cancle-btn">취소하기</button>
+                        <nuxt-link class="call-btn" :to="`/penalties/create?application_id=${application.id}`">패널티 요청</nuxt-link>
+                        <button type="button" class="cancle-btn" @click="closePenaltyPop">취소하기</button>
                     </div>
                 </div>
             </div>
@@ -330,14 +330,24 @@ export default {
                 });
         },
 
-        openPenaltyPop(message){
-            if(this.application.campaign.user.id == this.$auth.user.data.id && message.user.id != this.$auth.user.data.id)
-                this.activePenaltyPop = true;
+        openPenaltyPop(){
+            this.activePenaltyPop = true;
         },
+
+        closePenaltyPop(){
+            this.activePenaltyPop = false;
+        },
+
         openProfilePop(message){
             this.targetUser = message.user;
 
             this.activeProfilePop = true;
+        },
+
+        closeProfilePop(){
+            this.targetUser = null;
+
+            this.activeProfilePop = false;
         }
     },
 

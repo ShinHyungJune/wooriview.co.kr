@@ -3,7 +3,7 @@
         <nuxt-link class="img-wrap" :to="`/campaigns/${campaign.id}`">
             <img :src="campaign.img.url" alt="" v-if="campaign.img">
         </nuxt-link>
-        <div class="like-wrap">
+        <div class="like-wrap" v-if="!onlyShow">
             <input type="checkbox" name="" v-if="campaign.is_like" checked>
             <input type="checkbox" name="" v-else>
             <label for="" @click="like"><i class="xi-heart"></i></label>
@@ -44,6 +44,15 @@
 <script>
 import Form from "../utils/Form";
 export default {
+    props: {
+        "campaign": {
+            required: true
+        },
+        "onlyShow": {
+            required: false,
+        }
+    },
+
     data(){
         return {
             form: new Form(this.$axios, {
@@ -52,11 +61,6 @@ export default {
         }
     },
 
-    props: {
-        "campaign": {
-            required: true
-        },
-    },
 
     methods: {
         like(e){
