@@ -67,7 +67,7 @@
                 </div>
                 <div class="chat-wrap" ref="chatWrap">
                     <ul>
-                        <message :message="message" v-for="message in messages.data" :key="message.id" @click="activeProfilePop = true" />
+                        <message :message="message" v-for="message in messages.data" :key="message.id" @click="openProfilePop" />
                     </ul>
 
                 </div>
@@ -218,6 +218,7 @@ export default {
 
             application: null,
 
+            targetUser: null,
             activeProfilePop: false,
             activePenaltyPop: false,
         }
@@ -332,6 +333,11 @@ export default {
         openPenaltyPop(message){
             if(this.application.campaign.user.id == this.$auth.user.data.id && message.user.id != this.$auth.user.data.id)
                 this.activePenaltyPop = true;
+        },
+        openProfilePop(message){
+            this.targetUser = message.user;
+
+            this.activeProfilePop = true;
         }
     },
 

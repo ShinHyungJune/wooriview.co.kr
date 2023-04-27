@@ -4,7 +4,6 @@ export const state = () => ({
     categories: {
         data: []
     },
-    webview: /WebView/.test(navigator.userAgent),
     instagram_client_id: "1662125527296137",
     instagram_client_secret: "bc1ff483f107b2f837e5555a940a54b7",
 })

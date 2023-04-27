@@ -34,7 +34,7 @@
                         </div>
                     </nuxt-link>
                 </li>
-                <li v-if="!$store.state.webview">
+                <li v-if="!webview">
                     <nuxt-link to="/orders">
                         <div class="icon-wrap Payment"></div>
                         <div class="txt-wrap">
@@ -80,7 +80,7 @@ export default {
     components: {},
     data(){
         return {
-
+            webview: false,
         }
     },
     methods: {
@@ -103,7 +103,7 @@ export default {
     },
 
     mounted() {
-
+        this.webview = /WebView/.test(navigator.userAgent);
     },
 
     watch: {
