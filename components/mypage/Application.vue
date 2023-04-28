@@ -1,6 +1,6 @@
 <template>
     <li>
-        <nuxt-link :to="`/chats?application_id=${application.id}`" class="subscriber-name-wrap">
+        <nuxt-link :to="`/chats?campaign_id=${application.campaign.id}`" class="subscriber-name-wrap">
             <div class="subscriber-img" :style="`background-image:url('${application.user.img.url}')`" v-if="application.user.img"></div>
             <div class="subscriber-img" v-else></div>
             <div class="Recommended_mark">
@@ -16,7 +16,7 @@
         </nuxt-link>
 
         <div class="info-box">
-            <nuxt-link :to="`/chats?application_id=${application.id}`" class="subscriber-name">
+            <nuxt-link :to="`/chats?campaign_id=${application.campaign.id}`" class="subscriber-name">
                 <p class="name">{{ application.user.nickname }}</p>
 
                 <p class="Address">{{ application.format_created_at }}</p>

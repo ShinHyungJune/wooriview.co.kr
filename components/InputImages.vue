@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="input-file-wrap" style="padding-top:10px; padding-bottom:10px;">
-            <input type="file" name="f" id="f" @change="changeFile" accept="image/*">
-            <label for="f">파일찾기</label>
+            <input type="file" name="f" :id="id" @change="changeFile" accept="image/*">
+            <label :for="id">파일찾기</label>
         </div>
 
         <div class="file-imgs" v-if="defaultFiles.length > 0 && files.length === 0">
@@ -39,8 +39,8 @@
         border-radius: 28px;
 
         transition: .3s;
-        border: 2px solid #fe433a;
-        color: #fe433a;
+        border: 2px solid #ffc800;
+        color: #ffc800;
     }
 </style>
 <script>
@@ -56,6 +56,9 @@ export default {
         },
         multiple: {
             default: false
+        },
+        id: {
+            default: "file"
         }
     },
 

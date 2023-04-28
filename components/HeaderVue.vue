@@ -47,40 +47,41 @@
                             </div>
                             <div :class="`Search-close ${active ? 'Active' : ''}`" @click="active = false"></div>
                         </li>
-                        <li>
-                            <button class="Notification-Open-btn" @click.prevent="ready">
+                        <li v-if="$auth.user">
+                            <button class="Notification-Open-btn" @click="toggleAlarm">
+                                <span class="new" v-if="$auth.user.data.has_unread_alarm"></span>
                                 <img src="/images/Notification.svg" alt="">
                                 <i class="xi-bell-o"></i>
                             </button>
-                            <div class="Notification-box">
+                            <div class="Notification-box Active" v-if="activeAlarm">
                                 <div class="Notification-top">
                                     <div class="Notification-Arrow"></div>
                                 </div>
                                 <div class="Notification-wrap">
                                     <p class="Notification-p">알림</p>
-                                    <ul class="Notification-list-wrap">
-                                        <li>
+                                    <empty v-if="alarms.data.length === 0" />
+                                    <ul class="Notification-list-wrap" v-else>
+                                        <li v-for="alarm in alarms.data" :key="alarm.id">
                                             <div class="Notification-img">
-                                                <img src="" alt="">
+                                                <img src="/images/crown.png" alt="">
                                             </div>
-                                            <div class="Notification-data">
+                                            <div class="Notification-data" @click.prevent="() => {$router.push(alarm.info.url)}">
                                                 <p class="Notification-title">우리:뷰</p>
                                                 <p class="Notification-content">
-                                                    신청하신 '[브랜드명] 제로웨이스트 제품'
-                                                    캠페인에 선정되었습니다.
+                                                    {{alarm.info.message}}
                                                 </p>
                                             </div>
                                             <div class="data-wrap">
-                                                <span class="date">05.24</span>
-                                                <button class="Notification-delete">삭제</button>
+                                                <span class="date">{{ alarm.format_created_at }}</span>
+                                                <button class="Notification-delete" @click="removeAlarm(alarm)">삭제</button>
                                             </div>
                                         </li>
 
-                                        <button class="see_more">더보기</button>
+                                        <button class="see_more" @click="() => {getAlarms(true);}" v-if="alarms.links && alarms.links.next">더보기</button>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="Notification-close"></div>
+                            <div class="Notification-close" @click="activeAlarm = false"></div>
                         </li>
                         <li class="pc">
                             <nuxt-link to="/mypage">
@@ -147,26 +148,29 @@
     </header>
 </template>
 <script>
+import Form from "../utils/Form";
 export default {
     data(){
         return {
             word: "",
 
-            recommendUsers: {
-                data: []
+            alarms: {
+                data: [],
+                meta: {},
+                links: {}
             },
 
+            alarmForm: new Form(this.$axios, {
+                page: 1
+            }),
+
             active: false,
+            activeAlarm: false,
+            timer : null,
         }
     },
 
     methods: {
-        getRecommendUsers(){
-            this.$axios.get("/api/recommendUsers")
-                .then(response => {
-                    this.recommendUsers = response.data
-                });
-        },
 
         ready(e){
             e.preventDefault();
@@ -177,6 +181,58 @@ export default {
 
         search(){
             this.$router.push(`/campaigns?word=${this.word}`);
+        },
+
+        getAlarms(loadMore = false){
+            let self = this;
+
+            if(this.$auth.user){
+                if(loadMore)
+                    this.alarmForm.page += 1;
+
+                this.$axios.get("/api/alarms", {
+                    params: this.alarmForm
+                }).then(response => {
+                    if(loadMore)
+                        return this.alarms = {
+                            ...response.data,
+                            data: [...this.alarms.data, ...response.data.data]
+                        };
+
+                    this.alarms = response.data;
+
+                    this.$auth.fetchUser();
+                })
+            }
+
+            if(this.timer)
+                clearTimeout(this.timer);
+
+            this.timer = setTimeout(function(){
+                self.getAlarms(false);
+            }, 60000);
+
+        },
+
+        removeAlarm(alarm){
+            this.alarms.data = this.alarms.data.filter(alarmData => alarmData.id != alarm.id);
+
+            this.alarmForm.delete("/api/alarms/" + alarm.id)
+                .then(response => {
+
+                });
+        },
+
+        toggleAlarm(){
+            this.alarmForm.page = 1;
+
+            if(!this.activeAlarm) {
+                this.getAlarms();
+
+                return this.activeAlarm = true;
+            }
+
+            this.activeAlarm = false;
         }
     },
 
@@ -187,6 +243,10 @@ export default {
 
             return "";
         }
+    },
+
+    watch: {
+
     },
 
     mounted() {

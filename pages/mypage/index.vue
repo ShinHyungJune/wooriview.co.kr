@@ -3,7 +3,7 @@
         <div class="MyPage-top">
             <div class="user-wrap">
                 <div class="user-img">
-                    <img src="" alt="" v-if="user.img ? user.img.url : ''">
+                    <img :src="user.img.url" alt="" v-if="user.img">
                 </div>
                 <div class="user-name-wrap">
                     <p class="user-name">{{ name }}</p>
@@ -44,13 +44,13 @@
                     </nuxt-link>
                 </li>
                 <li>
-                    <a href="./Advertiser_penalty.html">
+                    <nuxt-link to="/penalties">
                         <div class="icon-wrap penalty"></div>
                         <div class="txt-wrap">
                             <p class="labal-p">패널티</p>
                             <p class="txt-p">인플루언서를  신고한 내역이나 받은 패널티를 열람 할 수 있어요</p>
                         </div>
-                    </a>
+                    </nuxt-link>
                 </li>
                 <li>
                     <nuxt-link to="/qnas">
@@ -66,7 +66,68 @@
             <div class="logout-btn-wrap">
                 <a href="#" class="logout-btn" @click.prevent="() => {$auth.logout()}">계정 로그아웃이 필요하신가요?</a>
             </div>
+        </div>
 
+        <div class="container3" v-else>
+            <div class="Achievement-Banner">
+                <div class="Achievement-Banner-txt">
+                    <h3>나의 업적</h3>
+                    <p>우리뷰에 숨겨진 업적을
+                        찾아 모아보세요!</p>
+                </div>
+                <nuxt-link to="/medals">나의 업적 확인하기</nuxt-link>
+            </div>
+
+            <ul class="MyPage-btn-wrap">
+                <li>
+                    <nuxt-link to="/mypage/customer/campaigns">
+                        <div class="icon-wrap campaign"></div>
+                        <div class="txt-wrap">
+                            <p class="labal-p">나의 캠페인</p>
+                            <p class="txt-p">지원한 캠페인을 열람하고 선정되었는지 확인해보세요.</p>
+                        </div>
+                    </nuxt-link>
+                </li>
+                <li>
+                    <nuxt-link to="/mypage/customer/applications">
+                        <div class="icon-wrap Shipping"></div>
+                        <div class="txt-wrap">
+                            <p class="labal-p">배송&방문 현황</p>
+                            <p class="txt-p">배송형 캠페인의 배송현황을 확인해보세요.</p>
+                        </div>
+                    </nuxt-link>
+                </li>
+                <li>
+                    <nuxt-link to="/penalties">
+                        <div class="icon-wrap penalty"></div>
+                        <div class="txt-wrap">
+                            <p class="labal-p">패널티</p>
+                            <p class="txt-p">광고주를 신고한 내역이나 받은 패널티를 열람할 수 있어요.</p>
+                        </div>
+                    </nuxt-link>
+                </li>
+                <li>
+                    <nuxt-link to="/qnas">
+                        <div class="icon-wrap CustomerService"></div>
+                        <div class="txt-wrap">
+                            <p class="labal-p">고객센터</p>
+                            <p class="txt-p">지원한 캠페인을 열람하고 선정되었는지 확인해보세요.</p>
+                        </div>
+                    </nuxt-link>
+                </li>
+            </ul>
+
+            <nuxt-link to="/qnas" class="Banner-Download">
+                <img src="/images/advertising_banner.jpg" alt="">
+                <p>문의사항을 전달하고 열람할 수 있어요</p>
+                <div class="icon">
+                    <i class="xi-download"></i>
+                </div>
+            </nuxt-link>
+
+            <div class="logout-btn-wrap">
+                <a href="#" class="logout-btn" @click.prevent="() => {$auth.logout()}">계정 로그아웃이 필요하신가요?</a>
+            </div>
         </div>
     </main>
 
@@ -103,9 +164,7 @@ export default {
     },
 
     mounted() {
-        alert(navigator.userAgent);
-
-        this.webview = /WebView/.test(navigator.userAgent);
+        this.webview = /WEBVIEW/.test(navigator.userAgent);
     },
 
     watch: {

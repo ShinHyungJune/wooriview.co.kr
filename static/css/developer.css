@@ -223,3 +223,25 @@
 .MyPage.infulenser-list .subscriber-name-wrap {
     display: block;
 }
+
+.table-wrap .m-empty.type01 {
+    margin-top:0;
+}
+
+.MyPage.infulenser-list .subscriber-name-wrap .subscriber-img {
+    background-size:cover; background-position:center;
+}
+
+.header .Notification-box .Notification-wrap .m-empty {
+    margin:0;
+}
+
+.header .header-ri > ul li > button {
+    position:relative;
+}
+.header .header-ri > ul li > button .new {
+    width:9px; height:9px;
+    position:absolute; top:12px; right:12px;
+    background-color:#FF5757;
+    border-radius:100%;
+}

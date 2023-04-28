@@ -419,12 +419,9 @@ export default {
         },
 
         getCampaigns(){
-            this.form.page = 1;
-
             this.$axios.get("/api/campaigns", {
                 params: this.form
             }).then(response => {
-                console.log(response.data);
                 this.campaigns = response.data;
             });
         },

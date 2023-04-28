@@ -33,9 +33,6 @@ export default {
             {rel: 'stylesheet', type: 'text/css', href: '//uicdn.toast.com/editor/latest/toastui-editor.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '/css/swiper.min.css'},
-            {rel: 'stylesheet', type: 'text/css', href: '/css/common.css'},
-            {rel: 'stylesheet', type: 'text/css', href: '/css/style.css'},
-            {rel: 'stylesheet', type: 'text/css', href: '/css/developer.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//unpkg.com/aos@2.3.1/dist/aos.css'},
             {
                 rel: 'stylesheet',

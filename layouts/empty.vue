@@ -10,6 +10,9 @@ export default {
     head() {
         return {
             link: [
+                {rel: 'stylesheet', type: 'text/css', href: '/css/common.css'},
+                {rel: 'stylesheet', type: 'text/css', href: '/css/style.css'},
+                {rel: 'stylesheet', type: 'text/css', href: '/css/developer.css'},
             ],
         }
     },

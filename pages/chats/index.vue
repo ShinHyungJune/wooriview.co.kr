@@ -1,47 +1,47 @@
 <template>
     <main id="main" class="MyPage chat review-add">
-        <div class="route-wrap">
-            <div class="container3" v-if="application">
+        <div class="route-wrap" v-if="chat">
+            <div class="container3">
                 <div class="toggle-box">
-                    <p class="title">[{{application.campaign.title_company}}] {{application.campaign.title_product}}</p>
+                    <p class="title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}}</p>
                     <i class="xi-angle-down"></i>
                 </div>
                 <div class="white-box">
                     <div class="left-box">
                         <div class="img-box">
-                            <img :src="application.campaign.img.url" alt="" v-if="application.campaign.img">
+                            <img :src="chat.campaign.img.url" alt="" v-if="chat.campaign.img">
                         </div>
                         <div class="info-box-wrap">
                             <div class="info-box-top">
                                 <div class="info-box-top_top">
                                     <div class="sticker-wrap">
                                         <div class="sticker">
-                                            <img src="/images/Live-icon.png" alt="" v-if="application.campaign.type_campaign === 'REALTIME'">
-                                            <img src="/images/Visit-icon.png" alt="" v-if="application.campaign.type_campaign === 'VISIT'">
-                                            <img src="/images/Reporter-icon.png" alt="" v-if="application.campaign.type_campaign === 'REPORTER'">
-                                            <img src="/images/Shipping-icon.png" alt="" v-if="application.campaign.type_campaign === 'DELIVERY'">
+                                            <img src="/images/Live-icon.png" alt="" v-if="chat.campaign.type_campaign === 'REALTIME'">
+                                            <img src="/images/Visit-icon.png" alt="" v-if="chat.campaign.type_campaign === 'VISIT'">
+                                            <img src="/images/Reporter-icon.png" alt="" v-if="chat.campaign.type_campaign === 'REPORTER'">
+                                            <img src="/images/Shipping-icon.png" alt="" v-if="chat.campaign.type_campaign === 'DELIVERY'">
                                         </div>
                                         <div class="sticker">
-                                            <img src="/images/Instagram-icon.svg" alt="" v-if="application.campaign.type_sns === 'INSTAGRAM'">
-                                            <img src="/images/Blog-icon.svg" alt="" v-if="application.campaign.type_sns === 'NAVER'">
+                                            <img src="/images/Instagram-icon.svg" alt="" v-if="chat.campaign.type_sns === 'INSTAGRAM'">
+                                            <img src="/images/Blog-icon.svg" alt="" v-if="chat.campaign.type_sns === 'NAVER'">
                                         </div>
                                     </div>
 <!--                                    <p class="time-line">당일 14:00</p>-->
                                 </div>
-                                <p class="info-title">[{{application.campaign.title_company}}] {{application.campaign.title_product}}</p>
-                                <P class="info-sub">{{application.campaign.title_product}}</P>
+                                <p class="info-title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}}</p>
+                                <P class="info-sub">{{chat.campaign.title_product}}</P>
                             </div>
 
                             <div class="info-box-btm">
                                 <ul>
                                     <li>
-                                        신청 <span class="application-unit">{{application.campaign.applications_count }}</span>
+                                        신청 <span class="application-unit">{{chat.campaign.applications_count }}</span>
                                     </li>
                                     <li>
-                                        모집 <span>{{application.campaign.max_participant }}</span>
+                                        모집 <span>{{chat.campaign.max_participant }}</span>
                                     </li>
                                     <li>
-                                        선정된 인플루언서 <span class="inful-unit">{{application.campaign.count_select }}</span>
+                                        선정된 인플루언서 <span class="inful-unit">{{chat.campaign.count_select }}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -52,24 +52,43 @@
                         <ul>
                             <li>
                                 <p class="period-title">인플루언서 모집기간</p>
-                                <p class="period">{{application.campaign.format_hire_started_at }} ~ {{application.campaign.format_hire_finished_at}}</p>
+                                <p class="period">{{chat.campaign.format_hire_started_at }} ~ {{chat.campaign.format_hire_finished_at}}</p>
                             </li>
                             <li>
                                 <p class="period-title">인플루언서 선정기간</p>
-                                <p class="period">{{application.campaign.format_select_started_at }} ~ {{application.campaign.format_select_finished_at}}</p>
+                                <p class="period">{{chat.campaign.format_select_started_at }} ~ {{chat.campaign.format_select_finished_at}}</p>
                             </li>
                             <li>
                                 <p class="period-title">인플루언서 작성기간</p>
-                                <p class="period">{{application.campaign.format_review_started_at }} ~ {{application.campaign.format_review_finished_at}}</p>
+                                <p class="period">{{chat.campaign.format_review_started_at }} ~ {{chat.campaign.format_review_finished_at}}</p>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="chat-wrap" ref="chatWrap">
+
+                <div class="chat-wrap" ref="chatWrap" v-if="canSee">
                     <ul>
                         <message :message="message" v-for="message in messages.data" :key="message.id" @click="openProfilePop" />
                     </ul>
-
+                </div>
+                <div class="link-add-box" v-else>
+                    <div class="left-wrap">
+                        <p class="title">지원한 캠페인에 <br class="br-mb"> 리뷰를 등록해주세요!</p>
+                        <p class="sub">리뷰 작성 후 등록해주셔야 캠페인이 완료됩니다!</p>
+                        <div class="link-input-wrap">
+                            <input type="text" placeholder="리뷰를 작성한 링크를 적어주세요." v-model="reviewForm.url_review">
+                            <div class="send-btn" @click="storeReview">
+                                <i class="xi-send"></i>
+                            </div>
+                        </div>
+                        <p class="link-input-sub">
+                            리뷰에 광고성 베너를 첨부하셨나요? 꼭 첨부 후 등록해주세요. <br>
+                            광고성 베너는 마이페이지에서 받으실 수 있습니다.
+                        </p>
+                    </div>
+                    <div class="right-img-wrap">
+                        <img src="/images/reviewAdd-icon.png" alt="우리뷰">
+                    </div>
                 </div>
 
                 <form @submit.prevent="storeMessage" class="btm-wrap">
@@ -116,7 +135,7 @@
                         <i class="xi-arrow-left mb"></i>
                         <i class="xi-close pc"></i>
                     </button>
-                    <button type="button" class="penalty-btn" @click="openPenaltyPop" v-if="$auth.user.data.id == application.campaign.user.id && $auth.user.data.id != targetUser.id">
+                    <button type="button" class="penalty-btn" @click="openPenaltyPop" v-if="$auth.user.data.id != targetUser.id">
                         <i class="xi-error"></i>
                         <span>패널티</span>
                     </button>
@@ -125,21 +144,21 @@
                     <div class="subscriber-img">
                         <img :src="targetUser.img.url" alt="" v-if="targetUser.img">
                     </div>
-                    <div class="Recommended_mark">
+                    <div class="Recommended_mark" v-if="targetUser.type === 'CUSTOMER'">
                         <img src="/images/Recommended_mark_Gold.svg" alt="" v-if="targetUser.grade === 'GOLD'">
                         <img src="/images/Recommended_mark_Silver.svg" alt="" v-if="targetUser.grade === 'SILVER'">
                         <img src="/images/Recommended_mark_Bronze.svg" alt="" v-if="targetUser.grade === 'BRONZE'">
                     </div>
                     <div class="subscriver-name">
-                        <p class="name">{{ targetUser.nickname ? targetUser.nickname : targetUser.company_name }}</p>
+                        <p class="name">{{ targetUser.type === 'CUSTOMER' ? targetUser.nickname : targetUser.company_name }}</p>
                         <p class="Address">{{targetUser.address}} {{targetUser.address_detail}}</p>
                     </div>
-                    <div class="follower" v-if="application.campaign.type_sns === 'INSTAGRAM'">
+                    <div class="follower" v-if="targetUser.type === 'CUSTOMER' && chat.campaign.type_sns === 'INSTAGRAM'">
                         팔로워
                         <span>{{ targetUser.count_follower_instagram }}</span>
                         <span>명</span>
                     </div>
-                    <div class="follower" v-if="application.campaign.type_sns === 'NAVER'">
+                    <div class="follower" v-if="targetUser.type === 'CUSTOMER' && chat.campaign.type_sns === 'NAVER'">
                         팔로워
                         <span>{{ targetUser.count_follower_naver }}</span>
                         <span>명</span>
@@ -166,10 +185,10 @@
                                     <!-- <img src="/images/Blog-icon.svg" alt=""> -->
                                 </div>
                                 <div class="subscriber-name">
-                                    <p class="name">{{ targetUser.nickname }}</p>
+                                    <p class="name">{{ targetUser.type === 'CUSOTMER' ? targetUser.nickname : targetUser.company_name }}</p>
                                     <p class="Address">{{ targetUser.address }} {{targetUser.address_detail}}</p>
                                 </div>
-                                <div class="Recommended_mark">
+                                <div class="Recommended_mark" v-if="targetUser.type === 'CUSTOMER'">
                                     <!-- 골드 -->
                                     <img src="/images/Recommended_mark_Gold.svg" alt="" v-if="targetUser.grade === 'GOLD'">
                                     <img src="/images/Recommended_mark_Silver.svg" alt="" v-if="targetUser.grade === 'SILVER'">
@@ -178,9 +197,9 @@
                             </div>
                         </div>
                     </div>
-                    <p class="mid-title">패널티 대상 인플루언서</p>
+                    <p class="mid-title">패널티 대상</p>
                     <div class="btn-wrap">
-                        <nuxt-link class="call-btn" :to="`/penalties/create?application_id=${application.id}`">패널티 요청</nuxt-link>
+                        <nuxt-link class="call-btn" :to="`/penalties/create?campaign_id=${chat.campaign.id}&target_user_id=${targetUser.id}`">패널티 요청</nuxt-link>
                         <button type="button" class="cancle-btn" @click="closePenaltyPop">취소하기</button>
                     </div>
                 </div>
@@ -208,6 +227,11 @@ export default {
                 file: ""
             }),
 
+            reviewForm: new Form(this.$axios, {
+                campaign_id: this.$route.query.campaign_id,
+                url_review: ""
+            }),
+
             messages: {
                 data: [],
                 links: {},
@@ -215,8 +239,6 @@ export default {
             },
 
             chat: null,
-
-            application: null,
 
             targetUser: null,
             activeProfilePop: false,
@@ -248,7 +270,7 @@ export default {
         getChat(){
             this.$axios.get("/api/chats", {
                 params: {
-                    application_id: this.$route.query.application_id
+                    campaign_id: this.$route.query.campaign_id
                 }
             }).then(response => {
                 this.chat = response.data.data;
@@ -257,28 +279,18 @@ export default {
 
                 this.setChannel(this.chat);
 
+
+                setTimeout(function(){
+                    $(".toggle-box").click(function (){
+                        $(".white-box").toggle();
+                        if($(".toggle-box i").hasClass("active") === true){
+                            $(".toggle-box i").removeClass("active");
+                        }else{
+                            $(".toggle-box i").addClass("active");
+                        }
+                    });
+                }, 300);
             });
-        },
-
-        getApplication(){
-            this.$axios.get("/api/applications/" + this.$route.query.application_id)
-                .then(response => {
-                    this.application = response.data.data;
-
-                    setTimeout(function(){
-                        $(function (){
-                            $(".toggle-box").click(function (){
-                                $(".white-box").toggle();
-                                if($(".toggle-box i").hasClass("active") === true){
-                                    $(".toggle-box i").removeClass("active");
-                                }else{
-                                    $(".toggle-box i").addClass("active");
-                                }
-                            });
-                        });
-
-                    }, 300);
-                });
         },
 
         getMessages(loadMore = false, chat){
@@ -313,6 +325,13 @@ export default {
             this.form.body = "";
 
             this.fileForm.file = "";
+        },
+
+        storeReview(){
+            this.reviewForm.post("/api/applications/review")
+                .then(response => {
+                    this.chat.campaign.url_review = 1;
+                });
         },
 
         changeFile(e){
@@ -351,9 +370,26 @@ export default {
         }
     },
 
+    computed: {
+        canSee(){
+            if(this.$auth.user.data.type === 'COMPANY')
+                return true;
+
+            if(this.chat.campaign.on_review || this.chat.campaign.on_finish)
+                return this.chat.campaign.url_review;
+
+            if(this.chat.campaign.on_hire)
+                return true;
+
+            if(this.chat.campaign.on_select)
+                return true;
+
+            return true;
+        }
+    },
+
     mounted() {
         this.getChat();
-        this.getApplication();
     }
 }
 </script>

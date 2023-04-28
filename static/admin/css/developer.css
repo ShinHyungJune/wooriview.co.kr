@@ -1,0 +1,12 @@
+.member2 .table-wrap .thead .th:nth-child(1), .member2 .table-wrap .tbody .td:nth-child(1) {
+    width:8%;
+}
+.member2 .table-wrap .thead .th, .member2 .table-wrap .tbody .td {}
+
+input[type="datetime-local"] { height: 56px; width: 100%; border: 1px solid #c7c7c7; padding: 0 16px; font-size: 18px; }
+.login-wrap .login-form li.login {
+    display:flex; align-items: cener; justify-content: center;
+}
+.login-wrap .login-form li.login button {
+    color:#fff;
+}

@@ -10,7 +10,7 @@
     </div>
 </template>
 <style>
-.modal-box {transition:all ease 0.5s; opacity:0; display:none; position:fixed; left:0; top:0; width:100%; height:100%; background:rgba(23,5,46,0.7); z-index:9999;}
+.modal-box {transition:all ease 0.5s; opacity:0; display:none; position:fixed; left:0; top:0; width:100%; height:100%; background:rgba(23,5,46,0.7); z-index:100000;}
 .modal-box > .box {box-shadow:0 0 10px rgba(0,0,0,0.5); padding:67px 25px 48px; border:1px solid #E4E4E4; border-radius:24px; background:#fff; max-width:640px; width:100%; position:absolute; left:50%; top:45%; transform:translate(-50%,-50%);}
 .modal-box > .box h2 {word-break:keep-all; font-size:32px; line-height:1.3; font-weight:bold; color:#202020; text-align:center; margin:0 0 20px;}
 .modal-box > .box p {word-break:keep-all; font-size:16px; line-height:1.4; color:#303030; text-align:center;}
