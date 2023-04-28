@@ -25,9 +25,7 @@
                 </div>
                 <div class="btn-wrap col-group">
                     <a href="#" type="button" class="add-btn" @click.prevent="accept">승인하기</a>
-                    <!--
                     <a href="#" class="del-btn" @click.prevent="remove">선택 삭제</a>
-                    -->
                 </div>
             </div>
             <div class="table-wrap">

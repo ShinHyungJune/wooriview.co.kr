@@ -69,12 +69,12 @@
                                     </div>
                                 </div>
 
-                                <div class="write-box">
+<!--                                <div class="write-box">
                                     <p class="write-labal">SNS 계정 연동 (준비중)</p>
                                     <div class="write-bundle">
 
                                     </div>
-                                </div>
+                                </div>-->
 
                                 <div class="write-box">
                                     <p class="write-labal">개인정보</p>

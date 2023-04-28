@@ -42,9 +42,9 @@
                 <div class="write-wrap" v-if="step == 1">
                     <div class="write-wrap-le">
 
-                        <div class="write-box">
+<!--                        <div class="write-box">
                             <p class="write-labal">SNS 계정 연동 (준비중)</p>
-                            <!--
+                            &lt;!&ndash;
                             <div class="write-bundle">
                                 <div class="sns-radio-box">
                                     <input type="radio" name="1" id="a" checked>
@@ -62,8 +62,8 @@
                                     <input class="Deactivation" type="text" placeholder="">
                                 </div>
                             </div>
-                            -->
-                        </div>
+                            &ndash;&gt;
+                        </div>-->
 
                         <div class="write-box">
                             <p class="write-labal">SNS 활동 분야 <span>SNS에서 주로 활동하는 분야를 클릭해주세요</span></p>
