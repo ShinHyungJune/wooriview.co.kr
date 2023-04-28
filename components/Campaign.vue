@@ -22,7 +22,8 @@
                         <img src="/images/Blog-icon.svg" alt="" v-if="campaign.type_sns === 'NAVER'">
                     </li>
                 </ul>
-                <p class="Period">D - {{ campaign.d_day }}일</p>
+                <p class="Period" v-if="campaign.d_day === '종료'">종료</p>
+                <p class="Period" v-else>D - {{ campaign.d_day }}일</p>
             </div>
             <nuxt-link :to="`/campaigns/${campaign.id}`" class="campaign-Title">
                 [{{ campaign.title_company }}]
