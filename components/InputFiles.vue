@@ -37,6 +37,9 @@
 .upload {
     width:100%;
 }
+.upload .m-ratioBox-wrap {
+    max-width:200px; padding-top:200px;
+}
 .upload input {
     display:none;
 }
@@ -82,6 +85,7 @@
     margin-left:12px;
     font-size: 14px; font-weight: bold;
 }
+
 </style>
 <script>
 export default {

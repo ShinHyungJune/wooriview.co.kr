@@ -37,7 +37,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(item, index) in items.data" :key="item.id" @click="$router.push(`/admin/pops/create?id=${item.id}`)">
+                    <tr v-for="(item, index) in items.data" :key="item.id" @click="$router.push(`/admin/banners/create?id=${item.id}`)">
                         <td>
                             <label :for="item.id" @click="(e) => {e.stopPropagation()}">
                                 <input type="checkbox" :id="item.id" :value="item.id" name="chk" v-model="form.selected_ids">
