@@ -331,7 +331,7 @@
                                 <nuxt-link :to="`/mypage/company/applications?campaign_id=${campaign.id}`" class="btn-list">리스트보기</nuxt-link>
                             </li>
                             <li class="btn-wrap statistics">
-                                <nuxt-link class="btn-statistics" to="/mypage/company/chart">통계 보기</nuxt-link>
+                                <nuxt-link class="btn-statistics" :to="`/campaigns/chart?campaign_id=${campaign.id}`">통계 보기</nuxt-link>
                             </li>
                         </ul>
                     </div>
