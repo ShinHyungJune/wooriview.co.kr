@@ -245,3 +245,7 @@
     background-color:#FF5757;
     border-radius:100%;
 }
+.MyPage.statistics .statistic-table .table-wrap li:nth-child(2) {
+    justify-content: flex-start;
+    padding-left:100px;
+}

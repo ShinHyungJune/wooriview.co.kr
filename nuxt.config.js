@@ -25,6 +25,7 @@ export default {
             {src: "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"},
             {src: "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=b93c6e67af109eb2377106556643ab7d&libraries=services"},
             {src: "/js/swiper.js"},
+            {src: "//www.gstatic.com/charts/loader.js"},
             // {src: "/js/common.js"},
         ],
         link: [
