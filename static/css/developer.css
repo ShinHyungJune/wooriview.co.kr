@@ -286,5 +286,9 @@
     .m-empty.type01 {
         font-size:16px !important;
     }
+
+    .advertiser-table_1 .table-wrap#tab-6 .tbody .btn-wrap .btn-statistics {
+        top:115px; left:263px;
+    }
 }
 
