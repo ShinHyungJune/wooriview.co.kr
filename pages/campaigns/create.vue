@@ -199,7 +199,7 @@
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">인플루언서 작성기간 <span class="Essential">*</span></p>
+                                <p class="write-labal">컨텐츠 등록기간 <span class="Essential">*</span></p>
                             </div>
                             <div class="m-input-dates type01">
                                 <div class="input-wrap">

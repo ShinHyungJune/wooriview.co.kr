@@ -59,36 +59,17 @@
                                 <p class="period">{{chat.campaign.format_select_started_at }} ~ {{chat.campaign.format_select_finished_at}}</p>
                             </li>
                             <li>
-                                <p class="period-title">인플루언서 작성기간</p>
+                                <p class="period-title">컨텐츠 등록기간</p>
                                 <p class="period">{{chat.campaign.format_review_started_at }} ~ {{chat.campaign.format_review_finished_at}}</p>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="chat-wrap" ref="chatWrap" v-if="canSee">
+                <div class="chat-wrap" ref="chatWrap">
                     <ul>
                         <message :message="message" v-for="message in messages.data" :key="message.id" @click="openProfilePop" />
                     </ul>
-                </div>
-                <div class="link-add-box" v-else>
-                    <div class="left-wrap">
-                        <p class="title">지원한 캠페인에 <br class="br-mb"> 리뷰를 등록해주세요!</p>
-                        <p class="sub">리뷰 작성 후 등록해주셔야 캠페인이 완료됩니다!</p>
-                        <div class="link-input-wrap">
-                            <input type="text" placeholder="리뷰를 작성한 링크를 적어주세요." v-model="reviewForm.url_review">
-                            <div class="send-btn" @click="storeReview">
-                                <i class="xi-send"></i>
-                            </div>
-                        </div>
-                        <p class="link-input-sub">
-                            리뷰에 광고성 베너를 첨부하셨나요? 꼭 첨부 후 등록해주세요. <br>
-                            광고성 베너는 마이페이지에서 받으실 수 있습니다.
-                        </p>
-                    </div>
-                    <div class="right-img-wrap">
-                        <img src="/images/reviewAdd-icon.png" alt="우리뷰">
-                    </div>
                 </div>
 
                 <form @submit.prevent="storeMessage" class="btm-wrap">

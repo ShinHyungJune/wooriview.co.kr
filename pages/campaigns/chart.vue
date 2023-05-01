@@ -69,7 +69,7 @@
                                 <P class="period">{{ campaign.format_select_started_at }} ~ {{ campaign.format_select_finished_at }}</P>
                             </li>
                             <li>
-                                <p class="period-title">인플루언서 작성기간</p>
+                                <p class="period-title">컨텐츠 등록기간</p>
                                 <P class="period">{{ campaign.format_review_started_at }} ~ {{ campaign.format_review_finished_at }}</P>
                             </li>
                         </ul>

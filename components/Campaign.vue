@@ -75,8 +75,6 @@ export default {
 
             this.campaign.is_like = !this.campaign.is_like;
 
-            console.log(this.campaign.is_like);
-
             this.form.post("/api/likes");
         }
     }

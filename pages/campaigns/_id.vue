@@ -43,7 +43,7 @@
                     <div class="Period-wrap">
                         <div class="Period">
                             <p class="Period-labal">
-                                컨텐츠 등록 기간
+                                인플루언서 모집기간
                             </p>
                             <p class="Period-date">
                                 {{ campaign.format_hire_started_at }} ~ {{ campaign.format_hire_finished_at }}
@@ -59,7 +59,7 @@
                         </div>
                         <div class="Period">
                             <p class="Period-labal">
-                                인플루언서 작성기간
+                                컨텐츠 등록기간
                             </p>
                             <p class="Period-date">
                                 {{ campaign.format_review_started_at }} ~ {{ campaign.format_review_finished_at }}

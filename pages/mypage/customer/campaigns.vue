@@ -134,7 +134,7 @@
 
                             <!-- //캠페인 정보 -->
                             <li class="btn-wrap review" v-if="!campaign.url_review">
-                                <nuxt-link class="btn-review" :to="`/chats?campaign_id=${campaign.id}`">리뷰등록</nuxt-link>
+                                <nuxt-link class="btn-review" :to="`/applications/review?campaign_id=${campaign.id}`">리뷰등록</nuxt-link>
                                 <p>미등록</p>
                             </li>
                             <li class="btn-wrap review" v-else>
@@ -151,7 +151,7 @@
                     <div class="table-wrap tab-content Active" v-if="state === 'like'">
                         <ul class="thead">
                             <li class="th">
-                                인플루언서 작성기간
+                                컨텐츠 등록기간
                             </li>
                             <li class="th">
                                 캠페인 정보

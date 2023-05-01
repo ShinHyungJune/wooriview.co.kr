@@ -237,7 +237,7 @@
                     <div class="table-wrap tab-content Active"  id="tab-4" v-if="state === 'ongoingReview'">
                         <ul class="thead">
                             <li class="th">
-                                인플루언서 작성기간
+                                컨텐츠 등록기간
                             </li>
                             <li class="th">
                                 캠페인 정보
@@ -292,7 +292,7 @@
                     <div class="table-wrap tab-content Active"  id="tab-6" v-if="state === 'finishReview'">
                         <ul class="thead">
                             <li class="th">
-                                인플루언서 작성기간
+                                컨텐츠 등록기간
                             </li>
                             <li class="th">
                                 캠페인 정보
