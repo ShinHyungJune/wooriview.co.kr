@@ -185,10 +185,10 @@
                                         <a :href="application.url_review" class="btn-url" v-if="application.url_review">바로가기</a>
                                     </div>
                                     <div class="info-btm">
-                                        <!--
                                         <p v-if="application.url_review">{{application.sns_description ? application.sns_description.slice(0, 50) : ''}}</p>
-                                        -->
+                                        <!--
                                         <a :href="application.url_review" target="_blank" v-if="application.url_review">{{application.url_review}}</a>
+                                        -->
                                         <p v-else>리뷰 미등록</p>
 <!--                                        <p>
                                             #협찬 #가벼운선글라스하나장만했네 #라피스센시블레 #캠핑선글라스쓰기좋고 이만한게 없는 듯 디자인도 예쁘고 김서림 방지가
