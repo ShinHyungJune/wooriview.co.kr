@@ -1,5 +1,5 @@
 <template>
-    <main id="main" class="MyPage MyCampaign advertiser">
+    <main id="main" class="MyPage MyCampaign">
         <div class="route-wrap">
             <div class="container3">
                 <div class="route-box">
