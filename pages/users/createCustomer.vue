@@ -136,6 +136,7 @@ export default {
                 company_number: "",
                 company_contact: "",
                 company_email: "",
+                nickname: "",
 
                 address: "",
                 address_detail: "",
