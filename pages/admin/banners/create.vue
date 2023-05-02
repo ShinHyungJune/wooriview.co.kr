@@ -42,10 +42,10 @@
                         </li>
                         <li class="col-group">
                             <div class="default">
-                                <p>제목</p>
+                                <p>URL</p>
                             </div>
                             <div class="user">
-                                <input name="" v-model="form.url"></input>
+                                <input name="" v-model="form.url" />
 
                                 <error :form="form" name="url" />
                             </div>
