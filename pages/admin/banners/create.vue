@@ -40,6 +40,16 @@
                                 <error :form="form" name="title" />
                             </div>
                         </li>
+                        <li class="col-group">
+                            <div class="default">
+                                <p>제목</p>
+                            </div>
+                            <div class="user">
+                                <input name="" v-model="form.url"></input>
+
+                                <error :form="form" name="url" />
+                            </div>
+                        </li>
                     </ul>
 
                     <button type="submit" class="submit-btn">저장하기</button>
