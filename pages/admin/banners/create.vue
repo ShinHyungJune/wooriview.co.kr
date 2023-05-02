@@ -45,7 +45,7 @@
                                 <p>URL</p>
                             </div>
                             <div class="user">
-                                <input name="" v-model="form.url" />
+                                <input type="text" name="" v-model="form.url" />
 
                                 <error :form="form" name="url" />
                             </div>
