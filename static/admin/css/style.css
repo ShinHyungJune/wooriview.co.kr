@@ -304,3 +304,7 @@
 .m-ratioBox-wrap .m-ratioBox:after {content:""; width:101px; height:40px; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background:url("../img/logo-replace.png") no-repeat; background-size:100%;}
 .m-ratioBox-wrap img {width:105%; position:absolute; left:50%; top:50%; transform:translateY(-50%) translateX(-50%); z-index:1;}
 .m-ratioBox-wrap iframe {width:105%; position:absolute; left:50%; top:50%; transform:translateY(-50%) translateX(-50%); z-index:1;}
+
+.file-img-wrap {
+    max-width:300px;
+}
