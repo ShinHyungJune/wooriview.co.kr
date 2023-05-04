@@ -18,6 +18,7 @@
                     <nuxt-link to="/qnas">고객센터</nuxt-link>
                 </div>
                 <p class="Address">주소 : 상계동169-210 4층 | 사업자등록번호 : 706-88-02900  ㅣ 대표자 : 정원철</p>
+                <p>통판신 번호 : 제 2023-의정부흥선-0370호</p>
                 <p class="COPYRIGHT">COPYRIGHT 2022 우리뷰 ALL RIGHT RESERVED.</p>
             </div>
         </div>
