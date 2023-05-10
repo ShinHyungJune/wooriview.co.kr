@@ -206,7 +206,7 @@ export default {
                 setTimeout(function(){
                     var swiper = new Swiper(".mySwiper2", {
                         slidesPerView: "auto",
-                        spaceBetween: 48,
+                        spaceBetween: 24,
                         navigation: {
                             nextEl: ".swiper-button-next",
                             prevEl: ".swiper-button-prev",
