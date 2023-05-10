@@ -104,6 +104,10 @@ export default {
         }
     },
     methods: {
+        receiveFcmToken(token) {
+            alert(token);
+        },
+
         login(){
             this.$auth.loginWith('laravelSanctum', {
                 data: this.form.data()
@@ -113,7 +117,7 @@ export default {
                 console.log(AndroidBridge);
 
                 if(AndroidBridge)
-                    alert(JSON.stringify(AndroidBridge));
+                    alert(AndroidBridge.getFcmToken());
             }).catch(error => {
                 this.form.onFail(error.response.data);
             });
