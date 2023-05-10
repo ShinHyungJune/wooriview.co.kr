@@ -109,6 +109,8 @@ export default {
                 data: this.form.data()
             }).then(response => {
                 // this.$router.push("/");
+                if(window.AndroidBridge)
+                    alert(123);
             }).catch(error => {
                 this.form.onFail(error.response.data);
             });
