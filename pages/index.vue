@@ -20,7 +20,9 @@
                         <p class="see-more">캠페인 <nuxt-link to="/campaigns">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
 
+                    <empty v-if="favorCampaigns.data.length === 0" />
                     <ul class="campaign-item-list">
+
                         <campaign :campaign="favorCampaign" v-for="favorCampaign in favorCampaigns.data" :key="favorCampaign.id" />
                     </ul>
                 </div>
@@ -33,6 +35,9 @@
                         <h2>마감 <span>임박 캠페인</span></h2>
                         <p class="see-more">캠페인 <nuxt-link to="/campaigns">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
+
+                    <empty v-if="lastCampaigns.data.length === 0" />
+
                     <ul class="campaign-item-list">
                         <campaign :campaign="lastCampaign" v-for="lastCampaign in lastCampaigns.data" :key="lastCampaign.id" />
                     </ul>
@@ -46,6 +51,9 @@
                         <h2>MD <span> 추천 캠페인</span></h2>
                         <p class="see-more">캠페인 <nuxt-link to="/campaigns">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
+
+                    <empty v-if="recommendCampaigns.data.length === 0" />
+
                     <ul class="campaign-item-list">
                         <campaign :campaign="recommendCampaign.campaign" v-for="recommendCampaign in recommendCampaigns.data" :key="recommendCampaign.id" />
                     </ul>
@@ -167,7 +175,7 @@ export default {
         getFavorCampaigns(){
             this.$axios.get("/api/campaigns", {
                 params: {
-                    onHire: 1,
+                    ongoingHire: 1,
                     order_by: "applications_count",
                     take:6,
                 }
@@ -178,7 +186,7 @@ export default {
         getLastCampaigns(){
             this.$axios.get("/api/campaigns", {
                 params: {
-                    onHire: 1,
+                    ongoingHire: 1,
                     order_by: "hire_finished_at",
                     take:6,
                 }
@@ -189,6 +197,7 @@ export default {
         getRecommendCampaigns(){
             this.$axios.get("/api/recommendCampaigns", {
                 params: {
+                    ongoingHire: 1,
                     take:6,
                 }
             }).then(response => {

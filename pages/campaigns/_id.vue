@@ -74,7 +74,8 @@
                     <div class="sns-wrap">
                         <img src="/images/Instagram-icon.svg" alt="" v-if="campaign.type_sns === 'INSTAGRAM'">
                         <img src="/images/Blog-icon.svg" alt="" v-if="campaign.type_sns === 'NAVER'">
-                        <p>{{ form.type_sns === 'INSTAGRAM' ? "팔로워" : "방문자수" }} {{ campaign.min_follower.toLocaleString() }} 이상</p>
+                        <p>모집인원 {{campaign.max_participant.toLocaleString()}}명</p>
+<!--                        <p>{{ form.type_sns === 'INSTAGRAM' ? "팔로워" : "방문자수" }} {{ campaign.min_follower.toLocaleString() }} 이상</p>-->
                     </div>
                     <!-- 블러그 -->
                     <!-- <div class="sns-wrap">
@@ -112,19 +113,28 @@
                         <p class="Information-content" v-text="campaign.mission"></p>
 
                     </div>
-<!--                    <div class="Information-box">
+                    <div class="Information-box">
                         <p class="Information-labal">추가정보</p>
                         <p class="Information-content">
-                            -
+                            1. 안내된 리뷰 등록기간을 준수하여 리뷰 등록을 해주세요.
+                            <br/><br/>2. 캠페인 미션이 준수되지 않을 시 수정 요청이 있을 수 있습니다.
+                            <br/><br/>3. 성의 없는 리뷰의 경우 수정 요청이 있을 수 있습니다.
+                            <br/><br/>4. 본 캠페인의 리뷰 및 이미지는 업체 홍보 목적으로 사용될 수 있습니다.
+                            <br/><br/>5. 작성된 리뷰는 캠페인 종료일로부터 최소 6개월동안 전체 공개로 유지되어야 하며, 미유지시 비용청구 및 패널티가 적용됩니다.
+                            <br/><br/>6. 제공받은 제품을 타인에게 양도 및 판매, 교환을 절대 허용하지 않으며 적발시 비용청구 및 참여제한이 됩니다.
+                            <br/><br/>7. 제공내역 수령 및 체험 후에 리뷰 미작성 등 리뷰어의 의무를 이행하지 않을시 우리뷰 자체 패널티 적용과 내용증명 발송 및 지급명령 등의 법적인 조치를 취할 수 있습니다
                         </p>
-                    </div>-->
+                    </div>
+                    <div class="Information-box" v-if="campaign.img_detail">
+                        <img :src="campaign.img_detail.url" alt="" style="display:block; max-width:100%; width:auto; margin:0 auto;">
+                    </div>
                 </div>
 
             </section>
 
             <section class="section4">
                 <div class="h3-wrap">
-                    <h3>신청인</h3>
+                    <h3>신청한 인플루언서 명단</h3>
                     <div class="State-wrap">
                         <p class="Application">신청
                             <span>{{ campaign.applications_count }}</span>
@@ -135,6 +145,7 @@
                     </div>
                 </div>
 
+                <empty v-if="applications.data.length === 0" />
                 <ul class="subscriber-list">
                     <!--  -->
                     <li v-for="application in applications.data" :key="application.id">

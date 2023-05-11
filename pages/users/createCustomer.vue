@@ -66,7 +66,7 @@
                     <div class="Consent-form all-chk">
                         <div class="Consent-ck">
                             <input type="checkbox" name="1" id="" checked v-if="isCheckAll" disabled>
-                            <input type="checkbox" name="1" id="" v-else >
+                            <input type="checkbox" name="1" id="" v-else>
                             <label for="" @click="() => isCheckAll ? unCheckAll() : checkAll()">
                                 <span class="ck-from"><i class="xi-check-min"></i></span>
                                 <span class="bold">전체동의</span>

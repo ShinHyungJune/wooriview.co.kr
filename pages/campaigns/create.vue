@@ -44,6 +44,16 @@
                     <div class="write-wrap-le">
                         <div class="write-box">
                             <div class="write-labal_wrap">
+                                <p class="write-labal" style="justify-content: center;">캠페인 노출 미리보기</p>
+                            </div>
+
+                            <ul>
+                                <example-campaign :campaign="form" />
+                            </ul>
+                        </div>
+
+                        <div class="write-box">
+                            <div class="write-labal_wrap">
                                 <p class="write-labal">캠페인 분류 <span class="Essential">*</span></p>
                             </div>
 
@@ -65,11 +75,11 @@
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">상호명 <span class="Essential">*</span></p>
+                                <p class="write-labal">{{titleCompany}} <span class="Essential">*</span></p>
                             </div>
 
                             <div class="input-wrap">
-                                <input class="" type="text" placeholder="배송형 캠페인의 경우 브랜드명, 홍보 제품명을 작성해주세요." v-model="form.title_company">
+                                <input class="" type="text" placeholder="소개하고자 하는 제품의 브랜드명을 입력해주세요." v-model="form.title_company">
 
                                 <error :form="form" name="title_company" />
                             </div>
@@ -96,23 +106,22 @@
                                 <i class="xi-angle-down"></i>
                                 <select name="ttt" id="ttt" v-model="form.price_write" required>
                                     <option value="" style="color:gray" disabled selected>원고료 선택</option>
-                                    <option value="5000">5000원</option>
-                                    <option value="10000">10000원</option>
-                                    <option value="15000">15000원</option>
-                                    <option value="20000">20000원</option>
-                                    <option value="25000">25000원</option>
-                                    <option value="30000">30000원</option>
+                                    <option value="10000">10,000원</option>
+                                    <option value="15000">15,000원</option>
+                                    <option value="20000">20,000원</option>
+                                    <option value="25000">25,000원</option>
+                                    <option value="30000">30,000원</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">제공내역 <span class="Essential">*</span></p>
+                                <p class="write-labal">{{ form.type_campaign === 'REPORTER' ? '참고할 대표 URL' : '제공내역' }} <span class="Essential">*</span></p>
                             </div>
 
                             <div class="write-bundle">
-                                <textarea name="" id="" placeholder="협찬항목이나 제공하는 내용을 작성해주세요." v-model="form.description_provide"></textarea>
+                                <textarea name="" id="" :placeholder="form.type_campaign === 'REPORTER' ? '홈페이지 주소 및 구매처 URL 등을 입력해주세요.' : '인플루언서들에게 제공할 제품이나 서비스를 구체적으로 작성해주세요.'" v-model="form.description_provide"></textarea>
                                 <error :form="form" name="description_provide" />
                             </div>
                         </div>
@@ -124,9 +133,21 @@
                             </div>
 
                             <div class="write-bundle">
-                                <input-files title="사진 등록" :multiple="true" max="8" accept="image/*" comment="최대 8장 업로드 가능합니다." @change="data => form.imgs = data" />
+                                <input-files title="사진 등록" :multiple="true" max="8" accept="image/*" comment="최대 8장 업로드 가능합니다." @change="changeFiles" />
 
                                 <error :form="form" name="imgs" />
+                            </div>
+                        </div>
+
+                        <div class="write-box">
+                            <div class="write-labal_wrap">
+                                <p class="write-labal">캠페인 상세이미지 <span class="Essential">*</span></p>
+                            </div>
+
+                            <div class="write-bundle">
+                                <input-files id="img_detail" title="사진 등록" :multiple="false" max="1" accept="image/*" @change="(data) => {form.img_detail = data[0]}" />
+
+                                <error :form="form" name="img_detail" />
                             </div>
                         </div>
 
@@ -145,82 +166,119 @@
 
                                 <error :form="form" name="max_participant" />
                                 <div class="Gray_p_box">
-                                    <p>실시간캠페인 인플루언서 모집 가능시간은 검수요청후 최소 2시간뒤에
-                                        모집 가능합니다
-                                        인플루언서 모집기간은 모집시작시간 뒤로 최대 24시간까지 설정 가능합니다.</p>
+                                    <p v-if="form.type_campaign === 'REPORTER'">
+                                        기자단 캠페인은 실물의 제품 및 서비스를 제공하는 것이 아닌, 사장님이 선정하신 인플루언서들에게 소정의 원고료, 소개하고자 하는 제품 및 서비스의 사진, 캠페인 미션 등을 제공하고 해당 요소들을 활용하여 포스팅을 작성하는 캠페인입니다. 리뷰 등록까지 확인 되면, 설정하신 원고료를 리뷰어에게 지급해주시면 됩니다.
+                                    </p>
+                                    <p v-else>캠페인 등록신청은 순차적으로 검수 후 승인됩니다.<br/>영업시간(평일 오전 10시~오후5시) 기준 평균 3~5시간이내 오픈 예상</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">인플루언서 모집기간 <span class="Essential">*</span></p>
+                                <p class="write-labal" v-if="form.type_campaign === 'REALTIME'">인플루언서 모집시간 <span class="Essential">*</span></p>
+                                <p class="write-labal" v-else>인플루언서 모집기간 <span class="Essential">*</span></p>
                             </div>
 
-                            <div class="m-input-dates type01">
-                                <div class="input-wrap">
-                                    <input class="" type="datetime-local" placeholder="" v-model="form.hire_started_at" ref="hire_started_at" :min="convertDatetime(today)" :max="convertDatetime(today)" v-if="form.type_campaign === 'REALTIME'">
-                                    <input class="" type="date" placeholder="" v-model="form.hire_started_at" ref="hire_started_at" :min="convertDate(today)" :max="convertDate(today)" v-else>
+                            <div class="write-bundle">
+                                <div class="m-input-dates type01">
+                                    <div class="input-wrap">
+                                        <input class="" type="datetime-local" placeholder="" v-model="form.hire_started_at" ref="hire_started_at" :min="convertDatetime(today)" :max="convertDatetime(today)" v-if="form.type_campaign === 'REALTIME'">
+                                        <input class="" type="date" placeholder="" v-model="form.hire_started_at" ref="hire_started_at" :min="convertDate(today)" :max="convertDate(createDate(null, 3))"  v-else>
 
-                                    <error :form="form" name="hire_started_at" />
+                                        <error :form="form" name="hire_started_at" />
+                                    </div>
+
+                                    <span class="deco">~</span>
+
+                                    <div class="input-wrap">
+                                        <input class="" type="datetime-local" placeholder="" v-model="form.hire_finished_at" ref="hire_finished_at"  :min="convertDatetime(today)" :max="convertDatetime(today)" v-if="form.type_campaign === 'REALTIME'">
+                                        <input class="" type="date" placeholder="" v-model="form.hire_finished_at" ref="hire_finished_at" :min="convertDate(today)" :max="convertDate(createDate(form.hire_started_at, 14))" v-else>
+
+                                        <error :form="form" name="hire_finished_at" />
+                                    </div>
                                 </div>
 
-                                <span class="deco">~</span>
+                                <div class="Gray_p_box" v-if="form.type_campaign === 'REALTIME'">
+                                    <p>
+                                        실시간 캠페인은 ‘당일 방문형 캠페인’으로, 당일 매장 방문시간을 설정하여 정해진 방문시간에 선정된 인플루언서가 방문하여 약속된 제공내역을 체험 후, 광고주가 지정한 컨텐츠 등록기간 내 리뷰를 작성 및 등록합니다.
 
-                                <div class="input-wrap">
-                                    <input class="" type="datetime-local" placeholder="" v-model="form.hire_finished_at" ref="hire_finished_at" :min="convertDatetime(today)" :max="convertDatetime(tomorrow)" v-if="form.type_campaign === 'REALTIME'">
-                                    <input class="" type="date" placeholder="" v-model="form.hire_finished_at" ref="hire_finished_at" :min="convertDate(today)" v-else>
+                                        <br/><br/>‘실시간 방문형 캠페인’은 모집기간 및 선정기간이 설정하신 ‘당일 방문가능 시간’ 시작 전까지 고정됩니다. 설정하신 ‘당일 방문가능 시간’에는 캠페인 모집이 자동으로 마감됩니다.
+                                    </p>
+                                </div>
+                                <div class="Gray_p_box" v-else>
+                                    <p>해당 캠페인에 참여하고자 하는 인플루언서들을 모집하는 기간입니다. <br/>최대한 많은 인원을 모집하여 하고 싶으시다면, 일정을 넉넉하게 설정해주세요!</p>
 
-                                    <error :form="form" name="hire_finished_at" />
+                                    <p class="alert" style="margin-top:8px;">※ 기간 내 미선정시 우리뷰 추천순으로 자동 선정</p>
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
                                 <p class="write-labal">인플루언서 선정기간 <span class="Essential">*</span></p>
                             </div>
-                            <div class="m-input-dates type01">
-                                <div class="input-wrap">
-                                    <input type="date" placeholder="" v-model="form.select_started_at" ref="select_started_at" disabled class="Deactivation">
+                            <div class="write-bundle">
+                                <div class="m-input-dates type01">
+                                    <div class="input-wrap">
+                                        <input type="date" placeholder="" v-model="form.select_started_at" ref="select_started_at" disabled class="Deactivation">
 
-                                    <error :form="form" name="select_started_at" />
+                                        <error :form="form" name="select_started_at" />
+                                    </div>
+
+                                    <span class="deco">~</span>
+
+                                    <div class="input-wrap">
+                                        <input class="" type="date" placeholder="" v-model="form.select_finished_at" ref="select_finished_at" :min="form.select_started_at" :max="convertDate(createDate(form.select_started_at, 2))">
+
+                                        <error :form="form" name="select_finished_at" />
+                                    </div>
                                 </div>
 
-                                <span class="deco">~</span>
-
-                                <div class="input-wrap">
-                                    <input class="" type="date" placeholder="" v-model="form.select_finished_at" ref="select_finished_at" :min="form.select_started_at">
-
-                                    <error :form="form" name="select_finished_at" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="write-box">
-                            <div class="write-labal_wrap">
-                                <p class="write-labal">컨텐츠 등록기간 <span class="Essential">*</span></p>
-                            </div>
-                            <div class="m-input-dates type01">
-                                <div class="input-wrap">
-                                    <input type="date" placeholder="" v-model="form.review_started_at" ref="review_started_at" disabled class="Deactivation">
-
-                                    <error :form="form" name="review_started_at" />
-                                </div>
-
-                                <span class="deco">~</span>
-
-                                <div class="input-wrap">
-                                    <input class="" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="form.review_started_at">
-
-                                    <error :form="form" name="review_finished_at" />
+                                <div class="Gray_p_box">
+                                    <p>
+                                        캠페인에 참여신청을 한 인플루언서들 중, 제품 및 서비스와 가장 잘 어울리는 인플루언서를 사장님께서 직접 선정해주세요! (별도의 선정 없이 기간이 지나면 우리뷰 추천순위에 따라 자동선정 될 수 있습니다!)
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">사업장 운영지역 <span class="Essential">*</span></p>
+                                <p class="write-labal">리뷰어 컨텐츠 등록기간 <span class="Essential">*</span></p>
+                            </div>
+                            <div class="write-bundle">
+                                <div class="m-input-dates type01">
+                                    <div class="input-wrap">
+                                        <input type="date" placeholder="" v-model="form.review_started_at" ref="review_started_at" disabled class="Deactivation">
+
+                                        <error :form="form" name="review_started_at" />
+                                    </div>
+
+                                    <span class="deco">~</span>
+
+                                    <div class="input-wrap">
+                                        <input class="" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="form.review_started_at" :max="convertDate(createDate(form.review_started_at, 21))">
+
+                                        <error :form="form" name="review_finished_at" />
+                                    </div>
+                                </div>
+
+                                <div class="Gray_p_box">
+                                    <p v-if="form.type_campaign === 'REALTIME'">
+                                        선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>매장 방문기간이 포함된 일정이니 참고 부탁드립니다.
+                                    </p>
+                                    <p v-else>
+                                        선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>배송기간과 방문기간이 포함된 기간인 만큼, 조금 넉넉하게 설정해주세요!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="write-box">
+                            <div class="write-labal_wrap">
+                                <p class="write-labal">실 사업장 주소 <span class="Essential">*</span></p>
                             </div>
 
                             <div class="write-bundle">
@@ -262,30 +320,27 @@
                                     <input type="radio" name="1" id="a" value="INSTAGRAM" v-model="form.type_sns">
                                     <label for="a"><span><i class="xi-check-min"></i></span>인스타그램</label>
                                 </div>
-                                <div class="input-wrap" v-if="form.type_sns === 'INSTAGRAM'">
-                                    <input class="" type="number" placeholder="최소 팔로워수를 입력해주세요." v-model="form.min_follower">
-                                </div>
 
                                 <div class="sns-radio-box">
                                     <input type="radio" name="1" id="b" value="NAVER" v-model="form.type_sns">
                                     <label for="b"><span><i class="xi-check-min"></i></span>네이버</label>
-                                </div>
-
-                                <div class="input-wrap" v-if="form.type_sns === 'NAVER'">
-                                    <input class="" type="number" placeholder="최소 방문자수를 입력해주세요." v-model="form.min_follower">
                                 </div>
                             </div>
                         </div>
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">캠페인 소개글 <span class="Essential">*</span></p>
+                                <p class="write-labal">캠페인 안내 <span class="Essential">*</span></p>
                             </div>
 
                             <div class="write-bundle">
-                                <textarea name="" id="" placeholder="협찬항목이나 제공하는 내용을 작성해주세요." v-model="form.introduce"></textarea>
+                                <textarea name="" id="" placeholder="중요한 안내사항 및 참여하고자 하는 인플루언서들에게 제품이나 캠페인의 간단한 소개 등을 작성해주세요" v-model="form.introduce"></textarea>
 
                                 <error :form="form" name="introduce" />
+
+                                <div class="Gray_p_box">
+                                    <p>캠페인 안내는 캠페인 상세페이지에서 노출될 내용입니다.</p>
+                                </div>
                             </div>
                         </div>
 
@@ -295,18 +350,7 @@
                             </div>
 
                             <div class="write-bundle">
-									<textarea style="height: 360px;" name="" id="" v-model="form.search_keyword"
-                                              placeholder="키워드 관련 안내사항을 입력해주세요.
-
-ex)
-
-- 키워드 중 1개를 선택해 제목 맨 앞에 꼭 넣어 주세요.
-
-- 안내해 드린 키워드를 2개 이상 선택하여 본문, #태그에 2~3회 반복해 작성해 주세요.
-
-- 단어 및 띄어쓰기를 정확하게 사용해야 하며, 지켜지지 않으면 수정 요청이 있을 수 있습니다
-"
-                                    ></textarea>
+									<textarea style="height: 360px;" name="" id="" v-model="form.search_keyword" :placeholder="searchKeywordPlaceholder"></textarea>
                                 <error :form="form" name="search_keyword" />
                             </div>
                         </div>
@@ -317,38 +361,7 @@ ex)
                             </div>
 
                             <div class="write-bundle">
-									<textarea style="height: 800px;" name="" id="" v-model="form.mission" placeholder="캠패인 충북 미션을 입력해주세요.
-
-ex)
-
-* 구매평 미션
-
-- 선정 당일에 해당 상품 상세페이지에서 선구매 후 바로 결제내역을 마이페이지에 1차 등록해주셔야 합니다.
-
-- 결제 시 쿠폰이나 포인트 결제 불가입니다.
-
-- 제공 받으신 제품 사진 첨부하여 포토리뷰 필수입니다.
-
-* 블로그 리뷰 미션
-
-- 천연수세미로 설거지한 사진 첨부해주세요.
-
-- 소프넛으로 거품 낸 사진 첨부해주세요.
-
-- 대나무칫솔로 양치해보기 or 스텐빨대로 음료 마셔보기
-
-- 지인에게 친환경제품 소개하기
-
-- 리뷰 제목에 정확한 업체명으로 꼭 넣어 주세요.
-
-- 리뷰 하단에 스토어 링크 필수 첨부해주세요.
-
-- 자사몰 링크를 함께 삽입해주세요. (링크는 선정톡 내 안내사항 확인 필수)
-
-- 가능하신 분들은 스토어찜이나 상품찜을 같이 해주세요.
-
-- 제품으로 양치나 설거지를 하는 등 활용하는 사진을 함께 첨부해주세요.
-									"></textarea>
+									<textarea style="height: 800px;" name="" id="" v-model="form.mission" :placeholder="missionPlaceholder"></textarea>
                                 <error :form="form" name="mission" />
                             </div>
                         </div>
@@ -436,6 +449,7 @@ export default {
                 title_product: "",
                 description_provide: "",
                 imgs: [],
+                img_detail:"",
                 max_participant: "",
 
                 hire_started_at: "",
@@ -456,7 +470,9 @@ export default {
                 mission : "",
                 have_to_satisfied: 0,
                 price_write: "",
-                min_follower: "",
+                min_follower: 0,
+
+                img: null,
             }),
 
             max: 20,
@@ -530,14 +546,31 @@ export default {
 
             return date;
         },
+
+        changeFiles(data){
+            this.form.imgs = data;
+
+            this.form.img = {
+                url: URL.createObjectURL(this.form.imgs[0])
+            };
+        },
+
+        createDate(date, addDays){
+            let createdDate = date ? new Date(date) : new Date();
+
+            createdDate.setDate(createdDate.getDate() + addDays);
+
+            return createdDate;
+        }
     },
 
     computed: {
         counts(){
-            let items = [];
+            let items = [1];
 
             for(let i = 1;  i <= this.max; i++){
-                items.push(i);
+                if(i % 5 === 0)
+                    items.push(i);
             }
 
             return items;
@@ -554,6 +587,58 @@ export default {
 
             return date;
         },
+
+
+        searchKeywordPlaceholder(){
+            if(this.form.type_campaign === 'DELIVERY')
+                return "예시)\n" +
+                    "메인 키워드 : 약과\n" +
+                    "서브 키워드 : 약과선물세트, 가정의달 선물, 부모님 선물, 선물추천, 통밀약과\n" +
+                    "\n" +
+                    "# 노출할 메인키워드를 제목 가장 앞에 기재해주세요.\n" +
+                    "# 포스팅 제목에 작성한 키워드를 본문에도 6번 이상 사용해주세요.\n" +
+                    "# 제목은 모바일에서 보기 좋게 간결할수록 좋습니다. (굵고짧게)\n"
+
+            if(this.form.type_campaign === 'VISIT')
+                return "예시)\n" +
+                    "메인 키워드 : 상호명, 지역명, 지역+상호명, 지역명+술집, 지역명+맛집\n" +
+                    "서브 키워드 : 술집, 하이볼, 조용한 술집, 데이트하기 좋은 식당, 맥주, 호프집, 선술집\n" +
+                    "\n" +
+                    "# 키워드 중 1개를 선택하여 제목과 본문에 4번이상 넣어주세요\n"
+
+            if(this.form.type_campaign === 'REALTIME')
+                return "예시)\n" +
+                    "메인 키워드 : 상호명, 지역명, 지역+상호명, 지역명+술집, 지역명+맛집\n" +
+                    "서브 키워드 : 술집, 하이볼, 조용한 술집, 데이트하기 좋은 식당, 맥주, 호프집, 선술집\n" +
+                    "\n" +
+                    "# 키워드 중 1개를 선택하여 제목과 본문에 4번이상 넣어주세요\n"
+
+            if(this.form.type_campaign === 'REPORTER')
+                return "예시)\n" +
+                    "메인 키워드 : 상호명, 지역명, 지역+상호명, 지역명+술집, 지역명+맛집\n" +
+                    "서브 키워드 : 술집, 하이볼, 조용한 술집, 데이트하기 좋은 식당, 맥주, 호프집, 선술집\n" +
+                    "\n" +
+                    "# 키워드 중 1개를 선택하여 제목과 본문에 4번이상 넣어주세요\n"
+        },
+        missionPlaceholder(){
+            if(this.form.type_campaign === 'DELIVERY')
+                return "캠페인의 중요한 안내사항 및 캠페인에 참여하고자 하는 인플루언서들에게 제품이나 캠페인의 간단한 소개 등을 작성해주세요!’"
+
+            if(this.form.type_campaign === 'VISIT')
+                return "캠페인의 중요한 안내사항 및 캠페인에 참여하고자 하는 인플루언서들에게 매장이나 캠페인의 간단한 소개 등을 작성해주세요!’"
+
+            if(this.form.type_campaign === 'REALTIME')
+                return "캠페인의 중요한 안내사항 및 캠페인에 참여하고자 하는 인플루언서들에게 매장이나 캠페인의 간단한 소개 등을 작성해주세요!’"
+
+            if(this.form.type_campaign === 'REPORTER')
+                return "캠페인의 중요한 안내사항 및 캠페인에 참여하고자 하는 인플루언서들에게 매장이나 캠페인의 간단한 소개 등을 작성해주세요!’"
+        },
+        titleCompany(){
+            if(this.form.type_campaign === 'DELIVERY')
+                return "지역/상호명(매장명)";
+
+            return "상호명(브랜드명)"
+        }
     },
 
     mounted() {

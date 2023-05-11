@@ -1,5 +1,5 @@
 <template>
-    <li class="campaign-info-wrap">
+    <li class="campaign-info-wrap" @click="() => {$router.push(`/campaigns/${campaign.id}`)}">
         <div class="campaign-img">
             <img :src="campaign.img.url" alt="" v-if="campaign.img">
         </div>

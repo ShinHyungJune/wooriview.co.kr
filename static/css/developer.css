@@ -250,6 +250,15 @@
     padding-left:100px;
 }
 
+.Mobile_Menu_open_btn .active {display:none;}
+.Mobile_Menu_open_btn.open .inactive {display: none;}
+.Mobile_Menu_open_btn.open .active {display: block;}
+.Mobile_Menu_open_btn.open i {
+    font-size:20px;
+}
+.header .mb-bottom-Bar > button {
+    display: flex; align-items: center; justify-content: center;
+}
 @media screen and (max-width: 768px) {
     .advertiser-table_1.influencer-table_1 .table-wrap#tab-3 > ul.tbody {
         padding-bottom:0;

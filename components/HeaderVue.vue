@@ -95,7 +95,10 @@
                 <i></i>
             </a>
             <div class="mb-bottom-Bar">
-                <button class="Mobile_Menu_open_btn"><img src="/images/Menu.svg" alt=""></button>
+                <button class="Mobile_Menu_open_btn">
+                    <img src="/images/Menu.svg" alt="" class="inactive">
+                    <i class="xi-close active"></i>
+                </button>
                 <div class="Mobile_Menu_wrap">
                     <div class="Mobile_Menu_top">
                         <div class="Mobile_Menu_top_bg">
@@ -251,6 +254,7 @@ export default {
 
     mounted() {
         $(".Mobile_Menu_open_btn").click(function () {
+            $(this).toggleClass("open");
             $(".Mobile_Menu_wrap").toggleClass("open");
             $(".header").toggleClass("Mobile_Menu_open");
         });

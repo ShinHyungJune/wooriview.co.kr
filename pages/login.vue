@@ -113,11 +113,9 @@ export default {
                 data: this.form.data()
             }).then(response => {
                 // this.$router.push("/");
-                console.log("123123");
-                console.log(AndroidBridge);
 
                 if(AndroidBridge)
-                    alert(AndroidBridge.getFcmToken());
+                    AndroidBridge.getFcmToken();
             }).catch(error => {
                 this.form.onFail(error.response.data);
             });

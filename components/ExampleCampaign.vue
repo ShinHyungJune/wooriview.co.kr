@@ -1,12 +1,7 @@
 <template>
     <li class="campaign-item">
-        <nuxt-link class="img-wrap" :to="`/campaigns/${campaign.id}?type_campaign=${campaign.type_campaign}`">
+        <div class="img-wrap">
             <img :src="campaign.img.url" alt="" v-if="campaign.img">
-        </nuxt-link>
-        <div class="like-wrap" v-if="!onlyShow">
-            <input type="checkbox" name="" v-if="campaign.is_like" checked>
-            <input type="checkbox" name="" v-else>
-            <label for="" @click="like"><i class="xi-heart"></i></label>
         </div>
         <div class="Information-wrap">
             <div class="Period-wrap">
@@ -22,22 +17,12 @@
                         <img src="/images/Blog-icon.svg" alt="" v-if="campaign.type_sns === 'NAVER'">
                     </li>
                 </ul>
-                <p class="Period" v-if="campaign.d_day === '종료'">종료</p>
-                <p class="Period" v-else>D - {{ campaign.d_day }}일</p>
             </div>
             <nuxt-link :to="`/campaigns/${campaign.id}?type_campaign=${campaign.type_campaign}`" class="campaign-Title">
-                [{{ campaign.title_company }}]
-                {{ campaign.title_product }}
+                [{{ campaign.title_company ? campaign.title_company : '상호명' }}]
+                {{ campaign.title_product ? campaign.title_product : '홍보제품명' }}
             </nuxt-link>
-            <p class="product">{{ campaign.description_provide }}</p>
-            <div class="State-wrap">
-                <p class="Application">신청
-                    <span>{{ campaign.applications_count }}</span>
-                </p>
-                <p class="Recruitment">모집
-                    <span>{{ campaign.max_participant }}</span>
-                </p>
-            </div>
+            <p class="product">{{ campaign.description_provide ? campaign.description_provide : '제공내역' }}</p>
         </div>
     </li>
 
