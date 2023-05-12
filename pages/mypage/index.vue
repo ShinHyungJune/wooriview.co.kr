@@ -126,7 +126,7 @@
             </nuxt-link>
 
             <div class="logout-btn-wrap">
-                <a href="#" class="logout-btn" @click.prevent="() => {$auth.logout()}">계정 로그아웃이 필요하신가요?</a>
+                <a href="#" class="logout-btn" @click.prevent="() => {$auth.logout();}">계정 로그아웃이 필요하신가요?</a>
             </div>
         </div>
     </main>

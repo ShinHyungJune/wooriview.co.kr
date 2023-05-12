@@ -91,14 +91,34 @@
 
                     <div class="scroll-wrap">
                         <ul class="table-tab-list">
-                            <li :class="`tab-link ${state === 'beforeAccept' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('beforeAccept')">캠페인 등록 심사<span>{{ counts.unaccept }}</span></li>
-                            <li :class="`tab-link ${state === 'ongoingHire' ? 'Active' : ''}`" data-tab="tab-2" @click="changeState('ongoingHire')">인플루언서 모집 <span>{{ counts.ongoingHire }}</span></li>
-                            <li :class="`tab-link ${state === 'ongoingSelect' ? 'Active' : ''}`" data-tab="tab-3" @click="changeState('ongoingSelect')">인플루언서 선정 <span>{{ counts.ongoingSelect }}</span></li>
+                            <li :class="`tab-link ${state === 'beforeAccept' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('beforeAccept')">
+                                심사중인 캠페인
+                                <i class="xi-help-o" @click="openPop('beforeAccept')"></i>
+                                <span>{{ counts.unaccept }}</span>
+                            </li>
+                            <li :class="`tab-link ${state === 'ongoingHire' ? 'Active' : ''}`" data-tab="tab-2" @click="changeState('ongoingHire')">
+                                모집중인 캠페인
+                                <i class="xi-help-o" @click="openPop('ongoingHire')"></i>
+                                <span>{{ counts.ongoingHire }}</span>
+                            </li>
+                            <li :class="`tab-link ${state === 'ongoingSelect' ? 'Active' : ''}`" data-tab="tab-3" @click="changeState('ongoingSelect')">
+                                인플루언서 선정
+                                <i class="xi-help-o" @click="openPop('ongoingSelect')"></i>
+                                <span>{{ counts.ongoingSelect }}</span>
+                            </li>
                             <!--
                             <li :class="`tab-link ${form.ongoingReview form.type_campaigns == ['DELIVERY', 'VISIT'] ? 'Active' : ''}`" data-tab="tab-4">배송관리&방문관리 <span>12</span></li>
                             -->
-                            <li :class="`tab-link ${state === 'ongoingReview' ? 'Active' : ''}`" data-tab="tab-5" @click="changeState('ongoingReview')">인플루언서 작성 <span>{{ counts.ongoingReview }}</span></li>
-                            <li :class="`tab-link ${state === 'finishReview' ? 'Active' : ''}`" data-tab="tab-6" @click="changeState('finishReview')">마감 및 보고서 확인 <span>{{ counts.finishReview }}</span></li>
+                            <li :class="`tab-link ${state === 'ongoingReview' ? 'Active' : ''}`" data-tab="tab-5" @click="changeState('ongoingReview')">
+                                체험중인 캠페인
+                                <i class="xi-help-o" @click="openPop('ongoingReview')"></i>
+                                <span>{{ counts.ongoingReview }}</span>
+                            </li>
+                            <li :class="`tab-link ${state === 'finishReview' ? 'Active' : ''}`" data-tab="tab-6" @click="changeState('finishReview')">
+                                마감 및 보고서 확인
+                                <i class="xi-help-o" @click="openPop('finishReview')"></i>
+                                <span>{{ counts.finishReview }}</span>
+                            </li>
                         </ul>
                     </div>
 
@@ -203,6 +223,9 @@
                                 신청
                             </li>
                             <li class="th">
+                                모집
+                            </li>
+                            <li class="th">
                                 인플루언서
                             </li>
                         </ul>
@@ -224,6 +247,13 @@
                                 <span class="unit mb">신청</span>
                                 <div class="default-wrap">
                                     <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
+                                    <span class="unit">명</span>
+                                </div>
+                            </li>
+                            <li class="recruit-num num-re-po">
+                                <span class="unit mb">모집</span>
+                                <div class="default-wrap">
+                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
                                     <span class="unit">명</span>
                                 </div>
                             </li>
@@ -444,6 +474,42 @@ export default {
                 ongoingFinishReview: 0,
                 finishReview: 0,
             });
+        },
+
+        openPop(type){
+            let pop = {};
+
+            if(type === 'beforeAccept')
+                pop = {
+                    title: '심사중인 캠페인',
+                    description: '등록 요청한 캠페인에 허위광고, 과대광고 등 문제가 없는지 운영팀에서 확인하는 단계에요!'
+                }
+
+            if(type === 'ongoingHire')
+                pop = {
+                    title: '모집중인 캠페인',
+                    description: '캠페인의 심사를 거쳐, 캠페인이 오픈되고 체험단을 희망하는 인플루언서를 모집하는 단계에요!'
+                }
+
+            if(type === 'ongoingSelect')
+                pop = {
+                    title: '인플루언서 선정',
+                    description: '모집기간 마감 후 2일동안, 해당 캠페인을 진행할 인플루언서를 광고주가 직접 선정하는 단계에요!'
+                }
+
+            if(type === 'ongoingReview')
+                pop = {
+                    title: '체험중인 캠페인',
+                    description: '선정된 인플루언서들에게 약속한 제공내역을 제공 및 체험하도록 하고 리뷰를 작성하는 단계이자 실시간으로 광고주가 ‘작성된 리뷰를 확인’할 수 있는 단계에요!\n'
+                }
+
+            if(type === 'finishReview')
+                pop = {
+                    title: '마감 및 보고서 확인',
+                    description: '캠페인 마감 후 등록된 리뷰에 대한 결과보고서를 확인하는 단계에요!'
+                }
+
+            this.$store.commit("setPop", pop);
         }
     },
 

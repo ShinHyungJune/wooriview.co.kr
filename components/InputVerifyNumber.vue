@@ -3,7 +3,7 @@
         <div v-if="mode === 'beforeSend'">
             <div class="m-input-wrap m-input-withBtn">
                 <div class="m-input-text">
-                    <input type="text" placeholder="휴대폰 번호" v-model="form.contact">
+                    <input type="text" placeholder="휴대폰 번호 (- 없이)" v-model="form.contact" @input="clearLetter">
                 </div>
                 <button type="button" class="m-input-btn" @click.prevent="sendVerify">인증번호발송</button>
             </div>
@@ -117,6 +117,10 @@ export default {
                         description: "인증이 완료되었습니다!"
                     });
                 });
+        },
+
+        clearLetter(){
+            this.form.contact = this.form.contact.replace("-", "");
         }
     }
 }

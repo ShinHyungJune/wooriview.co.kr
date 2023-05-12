@@ -25,6 +25,15 @@
         <button id="up-btn">
             <i class="xi-arrow-up"></i>
         </button>
+
+        <div class="m-quicks type01">
+            <button class="m-quick">
+                <i class="xi-message"></i>
+            </button>
+            <nuxt-link to="/campaigns/create" class="m-quick" v-if="$auth.user && $auth.user.data.can_create_campaign">
+                <i class="xi-pen"></i>
+            </nuxt-link>
+        </div>
     </div>
 </template>
 <script>

@@ -139,7 +139,7 @@ import Form from "../../utils/Form";
 export default {
     data(){
         return {
-            showMap: false,
+            showMap: this.$route.query.showMap,
 
             campaigns: {
                 data: [],
@@ -201,12 +201,19 @@ export default {
         },
 
         getAllCampaigns(loadMore = false){
+            let self = this;
+
             this.$axios.get("/api/campaigns", {
                 type_campaigns: ["REALTIME", "VISIT", "DELIVERY"],
                 take: 1000,
-                onHire: 1
+                ongoingHire: 1
             }).then(response => {
                 this.allCampaigns = response.data;
+
+                if(this.showMap)
+                    setTimeout(function(){
+                        kakao.maps.load(self.initMap);
+                    }, 300);
             })
         },
 
@@ -283,6 +290,8 @@ export default {
     },
 
     mounted() {
+        let self = this;
+
         if (navigator.geolocation) {
             // 위치 정보를 가져올 수 있는 경우
             navigator.geolocation.getCurrentPosition(
@@ -307,6 +316,7 @@ export default {
         this.getCategories();
 
         this.getAllCampaigns();
+
     },
 
     watch: {
