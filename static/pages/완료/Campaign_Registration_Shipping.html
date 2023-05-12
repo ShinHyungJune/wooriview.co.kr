@@ -428,44 +428,78 @@ ex)
 								</div>
 							</div>
 
-							<div class="write-box">
-								<div class="write-labal_wrap">
+							<div class="write-box mission-box">
+								<div class="write-labal_wrap mission-title-wrap">
 									<p class="write-labal">캠페인미션 <span class="Essential">*</span></p>
+									<p class="Explanation_p">※ 캠페인 미션 공통질문 (예시, 체크박스형식) 최대 5개 다중선택 가능</p>
+								</div>
+								<div class="Field-ck-wrap">
+									<div class="category-ck mission1">
+										<input type="checkbox" name="" id="mission1" class="misssion-chkbox">
+										<label for="mission1">
+											<p class="label-title">구매할 수 있는 링크 URL을 넣어주세요. (하단 추가사항에 기재)</p>
+										</label>
+									</div>
+
+									<div class="category-ck mission2">
+										<input type="checkbox" name="" id="mission2" class="misssion-chkbox">
+										<label for="mission2">
+											<p class="label-title">사진은 최소 10장이상 등록해주세요.</p>
+										</label>
+									</div>
+
+									<div class="category-ck mission3">
+										<input type="checkbox" name="" id="mission3" class="misssion-chkbox">
+										<label for="mission3">
+											<p class="label-title">체험하신 동영상 혹은 움짤 1개 이상 첨부해주세요</p>
+										</label>
+									</div>
+
+									<div class="category-ck mission4">
+										<input type="checkbox" name="" id="mission4" class="misssion-chkbox">
+										<label for="mission4">
+											<p class="label-title">제품 사용 비포/에프터 샷을 첨부해주세요.</p>
+										</label>
+									</div>
+
+									<div class="category-ck mission5">
+										<input type="checkbox" name="" id="mission5" class="misssion-chkbox">
+										<label for="mission5">
+											<p class="label-title">제품 상세이미지를 참고하여 제품의 특징을 살려 작성해주세요.</p>
+										</label>
+									</div>
+
+									<div class="category-ck mission6">
+										<input type="checkbox" name="" id="mission6" class="misssion-chkbox">
+										<label for="mission6">
+											<p class="label-title">해당 제품을 기존에 필요로 했던 것처럼 작성해주세요.</p>
+										</label>
+									</div>
+
+									<div class="category-ck mission7">
+										<input type="checkbox" name="" id="mission7" class="misssion-chkbox">
+										<label for="mission7">
+											<p class="label-title">본인이 착용 및 사용한 이미지를 올려주세요.</p>
+										</label>
+									</div>
+
+									<div class="category-ck mission8">
+										<input type="checkbox" name="" id="mission8" class="misssion-chkbox">
+										<label for="mission8">
+											<p class="label-title">안내된 키워드 모두 해시태그로 기재해주세요.</p>
+										</label>
+									</div>
+
+								
+								</div>
+							</div>
+							<div class="write-box mission-box_add">
+								<div class="write-labal_wrap">
+									<p class="Explanation_p">기타 요청사항은 아래 칸에 작성해주세요.</p>
 								</div>
 
 								<div class="write-bundle">
-									<textarea style="height: 800px;" name="" id="" placeholder="캠패인 충북 미션을 입력해주세요.
-
-ex)
-
-* 구매평 미션
-
-- 선정 당일에 해당 상품 상세페이지에서 선구매 후 바로 결제내역을 마이페이지에 1차 등록해주셔야 합니다.
-
-- 결제 시 쿠폰이나 포인트 결제 불가입니다.
-
-- 제공 받으신 제품 사진 첨부하여 포토리뷰 필수입니다.
-
-* 블로그 리뷰 미션
-
-- 천연수세미로 설거지한 사진 첨부해주세요.
-
-- 소프넛으로 거품 낸 사진 첨부해주세요.
-
-- 대나무칫솔로 양치해보기 or 스텐빨대로 음료 마셔보기
-
-- 지인에게 친환경제품 소개하기
-
-- 리뷰 제목에 정확한 업체명으로 꼭 넣어 주세요.
-
-- 리뷰 하단에 스토어 링크 필수 첨부해주세요.
-
-- 자사몰 링크를 함께 삽입해주세요. (링크는 선정톡 내 안내사항 확인 필수)
-
-- 가능하신 분들은 스토어찜이나 상품찜을 같이 해주세요.
-
-- 제품으로 양치나 설거지를 하는 등 활용하는 사진을 함께 첨부해주세요.
-									"></textarea>
+									<textarea style="height: 303px;" name="" id=""></textarea>
 								</div>
 							</div>
 
@@ -542,13 +576,14 @@ ex)
 						<div class="pop-scroll-wrap">
 							<div class="pop-txt">
 								<p class="top-txt">해당 캠페인은 <br>
-									<span>신청인원이 미달되어도 진행하는 캠페인</span> 입니다</p>
+									<span>신청인원이 미달되어도 진행하는 캠페인</span> 입니다
+								</p>
 								<p class="bt-txt">그대로 진행하시겠습니까? <br>
 									진행 후에는 변경이 불가합니다.</p>
 							</div>
 							<div class="pop_btn_wrap">
 								<button class="pop_close_btn">취소</button>
-								<a href="" class="save_btn">저장</a>
+								<a href="" class="save_btn">신청</a>
 							</div>
 						</div>
 					</div>
@@ -560,13 +595,20 @@ ex)
 							<div class="pop-txt">
 								<p class="top-txt">해당 캠페인은 <br>
 									<span>해당 캠페인은 신청인원이 미달되면 <br>
-										진행하지 않는 캠페인입니다</span></p>
-								<p class="bt-txt">그대로 진행하시겠습니까? <br>
+										진행하지 않는 캠페인</span>입니다</p>
+							    <div class="guide-txt-wrap">
+									<p class="guide-p">
+										캠페인 등록신청은 순차적으로 검수 후 승인됩니다. <br />
+										영업시간(평일 오전 10시~오후5시) 기준 <br />
+										평균 3~5시간이내 오픈 예상
+									</p>
+								</div>
+								<p class="bt-txt">그대로 진행하시겠습니까? 
 									진행 후에는 변경이 불가합니다.</p>
 							</div>
 							<div class="pop_btn_wrap">
 								<button class="pop_close_btn">취소</button>
-								<a href="" class="save_btn">저장</a>
+								<a href="" class="save_btn">신청</a>
 							</div>
 						</div>
 					</div>
@@ -618,6 +660,19 @@ ex)
 			})
 		</script>
 
+		<!-- 미션 체크 최대 제한 -->
+		<script>
+			$(document).ready(function(){
+				$(".mission-box  input[type='checkbox']").on("click", function(){
+					let count = $(".mission-box input:checked[type='checkbox']").length;
+
+					if(count > 5){
+						$(this).prop("checked",false);
+						alert("최대 5개까지만 선택 할 수 있습니다.");
+					}
+				})
+			})
+		</script>
     </div>
 </body>
 </html>

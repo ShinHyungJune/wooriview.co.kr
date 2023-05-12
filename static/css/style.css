@@ -69,6 +69,7 @@
 @media screen and (max-width: 1200px) {
     .campaign-item-list .campaign-item { width: calc((100% - (24px * 2)) / 3); }
 }
+
 @media screen and (max-width: 720px) {
     .campaign-item-list { flex-direction: column; gap: 15px; }
     .campaign-item-list .campaign-item { width: 100%; display: flex; }
@@ -77,10 +78,11 @@
     .campaign-item .like-wrap { top: 0; right: 5px; }
     .campaign-item .like-wrap label i { color: #f5f5f5; }
     .campaign-item .Information-wrap { width: calc(100% - 120px); padding-left: 15px; padding-top: 5px; }
-    .campaign-item .Period-wrap .sns-wrap { display: none; }
     .campaign-item .campaign-Title { font-size: 14px; margin-bottom: 4px; }
     .campaign-item .product { font-size: 12px }
     .campaign-item .State-wrap > p { font-size: 12px; }
+    .campaign-item .Period-wrap .sns-wrap > li { height: 24px;}
+
 }
 
 /* 카테고리 채크박스 */
@@ -90,7 +92,7 @@
 .category-ck label { cursor: pointer; }
 .category-ck label .img-wrap { width: 100%; padding-top: 100%; position: relative; margin-bottom: 16px; }
 .category-ck label .label-title { text-align: center; font-size: 18px; font-weight: 500; color: #313131; }
-.category-ck input:checked ~ label .img-wrap { border-radius: 15px; }
+.category-ck input:checked ~ label .img-wrap { border-radius: 20px;     box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.08); }
 @media screen and (max-width: 1150px) {
     .category-ck-wrap { gap: 31px 40px; }
     .category-ck-wrap .category-ck { width: calc((100% - (40px * 6)) / 7); }
@@ -201,14 +203,16 @@
 .main .h2-wrap { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 24px; margin-bottom: 32px; }
 .main .h2-wrap h2 { font-size: 32px; font-weight: bold; }
 .main .h2-wrap h2 span { font-weight: bold; color: #ffc800; }
-.main .see-more { font-size: 20px; font-weight: 300; }
-.main .see-more a { color: #ffc800; display: inline-flex; }
+.main .see-more { display: flex; gap:5px; align-items: center; font-size: 20px; font-weight: 300; }
+.main .see-more a { color: #ffc800; display: flex; align-items: center; }
 .main .see-more a i { color: #ffc800; font-size: 24px; }
 @media screen and (max-width: 1728px) {
     .main .h2-wrap { padding: unset; }
 }
 @media screen and (max-width: 720px) {
-    .main .see-more { display: none; }
+    .main .see-more p { display: none; }
+    .main .see-more a { font-size: 15px; align-items: baseline;}
+    .main .see-more a i { font-size: 15px;}
     .main .campaign-item-wrap { padding: unset; padding-top: 32px; }
     .main .h2-wrap { margin-bottom: 16px; }
     .main .h2-wrap h2 { font-size: 17px; }
@@ -298,6 +302,8 @@
 }
 @media screen and (max-width: 768px) {
     .campaign_Details .section1 { padding-top: unset; }
+    .campaign-page .section1 .Map-Search-wrap { height: 360px; }
+
 }
 
 .campaign_Details .section2 { width: 428px; min-height: 740px; position: absolute; right: 0; top: 24px; display: flex; flex-direction: column; justify-content: space-between; }
@@ -2067,7 +2073,7 @@
 .MyPage.payment .payment-type-wrap .payment-type-list li .default.price { margin-bottom: 5px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .payment-price {font-size:32px;  font-weight: bold;  color:#202020; margin-bottom: 64px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .bonus {font-size: 20px; font-weight: 600;  color: #2680eb; margin-bottom: 24px;}
-.MyPage.payment .payment-type-wrap .payment-type-list li .buy-btn {width: 100%;  height: 40px; border-radius: 8px; box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.08); border: solid 1px #ffc800; color: #ffc800;}
+.MyPage.payment .payment-type-wrap .payment-type-list li .buy-btn {width: 100%;  height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 8px; box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.08); border: solid 1px #ffc800; color: #ffc800;}
 .MyPage.payment .payment-type-wrap .payment-type-list li:last-child .payment-price { margin-bottom: 16px;}
 
 .MyPage.payment .table-section .table-tab-wrap { margin-bottom: 39px;}
@@ -2143,6 +2149,53 @@
 .MyPage.payment .payment-type-wrap .table-section ul li span.pc { display: none;}
 
 }
+
+
+/* 결제 승인 */
+.payment-detail { }
+.payment-detail .payment-detail-wrap { margin-top: 82px; }
+.payment-detail .logo-wrap { max-width: 280px; margin: 0 auto 120px;}
+.payment-detail .payment-detail-contents { display: flex; gap: 32px; justify-content: center;  }
+.payment-detail .payment-type-item .small-period { font-size: 16px; font-weight: bold;}
+.payment-detail .payment-type-item .title-period { font-size: 48px; font-weight: bold; margin-bottom: 46px;}
+.payment-detail .payment-type-item .default { font-size: 18px; font-weight: 500; margin-bottom: 28px;}
+.payment-detail .payment-type-item .default.re-po { opacity: unset; margin-bottom: 43px;}
+.payment-detail .payment-type-item .discount { font-size: 20px; font-weight: 600; color: #ffc800; margin-bottom: 5px;}
+.payment-detail .payment-type-item .payment-price { font-size: 32px; font-weight: bold; margin-bottom: 64px;}
+.payment-detail .payment-type-item { min-width: 232px;   padding: 24px; border-radius: 16px;  box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.08);  border: solid 2px #fff; background-color: #fff;}
+.payment-detail .payment-type-item .default.price {  margin-bottom: 5px;}
+.payment-detail .payment-type-item .bonus { font-size: 14px; margin-bottom: 20px; }
+.payment-detail .payment-type-item.type2 .default { margin-bottom: 121px; }
+.payment-detail .payment-type-item.type2 .default.price { margin-bottom: 5px;}
+.payment-detail .payment-type-item.type4 .payment-price { margin-bottom: 16px; }
+.payment-detail .payment-type-item.type4 .bonus { font-size: 20px; font-weight: 600; color: #2680eb;}
+
+.payment-detail .payment-agree-box { width: calc( 100% - (232px - 64px - 240px ));   max-width: 720px;}
+.payment-detail .payment-agree-box .payment-agree_title { font-size: 16px; font-weight: 600; color: #303030; margin-bottom: 12px;}
+.payment-detail .payment-agree-box .payment-agree_content {height: 446px; border: 1px solid #e4e4e4; border-radius: 16px; background-color: #fff; overflow-y: scroll; padding: 10px;}
+
+.payment-detail .payment-sign-wrap { display: flex; flex-direction: column; justify-content: space-evenly;  }
+.payment-detail .payment-sign-wrap .payment-sign_title { font-size: 20px; font-weight: 600; line-height: 1.6; color: #303030; margin-bottom: 40px; padding-top:38px;}
+.payment-detail .payment-sign-wrap .payment-sign_box {width: 240px;  height: 255px; border: 1px solid #e4e4e4; background-color: #f5f5f5;  border-radius: 16px; margin-bottom: 40px;}
+.payment-detail .payment-sign  { display: flex; justify-content: center; align-items: center; width: 100%; margin: 74px auto 180px; max-width: 480px;  height: 48px;  border-radius: 24px; box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);  background-color: #ffcb2e; font-size: 20px; font-weight: 500; color: #202020; letter-spacing: 0.32px;}
+.payment-detail .payment-sign-btn {width: fit-content;  font-size: 16px; font-weight: bold; color: #ffcb2e; letter-spacing: 0.32px; border-bottom: 1px solid #ffcb2e; margin: 0 auto;}
+
+@media screen and (max-width: 1080px) {
+.payment-detail .payment-detail-contents { gap:16px;}
+.payment-detail .payment-sign-wrap .payment-sign_box { width: 180px; height: 200px;}
+}
+
+@media screen and (max-width: 768px) {
+.payment-detail .payment-detail-contents { max-width: 573px; margin: 0 auto;  flex-direction: column; }
+.payment-detail .payment-agree-box { width: 100%;}
+.payment-detail .payment-sign_title .pc { display: none; }
+.payment-detail .payment-sign-wrap .payment-sign_box { width: 100%; margin-bottom: 20px; }
+.payment-detail .payment-sign-wrap .payment-sign_title { margin-bottom: 10px;}
+.payment-detail .payment-sign.signature { margin: 0 auto;}
+.payment-detail .payment-sign { max-width: 573px;  }
+.payment-detail .payment-agree-box .payment-agree_title { padding-top: 38px;}
+}
+/* //결제 승인 */
 
 /* //광고주 - 결제내역 =================================================================== */
 
@@ -2624,9 +2677,63 @@
 .Campaign_Registration .Warning-pop .bt-txt { font-weight: bold; }
 
 
+/* 캠페인 등록 - 미션 체크박스 */
+
+.Campaign_Registration .write-wrap .write-labal_wrap.mission-title-wrap {  flex-direction: row; align-items: center; gap: 16px; margin-bottom: 34px;}
+.write-wrap .mission-box .Field-ck-wrap { gap:12px;}
+.write-wrap .mission-box  .Field-ck-wrap .category-ck { width: 100%;  }
+
+.Campaign_Registration .write-wrap .write-box.mission-box .Explanation_p { color: #ccc;}
+.write-wrap .mission-box  .Field-ck-wrap .category-ck label {display: flex; padding: 16px 20px; border-radius: 24px; border: 1px solid #e4e4e4; background-color: #fff;  }
+.write-wrap .mission-box  .Field-ck-wrap .category-ck label p { text-align: left; font-size: 14px; font-weight: 500; color: #ccc;}
+.write-wrap .mission-box  .category-ck input:checked ~ label { border: solid 2px #ffc800; }
+.write-wrap .mission-box  .category-ck input:checked ~ label p { color: #303030;}
+.Campaign_Registration .write-wrap .write-box.mission-box { margin-bottom: 20px;}
+.Campaign_Registration .write-wrap .write-box.mission-box_add .Explanation_p { font-size: 14px; font-weight: 500; color: #303030;}
+.Campaign_Registration .write-wrap .write-box.mission-box_add { margin-bottom: 71px;}
+.pop-box .pop-txt .guide-txt-wrap {  }
+.pop-box .pop-txt .guide-txt-wrap .guide-p { background-color: #f5f5f5; border-radius: 16px; padding: 24px 0;  max-width: 400px; margin: 0 auto 24px; line-height: 1.71; font-size: 14px;}
 
 
-①②③④⑤⑥⑦⑧
+@media screen and (max-width: 768px) {
+ .Campaign_Registration .write-wrap .write-labal_wrap.mission-title-wrap { flex-direction: column; align-items: flex-start; gap:4px;}
+}
+
+@media screen and (max-width: 720px) {
+    .pop-box .pop-txt .guide-txt-wrap { margin-bottom: 12px; }
+    .pop-box .pop-txt .guide-txt-wrap .guide-p { margin: unset; padding: 24px;}
+}
+
+.Map-Search-wrap {width: 100%; position: relative; margin-bottom: 40px;}
+.Map-Search-wrap #map { position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%;}
+.Map-Search-wrap #mapCampain { position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%;}
+
+
+/* 지도 지역선택  */
+.campaign-page .section1 { position: relative;}
+.map-select-wrap { display: flex; align-items: center; position: absolute; top:24px; left: 40px; gap: 32px; z-index: 5;}
+.map-select-wrap p { position: absolute;  margin-left: 40px; font-size: 16px; font-weight: 500; color:#646464}
+.map-select-wrap select {  width: 320px; height: 56px; border-radius: 28px;  border: solid 2px #f5f5f5;  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.12); padding: 0 40px 0 128px;     font-size: 20px; font-weight: 600; color: #ffc800; outline: unset;     -webkit-appearance:none;   -moz-appearance:none;   appearance:none;   background: url('../images/icons8-expand-arrow-24.png') no-repeat 57%;  background-size: 20px; background-color: #fff; }
+.map-select-wrap select option { padding-left: 128px;  }
+.map-select-wrap select option i {font-size: 20px; font-weight: 600; color: #ffc800; }
+
+@media screen and (max-width: 768px) {
+    .map-select-wrap { top:12px; left: 30px;}
+    .map-select-wrap p { font-size: 12px; margin-left: 20px;}
+    .map-select-wrap select {font-size: 14px; width: 220px; height: 36px;  padding: 0 20px 0 90px; background: url('../images/icons8-expand-arrow-24.png') no-repeat 60%; background-size: 18px;  background-color: #fff;}
+}
+
+/* 지도 마커 툴팁 */
+.marker-tips {  position: absolute; display: flex; justify-content: center; align-items: center; gap: 10px; bottom:24px; right: 40px; z-index: 5; background-color: #fff; padding: 10px 20px; border-radius: 28px; border: solid 2px #f5f5f5;  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.12);}
+.marker-tips .tooltip-content { display: flex; align-items: center; }
+.marker-tips .tooltip-content .tooltip-img-wrap {display: flex; max-width: 30px; }
+.marker-tips .tooltip-content .tooltip-title { font-size: 16px;}
+@media screen and (max-width: 768px) {
+    .marker-tips { padding: 5px 10px;  bottom:12px; right: 30px; gap: 5px; }
+    .marker-tips .tooltip-content .tooltip-img-wrap {max-width: 20px; }
+    .marker-tips .tooltip-content .tooltip-title { font-size: 12px;}
+
+}
 /*===========================================================================
   이용약관
 ============================================================================*/
@@ -2646,8 +2753,7 @@
 .policy .policy-list th {  padding: 8px; border: 1px solid #333; }
 .policy .policy-list td {  padding: 8px; border: 1px solid #333; line-height: 1.5; }
 
-.policy .red-txt { color: red !important; }
-.policy  h3.red-txt { color: red !important; font-weight: bold;}
+/* .policy .red-txt { color: red !important; } */
 .policy .bold-txt { font-weight: bold; }
 .policy a { color: #2680eb;}
 @media screen and (max-width:1440px) {
