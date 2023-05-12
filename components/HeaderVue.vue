@@ -9,10 +9,10 @@
                     </nuxt-link>
                     <ul class="header-nav">
                         <li :class="typeCampaign === 'REALTIME' ? 'active' : ''">
-                            <nuxt-link to="/campaigns?type_campaign=REALTIME">실시간</nuxt-link>
+                            <nuxt-link to="/campaigns?type_campaign=REALTIME&showMap=1">실시간</nuxt-link>
                         </li>
                         <li :class="typeCampaign === 'VISIT' ? 'active' : ''">
-                            <nuxt-link to="/campaigns?type_campaign=VISIT">방문형</nuxt-link>
+                            <nuxt-link to="/campaigns?type_campaign=VISIT&showMap=1">방문형</nuxt-link>
                         </li>
                         <li :class="typeCampaign === 'DELIVERY' ? 'active' : ''">
                             <nuxt-link to="/campaigns?type_campaign=DELIVERY">배송형</nuxt-link>
@@ -126,10 +126,10 @@
 
                     <ul class="Mobile_Menu_Nav">
                         <li>
-                            <nuxt-link to="/campaigns?type_campaign=REALTIME">실시간 방문형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
+                            <nuxt-link to="/campaigns?type_campaign=REALTIME&showMap=1">실시간 방문형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="/campaigns?type_campaign=DELIVERY">배송형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
+                            <nuxt-link to="/campaigns?type_campaign=DELIVERY&showMap=1">배송형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
                         </li>
                         <li>
                             <nuxt-link to="/campaigns?type_campaign=VISIT">방문형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
