@@ -2,13 +2,21 @@
     <main id="main" class="campaign-page">
         <section class="section1">
             <div class="container">
-                <div class="Map-Search-wrap" id="map" ref="map" v-if="showMap">
 
+                <div :class="`campaign-tab img-wrap ${$route.query.type_campaign === 'REPORTER' || $route.query.type_campaign === 'DELIVERY' ? 'active' : ''}`">
+                    <img src="/images/campaign-banner2.png" alt="" class="pc">
+                    <img src="/images/campaign-banner2-m.png" alt="" class="mb">
                 </div>
-                <a class="img-wrap" href="#" @click.prevent="() => showMap = true" v-else>
-                    <img src="/images/Map_Search2.jpg" alt="" class="pc">
-                    <img src="/images/Map_Search2-mb.jpg" alt="" class="mb">
-                </a>
+
+                <div :class="`campaign-tab ${$route.query.type_campaign === 'VISIT' || $route.query.type_campaign === 'REALTIME' ? 'active' : ''}`">
+                    <div class="Map-Search-wrap" id="map" ref="map" v-if="showMap">
+
+                    </div>
+                    <a class="img-wrap" href="#" @click.prevent="() => showMap = true" v-else>
+                        <img src="/images/Map_Search2.jpg" alt="" class="pc">
+                        <img src="/images/Map_Search2-mb.jpg" alt="" class="mb">
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -141,6 +149,8 @@ export default {
         return {
             showMap: this.$route.query.showMap,
 
+            alreadyInitMap: false,
+
             campaigns: {
                 data: [],
                 links : {},
@@ -171,6 +181,7 @@ export default {
                 type_campaigns: this.$route.query.type_campaign ? [this.$route.query.type_campaign] : ["REPORTER", "DELIVERY", "VISIT", "REALTIME"],
                 page:1,
             }),
+
         }
     },
     methods: {
@@ -204,7 +215,7 @@ export default {
             let self = this;
 
             this.$axios.get("/api/campaigns", {
-                type_campaigns: ["REALTIME", "VISIT", "DELIVERY"],
+                type_campaigns: ["REALTIME", "VISIT"],
                 take: 1000,
                 ongoingHire: 1
             }).then(response => {

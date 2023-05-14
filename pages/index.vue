@@ -62,10 +62,8 @@
         </section>
         <section class="section5">
             <div class="container">
-                <nuxt-link to="/campaigns?showMap=1">
-                    <img src="/images/main-st5.jpg" alt="" class="pc">
-                    <img src="/images/main-st5-mb.jpg" alt="" class="mb">
-                </nuxt-link>
+                <img src="/images/campaign-banner2.png" alt="" class="pc">
+                <img src="/images/campaign-banner2-m.png" alt="" class="mb">
             </div>
         </section>
 

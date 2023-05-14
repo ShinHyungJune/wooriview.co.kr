@@ -301,3 +301,10 @@
     }
 }
 
+.campaign-page .campaign-tab {
+    position:absolute; opacity:0.0001; z-index:-1; left:-10000px; top:-10000px;
+}
+
+.campaign-page .campaign-tab.active {
+    position: static; z-index:1; opacity: 1;
+}
