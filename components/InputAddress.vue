@@ -1,5 +1,11 @@
 <template>
     <div class="m-input-address">
+        <div class="modal-address" id="modal-address">
+            <div id="popup-wrap">
+                <!-- 우편번호 API가 띄워질 공간 -->
+            </div>
+        </div>
+
         <div class="m-input-wrap m-input-withBtn">
             <div class="m-input-text">
                 <input type="text" placeholder="주소" v-model="form[address]" :name="address" @change="change" disabled>
@@ -27,6 +33,24 @@
     </div>
 </template>
 <style>
+@media screen and (max-width:500px) {
+    #popup-wrap > div {
+        width:340px !important;
+    }
+}
+
+.modal-address {
+    position: fixed;
+    z-index: 20000;
+    left: 50%; top:50%;
+    transform:translate(-50%, -50%);
+    background-color: white;
+    border:1px solid #ccc;
+}
+.popup-wrap {
+    border: 1px solid #333;
+}
+
 .m-input-address {
     flex:auto;
 }
@@ -109,6 +133,7 @@ export default {
         kakao.maps.load();
 
         let self = this;
+        const postcodeWrap = document.querySelector("#popup-wrap");
 
         document.getElementById("find_address").addEventListener("click", function(){ //주소입력칸을 클릭하면
             //카카오 지도 발생
@@ -119,8 +144,16 @@ export default {
                     // self.emit(self.address, data.address);
                     self.emit(self.address, data.address);
                     self.emit(self.address_zipcode, data.zonecode);
+                },
+                onclose:function(state) {
+                    if(state === "COMPLETE_CLOSE") {
+                        // 콜백함수를 실행하여 슬라이드 업 기능이 실행 완료후 작업을 진행한다.
+                        offDaumZipAddress(function() {
+                            postcodeWrap.style.display = "none";
+                        });
+                    }
                 }
-            }).open();
+            }).embed(postcodeWrap);
         });
     }
 }

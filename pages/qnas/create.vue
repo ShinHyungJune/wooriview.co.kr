@@ -69,6 +69,7 @@ export default {
             }),
         }
     },
+
     methods: {
         store(){
             this.form.post("/api/qnas")
