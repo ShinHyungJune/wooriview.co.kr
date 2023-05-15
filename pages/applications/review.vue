@@ -140,7 +140,10 @@ export default {
         storeReview(){
             this.reviewForm.post("/api/applications/review")
                 .then(response => {
-                    this.$router.back();
+                    this.$store.commit("setPop", {
+                        title: "리뷰등록완료",
+                        description: "성공적으로 처리되었습니다."
+                    })
                 });
         },
 

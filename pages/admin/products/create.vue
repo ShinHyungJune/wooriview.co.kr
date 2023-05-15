@@ -131,6 +131,8 @@ export default {
                     this.form.set(this.item);
 
                     this.loading = false;
+
+                    console.log(this.form);
                 })
         }
 

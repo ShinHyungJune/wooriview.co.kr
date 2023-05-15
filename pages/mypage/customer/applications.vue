@@ -49,7 +49,7 @@
                                 <p class="num-title">{{ application.format_visited_at ? application.format_visited_at : "-" }}</p>
                             </li>
                             <li class="chat">
-                                <nuxt-link :to="`/chats?campaign_id=${application.campaign.id}`">1:1 채팅</nuxt-link>
+                                <nuxt-link :to="`/chats?application_id=${application.id}`">1:1 채팅</nuxt-link>
                             </li>
                         </ul>
                     </div>

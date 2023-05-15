@@ -117,13 +117,13 @@
                 </li>
             </ul>
 
-            <nuxt-link to="/qnas" class="Banner-Download">
+            <a href="/images/advertising_banner.jpg" download class="Banner-Download">
                 <img src="/images/advertising_banner.jpg" alt="">
                 <p>문의사항을 전달하고 열람할 수 있어요</p>
                 <div class="icon">
                     <i class="xi-download"></i>
                 </div>
-            </nuxt-link>
+            </a>
 
             <div class="logout-btn-wrap">
                 <a href="#" class="logout-btn" @click.prevent="() => {$auth.logout();}">계정 로그아웃이 필요하신가요?</a>

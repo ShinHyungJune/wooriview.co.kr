@@ -70,6 +70,8 @@ class Form {
     }
 
     set(data) {
+        this.originalData = data;
+
         for(let field in data){
             this[field] = data[field];
         }

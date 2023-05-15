@@ -45,7 +45,8 @@ export default {
         return {
             form : new Form(this.$axios, {
                 email:"",
-                password:""
+                password:"",
+                type: "ADMIN"
             })
         }
     },

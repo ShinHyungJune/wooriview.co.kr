@@ -76,9 +76,15 @@
                     <div class="input-wrap">
                         <input type="text" v-model="form.body" placeholder="메세지를 입력하세요">
                     </div>
-                    <button class="send-btn">
-                        <i class="xi-send"></i>
-                    </button>
+                    <div class="btns">
+                        <button class="send-btn">
+                            <i class="xi-send"></i>
+                        </button>
+                        <button type="button" class="penalty-btn" @click="() => {targetUser = $auth.user.data.type === 'COMPANY' ? chat.application.user : chat.campaign.user; openPenaltyPop()}">
+                            <i class="xi-warning"></i>
+                        </button>
+                    </div>
+
                     <div class="add-box upload">
                         <input type="file" id="as_file" @change="changeFile">
 
@@ -163,6 +169,7 @@
                         <div class="left-box">
                             <div class="subscriber-name-wrap">
                                 <div class="subscriber-img">
+                                    <img :src="targetUser.img.url" alt="" v-if="targetUser.img.url">
                                     <!-- <img src="/images/Blog-icon.svg" alt=""> -->
                                 </div>
                                 <div class="subscriber-name">
@@ -208,11 +215,6 @@ export default {
                 file: ""
             }),
 
-            reviewForm: new Form(this.$axios, {
-                campaign_id: this.$route.query.campaign_id,
-                url_review: ""
-            }),
-
             messages: {
                 data: [],
                 links: {},
@@ -246,12 +248,18 @@ export default {
 
                 self.$refs.chatWrap.scrollTop = self.$refs.chatWrap.scrollHeight + 400;
             });
+
+            channel.bind('pusher:subscription_count', (data) => {
+                /*if(data.subscription_count > 2)
+                    self.need_alarm = 1;*/
+            });
         },
 
         getChat(){
             this.$axios.get("/api/chats", {
                 params: {
-                    campaign_id: this.$route.query.campaign_id
+                    application_id: this.$route.query.application_id,
+                    campaign_id: this.$route.query.campaign_id,
                 }
             }).then(response => {
                 this.chat = response.data.data;
@@ -259,7 +267,6 @@ export default {
                 this.getMessages(false, this.chat);
 
                 this.setChannel(this.chat);
-
 
                 setTimeout(function(){
                     $(".toggle-box").click(function (){
@@ -308,13 +315,6 @@ export default {
             this.fileForm.file = "";
         },
 
-        storeReview(){
-            this.reviewForm.post("/api/applications/review")
-                .then(response => {
-                    this.chat.campaign.url_review = 1;
-                });
-        },
-
         changeFile(e){
             this.fileForm.file = e.target.files[0];
 
@@ -338,8 +338,8 @@ export default {
             this.activePenaltyPop = false;
         },
 
-        openProfilePop(message){
-            this.targetUser = message.user;
+        openProfilePop(targetUser){
+            this.targetUser = targetUser;
 
             this.activeProfilePop = true;
         },

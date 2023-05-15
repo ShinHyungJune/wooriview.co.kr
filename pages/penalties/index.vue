@@ -18,7 +18,7 @@
                 <div class="white-box">
                     <div class="left-box">
                         <div class="penalty-icon-box">
-                            <i class="xi-error state4"></i>
+                            <i :class="`xi-error  state${user.penalty_level}`"></i>
                         </div>
                         <div class="info-box-wrap">
                             <div class="info-box-top">
@@ -105,7 +105,7 @@
                                 </li>
                                 <li class="influencer-name" v-if="user.type === 'COMPANY'">
                                     {{form.type === 'GIVE'
-                                        ? user.nickname
+                                        ? penalty.targetUser.nickname
                                         : penalty.user.nickname
                                     }}
                                 </li>

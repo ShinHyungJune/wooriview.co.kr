@@ -1489,7 +1489,12 @@
 .MyPage.review-add .link-add-box .left-wrap .link-input-wrap input::placeholder { font-size: 16px; color:#c1c1c1;}
 .MyPage.review-add .link-add-box .left-wrap .link-input-wrap .send-btn { position: absolute; right: 12px; top: 8px; display: flex; justify-content: center; align-items: center; width: 72px; height: 38px; background-color: #ffcb2e; border-radius: 19px; padding-left: 5px; padding-bottom: 2px; cursor: pointer;}
 .MyPage.review-add .link-add-box .left-wrap .link-input-wrap .send-btn i { font-size: 24px; color: #fff; transform: rotate(-30deg); line-height: 1.38;}
-.MyPage.review-add .link-add-box .left-wrap .link-input-sub { font-size: 16px; color: #ffc800; line-height: 1.5;}
+.MyPage.review-add .link-add-box .left-wrap .link-input-sub {
+    padding:12px 32px;
+    font-size: 18px; color: black; line-height: 1.5; font-weight:bold;
+    background-color:#ffc800; border-radius:35px;
+    text-align: center;
+}
 
 
 
@@ -1568,6 +1573,9 @@
 .chat-wrap .textbox { position: relative;  display: inline-block;  width: 450px; padding: 10px;   margin-top: 7px;  border-radius: 10px; font-size: 16px; font-weight: normal;  background-color: #fff; line-height: 1.5;  letter-spacing: -0.4px;  }
 .chat-wrap .textbox::before { position: absolute; display: block;  top: 0; font-size: 1.5rem; }
 .chat-wrap .user1 .textbox { margin-left: 20px; }
+.chat-wrap .user1 .textbox a {
+    color:blue; text-decoration: underline;
+}
 .chat-wrap .user1 .textbox::before { left: -15px;  content: "◀"; color: #fff; }
 .chat-wrap .user2 {  flex-direction: row-reverse; }
 .chat-wrap .user2 .textbox {  margin-right: 20px; }
@@ -1583,6 +1591,20 @@
 .chat .btm-wrap .input-wrap textarea::-webkit-scrollbar {display: none; /* 크롬, 사파리, 오페라, 엣지 */ }
 .chat .btm-wrap .send-btn {  display: flex; justify-content: center; align-items: center; width: 72px; height: 38px; background-color: #ffcb2e; border-radius: 19px; padding-left: 5px; padding-bottom: 2px; cursor: pointer;}
 .chat .btm-wrap .send-btn i { font-size: 24px; color: #fff; transform: rotate(-30deg); line-height: 1.38;}
+.chat .btm-wrap .btns {
+    display: flex; justify-content: center; align-items: center;
+}
+.chat .btm-wrap .btns .penalty-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; margin-left:12px;
+    cursor: pointer;
+    background-color:red; color:#fff;
+    border-radius: 19px;
+}
+.chat .btm-wrap .btns .penalty-btn i {
+    font-size:20px; color:#fff;
+}
+
 
 .chat .btm-wrap .file-btn { display: flex; justify-content: center; align-items: center; width: 38px; height: 38px; background-color: #e4e4e4; border-radius: 50%; cursor: pointer;}
 .chat .btm-wrap .file-btn i { font-size: 24px; color: rgba(0, 0, 0, 0.35);; transform: rotate(-42deg); }
@@ -2007,6 +2029,7 @@
 .advertiser-table_1 .table-wrap .tbody .application-num span ,
 .advertiser-table_1 .table-wrap .tbody .application-num .unit { font-size: 14px; color: #202020; font-weight: 500;}
 .advertiser-table_1 .table-wrap > ul > li:nth-child(5) { width: 10%; min-width: 133px; }
+.advertiser-table_1 .table-wrap > ul > li:nth-child(6) { width: 10%; min-width: 133px; }
 .advertiser-table_1 .table-wrap > ul > li:nth-child(2) { width: 50%;}
 
 .advertiser-table_1.influencer-table_1 .table-wrap#tab-4 li.wait-num { color: #ffc800 ;}
@@ -2789,4 +2812,7 @@
     .m-quicks.type01 {
         right:20px; bottom:100px;
     }
+
 }
+
+

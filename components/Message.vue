@@ -1,6 +1,6 @@
 <template>
     <li :class="message.user.id == $auth.user.data.id ? 'user2' : 'user1'">
-        <div class="img-wrap" @click="() => $emit('click', message)">
+        <div class="img-wrap" @click="() => $emit('click', message.user)">
             <img :src="message.user.img.url" alt="" v-if="message.user.img">
         </div>
         <div class="chat-txt">

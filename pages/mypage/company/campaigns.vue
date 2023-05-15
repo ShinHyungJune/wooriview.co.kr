@@ -263,7 +263,7 @@
                         </ul>
                     </div>
 
-                    <!-- 인플루언서 작성 -->
+                    <!-- 체험중인 캠페인 -->
                     <div class="table-wrap tab-content Active"  id="tab-4" v-if="state === 'ongoingReview'">
                         <ul class="thead">
                             <li class="th">
@@ -273,13 +273,16 @@
                                 캠페인 정보
                             </li>
                             <li class="th">
-                                모집
+                                참여
                             </li>
                             <li class="th">
                                 선정
                             </li>
                             <li class="th">
                                 인플루언서
+                            </li>
+                            <li class="th">
+                                통계
                             </li>
                         </ul>
 
@@ -315,6 +318,9 @@
                             <li class="btn-wrap list">
                                 <nuxt-link :to="`/mypage/company/applications?campaign_id=${campaign.id}`" class="btn-list">리스트보기</nuxt-link>
                             </li>
+                            <li class="btn-wrap statistics">
+                                <nuxt-link class="btn-list" :to="`/campaigns/chart?campaign_id=${campaign.id}`">통계 보기</nuxt-link>
+                            </li>
                         </ul>
                     </div>
 
@@ -322,13 +328,13 @@
                     <div class="table-wrap tab-content Active"  id="tab-6" v-if="state === 'finishReview'">
                         <ul class="thead">
                             <li class="th">
-                                컨텐츠 등록기간
-                            </li>
-                            <li class="th">
                                 캠페인 정보
                             </li>
-                            <li class="th">
+                            <li class="th" style="width:auto;">
                                 선정
+                            </li>
+                            <li class="th">
+                                컨텐츠
                             </li>
                             <li class="th">
                                 인플루언서
@@ -342,13 +348,17 @@
 
                         <!-- 리스트 그룹 -->
                         <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
-                            <li class="period">
-                                <span class="unit mb">인플루언서 작성 기간</span>
-                                {{ campaign.format_review_started_at }} <br class="br-pc"/> ~ {{campaign.format_review_finished_at}}
-                            </li>
 
                             <!-- 캠페인 정보 -->
                             <campaign :campaign="campaign" />
+
+                            <li class="recruit-num num-re-po" style="width:auto;">
+                                <span class="unit mb">컨텐츠</span>
+                                <div class="default-wrap">
+                                    <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
+                                    <span class="unit">개</span>
+                                </div>
+                            </li>
 
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">선정</span>

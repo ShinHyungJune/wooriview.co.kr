@@ -19,7 +19,7 @@
                         </div>
                         <div class="right-wrap-contents">
                             <div class="input-contents tab-content current" id="tab-1">
-                                <div class="input-wrap tab-1">
+                                <div :class="`input-wrap ${form.type === 'CUSTOMER' ? 'tab-1' : 'tab-2'}`">
                                     <input class="" type="text" placeholder="EMAIL ID" autofocus v-model="form.email">
                                     <error :form="form" name="email" />
                                 </div>

@@ -289,75 +289,71 @@ export default {
         drawChart(){
             let self = this;
 
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
+            if(this.reports.length !== 0){
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
 
-            function drawChart() {
-                let items = [];
+                function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['Year', '좋아요', '댓글'],
+                        ...self.reports.map(report => {
+                            return [
+                                report.date, parseInt(report.total_like), parseInt(report.total_comment)
+                            ];
+                        })]
+                    );
 
-                console.log(...self.reports.map(report => {
-                    return [
-                        report.date, report.total_like, report.total_comment
-                    ];
-                }));
-                var data = google.visualization.arrayToDataTable([
-                    ['Year', '좋아요', '댓글'],
-                    ...self.reports.map(report => {
-                        return [
-                            report.date, parseInt(report.total_like), parseInt(report.total_comment)
-                        ];
-                    })]
-                );
-
-                var options = {
-                    curveType: 'function',
-                    legend: { position: 'none' }, // 종류 안보이게
-                    width: '100%', // 반응형을 위한 width
-                    backgroundColor: '#f5f5f5',
-                    fontSize: 12,
-                    series:
-                        {
-                            0: { lineWidth: 3 },
-                            1: { lineWidth: 3 }, //라인 굵기
+                    var options = {
+                        curveType: 'function',
+                        legend: { position: 'none' }, // 종류 안보이게
+                        width: '100%', // 반응형을 위한 width
+                        backgroundColor: '#f5f5f5',
+                        fontSize: 12,
+                        series:
+                            {
+                                0: { lineWidth: 3 },
+                                1: { lineWidth: 3 }, //라인 굵기
+                            },
+                        colors: ['#ffc800', '#202020' ], // 좋아요 라인 , 댓글 라인 색상
+                        chartArea: {'width': '86%', 'height': '70%'}, // 차트가 차지하는 범위
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    min: 0, //Y축 최소단위
+                                    stepSize : 1000, // Y축 간격
+                                }
+                            }],
                         },
-                    colors: ['#ffc800', '#202020' ], // 좋아요 라인 , 댓글 라인 색상
-                    chartArea: {'width': '86%', 'height': '70%'}, // 차트가 차지하는 범위
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                min: 0, //Y축 최소단위
-                                stepSize : 1000, // Y축 간격
-                            }
-                        }],
-                    },
+                    }
+
+                    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                    chart.draw(data, options);
                 }
 
-                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-                chart.draw(data, options);
-            }
-
-            $.fn.hasScrollBar = function() {
-                return (this.prop("scrollWidth") == 0 && this.prop("clientWidth") == 0)
-                    || (this.prop("scrollWidth") > this.prop("clientWidth"));
-            }; // 좌우 스크롤이 있는지 없는지 여부 검사
-            function wheel(name){
-                $(name).on('mousewheel',function(e){
-                    var hasScroll = $(this).hasScrollBar();
-                    if(!hasScroll){ //스크롤이 없으면 그냥 일반 스크롤
-                    }else{ //있으면 아래 스크롤 받는값을 없애고 좌우스크롤
-                        e.preventDefault();
-                        var wheelDelta = e.originalEvent.wheelDelta;
-                        if(wheelDelta > 0){
-                            $(this).scrollLeft(-wheelDelta + $(this).scrollLeft());
-                        }else{
-                            $(this).scrollLeft(-wheelDelta + $(this).scrollLeft());
+                $.fn.hasScrollBar = function() {
+                    return (this.prop("scrollWidth") == 0 && this.prop("clientWidth") == 0)
+                        || (this.prop("scrollWidth") > this.prop("clientWidth"));
+                }; // 좌우 스크롤이 있는지 없는지 여부 검사
+                function wheel(name){
+                    $(name).on('mousewheel',function(e){
+                        var hasScroll = $(this).hasScrollBar();
+                        if(!hasScroll){ //스크롤이 없으면 그냥 일반 스크롤
+                        }else{ //있으면 아래 스크롤 받는값을 없애고 좌우스크롤
+                            e.preventDefault();
+                            var wheelDelta = e.originalEvent.wheelDelta;
+                            if(wheelDelta > 0){
+                                $(this).scrollLeft(-wheelDelta + $(this).scrollLeft());
+                            }else{
+                                $(this).scrollLeft(-wheelDelta + $(this).scrollLeft());
+                            }
                         }
-                    }
+                    });
+                }
+                $(function(){
+                    wheel('.chart-wrap #curve_chart');
                 });
             }
-            $(function(){
-                wheel('.chart-wrap #curve_chart');
-            });
+
         },
 
         downloadApplications(){
