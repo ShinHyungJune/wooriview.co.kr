@@ -10,7 +10,7 @@
                 </p>
             </div>
             <div class="form-wrap" v-if="!loading && item">
-                <form action="" @submit.prevent="accept">
+                <form action="" @submit.prevent="store">
                     <ul class="form-box">
                         <li class="col-group">
                             <div class="default">
@@ -91,7 +91,9 @@
                                 <p>모집시작일</p>
                             </div>
                             <div class="user">
-                                {{ item.format_hire_started_at }}
+                                <input type="datetime-local" name="" v-model="form.hire_started_at" />
+
+                                <error :form="form" name="hire_started_at" />
                             </div>
                         </li>
                         <li class="col-group">
@@ -99,7 +101,9 @@
                                 <p>모집마감일</p>
                             </div>
                             <div class="user">
-                                {{ item.format_hire_finished_at }}
+                                <input type="datetime-local" name="" v-model="form.hire_finished_at" />
+
+                                <error :form="form" name="hire_finished_at" />
                             </div>
                         </li>
                         <li class="col-group">
@@ -107,7 +111,9 @@
                                 <p>선정시작일</p>
                             </div>
                             <div class="user">
-                                {{ item.format_select_finished_at }}
+                                <input type="datetime-local" name="" v-model="form.select_started_at" />
+
+                                <error :form="form" name="select_started_at" />
                             </div>
                         </li>
                         <li class="col-group">
@@ -115,7 +121,9 @@
                                 <p>선정마감일</p>
                             </div>
                             <div class="user">
-                                {{ item.format_select_finished_at }}
+                                <input type="datetime-local" name="" v-model="form.select_finished_at" />
+
+                                <error :form="form" name="select_finished_at" />
                             </div>
                         </li>
                         <li class="col-group">
@@ -123,7 +131,9 @@
                                 <p>작성시작일</p>
                             </div>
                             <div class="user">
-                                {{ item.format_review_started_at }}
+                                <input type="datetime-local" name="" v-model="form.review_started_at" />
+
+                                <error :form="form" name="review_started_at" />
                             </div>
                         </li>
                         <li class="col-group">
@@ -131,7 +141,9 @@
                                 <p>작성마감일</p>
                             </div>
                             <div class="user">
-                                {{ item.format_review_finished_at }}
+                                <input type="datetime-local" name="" v-model="form.hire_finished_at" />
+
+                                <error :form="form" name="hire_finished_at" />
                             </div>
                         </li>
                         <li class="col-group">
@@ -184,7 +196,7 @@
                         </li>
                     </ul>
 
-                    <button type="submit" class="submit-btn">승인하기</button>
+                    <button type="submit" class="submit-btn">저장하기</button>
 
                 </form>
             </div>
@@ -215,10 +227,8 @@ export default {
     },
 
     methods: {
-        accept(){
-            this.form.selected_ids = [this.item.id];
-
-            return this.form.patch("/api/admin/campaigns/accept")
+        store(){
+            return this.form.post("/api/admin/campaigns/update/" + this.item.id)
                 .then(response => {
                     this.$router.back();
                 });

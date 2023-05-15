@@ -3,12 +3,9 @@
         <div class="manage-wrap">
             <div class="title-wrap row-group">
                 <div class="col-group">
-                    <div class="menu-wrap col-group">
-                        <p class="title scd5">
-                            광고주
-                        </p>
-                    </div>
-
+                    <p class="title scd5">
+                        패널티
+                    </p>
                     <div class="search-wrap">
                         <form action="" @submit.prevent="filter">
                             <input type="text" placeholder="검색어를 입력해주세요" v-model="form.word">
@@ -18,52 +15,36 @@
                         </form>
                     </div>
                 </div>
-                <!--
-                <div class="btn-wrap col-group">
-                    <nuxt-link to="/admin/users/create" class="add-btn">신규 추가</nuxt-link>
-                    <a href="#" class="del-btn" @click.prevent="remove">선택 삭제</a>
-                </div>
-                -->
+<!--                <div class="btn-wrap col-group">
+                    <nuxt-link to="/admin/penalties/create" class="add-btn">신규 추가</nuxt-link>
+                </div>-->
             </div>
             <div class="table-wrap">
                 <table>
                     <thead>
                     <tr>
                         <th>번호</th>
-                        <th>이메일</th>
-                        <th>담당자 연락처</th>
-                        <th>회사명</th>
-                        <th>회사연락처</th>
-                        <th>사업자등록증</th>
-                        <th>패널티</th>
-                        <th>이용권 만료일자</th>
+                        <th>캠페인명</th>
+                        <th>패널티 대상</th>
+                        <th>패널티 사유</th>
+                        <th>등록일자</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(item, index) in items.data" :key="item.id" style="cursor:default;">
+                    <tr v-for="(item, index) in items.data" :key="item.id">
                         <td>
                             {{item.id}}
                         </td>
+                        <td>[{{item.campaign.title_company}}] {{item.campaign.title_product}}</td>
                         <td>
-                            {{item.email}}
+                            {{item.targetUser.type === 'CUSTOMER' ? `[일반사용자] ${item.targetUser.nickname}` : `[광고주] ${item.targetUser.company_name}`}}
                         </td>
                         <td>
-                            {{item.contact}}
+                            <p v-for="(reason, index) in item.reasons" :key="index">{{item.reason}}</p>
+                            <p>{{item.description}}</p>
                         </td>
                         <td>
-                            {{item.company_name}}
-                        </td>
-                        <td>
-                            {{item.company_contact}}
-                        </td>
-                        <td>
-                            <a :href="item.file_company.url" v-if="item.file_company">{{item.file_company.name}}</a>
-                        </td>
-                        <td>
-                            {{item.penalty['title']}}
-                        </td>
-                        <td>
-                            {{item.expired_at === "" ? '구매이력 없음' : ''}}
+                            {{item.created_at}}
                         </td>
                     </tr>
                     </tbody>
@@ -97,7 +78,6 @@ export default {
                 page: 1,
                 selected_ids: [],
                 word: "",
-                type: "COMPANY"
             }),
         }
     },
@@ -105,7 +85,7 @@ export default {
     methods: {
         filter(){
 
-            this.$axios.get("/api/admin/users", {
+            this.$axios.get("/api/admin/penalties", {
                 params: this.form
             }).then(response => {
                 this.items = response.data;
@@ -113,7 +93,7 @@ export default {
         },
 
         remove(){
-            this.form.delete("/api/admin/users/1")
+            this.form.delete("/api/admin/penalties/1")
                 .then(response => {
                     this.items.data = this.items.data.filter(itemData => !this.form.selected_ids.includes(itemData.id));
                     this.form.selected_ids = [];
@@ -138,7 +118,7 @@ export default {
 
                 this.items.data.splice(index - 1,0, temp);
 
-                this.form.patch("/api/admin/users/" + item.id + "/up")
+                this.form.patch("/api/admin/penalties/" + item.id + "/up")
                     .then(response => {
 
                     });
@@ -156,7 +136,7 @@ export default {
 
                 this.items.data.splice(index + 1,0, temp);
 
-                this.form.patch("/api/admin/users/" + item.id + "/down")
+                this.form.patch("/api/admin/penalties/" + item.id + "/down")
                     .then(response => {
 
                     });

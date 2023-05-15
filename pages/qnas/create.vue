@@ -63,7 +63,7 @@ export default {
             campaign: "",
 
             form : new Form(this.$axios, {
-                category: "",
+                category: this.$route.query.category ? this.$route.query.category : "",
                 title: "",
                 description: "",
             }),

@@ -25,6 +25,7 @@
                 </div>
                 <div class="btn-wrap col-group">
                     <a href="#" type="button" class="add-btn" @click.prevent="accept">승인하기</a>
+                    <a href="#" type="button" class="add-btn" @click.prevent="penalty" style="background-color:red; color:#fff;">패널티 부여</a>
                     <a href="#" class="del-btn" @click.prevent="remove">선택 삭제</a>
                 </div>
             </div>
@@ -146,6 +147,18 @@ export default {
             this.form.delete("/api/admin/campaigns/1")
                 .then(response => {
                     this.items.data = this.items.data.filter(itemData => !this.form.selected_ids.includes(itemData.id));
+                    this.form.selected_ids = [];
+                });
+        },
+
+        penalty(){
+            this.form.post("/api/admin/penalties")
+                .then(response => {
+                    this.$store.commit("setPop", {
+                        title: "처리완료",
+                        description: "성공적으로 처리되었습니다."
+                    });
+
                     this.form.selected_ids = [];
                 });
         },

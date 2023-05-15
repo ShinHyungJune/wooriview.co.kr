@@ -14,7 +14,7 @@
                 <div class="ft-nav">
                     <nuxt-link to="/contents/privacyPolicy">개인정보 처리방침</nuxt-link>
                     <nuxt-link to="/contents/servicePolicy">이용방침</nuxt-link>
-                    <a href="">입점문의</a>
+                    <nuxt-link to="/qnas/create?category=광고 및 입점 문의">입점문의</nuxt-link>
                     <nuxt-link to="/qnas">고객센터</nuxt-link>
                 </div>
                 <p class="Address">주소 : 상계동169-210 4층 | 사업자등록번호 : 706-88-02900  ㅣ 대표자 : 정원철</p>

@@ -83,6 +83,9 @@
 .manage .table-wrap tbody tr { align-items: center; cursor:pointer; border-bottom:1px solid #e1e1e1;}
 .manage .table-wrap tbody td { padding: 20px 12px; text-align: center; }
 .manage .table-wrap tbody td, .manage .table-wrap .tbody .td p { word-break: break-all; }
+.manage .table-wrap tbody td a {
+    color:blue; text-decoration: underline;
+}
 .manage .table-wrap tbody> li> a:hover td { font-weight: bold; }
 .manage .table-wrap td img {
     max-width:300px;

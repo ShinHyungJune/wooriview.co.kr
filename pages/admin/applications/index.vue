@@ -24,15 +24,7 @@
                     </div>
                 </div>
                 <div class="btn-wrap col-group">
-
-                    <!--
-                    <a href="#" type="button" class="add-btn" @click.prevent="select">선정하기</a>
-                    <a href="#" class="del-btn" @click.prevent="unselect">선정취소</a>
-
-                    <a href="#" type="button" class="add-btn" @click.prevent="best">베스트</a>
-                    <a href="#" class="del-btn" @click.prevent="unbest">베스트 취소</a>
-
-                    -->
+                    <a href="#" type="button" class="add-btn" @click.prevent="penalty" style="background-color:red; color:#fff;">패널티 부여</a>
                 </div>
             </div>
             <div class="table-wrap">
@@ -139,6 +131,7 @@ export default {
                 selected_ids: [],
                 word: "",
                 selected: "",
+                penalty_by : "applications"
             }),
         }
     },
@@ -175,7 +168,19 @@ export default {
 
                     this.form.selected_ids = [];
                 });
-        }
+        },
+
+        penalty(){
+            this.form.post("/api/admin/penalties")
+                .then(response => {
+                    this.$store.commit("setPop", {
+                        title: "처리완료",
+                        description: "성공적으로 처리되었습니다."
+                    });
+
+                    this.form.selected_ids = [];
+                });
+        },
     },
 
     mounted() {

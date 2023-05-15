@@ -1,5 +1,7 @@
 <template>
     <main id="main" class="main">
+        <pops />
+
         <section class="section1">
             <div class="swiper mySwiper1">
                 <div class="swiper-wrapper">

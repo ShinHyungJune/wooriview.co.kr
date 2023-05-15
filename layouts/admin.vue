@@ -1,5 +1,7 @@
 <template>
     <div id="wrap" class="col-group">
+        <pop />
+
         <nav id="gnb" class="gnb" v-if="$route.path !== '/admin/login'">
             <div class="btn-wrap col-group">
                 <nuxt-link to="/admin/banners" class="home-btn">
@@ -49,6 +51,12 @@
                         <li>
                             <nuxt-link to="/admin/qnas" class="scd5">
                                 1대1문의
+                                <i class="xi-angle-right"></i>
+                            </nuxt-link>
+                        </li>
+                        <li>
+                            <nuxt-link to="/admin/penalties" class="scd5">
+                                패널티
                                 <i class="xi-angle-right"></i>
                             </nuxt-link>
                         </li>

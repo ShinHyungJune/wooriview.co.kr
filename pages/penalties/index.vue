@@ -27,7 +27,7 @@
                             <div class="info-box-btm">
                                 <p :class="`penalty-state state${user.penalty_level}`">{{user.penalty.title}}</p>
                                 <p class="state-date" v-if="user.penalty_level > 0">
-                                    경고 상태 종료일 : <span>{{ user.penalty_at }}</span>
+                                    경고 상태 종료일 : <span>{{ user.penalty.title === '블락' ? '영구정지' : user.penalty_at }}</span>
                                 </p>
                             </div>
                         </div>
