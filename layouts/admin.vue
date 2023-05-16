@@ -101,6 +101,19 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <p class="scd5">
+                        사이트관리
+                    </p>
+                    <ul class="sub-menu">
+                        <li>
+                            <nuxt-link to="/admin/abuses" class="scd5">
+                                욕설
+                                <i class="xi-angle-right"></i>
+                            </nuxt-link>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
 

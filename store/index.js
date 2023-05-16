@@ -6,22 +6,23 @@ export const state = () => ({
     },
     instagram_client_id: "1662125527296137",
     instagram_client_secret: "bc1ff483f107b2f837e5555a940a54b7",
+    abuses: [],
 })
 
 export const mutations = {
   /*setToken (state) {
     state.token = state;
   },*/
-    init(state){
-
-    },
-
     setPop (state, data){
         state.pop = data;
     },
 
     setCategories (state, data){
         state.categories = data;
+    },
+
+    setAbuses (state, data){
+        state.abuses = data;
     }
 }
 
