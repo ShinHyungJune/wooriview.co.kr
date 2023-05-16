@@ -355,15 +355,286 @@
                             </div>
                         </div>
 
-                        <div class="write-box">
-                            <div class="write-labal_wrap">
+                        <div class="write-box mission-box">
+                            <div class="write-labal_wrap mission-title-wrap">
                                 <p class="write-labal">캠페인미션 <span class="Essential">*</span></p>
+                                <p class="Explanation_p">※ 캠페인 미션 공통질문 (예시, 체크박스형식) 최대 5개 다중선택 가능</p>
+                            </div>
+
+                            <div class="Field-ck-wrap" v-if="form.type_campaign === 'DELIVERY'">
+                                <div class="category-ck mission1">
+                                    <input type="checkbox" name="" id="mission1" value="구매할 수 있는 링크 URL을 넣어주세요." class="misssion-chkbox" v-model="form.missions">
+                                    <label for="mission1">
+                                        <p class="label-title">구매할 수 있는 링크 URL을 넣어주세요. (하단 추가사항에 기재)</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission2">
+                                    <input type="checkbox" name="" id="mission2" class="misssion-chkbox" value="사진은 최소 10장이상 등록해주세요." v-model="form.missions">
+                                    <label for="mission2">
+                                        <p class="label-title">사진은 최소 10장이상 등록해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission3">
+                                    <input type="checkbox" name="" id="mission3" class="misssion-chkbox" value="체험하신 동영상 혹은 움짤 1개 이상 첨부해주세요." v-model="form.missions">
+                                    <label for="mission3">
+                                        <p class="label-title">체험하신 동영상 혹은 움짤 1개 이상 첨부해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission4">
+                                    <input type="checkbox" name="" id="mission4" class="misssion-chkbox" value="제품 사용 비포/에프터 샷을 첨부해주세요." v-model="form.missions">
+                                    <label for="mission4">
+                                        <p class="label-title">제품 사용 비포/에프터 샷을 첨부해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission5">
+                                    <input type="checkbox" name="" id="mission5" class="misssion-chkbox" value="제품 상세이미지를 참고하여 제품의 특징을 살려 작성해주세요." v-model="form.missions">
+                                    <label for="mission5">
+                                        <p class="label-title">제품 상세이미지를 참고하여 제품의 특징을 살려 작성해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission6">
+                                    <input type="checkbox" name="" id="mission6" class="misssion-chkbox" value="해당 제품을 기존에 필요로 했던 것처럼 작성해주세요." v-model="form.missions">
+                                    <label for="mission6">
+                                        <p class="label-title">해당 제품을 기존에 필요로 했던 것처럼 작성해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission7">
+                                    <input type="checkbox" name="" id="mission7" class="misssion-chkbox" value="본인이 착용 및 사용한 이미지를 올려주세요." v-model="form.missions">
+                                    <label for="mission7">
+                                        <p class="label-title">본인이 착용 및 사용한 이미지를 올려주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission8">
+                                    <input type="checkbox" name="" id="mission8" class="misssion-chkbox" value="안내된 키워드 모두 해시태그로 기재해주세요." v-model="form.missions">
+                                    <label for="mission8">
+                                        <p class="label-title">안내된 키워드 모두 해시태그로 기재해주세요.</p>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="Field-ck-wrap" v-if="form.type_campaign === 'VISIT'">
+                                <div class="category-ck mission1">
+                                    <input type="checkbox" name="" id="mission1" value="찾아오는 길을 사진이나 자세한 설명으로 포스팅에 넣어주세요." class="misssion-chkbox" v-model="form.missions">
+                                    <label for="mission1">
+                                        <p class="label-title">찾아오는 길을 사진이나 자세한 설명으로 포스팅에 넣어주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission2">
+                                    <input type="checkbox" name="" id="mission2" class="misssion-chkbox" value="포스팅 하단에 지도와 홈페이지(링크) 주소를 넣어주세요." v-model="form.missions">
+                                    <label for="mission2">
+                                        <p class="label-title">포스팅 하단에 지도와 홈페이지(링크) 주소를 넣어주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission3">
+                                    <input type="checkbox" name="" id="mission3" class="misssion-chkbox" value="매장 전면사진을 첨부해주세요." v-model="form.missions">
+                                    <label for="mission3">
+                                        <p class="label-title">매장 전면사진을 첨부해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission4">
+                                    <input type="checkbox" name="" id="mission4" class="misssion-chkbox" value="메뉴판과 음식(제공내역) 사진을 첨부해주세요." v-model="form.missions">
+                                    <label for="mission4">
+                                        <p class="label-title">메뉴판과 음식(제공내역) 사진을 첨부해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission5">
+                                    <input type="checkbox" name="" id="mission5" class="misssion-chkbox" value="매장의 실제 내부 사진이나 시설에 대해 포스팅에 넣어주세요." v-model="form.missions">
+                                    <label for="mission5">
+                                        <p class="label-title">매장의 실제 내부 사진이나 시설에 대해 포스팅에 넣어주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission6">
+                                    <input type="checkbox" name="" id="mission6" class="misssion-chkbox" value="사진은 최소 10장이상 등록해주세요." v-model="form.missions">
+                                    <label for="mission6">
+                                        <p class="label-title">사진은 최소 10장이상 등록해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission7">
+                                    <input type="checkbox" name="" id="mission7" class="misssion-chkbox" value="체험하신 동영상 혹은 움짤 1개 이상 첨부해주세요." v-model="form.missions">
+                                    <label for="mission7">
+                                        <p class="label-title">체험하신 동영상 혹은 움짤 1개 이상 첨부해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission8">
+                                    <input type="checkbox" name="" id="mission8" class="misssion-chkbox" value="안내된 키워드 모두 해시태그로 기재해주세요." v-model="form.missions">
+                                    <label for="mission8">
+                                        <p class="label-title">안내된 키워드 모두 해시태그로 기재해주세요.</p>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="Field-ck-wrap" v-if="form.type_campaign === 'REALTIME'">
+                                <div class="category-ck mission1">
+                                    <input type="checkbox" name="" id="mission1" value="찾아오는 길을 사진이나 자세한 설명으로 포스팅에 넣어주세요." class="misssion-chkbox" v-model="form.missions">
+                                    <label for="mission1">
+                                        <p class="label-title">찾아오는 길을 사진이나 자세한 설명으로 포스팅에 넣어주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission2">
+                                    <input type="checkbox" name="" id="mission2" class="misssion-chkbox" value="포스팅 하단에 지도와 홈페이지(링크) 주소를 넣어주세요." v-model="form.missions">
+                                    <label for="mission2">
+                                        <p class="label-title">포스팅 하단에 지도와 홈페이지(링크) 주소를 넣어주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission3">
+                                    <input type="checkbox" name="" id="mission3" class="misssion-chkbox" value="매장 전면사진을 첨부해주세요." v-model="form.missions">
+                                    <label for="mission3">
+                                        <p class="label-title">매장 전면사진을 첨부해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission4">
+                                    <input type="checkbox" name="" id="mission4" class="misssion-chkbox" value="메뉴판과 음식(제공내역) 사진을 첨부해주세요." v-model="form.missions">
+                                    <label for="mission4">
+                                        <p class="label-title">메뉴판과 음식(제공내역) 사진을 첨부해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission5">
+                                    <input type="checkbox" name="" id="mission5" class="misssion-chkbox" value="매장의 실제 내부 사진이나 시설에 대해 포스팅에 넣어주세요." v-model="form.missions">
+                                    <label for="mission5">
+                                        <p class="label-title">매장의 실제 내부 사진이나 시설에 대해 포스팅에 넣어주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission6">
+                                    <input type="checkbox" name="" id="mission6" class="misssion-chkbox" value="사진은 최소 10장이상 등록해주세요." v-model="form.missions">
+                                    <label for="mission6">
+                                        <p class="label-title">사진은 최소 10장이상 등록해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission7">
+                                    <input type="checkbox" name="" id="mission7" class="misssion-chkbox" value="체험하신 동영상 혹은 움짤 1개 이상 첨부해주세요." v-model="form.missions">
+                                    <label for="mission7">
+                                        <p class="label-title">체험하신 동영상 혹은 움짤 1개 이상 첨부해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission8">
+                                    <input type="checkbox" name="" id="mission8" class="misssion-chkbox" value="안내된 키워드 모두 해시태그로 기재해주세요." v-model="form.missions">
+                                    <label for="mission8">
+                                        <p class="label-title">안내된 키워드 모두 해시태그로 기재해주세요.</p>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="Field-ck-wrap" v-if="form.type_campaign === 'REPORTER'">
+                                <div class="category-ck mission1">
+                                    <input type="checkbox" name="" id="mission1" value="제공하는 사진은 최소 10장 이상 등록해주세요." class="misssion-chkbox" v-model="form.missions">
+                                    <label for="mission1">
+                                        <p class="label-title">제공하는 사진은 최소 10장 이상 등록해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission2">
+                                    <input type="checkbox" name="" id="mission2" class="misssion-chkbox" value="제공해드리는 사진과 가이드라인을 활용해 정성스러운 포스팅을 작성해주세요." v-model="form.missions">
+                                    <label for="mission2">
+                                        <p class="label-title">제공해드리는 사진과 가이드라인을 활용해 정성스러운 포스팅을 작성해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission3">
+                                    <input type="checkbox" name="" id="mission3" class="misssion-chkbox" value="형식적인 포스팅이 아닌 직접 체험한 듯한 후기를 작성해주세요." v-model="form.missions">
+                                    <label for="mission3">
+                                        <p class="label-title">형식적인 포스팅이 아닌 직접 체험한 듯한 후기를 작성해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission4">
+                                    <input type="checkbox" name="" id="mission4" class="misssion-chkbox" value="제품이나 서비스를 추천하고자 하는 특정 대상과 사연을 작성해주세요." v-model="form.missions">
+                                    <label for="mission4">
+                                        <p class="label-title">제품이나 서비스를 추천하고자 하는 특정 대상과 사연을 작성해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission5">
+                                    <input type="checkbox" name="" id="mission5" class="misssion-chkbox" value="제공된 키워드 중 1개를 선택하여 본문에 5번 이상 넣어주세요." v-model="form.missions">
+                                    <label for="mission5">
+                                        <p class="label-title">제공된 키워드 중 1개를 선택하여 본문에 5번 이상 넣어주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission6">
+                                    <input type="checkbox" name="" id="mission6" class="misssion-chkbox" value="포스팅에 제품과 더불어 브랜드도 같이 언급해주세요." v-model="form.missions">
+                                    <label for="mission6">
+                                        <p class="label-title">포스팅에 제품과 더불어 브랜드도 같이 언급해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission7">
+                                    <input type="checkbox" name="" id="mission7" class="misssion-chkbox" value="제공된 제품의 상세페이지를 참고하여 제품의 특징을 상세하게 기재해주세요." v-model="form.missions">
+                                    <label for="mission7">
+                                        <p class="label-title">제공된 제품의 상세페이지를 참고하여 제품의 특징을 상세하게 기재해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission8">
+                                    <input type="checkbox" name="" id="mission8" class="misssion-chkbox" value="제공된 구매처 URL을 첨부해주세요." v-model="form.missions">
+                                    <label for="mission8">
+                                        <p class="label-title">제공된 구매처 URL을 첨부해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission9">
+                                    <input type="checkbox" name="" id="mission9" class="misssion-chkbox" value="재방문 및 재구매 의사가 있다고 강조해주세요." v-model="form.missions">
+                                    <label for="mission9">
+                                        <p class="label-title">재방문 및 재구매 의사가 있다고 강조해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission10">
+                                    <input type="checkbox" name="" id="mission10" class="misssion-chkbox" value="제공하는 동영상 혹은 움짤 1개이상 첨부해주세요." v-model="form.missions">
+                                    <label for="mission10">
+                                        <p class="label-title">제공하는 동영상 혹은 움짤 1개이상 첨부해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission11">
+                                    <input type="checkbox" name="" id="mission11" class="misssion-chkbox" value="매장의 실제 내부 사진이나 시설에 대해 강조해주세요." v-model="form.missions">
+                                    <label for="mission11">
+                                        <p class="label-title">매장의 실제 내부 사진이나 시설에 대해 강조해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission8">
+                                    <input type="checkbox" name="" id="mission12" class="misssion-chkbox" value="하단에 해시태그를 넣어주세요." v-model="form.missions">
+                                    <label for="mission12">
+                                        <p class="label-title">하단에 해시태그를 넣어주세요.</p>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <error :form="form" name="missions" />
+
+                        </div>
+
+                        <div class="write-box mission-box_add">
+                            <div class="write-labal_wrap">
+                                <p class="Explanation_p">기타 요청사항은 아래 칸에 작성해주세요.</p>
                             </div>
 
                             <div class="write-bundle">
-									<textarea style="height: 800px;" name="" id="" v-model="form.mission" :placeholder="missionPlaceholder"></textarea>
-                                <error :form="form" name="mission" />
+                                <textarea style="height: 303px;" id="" v-model="form.mission"></textarea>
                             </div>
+
+                            <error :form="form" name="mission" />
                         </div>
 
 
@@ -467,6 +738,7 @@ export default {
                 type_sns: "",
                 introduce: "",
                 search_keyword: "",
+                missions: [],
                 mission : "",
                 have_to_satisfied: 0,
                 price_write: "",
@@ -517,6 +789,9 @@ export default {
             this.activeAsk = false;
 
             this.form.temp = 0;
+
+            if(this.form.missions.length > 5)
+                return alert("캠페인 미션 공통질문은 최대 5개까지만 선택 가능합니다.");
 
             this.form.post("/api/campaigns")
                 .then(response => {

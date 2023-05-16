@@ -255,10 +255,21 @@ export default {
                         if (status === kakao.maps.services.Status.OK) {
                             var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
+                            // 마커이미지
+                            var markerImage = new kakao.maps.MarkerImage(
+                                campaign.type_campaign === 'REALTIME' ? '/images/marker-p.png' : 'images/marker-b.png',
+                                new kakao.maps.Size(50, 50), // 마커 이미지 크기
+                                {
+                                    offset: new kakao.maps.Point(25, 50), // 마커 이미지 기준점
+                                    alt: '마커 이미지',
+                                }
+                            );
+
                             // 결과값으로 받은 위치를 마커로 표시합니다
                             var marker = new kakao.maps.Marker({
                                 map: map,
                                 position: coords,
+                                image: markerImage,
                             });
 
                             // 인포윈도우로 장소에 대한 설명을 표시합니다

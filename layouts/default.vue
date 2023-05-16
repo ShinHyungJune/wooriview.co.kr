@@ -51,11 +51,20 @@ export default {
                 })
         },
 
+        getAbuses(){
+            this.$axios.get("/api/abuses")
+                .then(response => {
+                    this.$store.commit("setAbuses", response.data.data);
+                });
+        }
 
     },
 
     mounted() {
         // this.$store.commit("init");
+
+
+        this.getAbuses();
 
         this.getCategories();
 
