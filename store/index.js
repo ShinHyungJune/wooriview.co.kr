@@ -7,6 +7,7 @@ export const state = () => ({
     instagram_client_id: "1662125527296137",
     instagram_client_secret: "bc1ff483f107b2f837e5555a940a54b7",
     abuses: [],
+    push_token: null,
 })
 
 export const mutations = {
@@ -23,6 +24,10 @@ export const mutations = {
 
     setAbuses (state, data){
         state.abuses = data;
+    },
+
+    setPushToken (state, data){
+        state.push_token = data;
     }
 }
 

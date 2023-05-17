@@ -57,26 +57,20 @@ export default {
                     this.$store.commit("setAbuses", response.data.data);
                 });
         },
-        test(){
-            alert(JSON.stringify(window.AndroidBridge));
-            window.AndroidBridge.getFcmToken("fcm");
-        }
     },
 
     mounted() {
         // this.$store.commit("init");
-        /*window.receiveFcmToken = (token) => {
-            alert(token);
+        window.receiveFcmToken = (token) => {
             console.log('Received FCM token:', token);
+            this.$store.commit("setPushToken", token);
         };
 
-        if(window.AndroidBridge){
+        if(window.AndroidBridge)
             window.AndroidBridge.getFcmToken("fcm");
-        }
 
-        if(window.webkit){
+        if(window.webkit)
             window.webkit.messageHandlers.getFcmToken.postMessage("fcm");
-        }*/
 
         this.getAbuses();
 

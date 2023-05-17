@@ -99,16 +99,15 @@ export default {
             form : new Form(this.$axios, {
                 email:"",
                 password:"",
-                type: "CUSTOMER"
+                type: "CUSTOMER",
+                push_token: "",
             })
         }
     },
     methods: {
-        receiveFcmToken(token) {
-            alert(token);
-        },
-
         login(){
+            this.form.push_token = this.$store.state.push_token;
+
             this.$auth.loginWith('laravelSanctum', {
                 data: this.form.data()
             }).then(response => {

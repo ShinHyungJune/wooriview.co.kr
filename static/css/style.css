@@ -49,7 +49,7 @@
 .campaign-item .Information-wrap { display: block; }
 /* 0510추가 */
 .campaign-item .campaign-type-wrap {width: 100%; padding: 5px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; align-items: center; gap: 5px; background-color: #33333338; }
-.campaign-item .campaign-type-wrap .campaign-type-title { font-size: 14px; color: #fff;} 
+.campaign-item .campaign-type-wrap .campaign-type-title { font-size: 14px; color: #fff;}
 .campaign-item .campaign-type-wrap img { display: flex;  position: unset; }
 /* // */
 
@@ -89,7 +89,7 @@
     .campaign-item .State-wrap > p { font-size: 12px; }
     .campaign-item .Period-wrap .sns-wrap > li { height: 24px;}
     /* 0510추가 */
-    .campaign-item .campaign-type-wrap .campaign-type-title { font-size: 12px; } 
+    .campaign-item .campaign-type-wrap .campaign-type-title { font-size: 12px; }
 
 
 }
@@ -1521,7 +1521,7 @@
 /* 리뷰등록 - 채팅 1 */
 
 /* 공통 */
-.MyPage .white-box { position: relative; width: 100%;  display: flex;  border-radius: 16px;  background-color: #fff; justify-content: space-between; padding: 24px;  border: solid 2px #e4e4e4; z-index: 9999;}
+.MyPage .white-box { position: relative; width: 100%;  display: flex;  border-radius: 16px;  background-color: #fff; justify-content: space-between; padding: 24px;  border: solid 2px #e4e4e4; z-index: 98;}
 .MyPage .white-box .left-box { display: flex; gap: 33px; min-width: 423px;  position: relative;}
 .MyPage .white-box .left-box .img-box { width: 157px; height: 157px; background-color: #f5f5f5; border-radius: 16px;}
 
@@ -2325,7 +2325,7 @@
 .payment-detail .payment-sign-wrap .payment-sign_title {display: block; font-size: 20px; font-weight: 600; line-height: 1.6; color: #303030;}
 .payment-detail .payment-sign-wrap .payment-sign_box {width: 240px;  height: 102px; background-color: #e4e4e4;  border-radius: 16px; }
 .payment-detail .payment-sign  { display: flex; justify-content: center; align-items: center; width: 100%; margin: 64px auto 140px; max-width: 245px;  height: 48px;  border-radius: 24px; box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);  background-color: #ffcb2e; font-size: 16px; font-weight: 500; color: #202020; letter-spacing: 0.32px;}
-.payment-detail .pdf_page .page-sub { font-size: 16px; font-weight: bold; line-height: 1.5; margin-bottom: 48px;} 
+.payment-detail .pdf_page .page-sub { font-size: 16px; font-weight: bold; line-height: 1.5; margin-bottom: 48px;}
 .payment-detail .pdf_page .table-guide { font-size: 16px;}
 .payment-detail .pdf_page .table-guide span { font-weight: bold;}
 

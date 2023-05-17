@@ -153,10 +153,14 @@
                                 인게이지먼트
                             </li>
                             <li class="th">
+                                댓글
+                            </li>
+
+                            <li class="th" v-if="campaign.type_sns === 'INSTAGRAM'">
                                 좋아요
                             </li>
-                            <li class="th">
-                                댓글
+                            <li class="th" v-if="campaign.type_sns === 'NAVER'">
+                                조회수
                             </li>
 <!--                            <li class="th">
                                 팔로우
@@ -203,12 +207,16 @@
                                 <span>{{ (application.count_like + application.count_comment).toLocaleString() }}</span>
                             </li>
                             <li class="add-unit">
+                                <span class="unit mb">댓글: </span>
+                                <span>{{ application.count_comment.toLocaleString() }}</span>
+                            </li>
+                            <li class="add-unit" v-if="campaign.type_sns === 'INSTAGRAM'">
                                 <span class="unit mb">좋아요: </span>
                                 <span>{{ application.count_like.toLocaleString() }}</span>
                             </li>
-                            <li class="add-unit">
-                                <span class="unit mb">댓글: </span>
-                                <span>{{ application.count_comment.toLocaleString() }}</span>
+                            <li class="add-unit" v-if="campaign.type_sns === 'NAVER'">
+                                <span class="unit mb">조회수: </span>
+                                <span>{{ application.count_view.toLocaleString() }}</span>
                             </li>
 <!--                            <li class="add-unit">
                                 <span class="unit mb">팔로워: </span>
