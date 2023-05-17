@@ -80,7 +80,7 @@
                             <p class="payment-price" v-else>
                                 {{(product.price).toLocaleString()}}원
                             </p>
-                            <button class="buy-btn" @click="order(product)">구매하기</button>
+                            <button class="buy-btn" @click="$router.push(`/orders/create?product_id=${product.id}`)">구매하기</button>
                         </li>
                     </ul>
                     <div class="table-section">
@@ -101,6 +101,7 @@
                                     <li v-for="product in products.data" :key="product.id">
                                         {{ product.first_discount_title ? product.first_discount_title : "-" }}
                                     </li>
+
                                 </ul>
                             </div>
                         </div>
@@ -133,6 +134,7 @@
                             <li class="th">
                                 상태
                             </li>
+                            <li class="sign-th"></li>
                         </ul>
 
                         <empty v-if="orders.data.length === 0"/>
@@ -149,6 +151,9 @@
                             </li>
                             <li>
                                 {{ order.state === 'REFUND' ? '환불' : '구매' }}
+                            </li>
+                            <li class="sign-th">
+                                <a :href="order.file.url" class="m-btn type01 bg-revert-primary" v-if="order.file">계약서 보기</a>
                             </li>
                         </ul>
                     </div>
@@ -209,72 +214,6 @@ export default {
                     this.orders = response.data;
                 });
         },
-
-        getPayMethods(){
-            this.form.get("/api/payMethods")
-                .then(response => {
-                    this.payMethods = response;
-
-                    if(response.data.length > 0)
-                        this.form.pay_method_id = response.data[0].id;
-                });
-        },
-
-        order(product){
-            this.form.product_id = product.id;
-
-            this.form.post("/api/orders")
-                .then(response => {
-                    if(response.data.order.price == 0) {
-                        this.getOrders();
-                        return this.$auth.fetchUser();
-                    }
-
-                    this.pay(response.data.imp_code, response.data.m_redirect_url, response.data.order);
-                });
-        },
-
-        pay(impCode, redirectUrl, order){
-            if(!order)
-                return alert("주문에 실패하였습니다. 잠시 후 재시도해주세요");
-
-            let self = this;
-            let IMP = window.IMP; // 생략가능
-
-            IMP.init(impCode); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
-
-            IMP.request_pay({
-                pg : order.pay_method_pg, // version 1.1.0부터 지원.
-                pay_method : order.pay_method_method,
-                merchant_uid : order.merchant_uid,
-                name : order.product_title,
-                amount : order.price,
-                buyer_name : this.$auth.user.data.company_name,
-                buyer_tel : this.$auth.user.data.company_contact,
-                buyer_email : this.$auth.user.data.company_email,
-                buyer_addr : '',
-                buyer_postcode : '',
-                m_redirect_url: redirectUrl
-            }, function(rsp) {
-                if ( rsp.success ) {
-                    self.form.imp_uid = rsp.imp_uid;
-                    self.form.merchant_uid = rsp.merchant_uid;
-
-                    self.form.post("/api/orders/complete")
-                        .then(response => {
-                            self.$auth.fetchUser();
-                            self.getOrders();
-                            // self.$router.push("/orders/complete?order_id=" + response.data.id);
-                        }).catch(error => {
-                        alert("결제에 실패하였습니다. 잠시 후 재시도해주세요.");
-                    });
-                } else {
-                    let msg = '에러내용 : ' + rsp.error_msg;
-
-                    alert(msg);
-                }
-            });
-        }
     },
 
     computed: {
@@ -285,8 +224,6 @@ export default {
         this.getProducts();
 
         this.getOrders();
-
-        this.getPayMethods();
     },
 
     watch: {

@@ -24,6 +24,7 @@ export default {
             {src: "//unpkg.com/aos@2.3.1/dist/aos.js"},
             {src: "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"},
             {src: "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=b93c6e67af109eb2377106556643ab7d&libraries=services"},
+            {src: "//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"},
             {src: "/js/swiper.min.js"},
             {src: "//www.gstatic.com/charts/loader.js"},
             // {src: "/js/common.js"},
