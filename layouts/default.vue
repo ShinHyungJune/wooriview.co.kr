@@ -59,6 +59,7 @@ export default {
                 });
         },
         test(){
+            alert(JSON.stringify(window.AndroidBridge));
             window.AndroidBridge.getFcmToken("fcm");
         }
     },

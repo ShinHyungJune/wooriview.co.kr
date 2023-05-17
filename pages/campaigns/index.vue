@@ -22,16 +22,18 @@
 
         <section class="section2" v-if="categories.data.length > 0">
             <div class="container">
-                <div class="category-ck-wrap">
-                    <div class="category-ck" v-for="category in categories.data" :key="category.id">
-                        <input type="checkbox" name="" :id="category.id" :value="category.id" v-model="form.category_ids" @change="() => getCampaigns()">
-                        <label :for="category.id">
-                            <div class="img-wrap">
-                                <img :src="category.active.url" alt="" class="active">
-                                <img :src="category.inactive.url" alt="" class="inactive">
-                            </div>
-                            <p class="label-title">{{ category.title }}</p>
-                        </label>
+                <div class="cate-scroll-wrap">
+                    <div class="category-ck-wrap">
+                        <div class="category-ck" v-for="category in categories.data" :key="category.id">
+                            <input type="checkbox" name="" :id="category.id" :value="category.id" v-model="form.category_ids" @change="() => getCampaigns()">
+                            <label :for="category.id">
+                                <div class="img-wrap">
+                                    <img :src="category.active.url" alt="" class="active">
+                                    <img :src="category.inactive.url" alt="" class="inactive">
+                                </div>
+                                <p class="label-title">{{ category.title }}</p>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
