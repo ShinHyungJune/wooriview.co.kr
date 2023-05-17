@@ -10,6 +10,10 @@
     <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/> -->
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.js"></script>
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
 </head>
 <body>
     <div id="wrap">
@@ -84,31 +88,315 @@
 							<p class="bonus">+ 120일 연장</p>
 						</div> -->
 						 <!-- //1년-->
-						  
-						<div class="payment-agree-box">
-							<p class="payment-agree_title">서비스 결제 동의</p>
-							<div class="payment-agree_content">
-								<p>
-									Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium repellendus, fugiat nisi perspiciatis maiores placeat ipsum hic optio aut voluptatem. Nihil quidem optio aspernatur officia dolorum aliquid provident mollitia praesentium.
-									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora labore, aliquam possimus molestiae, sunt nobis consectetur dolor dignissimos quae modi ad veritatis magnam iusto cupiditate temporibus aspernatur nisi? Est, itaque!
-									Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto ipsum harum earum veritatis blanditiis culpa cupiditate ratione, aspernatur iste tempora veniam quaerat eligendi autem impedit alias incidunt repellendus velit accusantium.
-									<br />
-									<br />	<br />	<br />	<br />	<br />	<br />	<br />
-									<br />	<br />	<br />	<br />	<br />	<br />	<br /><br />	<br />	<br />	<br />	<br />	<br />	<br /><br />	<br />	<br />	<br />	<br />	<br />	<br /><br />	<br />	<br />	<br />	<br />	<br />	<br />
-								</p>
+						 <div class="payment-agree-box">
+							<div class="payment-agree-top">
+								<p class="payment-agree_title">우리뷰 결제 동의</p>
+								<button id="pdf-btn">PDF <i class="xi-download"></i></button>
+							</div> 
 
+							
+							<div class="payment-agree_contents ">
+								<!-- 1페이지 -->
+								<div class="content-layout">
+									<div class="pdf_page page1">
+										<p class="page-title">우리뷰 - 캠페인(기간제 유료서비스) 계약서</p>
+										<p class="page-index">1. 서비스 정보</p>
+										<div class="page-detail m-repo">
+											<p class="page-detail_title">서비스 유형</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">매칭되는 인플루언서 회원의 수</p>
+												<p class="page-detail_list-sub">
+													5명 (최소 단위 기준, 우리뷰는 계약기간내 등록 가능한 캠페인의 수, <br />
+													매칭되는 인플루언서의 수 제한 없이 이용가능)
+												</p>
+												<p class="page-detail_list-title">인플루언서가 필수적으로 작성하여야 하는 리뷰의 수</p>
+												<p class="page-detail_list-sub">
+													인플루언서의 경우, 1개의 캠페인 선정(1개의 제공내역 체험)당 1개의 리뷰 작성 필수
+												</p>
+												<p class="page-detail_list-title">리뷰 작성 매체</p>
+												<p class="page-detail_list-sub">
+													네이버 블로그, 인스타그램
+												</p>
+												<p class="page-detail_list-title">서비스 기간</p>
+												<p class="page-detail_list-sub">
+													1개월, 3개월, 6개월, 12개월
+												</p>
+											</div>
+										</div>
+										<div class="page-detail m-repo">
+											<p class="page-detail_title">유형별 금액</p>
+											<div class="page-detail_list line-repo">
+												<p class="page-detail_list-title">전체 금액 부가세 포함</p>
+											</div>
+										</div>
+										<div class="page-detail m-repo">
+											<p class="page-detail_title">특약사항</p>
+											<div class="page-detail_list line-repo">
+												<p class="page-detail_list-title">첫 결제시, 1개월 이용권한 추가제공 <span class="list-title-sub">프로모션</span></p>
+												<p class="page-detail_list-title">
+													계약기간내 별도의 추가결제 없이 우리뷰에서 중개하는 모든 광고채널 <br />
+													(블로그, 인스타그램, 유튜브) 이용 가능
+												</p>
+												<p class="page-detail_list-title">실시간 방문형 캠페인 무료 제공<span class="list-title-sub">우리뷰 런칭 프로모션, 추후 유료서비스 전환 예정</span></p>
+											</div>
+										</div>
+										<p class="page-index index-2">2. 광고주(가입자) 정보</p>
+										<table class="page-detail_table">
+											<tr>
+												<td class="table-title">사업자등록증상 상호<br />
+													법인의 경우 법인명</td>
+												<td class="table-content"></td>
+											</tr>
+											<tr>
+												<td class="table-title">대표자</td>  
+												<td class="table-content"></td>
+											</tr>
+											<tr>
+												<td class="table-title">사업자등록번호</td>  
+												<td class="table-content"></td>
+											</tr>
+											<tr>
+												<td class="table-title">사업장 소재지</td>  
+												<td class="table-content"></td>
+											</tr>
+											<tr>
+												<td class="table-title">휴대전화</td>  
+												<td class="table-content"></td>
+											</tr>
+											<tr>
+												<td class="table-title">이메일</td>  
+												<td class="table-content"></td>
+											</tr>
+										</table>
+										<p class="page-index">3. 결제방법</p>
+										<div class="page-detail">
+											<p class="page-detail_title">카드 (앱카드 포함)</p>
+										</div>
+										<p class="page-index">4. 결제상세</p>
+										<div class="page-detail m-repo">
+											<p class="page-detail_title">
+												총 결제 금액 <br />
+												(부가세 10% 포함)
+											</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">
+													구독형 1개월 200,000원 / 3개월 450,000원 / 6개월 855,000원 / 12개월 1,620,000원 <br />
+													(전체 금액 VAT포함)
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="write-wrap">
+									<div class="Consent-form">
+										<div class="Consent-ck">
+											<input type="checkbox" name="1" id="Consent">
+											<label for="Consent">
+												<span class="ck-from"><i class="xi-check-min"></i></span>
+												이용약관 상세 내용을 확인하였습니다.
+											</label>
+										</div>
+									</div>
+								</div>
+								
+								<!-- 2페이지 -->
+								<div class="content-layout">
+									<div class="pdf_page page2">
+										<p class="page-title">우리뷰 규정</p>
+										<p class="page-index">제 24 조 (광고주 탈퇴 및 환불)</p>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">①</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">“광고주”는 언제든 “서비스” 내의 고객센터 기능을 이용하여 이용계약 해지 또는 취소 신청을 할 수 있습니다.</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">②</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">“광고주”의 제1항에 대한 신청이 휴일에 접수된 경우, 해당 신청건은 접수일 이후 도래하는 첫 영업일에 접수된 것으로 봅니다.</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">③</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">
+													“광고주” 탈퇴가 이뤄질 경우, “광고주”에게 환불되는 금액은 아래와 같은 기준에 의하여 계산됩니다. <br />
+													(탈퇴 신청 접수시 기준 남은 구독일수 / 30) × 월간 구독료</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">④</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">
+													“광고주”가 “회사”의 귀책사유가 아닌 단순 변심으로 “회사”와의 계약을 중도해지할 경우, <br />
+													“광고주”는 “회사”에 약정한 전체 이용요금의 20%를 위약금으로 납부하여야 하며, <br />
+													해당 위약금은 제3항의 환불 금액에서 공제됩니다.</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">⑤</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">
+													“광고주”가 “회사”에 납부하여야 하는 위약금이 “회사”가 “광고주”에게 환불하여야 하는 금액보다 <br />
+													클 경우, “광고주”는 지체없이 “회사”에 차액을 지급하여야 합니다.</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">⑥</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">
+													“회사”는 아래와 같은 경우 “광고주”에게 계약해지를 통보할 수 있습니다.
+													“회원”이 “회사”에 “광고주”의 약속불이행, “광고주”의 “리뷰” 작성 “인플루언서”에 대한 비하발언 등 
+													동일하거나 유사한 유형의 불만을 3회 이상 표명한 경우
+													“광고주”의 성희롱, 성추행, 폭력 등의 범죄로 인하여 “광고주”가 제공하는 서비스에 대한 심각한 수준의 
+													평판 저하가 발생하여 “회사”가 더 이상 “서비스”를 제공할 수 없다고 판단한 경우
+												</p>
+											</div>
+										</div>
+
+
+										<p class="page-index">제 28 조 (책임 제한)</p>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">①</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">
+													“회사”는 천재지변 또는 이에 준하는 불가항력으로 인하여 “서비스”를 제공할 수 없는 경우에는 
+													“서비스” 제공에 관한 책임이 면제됩니다.</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">②</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">“회사”는 "인플루언서"의 귀책사유로 인한 “서비스” 이용의 장애 또는 손해에 대하여 책임을 지지 않습니다.</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">③</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">“회사”는 무료로 제공되는 “서비스” 이용과 관련하여 관련법에 특별한 규정이 없는 한 책임을 지지 않습니다.</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">④</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">
+													“회사”는 "인플루언서" 간 또는 "인플루언서"과 제3자 상호 간에 서비스를 매개로 한 커뮤니티 활동, 정보 게재, 자료 전송, 거래 등 
+													일체의 활동에 대하여 책임을 지지 않습니다.
+												</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">⑤</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">
+													“회사”는 “광고주”와의 “캠페인” 진행 중 “광고주”의 귀책사유로 인하여 "인플루언서"에게 발생한 불만족 
+													또는 손해에 대하여 책임을 지지 않습니다.</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list">
+											<p class="page-detail_title">⑥</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">
+													“회사”는 “캠페인” 진행 중, “광고주”의 제품 배송 미처리 및 배송 오류 등에 관한 제반사항에 대하여 책임을 지지 않습니다.
+												</p>
+											</div>
+										</div>
+										<div class="page-detail page-detail_num-list marginA">
+											<p class="page-detail_title">⑦</p>
+											<div class="page-detail_list">
+												<p class="page-detail_list-title">“인플루언서”가 작성한 리뷰가 “광고주”의 “리뷰어 선정기간” 내 미선정으로 인하여 선정되지 않을시, 
+													해당 리뷰는 “회사”의 내부 정책에 의하여 자동선정 되며, “회사”는 이로 인한 불만사항에 대하여 책임을 지지 않습니다.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="write-wrap">
+									<div class="Consent-form">
+										<div class="Consent-ck">
+											<input type="checkbox" name="2" id="refund">
+											<label for="refund">
+												<span class="ck-from"><i class="xi-check-min"></i></span>
+												환불 규정 상세 내용을 확인하였습니다.
+											</label>
+										</div>
+										<div class="Consent-ck">
+											<input type="checkbox" name="3" id="Limitation">
+											<label for="Limitation">
+												<span class="ck-from"><i class="xi-check-min"></i></span>
+												책임 제한 규정 상세 내용을 확인하였습니다.
+											</label>
+										</div>
+									</div>
+								</div>
+
+								<!-- 3페이지 -->
+								<div class="content-layout">
+
+									<div class="pdf_page">
+										<p class="page-title">우리뷰 제3자 제공</p>
+										<p class="page-index"></p>
+										<P class="page-sub">
+											매칭되는 인플루언서 회원에게 광고주 회원의 개인 정보가 제공되는 경우, <br />
+											제3자에게 개인정보를 제공하기 위한 동의를 받는 것이 필요합니다. <br />
+											연결화면을 통하여 아래와 같은 개인정보 제3자 제공 내역 항목, 제공받는 자, 제공목적, 수집목적, 보유 및 이용기간, 동의를  <br />
+											거부할 권리 등을 확인할 수 있도록 기재하시기 바랍니다.
+											<br />
+											<br />
+											만일 개인 정보가 인플루언서 회원에게 제공되지 않는 경우 이 부분은 삭제하셔도 무방합니다.
+										</P>
+										<p class="page-index index-2">개인정보 제3자 제공 내역</p>
+										<table class="page-detail_table">
+											<tr>
+												<td class="table-title">항목</td>
+												<td class="table-content">사업자등록증상 상호, 법인명, 대표자명, 담당자명, 사업장소재지, 휴대전화, 이메일</td>
+											</tr>
+											<tr>
+												<td class="table-title">제공받는 자</td>  
+												<td class="table-content">매칭되는 인플루언서 회원</td>
+											</tr>
+											<tr>
+												<td class="table-title">제공 목적</td>  
+												<td class="table-content">캠페인 진행</td>
+											</tr>
+											<tr>
+												<td class="table-title">수집 목적</td>  
+												<td class="table-content">캠페인 진행</td>
+											</tr>
+											<tr>
+												<td class="table-title">보유 및 이용기간</td>  
+												<td class="table-content">캠페인 시작일부터 마감일까지</td>
+											</tr>
+										</table>
+										<p class="table-guide">
+											※ 위 개인정보를 제3자에게 제공함에 대하여 <span>동의를 거부할 권리</span> 가 있습니다. 
+											다만 동의하지 않는 경우 <span>서비스 가입이 불가능</span>합니다.
+										</p>
+									</div>
+								</div>
+								<div class="write-wrap">
+									<div class="Consent-form">
+										<div class="Consent-ck">
+											<input type="checkbox" name="4" id="INFO">
+											<label for="INFO">
+												<span class="ck-from"><i class="xi-check-min"></i></span>
+												매칭되는 인플루언서 회원에게 광고주 회원의 개인 정보를 제공하는 데에 동의합니다.
+											</label>
+										</div>
+									</div>
+								</div>
+
+							<div class="payment-sign-wrap">
+                                <p class="payment-sign_title">
+									서비스 결제를 동의하시면 서명을 완료해주세요.
+								</p>
+								<div class="payment-sign_box"></div>
 							</div>
-						</div>
-						<div class="payment-sign-wrap">
-							<p class="payment-sign_title">
-								서비스 결제를 동의하시면<br class="pc" />
-								서명을 완료해주세요.
-							</p>
-							<div class="payment-sign_box"></div>
-							<button class="payment-sign-btn">서명하기</button>
+							<button class="payment-sign">결제하기</button>
 						</div>
 					</div>
-					<button class="payment-sign">결제하기</button>
+					
 				</div>
 			</section>
 			
@@ -124,7 +412,170 @@
         <script src="../../js/jquery.js"></script>
         <script src="../../js/script.js"></script>
         <script src="../../js/swiper.min.js"></script>
+		 <script>
+			 $("#pdf-btn").click(function() { // pdf저장 button id
+					setTimeout(function() {
+						createPdf();
+					}, 100);
+				});
 
-    </div>
+				var renderedImg = new Array;
+
+				var contWidth = 200, // 너비(mm) (a4에 맞춤)
+					padding = 5; //상하좌우 여백(mm)
+
+				function createPdf() { //이미지를 pdf로 만들기
+
+				var lists = document.querySelectorAll(".pdf_page"),
+					deferreds = [],
+					doc = new jsPDF("p", "mm", "a4"),
+					listsLeng = lists.length;
+
+				for (var i = 0; i < listsLeng; i++) { // pdf_page 적용된 태그 개수만큼 이미지 생성
+					var deferred = $.Deferred();
+					deferreds.push(deferred.promise());
+					generateCanvas(i, doc, deferred, lists[i]);
+				}
+
+				$.when.apply($, deferreds).then(function () { // 이미지 렌더링이 끝난 후
+					var sorted = renderedImg.sort(function(a,b){return a.num < b.num ? -1 : 1;}), // 순서대로 정렬
+						curHeight = padding, //위 여백 (이미지가 들어가기 시작할 y축)
+						sortedLeng = sorted.length;
+
+					for (var i = 0; i < sortedLeng; i++) {
+					var sortedHeight = sorted[i].height, //이미지 높이
+						sortedImage = sorted[i].image; //이미지
+
+					if( curHeight + sortedHeight > 297 - padding * 2 ){ // a4 높이에 맞게 남은 공간이 이미지높이보다 작을 경우 페이지 추가
+						doc.addPage(); // 페이지를 추가함
+						curHeight = padding; // 이미지가 들어갈 y축을 초기 여백값으로 초기화
+						doc.addImage(sortedImage, 'jpeg', padding , curHeight, contWidth, sortedHeight); //이미지 넣기
+						curHeight += sortedHeight; // y축 = 여백 + 새로 들어간 이미지 높이
+					} else { // 페이지에 남은 공간보다 이미지가 작으면 페이지 추가하지 않음
+						doc.addImage(sortedImage, 'jpeg', padding , curHeight, contWidth, sortedHeight); //이미지 넣기
+						curHeight += sortedHeight; // y축 = 기존y축 + 새로들어간 이미지 높이
+					}
+					}
+					doc.save('resultReport.pdf'); //pdf 저장
+
+					curHeight = padding; //y축 초기화
+					renderedImg = new Array; //이미지 배열 초기화
+
+
+				});
+				}
+
+				function generateCanvas(i, doc, deferred, curList){ //페이지를 이미지로 만들기
+				var pdfWidth = $(curList).outerWidth() * 0.2645, //px -> mm로 변환
+					pdfHeight = $(curList).outerHeight() * 0.2645,
+					heightCalc = contWidth * pdfHeight / pdfWidth; //비율에 맞게 높이 조절
+				html2canvas( curList ).then(
+					function (canvas) {
+					var img = canvas.toDataURL('image/jpeg', 1.0); //이미지 형식 지정
+					renderedImg.push({num:i, image:img, height:heightCalc}); //renderedImg 배열에 이미지 데이터 저장(뒤죽박죽 방지)     
+					deferred.resolve(); //결과 보내기
+					}
+				);
+				}
+		</script> 
+
+<!-- 
+		<script>
+			$(document).ready(function() {
+				$('#pdf-btn').click(function() { // pdf저장 button id
+						var sum_cnt = $(".pdf_page");     //같은 클래스를 sum_cnt에다 넣음
+						sum_cnt.length                              //갯수 추출
+						console.log(sum_cnt.length);
+						var pageLength = sum_cnt.length;
+
+
+						// var lists = document.querySelectorAll(".pdf_page"),
+						// 	deferreds = [],
+						// 	doc = new jsPDF("p", "mm", "a4"),
+						// 	listsLeng = lists.length;
+
+						for (var i = 0; i < pageLength; i++) { // pdf_page 적용된 태그 개수만큼 이미지 생성
+							html2canvas( pageLength[i]).then(function(canvas) { //저장 영역 div id
+
+					// 캔버스를 이미지로 변환
+					var imgData = canvas.toDataURL('image/png');
+						 
+					var imgWidth = 190; // 이미지 가로 길이(mm) / A4 기준 210mm
+					var pageHeight = imgWidth * 1.414;  // 출력 페이지 세로 길이 계산 A4 기준
+					var imgHeight = canvas.height * imgWidth / canvas.width;
+					var heightLeft = imgHeight;
+					var margin = 10; // 출력 페이지 여백설정
+					var doc = new jsPDF('p', 'mm');
+					var position = 0;
+					   
+					// 첫 페이지 출력
+					doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+					heightLeft -= pageHeight;
+						 
+					// // 한 페이지 이상일 경우 루프 돌면서 출력
+					// while (heightLeft >= 20) {
+					// 	position = heightLeft - imgHeight;
+					// 	doc.addPage();
+					// 	doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+					// 	heightLeft -= pageHeight;
+					// }
+
+			
+			
+					  
+				});
+			
+						}
+	 
+					// 파일 저장
+					doc.save('file-name.pdf');
+
+				});
+				
+				
+			})
+			
+			
+			
+			</script> 
+    
+	 -->
+		
+<!-- 
+	 <script>
+
+		// 버튼 클릭할 시 캡처한 내용 body에 붙혀보기
+$('#pdf-btn').click((e) => {
+  html2canvas(document.querySelector(".pdf_page")).then(canvas => {
+    // jsPDF 객체 생성 생성자에는 가로, 세로 설정, 페이지 크기 등등 설정할 수 있다. 자세한건 문서 참고.
+    // 현재 파라미터는 기본값이다 굳이 쓰지 않아도 되는데 저것이 기본값이라고 보여준다.
+    // var doc = new jsPDF('p', 'mm', 'a4');
+
+    // // html2canvas의 canvas를 png로 바꿔준다.
+	var imgData = canvas.toDataURL('image/png');
+
+var imgWidth = 210; 
+var pageHeight = 295;  
+var imgHeight = canvas.height * imgWidth / canvas.width;
+var heightLeft = imgHeight;
+
+var doc = new jsPDF('p', 'mm');
+var position = 0;
+
+doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+heightLeft -= pageHeight;
+
+while (heightLeft >= 0) {
+  position = heightLeft - imgHeight;
+  doc.addPage();
+  doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+  heightLeft -= pageHeight;
+}
+doc.save('sample-file.pdf');
+  });
+});
+
+	 </script> -->
+		</div>
 </body>
 </html>

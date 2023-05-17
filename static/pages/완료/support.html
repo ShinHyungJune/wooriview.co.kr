@@ -35,12 +35,15 @@
 			<div class="table-section">
 				<div class="container3">
 					<div class="table-top-wrap">
-						<p class="table-title">1:1문의 내역</p>
+						<ul class="table-tab-list">
+							<li class="tab-link Active table-title" data-tab="tab-1" >문의사항</li>
+							<li class="tab-link table-title " data-tab="tab-2">공지사항</li>
+						</ul>
 						<div class="btn-wrap ">
 							<a href="inquiry-request.html">1:1문의 신청</a>
 						</div>
 					</div>
-					<div class="table-tab-wrap influencer-table_1">
+					<div class="table-tab-wrap influencer-table_1 tab-content Active" id="tab-1" >
 						<div class="table-wrap">
 							<ul class="thead">
 								<li class="th">
@@ -195,6 +198,50 @@
 							</ul>
 						</div>
 					</div>
+					<div class="table-tab-wrap influencer-table_1 tab-content" id="tab-2" >
+						<div class="table-wrap">
+							<ul class="thead">
+								<li class="th">
+									문의 일자
+								</li>
+								<li class="th">
+									문의내용
+								</li>
+								<li class="th">
+									답변
+								</li>
+							</ul>
+							<ul class="tbody">
+								<li class="date">
+									2023.00.00
+								</li>
+								<li class="content">
+									<a href="inquiry-detail.html">
+								  	    [광고 및 입점 문의] 안녕하세요 다름이 아니라 어떻게 하는지 잘몰라서 그런데요..
+								    </a>
+								</li>
+								<li class="answer">
+									<p class="answer-state">미답변</p>
+									<P class="answer-date">2023.00.00</P>
+								</li>
+							</ul>
+							<ul class="tbody">
+								<li class="date">
+									2023.00.00
+								</li>
+								<li class="content">
+									<a href="">
+										[광고 및 입점 문의] 안녕하세요 다름이 아니라 어떻게 하는지 잘몰라서 그런데요..
+								    </a>
+								</li>
+								<li class="answer">
+									<p class="answer-state com-state">답변</p>
+									<P class="answer-date">2023.00.00</P>
+								</li>
+							</ul>
+						
+						</div>
+					</div>
 					<div class="Pagination-wrap">
 						<a href="" class="Prev"><i class="xi-angle-left-min"></i></a>
 						<ul class="Pagination-num">
@@ -217,6 +264,21 @@
         <script src="../../js/jquery.js"></script>
         <script src="../../js/script.js"></script>
         <script src="../../js/swiper.min.js"></script>
+				<!-- 탭 스크립트 -->
+				<script>
+					$(document).ready(function(){
+						$('.table-tab-list li').click(function(){
+							var tab_id = $(this).attr('data-tab');
+		
+							$('.table-tab-list li').removeClass('Active');
+							$('.tab-content').removeClass('Active');
+		
+							$(this).addClass('Active');
+							$("#"+tab_id).addClass('Active');
+						});
+					});
+				</script>
+				<!-- //탭 스크립트 -->
 
     </div>
 </body>
