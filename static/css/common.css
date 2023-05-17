@@ -142,6 +142,8 @@ body{ -ms-overflow-style: none; }
 .header .logo { max-width: 205px; display: block; }
 .header .header-nav { display: flex; align-items: center; gap: 48px; }
 .header .header-nav a { font-size: 20px; }
+.header .header-nav a img.live-icon-img { max-width: 31px; }
+.header .header-nav a img { max-width: 25px;  }
 .header .header-nav li.mb { display: none; }
 .header .header-ri > ul { display: flex; }
 .header .header-ri > ul li { display: flex; }
@@ -151,11 +153,28 @@ body{ -ms-overflow-style: none; }
 /* 뒤로가기 버튼 */
 .header .back-btn { display: none; }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1138px) {
     .header .header-le { gap: 48px; }
     .header .header-nav { gap: 24px; }
+}
+
+
+@media screen and (max-width: 980px) {
     .header .header-nav a { font-size: 16px; }
 }
+
+@media screen and (max-width: 940px) {
+    .header .header-le { gap: 24px; }
+    .header .header-nav { gap: 10px; }
+    .header .logo {max-width: 180px;}
+    .header .header-ri > ul li > button { width: 38px; height: 38px;}
+    .header .header-ri > ul li > a { width: 38px; height: 38px;}
+    .header .header-nav a img.live-icon-img { max-width: 25px; }
+    .header .header-nav a img { max-width: 20px; }
+    .header .header-nav li a { gap: 4px; } 
+    .header .header-nav li { width: 73px;}
+    .header .header-nav li.client-li { width: 80px;}
+} 
 
 @media screen and (max-width: 768px) {
     .header { border-top: none; height: 90px; padding-bottom: 40px; }

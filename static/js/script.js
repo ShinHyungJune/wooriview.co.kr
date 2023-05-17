@@ -1,6 +1,8 @@
 $(document).ready(function(){
     //헤더 푸터 컴포넌트
     $('#header').load('../components/header.html', function() {
+        // $('#header').load('./components/header.html', function() {
+
         $(".header-wrap .gnb> li").hover(function(){
             $(this).children('.gnb-sub').stop().slideToggle(200);
         });
