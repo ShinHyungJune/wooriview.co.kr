@@ -114,8 +114,6 @@ export default {
             }).then(response => {
                 // this.$router.push("/");
 
-                if(AndroidBridge)
-                    AndroidBridge.getFcmToken();
             }).catch(error => {
                 this.form.onFail(error.response.data);
             });
