@@ -33,12 +33,8 @@
                     <thead>
                     <tr>
                         <th>번호</th>
-                        <th>닉네임</th>
-                        <th>연락처</th>
-                        <th>카테고리</th>
                         <th>제목</th>
-                        <th>문의일자</th>
-                        <th>답변일자</th>
+                        <th>등록일자</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -47,22 +43,10 @@
                             {{item.id}}
                         </td>
                         <td>
-                            {{item.user.nickname}}
-                        </td>
-                        <td>
-                            {{item.user.contact}}
-                        </td>
-                        <td>
-                            {{item.category}}
-                        </td>
-                        <td>
                             {{item.title}}
                         </td>
                         <td>
-                            {{item.created_at}}
-                        </td>
-                        <td>
-                            {{ item.answer ? item.updated_at : ''}}
+                            {{item.format_created_at}}
                         </td>
                     </tr>
                     </tbody>
