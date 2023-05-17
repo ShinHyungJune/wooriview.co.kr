@@ -19,41 +19,35 @@
             <div class="container3">
                 <div class="table-top-wrap">
                     <ul class="table-tab-list">
-                        <li class="tab-link Active table-title" data-tab="tab-1" @click="() => {$router.push('/qnas')}">문의사항</li>
-                        <li class="tab-link table-title " data-tab="tab-2" @click="() => {$router.push('/notices')}">공지사항</li>
+                        <li class="tab-link table-title" data-tab="tab-1" @click="() => {$router.push('/notices')}">문의사항</li>
+                        <li class="tab-link Active table-title " data-tab="tab-2" @click="() => {$router.push('/notices')}">공지사항</li>
                     </ul>
-                    <div class="btn-wrap">
-                        <nuxt-link to="/qnas/create">1:1문의 신청</nuxt-link>
-                    </div>
                 </div>
                 <div class="table-tab-wrap influencer-table_1">
                     <div class="table-wrap">
                         <ul class="thead">
+                            <li class="th">고유번호</li>
                             <li class="th">
-                                문의 일자
+                                제목
                             </li>
                             <li class="th">
-                                문의 내용
-                            </li>
-                            <li class="th">
-                                답변
+                                등록일자
                             </li>
                         </ul>
+
                         <empty v-if="items.data.length === 0" />
 
                         <ul class="tbody" v-for="item in items.data" :key="item.id">
                             <li class="date">
-                                {{ item.format_created_at }}
+                                {{ item.id }}
                             </li>
                             <li class="content">
-                                <nuxt-link :to="`/qnas/show?id=${item.id}`">
-                                    [{{item.category}}] {{ item.title }}
+                                <nuxt-link :to="`/notices/show?id=${item.id}`">
+                                    {{ item.title }}
                                 </nuxt-link>
                             </li>
-                            <li class="answer">
-                                <p class="answer-state com-state" v-if="item.answer">답변</p>
-                                <p class="answer-state" v-else>미답변</p>
-                                <P class="answer-date">{{ item.format_updated_at }}</P>
+                            <li class="date">
+                                {{ item.format_created_at }}
                             </li>
                         </ul>
 
@@ -85,7 +79,7 @@ export default {
             if(loadMore)
                 this.form.page += 1;
 
-            this.$axios.get("/api/qnas", {
+            this.$axios.get("/api/notices", {
                 params: this.form
             }).then(response => {
                 if(loadMore)

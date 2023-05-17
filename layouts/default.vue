@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-        <button @click="test">푸시토큰 테스트</button>
         <header-vue />
 
         <pop />
@@ -66,7 +65,7 @@ export default {
 
     mounted() {
         // this.$store.commit("init");
-        window.receiveFcmToken = (token) => {
+        /*window.receiveFcmToken = (token) => {
             alert(token);
             console.log('Received FCM token:', token);
         };
@@ -77,7 +76,7 @@ export default {
 
         if(window.webkit){
             window.webkit.messageHandlers.getFcmToken.postMessage("fcm");
-        }
+        }*/
 
         this.getAbuses();
 
