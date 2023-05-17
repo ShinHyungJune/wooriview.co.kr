@@ -55,6 +55,12 @@
                             </nuxt-link>
                         </li>
                         <li>
+                            <nuxt-link to="/admin/notices" class="scd5">
+                                공지사항
+                                <i class="xi-angle-right"></i>
+                            </nuxt-link>
+                        </li>
+                        <li>
                             <nuxt-link to="/admin/penalties" class="scd5">
                                 패널티
                                 <i class="xi-angle-right"></i>

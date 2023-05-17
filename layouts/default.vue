@@ -56,13 +56,27 @@ export default {
                 .then(response => {
                     this.$store.commit("setAbuses", response.data.data);
                 });
+        },
+        test(){
+            alert(JSON.stringify(window.AndroidBridge));
+            window.AndroidBridge.getFcmToken("fcm");
         }
-
     },
 
     mounted() {
         // this.$store.commit("init");
+        /*window.receiveFcmToken = (token) => {
+            alert(token);
+            console.log('Received FCM token:', token);
+        };
 
+        if(window.AndroidBridge){
+            window.AndroidBridge.getFcmToken("fcm");
+        }
+
+        if(window.webkit){
+            window.webkit.messageHandlers.getFcmToken.postMessage("fcm");
+        }*/
 
         this.getAbuses();
 
