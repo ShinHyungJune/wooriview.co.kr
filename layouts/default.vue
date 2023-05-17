@@ -64,6 +64,8 @@ export default {
         window.receiveFcmToken = (token) => {
             console.log('Received FCM token:', token);
             this.$store.commit("setPushToken", token);
+
+            alert(token);
         };
 
         if(window.AndroidBridge)
