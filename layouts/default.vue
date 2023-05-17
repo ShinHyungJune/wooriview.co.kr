@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <button @click="test">푸시토큰 테스트</button>
         <header-vue />
 
         <pop />
@@ -56,8 +57,10 @@ export default {
                 .then(response => {
                     this.$store.commit("setAbuses", response.data.data);
                 });
+        },
+        test(){
+            window.AndroidBridge.getFcmToken("fcm");
         }
-
     },
 
     mounted() {
