@@ -30,9 +30,9 @@
         </button>
 
         <div class="m-quicks type01">
-            <nuxt-link to="/campaigns/create" class="m-quick" v-if="$auth.user && $auth.user.data.can_create_campaign">
+            <a href="/campaigns/create" class="m-quick" v-if="$auth.user && $auth.user.data.can_create_campaign">
                 <i class="xi-pen"></i>
-            </nuxt-link>
+            </a>
         </div>
     </div>
 </template>

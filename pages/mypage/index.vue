@@ -21,7 +21,7 @@
                     <h3>빠르고 간편한 캠페인 등록</h3>
                     <p>캠페인을 등록하고 인플루언서를 모집해보세요!</p>
                 </div>
-                <nuxt-link to="/campaigns/create">캠페인 등록하기</nuxt-link>
+                <a href="/campaigns/create">캠페인 등록하기</a>
             </div>
 
             <ul class="MyPage-btn-wrap">
@@ -117,13 +117,13 @@
                 </li>
             </ul>
 
-            <a href="/images/advertising_banner.jpg" download class="Banner-Download">
+<!--            <a href="/images/advertising_banner.jpg" download class="Banner-Download">
                 <img src="/images/advertising_banner.jpg" alt="">
                 <p>문의사항을 전달하고 열람할 수 있어요</p>
                 <div class="icon">
                     <i class="xi-download"></i>
                 </div>
-            </a>
+            </a>-->
 
             <div class="logout-btn-wrap">
                 <a href="#" class="logout-btn" @click.prevent="() => {$auth.logout();}">계정 로그아웃이 필요하신가요?</a>

@@ -507,6 +507,15 @@ export default {
             return new Blob([ia], { type: mime });
         },
 
+        getToday(){
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = (today.getMonth() + 1);
+            var day = today.getDate();
+
+            return year + '-' + month + '-' + day;
+        },
+
         createPdf(save = true, onSuccess = () => {}) { //이미지를 pdf로 만들기
             let self = this;
 
@@ -544,9 +553,9 @@ export default {
                 }
 
                 if(save)
-                    doc.save('계약서.pdf'); //pdf 저장
+                    doc.save(`우리뷰_계약서(${self.getToday()}).pdf`); //pdf 저장
 
-                self.form.file = new File([doc.output('blob')], '계약서.pdf', {
+                self.form.file = new File([doc.output('blob')], `우리뷰_계약서(${self.getToday()}).pdf`, {
                     type: "application/pdf"
                 });
 

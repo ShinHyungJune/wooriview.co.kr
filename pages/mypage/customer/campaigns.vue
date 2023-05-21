@@ -228,7 +228,7 @@ export default {
                 like: 0,
             },
 
-            state: "application",
+            state: this.$route.query.state ? this.$route.query.state : "application",
         }
     },
     methods: {

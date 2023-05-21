@@ -157,7 +157,7 @@
 
             <!-- 패널치 요청 팝업 -->
             <div class="pop-box penalty-popup open" v-if="activePenaltyPop && targetUser">
-                <button class="back-btn mb">
+                <button class="back-btn mb" style="text-align: left" @click="activePenaltyPop = false">
                     <i class="xi-arrow-left"></i>
                 </button>
                 <div class="pop-scroll-wrap">
@@ -173,7 +173,7 @@
                                     <!-- <img src="/images/Blog-icon.svg" alt=""> -->
                                 </div>
                                 <div class="subscriber-name">
-                                    <p class="name">{{ targetUser.type === 'CUSOTMER' ? targetUser.nickname : targetUser.company_name }}</p>
+                                    <p class="name">{{ targetUser.type === 'CUSTOMER' ? targetUser.nickname : targetUser.company_name }}</p>
                                     <p class="Address">{{ targetUser.address }} {{targetUser.address_detail}}</p>
                                 </div>
                                 <div class="Recommended_mark" v-if="targetUser.type === 'CUSTOMER'">
@@ -305,14 +305,16 @@ export default {
         },
 
         storeMessage(){
-            this.form.post("/api/messages")
-                .then(response => {
+            if(this.form.body){
+                this.form.post("/api/messages")
+                    .then(response => {
 
-                });
+                    });
 
-            this.form.body = "";
+                this.form.body = "";
 
-            this.fileForm.file = "";
+                this.fileForm.file = "";
+            }
         },
 
         changeFile(e){

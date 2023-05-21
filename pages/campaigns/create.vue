@@ -799,7 +799,7 @@ export default {
                         title : "등록완료",
                     });
 
-                    this.$router.back();
+                    this.$router.push("/");
                 });
         },
 

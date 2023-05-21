@@ -40,7 +40,7 @@
                                             <input type="text" v-model="word">
                                             <button class="Search-btn"><i class="xi-search"></i></button>
                                         </div>
-                                        <a href="#" class="map-Search" @click="() => {this.$router.push('/campaigns'); this.active = false;}"><img src="/images/Map_Search.png" alt=""></a>
+                                        <a href="#" class="map-Search" @click="() => {this.$router.push('/campaigns?type_campaign=REALTIME&showMap=1'); this.active = false;}"><img src="/images/Map_Search.png" alt=""></a>
                                     </div>
                                 </form>
 
@@ -49,7 +49,7 @@
                         </li>
                         <li v-if="$auth.user">
                             <button class="Notification-Open-btn" @click="toggleAlarm">
-                                <span class="new" v-if="$auth.user.data.has_unread_alarm"></span>
+                                <span class="new" v-if="hasUnreadAlarm"></span>
                                 <img src="/images/Notification.svg" alt="">
                                 <i class="xi-bell-o"></i>
                             </button>
@@ -142,9 +142,9 @@
                         </li>
                     </ul>
                 </div>
-                <nuxt-link to="/mypage"><img src="/images/book.svg" alt=""></nuxt-link>
+                <a href="/mypage"><img src="/images/book.svg" alt=""></a>
                 <nuxt-link to="/"><img src="/images/hd_logo.svg" alt=""></nuxt-link>
-                <nuxt-link to="/mypage"><img src="/images/heart.svg" alt=""></nuxt-link>
+                <nuxt-link to="/mypage/customer/campaigns?state=like" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'"><img src="/images/heart.svg" alt=""></nuxt-link>
                 <nuxt-link to="/mypage"><img src="/images/my2.svg" alt=""></nuxt-link>
             </div>
         </div>
@@ -170,6 +170,7 @@ export default {
             active: false,
             activeAlarm: false,
             timer : null,
+            interval: null,
         }
     },
 
@@ -245,6 +246,10 @@ export default {
                 return this.$route.query.type_campaign;
 
             return "";
+        },
+
+        hasUnreadAlarm(){
+            return this.alarms.data.some(alarm => alarm.read == 0);
         }
     },
 
@@ -253,6 +258,15 @@ export default {
     },
 
     mounted() {
+        let self = this;
+
+        if(this.interval)
+            clearInterval(this.interval);
+
+        this.interval = setInterval(() => {
+            self.getAlarms();
+        }, 5000);
+
         $(".Mobile_Menu_open_btn").click(function () {
             $(this).toggleClass("open");
             $(".Mobile_Menu_wrap").toggleClass("open");

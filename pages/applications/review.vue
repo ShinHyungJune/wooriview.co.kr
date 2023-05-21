@@ -138,6 +138,9 @@ export default {
         },
 
         storeReview(){
+            if(!this.reviewForm.url_review.includes("http") && !this.reviewForm.url_review.includes("https"))
+                return alert("http://나 https://가 포함된 전체 url을 입력해주세요.");
+
             this.reviewForm.post("/api/applications/review")
                 .then(response => {
                     this.$store.commit("setPop", {

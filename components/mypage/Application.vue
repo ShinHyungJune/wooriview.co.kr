@@ -36,7 +36,7 @@
                     </p>
                 </div>
 
-                <div class="content" v-if="application.campaign.type_campaign === 'DELIVERY'">
+                <div class="content" v-if="application.selected && application.campaign.type_campaign === 'DELIVERY'">
                     <h3 class="title">운송장번호</h3>
 
                     <div class="body tracking-wrap" v-if="!editMode && application.delivery_number">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <div class="content" v-if="application.campaign.type_campaign === 'VISIT'">
+                <div class="content" v-if="application.selected && application.campaign.type_campaign === 'VISIT'">
                     <h3 class="title">방문시간</h3>
 
                     <div class="body tracking-wrap" v-if="!editMode && application.format_visited_at">
