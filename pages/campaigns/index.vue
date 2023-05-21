@@ -3,7 +3,7 @@
         <section class="section1">
             <div class="container">
 
-                <div :class="`campaign-tab img-wrap ${$route.query.type_campaign === 'REPORTER' || $route.query.type_campaign === 'DELIVERY' ? 'active' : ''}`">
+                <div :class="`campaign-tab img-wrap ${$route.query.type_campaign === 'REPORTER' || $route.query.type_campaign === 'DELIVERY' || !$route.query.type_campaign ? 'active' : ''}`">
                     <img src="/images/campaign-banner2.png" alt="" class="pc">
                     <img src="/images/campaign-banner2-m.png" alt="" class="mb">
                 </div>

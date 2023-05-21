@@ -19,7 +19,7 @@
                 <div class="campaign-item-wrap">
                     <div class="h2-wrap">
                         <h2>실시간 <span>인기폭발 캠페인</span></h2>
-                        <p class="see-more">캠페인 <nuxt-link to="/campaigns">더보기<i class="xi-plus-min"></i></nuxt-link></p>
+                        <p class="see-more">캠페인 <nuxt-link to="/campaigns?type_campaign=REALTIME&showMap=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
 
                     <empty v-if="favorCampaigns.data.length === 0" />

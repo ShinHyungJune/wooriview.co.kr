@@ -19,7 +19,7 @@
             <div class="container3">
                 <div class="table-top-wrap">
                     <ul class="table-tab-list">
-                        <li class="tab-link table-title" data-tab="tab-1" @click="() => {$router.push('/notices')}">문의사항</li>
+                        <li class="tab-link table-title" data-tab="tab-1" @click="() => {$router.push('/qnas')}">문의사항</li>
                         <li class="tab-link Active table-title " data-tab="tab-2" @click="() => {$router.push('/notices')}">공지사항</li>
                     </ul>
                 </div>

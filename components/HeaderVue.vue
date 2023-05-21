@@ -9,19 +9,19 @@
                     </nuxt-link>
                     <ul class="header-nav">
                         <li :class="typeCampaign === 'REALTIME' ? 'active' : ''">
-                            <nuxt-link to="/campaigns?type_campaign=REALTIME&showMap=1">실시간</nuxt-link>
+                            <a href="/campaigns?type_campaign=REALTIME&showMap=1">실시간</a>
                         </li>
                         <li :class="typeCampaign === 'VISIT' ? 'active' : ''">
-                            <nuxt-link to="/campaigns?type_campaign=VISIT&showMap=1">방문형</nuxt-link>
+                            <a href="/campaigns?type_campaign=VISIT&showMap=1">방문형</a>
                         </li>
                         <li :class="typeCampaign === 'DELIVERY' ? 'active' : ''">
-                            <nuxt-link to="/campaigns?type_campaign=DELIVERY">배송형</nuxt-link>
+                            <a href="/campaigns?type_campaign=DELIVERY">배송형</a>
                         </li>
                         <li :class="typeCampaign === 'REPORTER' ? 'active' : ''">
-                            <nuxt-link to="/campaigns?type_campaign=REPORTER">기자단</nuxt-link>
+                            <a href="/campaigns?type_campaign=REPORTER">기자단</a>
                         </li>
-                        <li :class="$route.path.includes('/qnas') ? 'active' : ''">
-                            <nuxt-link to="/qnas">고객센터</nuxt-link>
+                        <li :class="$route.path.includes('/qnas') || $route.path.includes('/notices') ? 'active' : ''">
+                            <a href="/qnas">고객센터</a>
                         </li>
                     </ul>
                 </div>
@@ -126,19 +126,19 @@
 
                     <ul class="Mobile_Menu_Nav">
                         <li>
-                            <nuxt-link to="/campaigns?type_campaign=REALTIME&showMap=1">실시간 방문형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
+                            <a href="/campaigns?type_campaign=REALTIME&showMap=1">실시간 방문형 캠페인 <i class="xi-angle-right-min"></i></a>
                         </li>
                         <li>
-                            <nuxt-link to="/campaigns?type_campaign=DELIVERY&showMap=1">배송형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
+                            <a href="/campaigns?type_campaign=DELIVERY&showMap=1">배송형 캠페인 <i class="xi-angle-right-min"></i></a>
                         </li>
                         <li>
-                            <nuxt-link to="/campaigns?type_campaign=VISIT">방문형 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
+                            <a href="/campaigns?type_campaign=VISIT">방문형 캠페인 <i class="xi-angle-right-min"></i></a>
                         </li>
                         <li>
-                            <nuxt-link to="/campaigns?type_campaign=REPORTER">기자단 캠페인 <i class="xi-angle-right-min"></i></nuxt-link>
+                            <a href="/campaigns?type_campaign=REPORTER">기자단 캠페인 <i class="xi-angle-right-min"></i></a>
                         </li>
                         <li>
-                            <nuxt-link to="/qnas">고객센터 <i class="xi-angle-right-min"></i></nuxt-link>
+                            <a href="/qnas">고객센터 <i class="xi-angle-right-min"></i></a>
                         </li>
                     </ul>
                 </div>
