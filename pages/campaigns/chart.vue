@@ -120,7 +120,7 @@
                             <p class="average">{{ parseInt(metrics.average_engagement).toLocaleString() }}</p>
                         </div>
                     </li>
-                    <li>
+                    <li v-if="campaign.type_sns === 'INSTAGRAM'">
                         <p class="title">좋아요 수(누적|평균)</p>
                         <div class="count-wrap">
                             <p class="count">{{ parseInt(metrics.count_like).toLocaleString() }}</p>
@@ -128,12 +128,20 @@
                             <p class="average">{{ parseInt(metrics.average_like).toLocaleString() }}</p>
                         </div>
                     </li>
-                    <li>
+                    <li v-if="campaign.type_sns === 'INSTAGRAM'">
                         <p class="title">댓글 수(누적|평균)</p>
                         <div class="count-wrap">
                             <p class="count">{{ parseInt(metrics.count_comment).toLocaleString() }}</p>
                             |
                             <p class="average">{{ parseInt(metrics.average_comment).toLocaleString() }}</p>
+                        </div>
+                    </li>
+                    <li v-if="campaign.type_sns === 'NAVER'">
+                        <p class="title">조회 수(누적|평균)</p>
+                        <div class="count-wrap">
+                            <p class="count">{{ parseInt(metrics.count_view).toLocaleString() }}</p>
+                            |
+                            <p class="average">{{ parseInt(metrics.average_view).toLocaleString() }}</p>
                         </div>
                     </li>
                 </ul>
@@ -153,7 +161,7 @@
                             <li class="th">
                                 인게이지먼트
                             </li>
-                            <li class="th">
+                            <li class="th" v-if="campaign.type_sns === 'INSTAGRAM'">
                                 댓글
                             </li>
 
@@ -205,9 +213,9 @@
                             </li>
                             <li class="add-unit">
                                 <span class="unit mb">인게이지먼트: </span>
-                                <span>{{ (application.count_like + application.count_comment).toLocaleString() }}</span>
+                                <span>{{ (application.count_like + application.count_comment + application.count_view).toLocaleString() }}</span>
                             </li>
-                            <li class="add-unit">
+                            <li class="add-unit" v-if="campaign.type_sns === 'INSTAGRAM'">
                                 <span class="unit mb">댓글: </span>
                                 <span>{{ application.count_comment.toLocaleString() }}</span>
                             </li>
@@ -259,6 +267,8 @@ export default {
                 average_comment: 0,
                 count_like: 0,
                 average_like: 0,
+                count_view: 0,
+                average_view: 0,
             },
             reports: []
         }

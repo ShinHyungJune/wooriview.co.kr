@@ -174,10 +174,12 @@
                             </div>
                         </div>
 
-                        <div class="write-box">
+                        <div class="write-box help-mark">
                             <div class="write-labal_wrap">
                                 <p class="write-labal" v-if="form.type_campaign === 'REALTIME'">인플루언서 모집시간 <span class="Essential">*</span></p>
                                 <p class="write-labal" v-else>인플루언서 모집기간 <span class="Essential">*</span></p>
+                                <i class="xi-help-o help-btn pop-up_recruitment"></i>
+                                <p class="Explanation_p">시간 내 미선정시 우리뷰 추천순으로 자동 선정</p>
                             </div>
 
                             <div class="write-bundle">
@@ -199,25 +201,28 @@
                                     </div>
                                 </div>
 
-                                <div class="Gray_p_box" v-if="form.type_campaign === 'REALTIME'">
-                                    <p>
-                                        실시간 캠페인은 ‘당일 방문형 캠페인’으로, 당일 매장 방문시간을 설정하여 정해진 방문시간에 선정된 인플루언서가 방문하여 약속된 제공내역을 체험 후, 광고주가 지정한 컨텐츠 등록기간 내 리뷰를 작성 및 등록합니다.
-
-                                        <br/><br/>‘실시간 방문형 캠페인’은 모집기간 및 선정기간이 설정하신 ‘당일 방문가능 시간’ 시작 전까지 고정됩니다. 설정하신 ‘당일 방문가능 시간’에는 캠페인 모집이 자동으로 마감됩니다.
-                                    </p>
-                                </div>
-                                <div class="Gray_p_box" v-else>
-                                    <p>해당 캠페인에 참여하고자 하는 인플루언서들을 모집하는 기간입니다. <br/>최대한 많은 인원을 모집하여 하고 싶으시다면, 일정을 넉넉하게 설정해주세요!</p>
-
-                                    <p class="alert" style="margin-top:8px;">※ 기간 내 미선정시 우리뷰 추천순으로 자동 선정</p>
+                                <div class="guide-popUp pop-up_recruitment-box">
+                                    <button class="close-btn">
+                                        <i class="xi-close"></i>
+                                    </button>
+                                    <div class="guide-content">
+                                        <p v-if="form.type_campaign === 'REALTIME'">
+                                            실시간 캠페인은 ‘당일 방문형 캠페인’으로, 당일 매장 방문시간을 설정하여 정해진 방문시간에 선정된 인플루언서가 방문하여 약속된 제공내역을 체험 후, 광고주가 지정한 컨텐츠 등록기간 내 리뷰를 작성 및 등록합니다.
+                                            <br/>‘실시간 방문형 캠페인’은 모집기간 및 선정기간이 설정하신 ‘당일 방문가능 시간’ 시작 전까지 고정됩니다. 설정하신 ‘당일 방문가능 시간’에는 캠페인 모집이 자동으로 마감됩니다.
+                                        </p>
+                                        <p v-else>
+                                            해당 캠페인에 참여하고자 하는 인플루언서들을 모집하는 기간입니다.
+                                            <br/>최대한 많은 인원을 모집하여 하고 싶으시다면, 일정을 넉넉하게 설정해주세요!
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
-                        <div class="write-box">
+                        <div class="write-box help-mark">
                             <div class="write-labal_wrap">
                                 <p class="write-labal">인플루언서 선정기간 <span class="Essential">*</span></p>
+                                <i class="xi-help-o help-btn pop-up_selection"></i>
                             </div>
                             <div class="write-bundle">
                                 <div class="m-input-dates type01">
@@ -236,17 +241,25 @@
                                     </div>
                                 </div>
 
-                                <div class="Gray_p_box">
-                                    <p>
-                                        캠페인에 참여신청을 한 인플루언서들 중, 제품 및 서비스와 가장 잘 어울리는 인플루언서를 사장님께서 직접 선정해주세요! (별도의 선정 없이 기간이 지나면 우리뷰 추천순위에 따라 자동선정 될 수 있습니다!)
-                                    </p>
+                                <div class="guide-popUp pop-up_selection-box">
+                                    <button class="close-btn">
+                                        <i class="xi-close"></i>
+                                    </button>
+                                    <div class="guide-content">
+                                        <p>
+                                            캠페인에 참여신청을 한 인플루언서들 중, 제품 및 서비스와 가장 잘 어울리는 인플루언서를 사장님께서 직접 선정해주세요! <br />
+                                            (별도의 선정 없이 기간이 지나면 우리뷰 추천순위에 따라 자동선정 될 수 있습니다!)
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="write-box">
+                        <div class="write-box help-mark">
                             <div class="write-labal_wrap">
                                 <p class="write-labal">리뷰어 컨텐츠 등록기간 <span class="Essential">*</span></p>
+                                <i class="xi-help-o help-btn pop-up_contents"></i>
+                                <p class="Explanation_p">매장 방문기간 포함 일정</p>
                             </div>
                             <div class="write-bundle">
                                 <div class="m-input-dates type01">
@@ -265,14 +278,20 @@
                                     </div>
                                 </div>
 
-                                <div class="Gray_p_box">
-                                    <p v-if="form.type_campaign === 'REALTIME'">
-                                        선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>매장 방문기간이 포함된 일정이니 참고 부탁드립니다.
-                                    </p>
-                                    <p v-else>
-                                        선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>배송기간과 방문기간이 포함된 기간인 만큼, 조금 넉넉하게 설정해주세요!
-                                    </p>
+                                <div class="guide-popUp pop-up_contents-box">
+                                    <button class="close-btn">
+                                        <i class="xi-close"></i>
+                                    </button>
+                                    <div class="guide-content">
+                                        <p v-if="form.type_campaign === 'REALTIME'">
+                                            선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>매장 방문기간이 포함된 일정이니 참고 부탁드립니다.
+                                        </p>
+                                        <p v-else>
+                                            선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>배송기간과 방문기간이 포함된 기간인 만큼, 조금 넉넉하게 설정해주세요!
+                                        </p>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -310,7 +329,7 @@
 
                     <div class="write-wrap-ri">
 
-                        <div class="write-box">
+                        <div class="write-box ">
                             <div class="write-labal_wrap">
                                 <p class="write-labal">모집 인플루언서 유형 <span class="Essential">*</span></p>
                                 <p class="Explanation_p">인스타그램 혹은 네이버 블로그 중 하나만 선택가능합니다.</p>
@@ -768,8 +787,9 @@ export default {
         setTempCampaign(){
             let campaign = this.tempCampaigns.data.find(tempCampaign => tempCampaign.id == this.temp_campaign_id);
 
-            if(campaign)
+            if(campaign) {
                 this.form.set(campaign);
+            }
         },
 
         storeTemp(){
@@ -844,8 +864,9 @@ export default {
             let items = [1];
 
             for(let i = 1;  i <= this.max; i++){
-                if(i % 5 === 0)
+                if(i < 10 || i % 5 === 0) {
                     items.push(i);
+                }
             }
 
             return items;
@@ -933,6 +954,24 @@ export default {
 
         $(".Registration_btn").click(function () {
             $(".Warning-pop").addClass("open");
+        });
+
+        $(".pop-up_recruitment").click(function () {
+            $(".pop-up_recruitment-box").addClass("open");
+        })
+
+        $(".pop-up_selection").click(function () {
+            $(".pop-up_selection-box").addClass("open");
+        })
+
+        $(".pop-up_contents").click(function () {
+            $(".pop-up_contents-box").addClass("open");
+        })
+
+
+        $(".close-btn").click(function () {
+            $(this).parent(".pop-box").removeClass("open")
+            $(this).parent(".guide-popUp").removeClass("open")
         })
     },
 
@@ -956,6 +995,14 @@ export default {
         },
 
         'form.type_campaign': function(newVal, oldVal) {
+            if(newVal === 'REALTIME' || newVal === 'VISIT'){
+                this.max = 10;
+            }
+
+            if(newVal === 'REPORTER' || newVal === 'DELIVERY'){
+                this.max = 20;
+            }
+
             if(newVal === "REALTIME"){
                 this.form.hire_started_at = "";
                 this.form.hire_finished_at = "";

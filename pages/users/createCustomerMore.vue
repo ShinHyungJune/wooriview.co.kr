@@ -42,13 +42,13 @@
                 <div class="write-wrap" v-if="step == 1">
                     <div class="write-wrap-le">
 
-<!--                        <div class="write-box">
-                            <p class="write-labal">SNS 계정 연동 (준비중)</p>
-                            &lt;!&ndash;
+                        <div class="write-box">
+                            <p class="write-labal">SNS 계정 연동</p>
+
                             <div class="write-bundle">
                                 <div class="sns-radio-box">
                                     <input type="radio" name="1" id="a" checked>
-                                    <label for="a"><span><i class="xi-check-min"></i></span>인스타그램 연동</label>
+                                    <label for="a"><span><i class="xi-check-min"></i></span>인스타그램 URL</label>
                                 </div>
                                 <div class="input-wrap">
                                     <input class="" type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요.">
@@ -56,14 +56,13 @@
 
                                 <div class="sns-radio-box">
                                     <input type="radio" name="1" id="b">
-                                    <label for="b"><span><i class="xi-check-min"></i></span>네이버블로그 연동</label>
+                                    <label for="b"><span><i class="xi-check-min"></i></span>네이버블로그 URL</label>
                                 </div>
                                 <div class="input-wrap">
-                                    <input class="Deactivation" type="text" placeholder="">
+                                    <input type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요.">
                                 </div>
                             </div>
-                            &ndash;&gt;
-                        </div>-->
+                        </div>
 
                         <div class="write-box">
                             <p class="write-labal">SNS 활동 분야 <span>SNS에서 주로 활동하는 분야를 클릭해주세요</span></p>
@@ -282,6 +281,9 @@ export default {
                 categories: [],
                 intro: "",
                 history: "",
+
+                instagram: "",
+                naver: "",
 
                 sex: "",
                 address: "",

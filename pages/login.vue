@@ -60,9 +60,9 @@
                                     <a :href="`${$store.state.domain}/openLoginPop/google?type=${form.type}`" class="sns-btn google">
                                         <img src="/images/sns-google.png" alt="우리뷰">
                                     </a>
-<!--                                    <a :href="`${$store.state.domain}/openLoginPop/apple?type=${form.type}`" class="sns-btn apple">
+                                    <a :href="`${$store.state.domain}/openLoginPop/apple?type=${form.type}`" class="sns-btn apple">
                                         <img src="/images/sns-apple.png" alt="우리뷰">
-                                    </a>-->
+                                    </a>
                                 </div>
                             </div>
                         </div>

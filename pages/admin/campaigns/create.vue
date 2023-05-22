@@ -72,7 +72,7 @@
                         </li>
                         <li class="col-group">
                             <div class="default">
-                                <p>{{campaign.type_campaign === 'REPORTER' ? '대표 URL' : '제공내역'}}</p>
+                                <p>{{item.type_campaign === 'REPORTER' ? '대표 URL' : '제공내역'}}</p>
                             </div>
                             <div class="user">
                                 {{ item.description_provide }}
@@ -227,6 +227,12 @@ export default {
             item: null,
             form: new Form(this.$axios, {
                 selected_ids: "",
+                hire_started_at: "",
+                hire_finished_at: "",
+                select_started_at: "",
+                select_finished_at: "",
+                review_started_at: "",
+                review_finished_at: "",
             })
         }
     },
@@ -250,7 +256,15 @@ export default {
                 .then(response => {
                     this.item = response.data.data;
 
-                    this.form.set({...this.item, ...this.form});
+                    console.log(this.item);
+                    this.item.hire_started_at = this.item.origin_hire_started_at;
+                    this.item.hire_finished_at = this.item.origin_hire_finished_at;
+                    this.item.select_started_at = this.item.origin_select_started_at;
+                    this.item.select_finished_at = this.item.origin_select_finished_at;
+                    this.item.review_started_at = this.item.origin_review_started_at;
+                    this.item.review_finished_at = this.item.origin_review_finished_at;
+
+                    this.form.set({...this.form, ...this.item});
 
                     this.loading = false;
                 })
