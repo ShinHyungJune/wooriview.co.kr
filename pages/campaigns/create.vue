@@ -768,8 +768,9 @@ export default {
         setTempCampaign(){
             let campaign = this.tempCampaigns.data.find(tempCampaign => tempCampaign.id == this.temp_campaign_id);
 
-            if(campaign)
+            if(campaign) {
                 this.form.set(campaign);
+            }
         },
 
         storeTemp(){
