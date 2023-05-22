@@ -48,25 +48,23 @@
                                     <nuxt-link to="/users/createCompany" class="join-btn" v-else>기업 · 광고주 회원가입</nuxt-link>
                                 </div>
                             </div>
-                            <!--
                             <div class="sns-btn-wrap" v-if="form.type === 'CUSTOMER'">
                                 <p>SNS 계정 로그인</p>
                                 <div class="btn-wrap">
-                                    <a :href="`${$store.state.domain}/openLoginPop/naverCustom?type=${form.type}`"  class="sns-btn naver">
+<!--                                    <a :href="`${$store.state.domain}/openLoginPop/naverCustom?type=${form.type}`"  class="sns-btn naver">
                                         <img src="/images/sns-naver.png" alt="우리뷰">
-                                    </a>
+                                    </a>-->
                                     <a :href="`${$store.state.domain}/openLoginPop/kakaoCustom?type=${form.type}`" class="sns-btn kakao">
                                         <img src="/images/sns-kakao.png" alt="우리뷰">
                                     </a>
                                     <a :href="`${$store.state.domain}/openLoginPop/google?type=${form.type}`" class="sns-btn google">
                                         <img src="/images/sns-google.png" alt="우리뷰">
                                     </a>
-                                    <a :href="`${$store.state.domain}/openLoginPop/apple?type=${form.type}`" class="sns-btn apple">
+<!--                                    <a :href="`${$store.state.domain}/openLoginPop/apple?type=${form.type}`" class="sns-btn apple">
                                         <img src="/images/sns-apple.png" alt="우리뷰">
-                                    </a>
+                                    </a>-->
                                 </div>
                             </div>
-                            -->
                         </div>
 
                     </div>
