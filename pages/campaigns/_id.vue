@@ -103,7 +103,7 @@
                 </div>
                 <div class="Information-wrap">
                     <div class="Information-box">
-                        <p class="Information-labal">제공 내역</p>
+                        <p class="Information-labal">{{campaign.type_campaign === 'REPORTER' ? '대표 URL' : '제공내역'}}</p>
                         <p class="Information-content" v-text="campaign.description_provide"></p>
                     </div>
                     <div class="Information-box">

@@ -29,7 +29,7 @@
                 [{{ campaign.title_company }}]
                 {{ campaign.title_product }}
             </nuxt-link>
-            <p class="product">{{ campaign.description_provide }}</p>
+            <p class="product" v-if="campaign.type_campaign !== 'REPORTER'">{{ campaign.description_provide }}</p>
             <div class="State-wrap">
                 <p class="Application">신청
                     <span>{{ campaign.applications_count }}</span>
