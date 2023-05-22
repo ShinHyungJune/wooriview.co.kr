@@ -184,6 +184,8 @@ export default {
                 page:1,
             }),
 
+            activeMyPosition: false,
+
         }
     },
     methods: {
@@ -247,6 +249,16 @@ export default {
             var geocoder = new kakao.maps.services.Geocoder();
 
             let self = this;
+
+            if(this.activeMyPosition){
+                var coords = new kakao.maps.LatLng(this.y, this.x);
+
+                // 결과값으로 받은 위치를 마커로 표시합니다
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: coords,
+                });
+            }
 
             this.allCampaigns.data.map(campaign => {
                 // 주소로 좌표를 검색합니다
@@ -322,7 +334,7 @@ export default {
                 (position) => {
                     this.y = position.coords.latitude;
                     this.x = position.coords.longitude;
-                    console.log(this.y, this.x);
+                    this.activeMyPosition = true;
                 },
                 (error) => {
                     console.error(error.message);
