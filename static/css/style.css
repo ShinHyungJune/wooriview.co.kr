@@ -2900,6 +2900,40 @@
     .pop-box .pop-txt .guide-txt-wrap .guide-p { margin: unset; padding: 24px;}
 }
 
+
+
+/* 캠페인등록 - help 팝업 공통 */
+.Campaign_Registration .write-wrap .write-box.help-mark { }
+.Campaign_Registration .write-wrap .write-box.help-mark .write-labal_wrap { display: flex; flex-direction: row; align-items: center; gap: 5px;}
+.Campaign_Registration .write-wrap .write-box.help-mark .write-labal_wrap .help-btn { font-size: 20px; color: #707070; cursor: pointer;}
+.Campaign_Registration .write-wrap .write-box.help-mark  .write-labal { min-width: 158px;}
+.Campaign_Registration .write-wrap .write-box.help-mark .Explanation_p { font-size: 14px; padding-left: 10px;}
+.Campaign_Registration .guide-popUp { padding: 20px; display: flex; align-items: center; width: 100%;  max-width: 640px; max-height: 100%;  position: fixed; left: 50%;  top: 50%;  transform: translate(-50%, -50%); box-shadow: 0 3px 48px 0 rgba(0, 0, 0, 0.32);  background-color: #fff;  z-index: 99;  border-radius: 16px;  overflow: auto;  display: none;}
+.Campaign_Registration .guide-popUp .close-btn { right: 10px; top: 10px; position: absolute; font-size: 20px;}
+.Campaign_Registration .guide-popUp .guide-content p { font-size: 16px;     color: #303030; max-width: 95%;}
+.guide-popUp.open {  display: unset; }
+@media screen and (max-width: 768px) {
+    .Campaign_Registration .guide-popUp { max-width: 90%; max-height: auto;}
+    .Campaign_Registration .guide-popUp .guide-content p { font-size: 12px;}
+    .Campaign_Registration .guide-popUp .close-btn { font-size: 15px;}
+}
+
+/* 캠페인등록 - 배송형 */
+.Campaign_Registration .write-guide-box { width: 100%; border-radius: 20px; padding: 12px 24px;   background-color: #f5f5f5;}
+.Campaign_Registration .write-guide-box .guide-info { font-size: 14px; font-weight: 300; color: #202020;}
+.Campaign_Registration .write-wrap .select_st1.top { margin-bottom: 16px;}
+
+
+
+
+
+
+
+
+
+
+
+
 .Map-Search-wrap {width: 100%; position: relative; margin-bottom: 40px;}
 .Map-Search-wrap #map { position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%;}
 .Map-Search-wrap #mapCampain { position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%;}
