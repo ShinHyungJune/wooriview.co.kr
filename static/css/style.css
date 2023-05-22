@@ -781,7 +781,7 @@
 .table-tab-wrap .tab-content.Active { display: inherit;}
 .table-tab-wrap .tab-content { display: none;}
 
-.influencer-table_1 .table-wrap .tbody .period { font-size: 14px; color: #202020; font-weight: 500; }
+.influencer-table_1 .table-wrap .tbody .period { font-size: 14px; color: #202020; font-weight: 500;    text-align: center; }
 .influencer-table_1 .table-wrap .tbody .campaign-info-wrap {display: flex; flex-direction: row; gap: 16px; justify-content: start; }
 .influencer-table_1 .table-wrap .tbody .campaign-info-wrap .campaign-img  { width: 87px;   position: relative;   border-radius: 16px;   background-color: #f5f5f5;  overflow: hidden;   cursor: pointer;}
 .influencer-table_1 .table-wrap .tbody .campaign-info-wrap .campaign-img::after  { content: '';  width: 100%;  display: block;   padding-top: 100%;}
@@ -3017,5 +3017,50 @@
     }
 
 }
+
+
+
+
+/* 캠페인 - 마감 및 보고서 확인 테이블 5/22 */
+
+.influencer-table_1 #tab-4  { }
+.influencer-table_1 .table-wrap  #tab-4  > ul > li:nth-child(1) { min-width: 113px;word-break: keep-all;  text-align: center; } 
+.advertiser-table_1 .table-wrap #tab-4  > ul > li:nth-child(2) { width: 45%;}
+.influencer-table_1 .table-wrap #tab-4 .tbody .info-box { width: 100%;}
+.advertiser-table_1 .table-wrap #tab-4 > ul > li:nth-child(5) { min-width: 93px; width: 8%;}
+.advertiser-table_1 .table-wrap #tab-4 > ul > li:nth-child(6) { min-width: 93px; width: 8%;}
+@media screen and (max-width:1040px) {
+    .influencer-table_1 .table-wrap #tab-4 > ul > li:nth-child(1) { width: 11%;}
+}
+@media screen and (max-width:768px) {
+
+.advertiser-table_1 .table-wrap #tab-4  .tbody .btn-wrap .btn-list { max-width: 115px;}
+.influencer-table_1 .table-wrap #tab-4  .tbody .btn-wrap { width: 10%;}
+.influencer-table_1 .table-wrap #tab-4  .tbody .btn-wrap.statistics a { margin-left: 50px; }
+
+}
+
+
+.influencer-table_1 #tab-6 .table-wrap > ul > li:nth-child(1) { width: 50%; }
+.influencer-table_1 #tab-6 .table-wrap > ul > li:nth-child(2) { width: 10%; }
+.influencer-table_1 #tab-6 .table-wrap > ul > li:nth-child(3) { width: 10%; }
+.influencer-table_1 #tab-6 .table-wrap > ul > li:nth-child(4) { width: 10%; }
+.influencer-table_1 #tab-6 .table-wrap > ul > li:nth-child(5) { width: 10%; }
+
+.influencer-table_1 #tab-6 .table-wrap .tbody .campaign-info-wrap { width: 50%; }
+.influencer-table_1 #tab-6 .table-wrap .tbody .recruit-num { width: 10%; }
+.influencer-table_1 #tab-6 .table-wrap .tbody .btn-wrap { width: 10%; }
+
+@media screen and (max-width:788px) {
+.influencer-table_1 #tab-6 .table-wrap .tbody .btn-wrap { padding-top: unset;}
+.advertiser-table_1 #tab-6 .table-wrap > ul > li:nth-child(2) {width: auto; flex-direction: inherit; width: unset; align-items: baseline; padding-left: 5px;}
+.advertiser-table_1.influencer-table_1 #tab-6 .table-wrap#tab-6 > ul > li:nth-child(3) { padding-top: inherit;}
+.advertiser-table_1 #tab-6 .table-wrap .num-re-po { padding: inherit;}
+.advertiser-table_1.influencer-table_1 #tab-6 .table-wrap#tab-6 > ul > li:nth-child(3) { align-items: baseline; width: 80%; justify-content: start;}
+.advertiser-table_1.influencer-table_1 #tab-6 .table-wrap#tab-6 > ul > li:nth-child(4) { flex-direction: inherit; min-width: unset; margin-right: 65px;}
+.advertiser-table_1.influencer-table_1 .table-wrap > ul > li:nth-child(3).recruit-num {padding-left: unset; justify-content: flex-start;}
+.advertiser-table_1 .table-wrap > ul > li:nth-child(5) { justify-content: start;  padding-left: unset; }
+}
+
 
 
