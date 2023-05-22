@@ -261,6 +261,8 @@ export default {
         },
 
         getCampaigns(){
+            this.campaigns.data = [];
+
             this.$axios.get("/api/campaigns", {
                 params: this.form
             }).then(response => {

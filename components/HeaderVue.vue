@@ -9,19 +9,34 @@
                     </nuxt-link>
                     <ul class="header-nav">
                         <li :class="typeCampaign === 'REALTIME' ? 'active' : ''">
-                            <a href="/campaigns?type_campaign=REALTIME&showMap=1">실시간</a>
+                            <a href="/campaigns?type_campaign=REALTIME&showMap=1">
+                                <img class="live-icon-img" src="/images/Live-icon.png" alt="">
+                                실시간
+                            </a>
                         </li>
                         <li :class="typeCampaign === 'VISIT' ? 'active' : ''">
-                            <a href="/campaigns?type_campaign=VISIT&showMap=1">방문형</a>
+                            <a href="/campaigns?type_campaign=VISIT&showMap=1">
+                                <img src="/images/Shipping-icon.png" alt="">
+                                방문형
+                            </a>
                         </li>
                         <li :class="typeCampaign === 'DELIVERY' ? 'active' : ''">
-                            <a href="/campaigns?type_campaign=DELIVERY">배송형</a>
+                            <a href="/campaigns?type_campaign=DELIVERY">
+                                <img src="/images/Visit-icon.png" alt="">
+                                배송형
+                            </a>
                         </li>
                         <li :class="typeCampaign === 'REPORTER' ? 'active' : ''">
-                            <a href="/campaigns?type_campaign=REPORTER">기자단</a>
+                            <a href="/campaigns?type_campaign=REPORTER">
+                                <img src="/images/Reporter-icon.png" alt="">
+                                기자단
+                            </a>
                         </li>
                         <li :class="$route.path.includes('/qnas') || $route.path.includes('/notices') ? 'active' : ''">
-                            <a href="/qnas">고객센터</a>
+                            <a href="/qnas">
+                                <img class="client-icon-img" src="/images/client-icon.png" alt="">
+                                고객센터
+                            </a>
                         </li>
                     </ul>
                 </div>

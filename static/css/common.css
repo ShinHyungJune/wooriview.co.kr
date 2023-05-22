@@ -141,7 +141,16 @@ body{ -ms-overflow-style: none; }
 .header .header-le { display: flex; gap: 88px; }
 .header .logo { max-width: 205px; display: block; }
 .header .header-nav { display: flex; align-items: center; gap: 48px; }
-.header .header-nav a { font-size: 20px; }
+.header .header-nav li.active a {
+    color:#ffc800;
+}
+.header .header-nav a {
+    display: flex; align-items: center;
+    font-size: 20px;
+}
+.header .header-nav a img {
+    margin-right:8px;
+}
 .header .header-nav a img.live-icon-img { max-width: 31px; }
 .header .header-nav a img { max-width: 25px;  }
 .header .header-nav li.mb { display: none; }
@@ -155,7 +164,10 @@ body{ -ms-overflow-style: none; }
 
 @media screen and (max-width: 1138px) {
     .header .header-le { gap: 48px; }
-    .header .header-nav { gap: 24px; }
+    .header .header-nav {
+        gap: 24px;
+    }
+
 }
 
 
@@ -171,22 +183,21 @@ body{ -ms-overflow-style: none; }
     .header .header-ri > ul li > a { width: 38px; height: 38px;}
     .header .header-nav a img.live-icon-img { max-width: 25px; }
     .header .header-nav a img { max-width: 20px; }
-    .header .header-nav li a { gap: 4px; } 
+    .header .header-nav li a { gap: 4px; }
     .header .header-nav li { width: 73px;}
     .header .header-nav li.client-li { width: 80px;}
-} 
+}
 
 @media screen and (max-width: 768px) {
     .header { border-top: none; height: 90px; padding-bottom: 40px; }
     .header .back-btn { display: inline-block; }
     .header .back-btn i { font-size: 22px; color: #000; }
     .header .logo { max-width: 91px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-    .header .header-nav { height: 40px; position: absolute; top: 100%; left: 0; width: 100%; justify-content: center; gap: unset; }
-    .header .header-nav li { width: 75px; height: 100%; }
+    .header .header-nav {width:100%; height: 40px; position: absolute; top: 100%; left: 0; width: 100%; justify-content: flex-start; gap: unset; overflow-x:auto;}
+    .header .header-nav li { width: 100px; height: 100%; flex:0 0 auto; }
     .header .header-nav li.mb { display: unset; }
     .header .header-nav li a { display: flex; justify-content: center; align-items: center; height: 100%; font-size: 14px; color: #c1c1c1; }
     .header .header-nav li.active {position: relative;}
-    .header .header-nav li.active::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 36px; height: 2px; background-color: #ffc800; }
     .header .header-nav li.active a { color: #ffc800; }
     .header .header-ri > ul { gap: 12px; }
     .header .header-ri > ul > li.pc { display: none; }

@@ -209,7 +209,7 @@ export default {
                 .then(response => {
                     this.categories = response.data;
 
-                    this.form.category_ids = this.categories.data.map(category => category.id);
+                    // this.form.category_ids = this.categories.data.map(category => category.id);
                 });
         },
 

@@ -78,7 +78,7 @@ export default {
                 .then(response => {
                     this.item = response.data.data;
 
-                    this.form.set(this.item);
+                    this.form.set({...this.item, ...this.form});
 
                     this.loading = false;
                 })

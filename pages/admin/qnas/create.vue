@@ -106,7 +106,7 @@ export default {
                 .then(response => {
                     this.item = response.data.data;
 
-                    this.form.set(this.item);
+                    this.form.set({...this.item, ...this.form});
 
                     if(!this.form.admin_name){
                         this.form.admin_name = this.$auth.user.data.name;
