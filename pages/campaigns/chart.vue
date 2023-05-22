@@ -267,6 +267,8 @@ export default {
                 average_comment: 0,
                 count_like: 0,
                 average_like: 0,
+                count_view: 0,
+                average_view: 0,
             },
             reports: []
         }
