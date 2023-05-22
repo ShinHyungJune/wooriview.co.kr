@@ -72,7 +72,7 @@
                         </li>
                         <li class="col-group">
                             <div class="default">
-                                <p>{{campaign.type_campaign === 'REPORTER' ? '대표 URL' : '제공내역'}}</p>
+                                <p>{{item.type_campaign === 'REPORTER' ? '대표 URL' : '제공내역'}}</p>
                             </div>
                             <div class="user">
                                 {{ item.description_provide }}
