@@ -102,11 +102,11 @@
 
 							<div class="write-box">
 								<div class="write-labal_wrap">
-									<p class="write-labal">상호명 <span class="Essential">*</span></p>
+									<p class="write-labal">상호명(브랜드명) <span class="Essential">*</span></p>
 								</div>
 
 								<div class="input-wrap">
-									<input class="" type="text" placeholder="배송형 캠페인의 경우 브랜드명, 홍보 제품명을 작성해주세요.">
+									<input class="" type="text" placeholder="소개하고자 하는 제품의 브랜드명을 입력해주세요.">
 								</div>
 							</div>
 
@@ -168,21 +168,25 @@
 										<i class="xi-angle-down"></i>
 										<select name="ttt" id="ttt">
 											<option value="" style="color:gray" disabled selected>1~ 20명까지 선택 가능합니다</option>
-											<option value="">123</option>
-											<option value="">123</option>
+											<option value="">1~10</option>
+											<option value="">1~15</option>
+											<option value="">1~20</option>
 										</select>
 									</div>
 									<div class="Gray_p_box">
-										<p>실시간캠페인 인플루언서 모집 가능시간은 검수요청후 최소 2시간뒤에
-											모집 가능합니다
-											인플루언서 모집기간은 모집시작시간 뒤로 최대 24시간까지 설정 가능합니다.</p>
+										<p> 
+											‘실시간 방문형 캠페인’은 모집기간 및 선정기간이 설정하신 ‘당일 방문가능 시간’ 시작 전까지 고정됩니다. 
+											설정하신 ‘당일 방문가능 시간’에는 캠페인 모집이 자동으로 마감됩니다.
+										</p>
 									</div>
 								</div>
 							</div>
 
-							<div class="write-box">
+							<div class="write-box help-mark">
 								<div class="write-labal_wrap">
-									<p class="write-labal">인플루언서 모집기간 <span class="Essential">*</span></p>
+									<p class="write-labal">인플루언서 모집시간 <span class="Essential">*</span></p>
+									<i class="xi-help-o help-btn pop-up_recruitment"></i>
+									<p class="Explanation_p">시간 내 미선정시 우리뷰 추천순으로 자동 선정</p>
 								</div>
 								<div class="input_data_wrap">
 									<div class="select_st1">
@@ -203,10 +207,21 @@
 									</div>
 								</div>
 							</div>
+							<div class="guide-popUp pop-up_recruitment-box">
+								<button class="close-btn">
+									<i class="xi-close"></i>
+								</button>
+								<div class="guide-content">
+									<p>해당 캠페인에 참여하고자 하는 인플루언서들을 모집하는 기간입니다. 
+										<br />최대한 많은 인원을 모집하여 하고 싶으시다면, 일정을 넉넉하게 설정해주세요!
+									</p>
+								</div>
+							</div>
 
-							<div class="write-box">
+							<div class="write-box help-mark">
 								<div class="write-labal_wrap">
-									<p class="write-labal">인플루언서 선정기간 <span class="Essential">*</span></p>
+									<p class="write-labal">인플루언서 방문시간<span class="Essential">*</span></p>
+									<i class="xi-help-o help-btn pop-up_selection"></i>
 								</div>
 								<div class="input_data_wrap">
 									<div class="select_st1">
@@ -227,10 +242,23 @@
 									</div>
 								</div>
 							</div>
+							<div class="guide-popUp pop-up_selection-box">
+								<button class="close-btn">
+									<i class="xi-close"></i>
+								</button>
+								<div class="guide-content">
+									<p>
+										캠페인에 참여신청을 한 인플루언서들 중, 제품 및 서비스와 가장 잘 어울리는 인플루언서를 사장님께서 직접 선정해주세요! <br />
+										(별도의 선정 없이 기간이 지나면 우리뷰 추천순위에 따라 자동선정 될 수 있습니다!)
+									</p>
+								</div>
+							</div>
 
-							<div class="write-box">
+							<div class="write-box help-mark">
 								<div class="write-labal_wrap">
 									<p class="write-labal">리뷰어 컨텐츠 등록기간 <span class="Essential">*</span></p>
+									<i class="xi-help-o help-btn pop-up_contents"></i>
+									<p class="Explanation_p">매장 방문기간 포함 일정</p>
 								</div>
 								<div class="input_data_wrap">
 									<div class="input_data_st1">
@@ -241,10 +269,21 @@
 									</div>
 								</div>
 							</div>
+							<div class="guide-popUp pop-up_contents-box">
+								<button class="close-btn">
+									<i class="xi-close"></i>
+								</button>
+								<div class="guide-content">
+									<p>
+										선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br />
+										배송기간과 방문기간이 포함된 기간인 만큼, 조금 넉넉하게 설정해주세요!
+									</p>
+								</div>
+							</div>
 
 							<div class="write-box">
 								<div class="write-labal_wrap">
-									<p class="write-labal">사업장 운영지역 <span class="Essential">*</span></p>
+									<p class="write-labal">실 사업장 주소 <span class="Essential">*</span></p>
 								</div>
 
 								<div class="write-bundle">
@@ -685,6 +724,31 @@ ex)
 				})
 			})
 		</script>
+
+		 <!-- 가이드 팝업 -->
+		 <script>
+			$(".pop-up_recruitment").click(function () {
+				$(".pop-up_recruitment-box").addClass("open");
+			})
+
+			$(".pop-up_selection").click(function () {
+		        $(".pop-up_selection-box").addClass("open");
+	        })
+
+			$(".pop-up_contents").click(function () {
+		        $(".pop-up_contents-box").addClass("open");
+	        })
+
+		</script>
+		<!-- // -->
+		<!-- 팝업끄기 -->
+		<script>
+			$(".close-btn").click(function () {
+				$(this).parent(".pop-box").removeClass("open")
+				$(this).parent(".guide-popUp").removeClass("open")
+			})
+		</script>
+
     </div>
 </body>
 </html>
