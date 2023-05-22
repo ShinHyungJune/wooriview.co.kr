@@ -96,6 +96,11 @@
                                 <i class="xi-help-o" @click="openPop('beforeAccept')"></i>
                                 <span>{{ counts.unaccept }}</span>
                             </li>
+                            <li :class="`tab-link ${state === 'afterAccept' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('afterAccept')">
+                                심사통과 캠페인
+                                <i class="xi-help-o" @click="openPop('afterAccept')"></i>
+                                <span>{{ counts.accept }}</span>
+                            </li>
                             <li :class="`tab-link ${state === 'ongoingHire' ? 'Active' : ''}`" data-tab="tab-2" @click="changeState('ongoingHire')">
                                 모집중인 캠페인
                                 <i class="xi-help-o" @click="openPop('ongoingHire')"></i>
@@ -122,7 +127,7 @@
                         </ul>
                     </div>
 
-                    <!-- 캠페인 등록 심사 -->
+                    <!-- 심사중인 캠페인 -->
                     <div class="table-wrap tab-content Active" v-if="state === 'beforeAccept'">
                         <ul class="thead">
                             <li class="th">
@@ -159,7 +164,46 @@
                         </ul>
                         <!-- //그룹 -->
                     </div>
-                    <!-- //캠페인 등록심사 -->
+                    <!-- //심사중인 캠페인 -->
+
+                    <!-- 심사완료 캠페인 -->
+                    <div class="table-wrap tab-content Active" v-if="state === 'afterAccept'">
+                        <ul class="thead">
+                            <li class="th">
+                                캠페인 등록일
+                            </li>
+                            <li class="th">
+                                캠페인 정보
+                            </li>
+                            <li class="th">
+                                모집
+                            </li>
+                        </ul>
+
+                        <!-- 리스트 그룹 -->
+                        <empty v-if="campaigns.data.length == 0" />
+
+                        <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
+                            <li class="date">
+                                <span class="unit mb">캠페인 등록일</span>
+                                {{ campaign.format_created_at }}
+                            </li>
+
+                            <!-- 캠페인 정보 -->
+                            <campaign :campaign="campaign" />
+
+                            <!-- //캠페인 정보 -->
+                            <li class="recruit-num num-re-po">
+                                <span class="unit mb">모집</span>
+                                <div class="default-wrap">
+                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                    <span class="unit">명</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- //그룹 -->
+                    </div>
+                    <!-- // 심사완료 캠페인  -->
 
                     <!-- 인플루언서 모집 -->
                     <div class="table-wrap tab-content Active" v-if="state === 'ongoingHire'">
@@ -435,6 +479,10 @@ export default {
                 this.form.accept = 0;
             }
 
+            if(state === "afterAccept"){
+                this.form.accept = 1;
+            }
+
             if(state === "ongoingHire"){
                 this.form.accept = 1;
                 this.form.ongoingHire = 1;
@@ -493,6 +541,12 @@ export default {
                 pop = {
                     title: '심사중인 캠페인',
                     description: '등록 요청한 캠페인에 허위광고, 과대광고 등 문제가 없는지 운영팀에서 확인하는 단계에요!'
+                }
+
+            if(type === 'afterAccept')
+                pop = {
+                    title: '심사통과 캠페인',
+                    description: '심사에 통과된 캠페인을 확인하는 단계에요!'
                 }
 
             if(type === 'ongoingHire')
