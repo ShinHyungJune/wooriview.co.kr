@@ -169,7 +169,7 @@
                                     <img src="/images/Recommended_mark_Bronze.svg" alt="" v-if="application.user.grade === 'BRONZE'">
                                 </div>
                             </div>
-<!--                            <p class="Follow">팔로워 <span>{{ campaign.type_sns === 'INSTAGRAM' ? application.user.count_follower_instagram.toLocaleString() : application.user.count_follower_naver.toLocaleString() }} 명</span></p>-->
+                            <p class="Follow" v-if="application.user && campaign.type_sns === 'INSTAGRAM'">팔로워 <span>{{ application.user.count_follower_instagram.toLocaleString() }} 명</span></p>
                         </div>
                         <div class="subscriber-ri">
                             <div class="subscriber-ri-top">

@@ -59,7 +59,7 @@
                                     <label for="b"><span><i class="xi-check-min"></i></span>네이버블로그 URL</label>
                                 </div>
                                 <div class="input-wrap">
-                                    <input class="Deactivation" type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요.">
+                                    <input type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요.">
                                 </div>
                             </div>
                         </div>
@@ -281,6 +281,9 @@ export default {
                 categories: [],
                 intro: "",
                 history: "",
+
+                instagram: "",
+                naver: "",
 
                 sex: "",
                 address: "",

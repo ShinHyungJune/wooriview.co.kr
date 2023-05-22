@@ -69,12 +69,27 @@
                                     </div>
                                 </div>
 
-<!--                                <div class="write-box">
-                                    <p class="write-labal">SNS 계정 연동 (준비중)</p>
-                                    <div class="write-bundle">
+                                <div class="write-box">
+                                    <p class="write-labal">SNS 계정 연동</p>
 
+                                    <div class="write-bundle">
+                                        <div class="sns-radio-box">
+                                            <input type="radio" name="1" id="a" checked>
+                                            <label for="a"><span><i class="xi-check-min"></i></span>인스타그램 URL</label>
+                                        </div>
+                                        <div class="input-wrap">
+                                            <input class="" type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요." v-model="form.instagram">
+                                        </div>
+
+                                        <div class="sns-radio-box">
+                                            <input type="radio" name="1" id="b">
+                                            <label for="b"><span><i class="xi-check-min"></i></span>네이버블로그 URL</label>
+                                        </div>
+                                        <div class="input-wrap">
+                                            <input class="" type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요." v-model="form.naver">
+                                        </div>
                                     </div>
-                                </div>-->
+                                </div>
 
                                 <div class="write-box">
                                     <p class="write-labal">개인정보</p>
@@ -320,6 +335,8 @@ export default {
                 password_new: "",
                 password_new_confirmation: "",
 
+                instagram: this.$auth.user.data.instagram,
+                naver: this.$auth.user.data.naver,
                 email: this.$auth.user.data.email,
                 categories: this.$auth.user.data.categories.map(category => category.id),
                 address: this.$auth.user.data.address,
