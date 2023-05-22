@@ -311,7 +311,7 @@
                     <div class="table-wrap tab-content Active"  id="tab-4" v-if="state === 'ongoingReview'">
                         <ul class="thead">
                             <li class="th">
-                                컨텐츠 등록기간
+                                리뷰어 컨텐츠 등록기간
                             </li>
                             <li class="th">
                                 캠페인 정보

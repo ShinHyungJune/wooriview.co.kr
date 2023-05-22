@@ -2338,15 +2338,48 @@
 
 
 @media screen and (max-width: 1080px) {
+    .payment-detail .logo-wrap {
+        margin-bottom:40px;
+    }
+    .payment-detail .pdf_page .page-title {
+        font-size:24px;
+    }
+    .payment-detail .pdf_page .page-detail .page-detail_title {
+        margin-bottom:12px;
+    }
+    .payment-detail .pdf_page .page-detail.m-repo {
+        flex-wrap:wrap;
+        padding:20px 0;
+        border-bottom:1px solid #e1e1e1;
+    }
+    .payment-detail .write-wrap .Consent-form .Consent-ck label {
+        font-size:14px;
+    }
+    .payment-detail .pdf_page .page-detail_table .table-title {
+        max-width:150px;
+        font-size:14px;
+    }
+    .payment-detail .pdf_page .page-detail_table .table-content {
+        max-width:calc( 100% - 150px);
+        font-size:14px;
+    }
+    .payment-detail .payment-agree-box .payment-agree-top #pdf-btn {
+        display: none;
+    }
 .payment-detail .payment-detail-contents { gap:16px;}
-.payment-detail .payment-sign-wrap .payment-sign_box { width: 180px; height: 200px;}
+    .payment-detail .payment-sign-wrap {
+        flex-wrap:wrap; justify-content: center;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
 .payment-detail .payment-detail-contents { max-width: 573px; margin: 0 auto;  flex-direction: column; }
 .payment-detail .payment-agree-box { width: 100%;}
 .payment-detail .payment-sign_title .pc { display: none; }
-.payment-detail .payment-sign-wrap .payment-sign_box { width: 100%; margin-bottom: 20px; }
+.payment-detail .payment-sign-wrap .payment-sign_box {
+    margin-bottom: 20px;
+}
 .payment-detail .payment-sign-wrap .payment-sign_title { margin-bottom: 10px;}
 .payment-detail .payment-sign.signature { margin: 0 auto;}
 .payment-detail .payment-sign { max-width: 573px;  }

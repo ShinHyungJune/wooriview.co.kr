@@ -151,7 +151,7 @@
                     <div class="table-wrap tab-content Active" v-if="state === 'like'">
                         <ul class="thead">
                             <li class="th">
-                                컨텐츠 등록기간
+                                리뷰어 컨텐츠 등록기간
                             </li>
                             <li class="th">
                                 캠페인 정보

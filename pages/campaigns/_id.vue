@@ -45,7 +45,10 @@
                             <p class="Period-labal">
                                 인플루언서 모집기간
                             </p>
-                            <p class="Period-date">
+                            <p class="Period-date" v-if="campaign.type_campaign === 'REALTIME'">
+                                {{ campaign.time_hire_started_at }} ~ {{ campaign.time_hire_finished_at }}
+                            </p>
+                            <p class="Period-date" v-else>
                                 {{ campaign.format_hire_started_at }} ~ {{ campaign.format_hire_finished_at }}
                             </p>
                         </div>
@@ -59,7 +62,7 @@
                         </div>
                         <div class="Period">
                             <p class="Period-labal">
-                                컨텐츠 등록기간
+                                리뷰어 컨텐츠 등록기간
                             </p>
                             <p class="Period-date">
                                 {{ campaign.format_review_started_at }} ~ {{ campaign.format_review_finished_at }}

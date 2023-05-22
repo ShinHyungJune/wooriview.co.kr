@@ -141,9 +141,9 @@
                                 <p>작성마감일</p>
                             </div>
                             <div class="user">
-                                <input type="datetime-local" name="" v-model="form.hire_finished_at" />
+                                <input type="datetime-local" name="" v-model="form.review_finished_at" />
 
-                                <error :form="form" name="hire_finished_at" />
+                                <error :form="form" name="review_finished_at" />
                             </div>
                         </li>
                         <li class="col-group">
@@ -175,7 +175,12 @@
                                 <p>미션</p>
                             </div>
                             <div class="user">
-                                {{ item.mission }}
+                                <p v-for="(mission, index) in item.missions" :key="index">
+                                    - {{ mission }}
+                                </p>
+                                <p>
+                                    - {{ item.mission }}
+                                </p>
                             </div>
                         </li>
                         <li class="col-group">

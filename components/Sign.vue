@@ -13,24 +13,49 @@ export default {
         this.isDrawing = false;
 
         this.canvas.addEventListener('mousedown', this.startDrawing);
+        this.canvas.addEventListener('touchstart', this.startDrawing);
         this.canvas.addEventListener('mousemove', this.draw);
+        this.canvas.addEventListener('touchmove', this.draw);
         this.canvas.addEventListener('mouseup', this.stopDrawing);
+        this.canvas.addEventListener('touchend', this.stopDrawing);
         this.canvas.addEventListener('mouseout', this.stopDrawing);
+        this.canvas.addEventListener('touchcancel', this.stopDrawing);
     },
     methods: {
         startDrawing(event) {
+            event.preventDefault();
+
             this.isDrawing = true;
-            this.lastX = event.offsetX;
-            this.lastY = event.offsetY;
+
+            if (event.type === 'touchstart') {
+                this.lastX = event.touches[0].clientX - this.canvas.offsetLeft;
+                this.lastY = event.touches[0].clientY - this.canvas.offsetTop;
+            } else {
+                this.lastX = event.offsetX;
+                this.lastY = event.offsetY;
+            }
         },
         draw(event) {
             if (!this.isDrawing) return;
+            event.preventDefault(); // 기본 동작 방지
+
+            let newX, newY;
+
+            if (event.type === 'touchmove') {
+                newX = event.touches[0].clientX - this.canvas.offsetLeft;
+                newY = event.touches[0].clientY - this.canvas.offsetTop;
+            } else {
+                newX = event.offsetX;
+                newY = event.offsetY;
+            }
+
             this.context.beginPath();
             this.context.moveTo(this.lastX, this.lastY);
-            this.context.lineTo(event.offsetX, event.offsetY);
+            this.context.lineTo(newX, newY);
             this.context.stroke();
-            this.lastX = event.offsetX;
-            this.lastY = event.offsetY;
+
+            this.lastX = newX;
+            this.lastY = newY;
         },
         stopDrawing() {
             this.isDrawing = false;
@@ -65,5 +90,14 @@ export default {
     color:#333; background-color:#ffc800; font-weight:bold;
     z-index:100;
 
+}
+
+@media screen and (max-width:768px){
+    .signature-container {
+        display: flex; align-items: center; justify-content: center;
+    }
+    .signature-canvas {
+        position: static; transform:none;
+    }
 }
 </style>

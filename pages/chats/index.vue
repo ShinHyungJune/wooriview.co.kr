@@ -59,7 +59,7 @@
                                 <p class="period">{{chat.campaign.format_select_started_at }} ~ {{chat.campaign.format_select_finished_at}}</p>
                             </li>
                             <li>
-                                <p class="period-title">컨텐츠 등록기간</p>
+                                <p class="period-title">리뷰어 컨텐츠 등록기간</p>
                                 <p class="period">{{chat.campaign.format_review_started_at }} ~ {{chat.campaign.format_review_finished_at}}</p>
                             </li>
                         </ul>

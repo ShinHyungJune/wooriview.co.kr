@@ -52,14 +52,15 @@
                         <ul>
                             <li>
                                 <p class="period-title">인플루언서 모집기간</p>
-                                <p class="period">{{chat.campaign.format_hire_started_at }} ~ {{chat.campaign.format_hire_finished_at}}</p>
+                                <p class="period" v-if="chat.campaign.type_campaign === 'REALTIME'">{{chat.campaign.time_hire_started_at }} ~ {{chat.campaign.time_hire_finished_at}}</p>
+                                <p class="period" v-else>{{chat.campaign.format_hire_started_at }} ~ {{chat.campaign.format_hire_finished_at}}</p>
                             </li>
                             <li>
                                 <p class="period-title">인플루언서 선정기간</p>
                                 <p class="period">{{chat.campaign.format_select_started_at }} ~ {{chat.campaign.format_select_finished_at}}</p>
                             </li>
                             <li>
-                                <p class="period-title">컨텐츠 등록기간</p>
+                                <p class="period-title">리뷰어 컨텐츠 등록기간</p>
                                 <p class="period">{{chat.campaign.format_review_started_at }} ~ {{chat.campaign.format_review_finished_at}}</p>
                             </li>
                         </ul>
