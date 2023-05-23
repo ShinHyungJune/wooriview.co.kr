@@ -63,6 +63,7 @@ export default {
         // this.$store.commit("init");
         window.receiveFcmToken = (token) => {
             console.log('Received FCM token:', token);
+            alert(token);
             localStorage.setItem("push_token", token);
             this.$store.commit("setPushToken", token);
 
