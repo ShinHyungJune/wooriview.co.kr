@@ -13,7 +13,9 @@ export default {
 
     mounted() {
         let self = this;
+        let push_token = localStorage.getItem("push_token");
         alert(this.$store.state.push_token);
+        alert(push_token);
 
         // this.$store.commit("init");
         window.receiveFcmToken = (token) => {
