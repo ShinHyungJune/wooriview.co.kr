@@ -71,7 +71,6 @@ export default {
             localStorage.setItem("push_token", token);
 
             this.$store.commit("setPushToken", token);
-
         };
 
         if(window.AndroidBridge) {

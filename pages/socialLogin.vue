@@ -14,6 +14,8 @@ export default {
     mounted() {
         this.$axios.get("/api/pushTokens")
             .then(response => {
+                alert(response);
+
                 let pushToken = response.data;
 
                 this.$store.commit("setPushToken", pushToken);
