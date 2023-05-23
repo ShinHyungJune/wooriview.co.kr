@@ -64,8 +64,6 @@ export default {
         window.receiveFcmToken = (token) => {
             console.log('Received FCM token:', token);
 
-            alert(token);
-
             this.$axios.post("/api/pushTokens", {
                 push_token: token
             });
