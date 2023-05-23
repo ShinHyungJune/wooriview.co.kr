@@ -12,22 +12,26 @@ export default {
     },
 
     mounted() {
+        let self = this;
+        alert("test");
+
         // this.$store.commit("init");
         window.receiveFcmToken = (token) => {
+            alert(token);
             console.log('Received FCM token:', token);
-            this.$store.commit("setPushToken", token);
+            self.$store.commit("setPushToken", token);
 
-            this.$auth.loginWith('laravelSanctum', {
+            self.$auth.loginWith('laravelSanctum', {
                 data: {
-                    token:this.token,
-                    push_token : this.$store.state.push_token
+                    token:self.token,
+                    push_token : self.$store.state.push_token
                 }
             }).then(response => {
 
             }).catch((e) => {
                 alert("소셜로그인에 실패하였습니다.");
 
-                return this.$router.push("/");
+                return self.$router.push("/");
             })
 
         };
