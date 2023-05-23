@@ -289,6 +289,7 @@
     .main .campaign-item-wrap { padding: unset; padding-top: 32px; }
     .main .h2-wrap { margin-bottom: 16px; }
     .main .h2-wrap h2 { font-size: 17px; }
+    .main .see-more { font-size: 15px;}
 }
 
 .main .section1 { padding-top: 24px; }
@@ -880,7 +881,7 @@
         background-color: #ffc800;
         color: #202020;
         width: 255px;
-        margin-left: 60px;
+
     }
 
     .advertiser-table_1.influencer-table_1 .table-wrap#tab-2 > ul > li:nth-child(3) { padding-top: unset; }
@@ -906,6 +907,17 @@
     .Pagination-wrap {margin-bottom: 80px; gap: 8px; padding: 0 4px;}
     .Pagination-wrap .Pagination-num { padding: 0 4px;}
 
+
+
+    /* 0523 */
+    .advertiser-table_1.influencer-table_1 .table-wrap > ul > li:nth-child(3) {  padding-left: unset; justify-content: start;     align-items: baseline;}
+    .influencer-table_1 .table-wrap .tbody .btn-wrap { padding: 0 0 10px 0; }
+    .advertiser-table_1 .table-wrap .tbody .btn-wrap .btn-list { width: 115px;  margin-right: 5px; margin-top: 10px;}
+    .advertiser-table_1 .table-wrap .recruit-num { flex-direction: row;}
+    .advertiser-table_1.influencer-table_1 .table-wrap#tab-6 > ul > li:nth-child(3) {padding: unset; width: 43%; }
+    .advertiser-table_1 .table-wrap#tab-6 .tbody .btn-wrap .btn-statistics {  position: unset;}
+    .influencer-table_1 .table-wrap#tab-6 .tbody .btn-wrap { padding: unset; padding-left: 8px;}
+    .advertiser-table_1 .table-wrap#tab-6 > ul > li:nth-child(2) { padding-left: unset;}
 }
 
 
@@ -1972,7 +1984,7 @@
 .MyPage.infulenser-list .white-box .right-box li:last-child { margin-top: unset;}
 .MyPage.infulenser-list .white-box .right-box ul::after { display: none;}
 .MyPage.infulenser-list .white-box .left-box .info-box-wrap .info-box-btm ul li:last-child { display: none;}
-.MyPage.infulenser-list .white-box .left-box::after { position: absolute; display: block; content: ""; bottom: -13%; left: 0;  width: 100%; height: 1px;  background-color: #f5f5f5; }
+.MyPage.infulenser-list .white-box .left-box::after { position: absolute; display: block; content: ""; bottom: -13%; left: 0;  width: 86%; height: 1px;  background-color: #f5f5f5; }
 
 .MyPage.infulenser-list .white-box .info-btn { right: unset; bottom: 14px;}
 .MyPage.infulenser-list .white-box .right-box li:last-child { margin-bottom: 40px;}
@@ -2055,7 +2067,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .MyPage.delivery-edit .tracking-wrap { flex-direction: column; align-items: flex-start; gap: 8px;}
+    .MyPage.delivery-edit .tracking-wrap { flex-direction: column; align-items: flex-start; gap: 8px; max-width: 80%;}
     .MyPage.delivery-edit .tracking-add-btn {   bottom: 7px; right: 12px; }
     .MyPage.delivery-edit .input-wrap input { padding: 4px 12px;}
     .MyPage.delivery-edit .subscriber-name .Address { display: none;}
@@ -2088,7 +2100,7 @@
 }
 /* //광고주 마이페이지 인플루언서 리스트 방문일정 입력 ============================================================== */
 
-.MyPage .table-section .scroll-wrap { max-width: 1200px; overflow-x: scroll;}
+.MyPage .table-section .scroll-wrap { max-width: 1200px; overflow-x: scroll; overflow-y: hidden;}
 
 /* 광고주 - 나의 캠페인 ============================================================== */
 
@@ -2998,25 +3010,19 @@
 
 
 .m-quicks.type01 {
-    position:fixed; bottom:200px; right:60px;
+    position:fixed; bottom:135px; right:14px;
     z-index:10;
 }
 .m-quicks.type01 .m-quick {
     display: flex; align-items: center; justify-content: center;
-    width:60px; height:60px; margin-top:16px;
+    width:42px; height:42px; margin-top:16px;
     background-color:#ffc800; border-radius:100%;
     box-shadow:0px 3px 6px rgba(0,0,0,0.16);
 }
 .m-quicks.type01 .m-quick i {
-    font-size:30px; color:#fff;
+    font-size:23px; color:#fff;
 }
 
-@media screen and (max-width:788px) {
-    .m-quicks.type01 {
-        right:20px; bottom:100px;
-    }
-
-}
 
 
 
