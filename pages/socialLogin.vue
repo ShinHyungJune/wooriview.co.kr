@@ -14,13 +14,13 @@ export default {
     mounted() {
         this.$axios.get("/api/pushTokens")
             .then(response => {
-                alert(response);
+                alert(JSON.stringify(response));
 
                 let pushToken = response.data;
 
                 this.$store.commit("setPushToken", pushToken);
 
-                alert(pushToken);
+                alert(JSON.stringify(pushToken));
 
                 this.$auth.loginWith('laravelSanctum', {
                     data: {
