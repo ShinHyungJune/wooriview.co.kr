@@ -18,6 +18,8 @@ export default {
 
                 this.$store.commit("setPushToken", pushToken);
 
+                alert(pushToken);
+
                 this.$auth.loginWith('laravelSanctum', {
                     data: {
                         token: this.token,
