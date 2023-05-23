@@ -15,7 +15,17 @@ export default {
             {charset: 'utf-8'},
             {name: 'viewport', content: 'width=device-width, initial-scale=1'},
             {hid: 'description', name: 'description', content: ''},
-            {name: 'format-detection', content: 'telephone=no'}
+            {name: 'format-detection', content: 'telephone=no'},
+
+            {name: 'naver-site-verification', content: 'b863a845c5511cf9868573630a136bfd3e8abedc=no'},
+            {name: 'google-site-verification', content: 'Fecaj1jpMSkf8_JXonbE3KeUnDLPJP3ZIngmnScSb5w=no'},
+            {name: 'og:site_name', content: '우리뷰 | 우리가 만드는 모든 리뷰 우리뷰'},
+            {name: 'description', content: '우리가 만드는 모든 리뷰 우리뷰'},
+            {name: 'og:type', content: 'wooriview'},
+            {name: 'og:title', content: 'wooriview'},
+            {name: 'og:description', content: 'https://korket.co.kr/client/images/wooriview-m.png'},
+            {name: 'og:url', content: 'https://wooriview.co.kr'},
+            {name: 'keywords', content: 'wooriview, 우리뷰, 리뷰, 캠페인'},
         ],
         script: [
             {src: "//code.jquery.com/jquery-1.12.4.min.js"},
@@ -30,7 +40,7 @@ export default {
             // {src: "/js/common.js"},
         ],
         link: [
-            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+            {rel: 'icon', type: 'image/x-icon', href: '/images/wooriview_favicon.ico'},
             {rel: 'stylesheet', type: 'text/css', href: 'cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//uicdn.toast.com/editor/latest/toastui-editor.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'},

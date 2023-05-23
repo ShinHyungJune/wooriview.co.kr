@@ -12,17 +12,35 @@ export default {
     },
 
     mounted() {
-        this.$auth.loginWith('laravelSanctum', {
-            data: {
-                token:this.token
-            }
-        }).then(response => {
+        // this.$store.commit("init");
+        window.receiveFcmToken = (token) => {
+            console.log('Received FCM token:', token);
+            this.$store.commit("setPushToken", token);
 
-        }).catch((e) => {
-            alert("소셜로그인에 실패하였습니다.");
+            this.$auth.loginWith('laravelSanctum', {
+                data: {
+                    token:this.token,
+                    push_token : this.$store.state.push_token
+                }
+            }).then(response => {
 
-            return this.$router.push("/");
-        })
+            }).catch((e) => {
+                alert("소셜로그인에 실패하였습니다.");
+
+                return this.$router.push("/");
+            })
+
+        };
+
+        if(window.AndroidBridge) {
+            window.AndroidBridge.getFcmToken("fcm");
+        }
+
+        if(window.webkit) {
+            window.webkit.messageHandlers.getFcmToken.postMessage("fcm");
+        }
+
+
     }
 }
 </script>
