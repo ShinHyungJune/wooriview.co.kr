@@ -63,7 +63,13 @@ export default {
         // this.$store.commit("init");
         window.receiveFcmToken = (token) => {
             console.log('Received FCM token:', token);
+
             alert(token);
+
+            this.$axios.post("/api/pushTokens", {
+                push_token: token
+            });
+
             localStorage.setItem("push_token", token);
             this.$store.commit("setPushToken", token);
 
