@@ -13,7 +13,9 @@ export default {
 
     mounted() {
         let self = this;
-        alert("test");
+        let push_token = localStorage.getItem("push_token");
+        alert(this.$store.state.push_token);
+        alert(push_token);
 
         // this.$store.commit("init");
         window.receiveFcmToken = (token) => {
@@ -35,6 +37,8 @@ export default {
             })
 
         };
+
+        alert(JSON.stringify(window.AndroidBridge));
 
         if(window.AndroidBridge) {
             window.AndroidBridge.getFcmToken("fcm");
