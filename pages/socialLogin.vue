@@ -14,8 +14,6 @@ export default {
     mounted() {
         let pushToken = localStorage.getItem("push_token");
 
-        alert(pushToken);
-
         this.$axios.get("/api/pushTokens")
             .then(response => {
                 this.$store.commit("setPushToken", pushToken);
@@ -28,7 +26,7 @@ export default {
                 }).then(response => {
 
                 }).catch((e) => {
-                    alert("소셜로그인에 실패하였습니다.");
+                    alert("소셜로그인에 실패하였습니다. 잠시 후 재시도해주세요.");
 
                     return this.$router.push("/");
                 })
