@@ -121,6 +121,12 @@
                             <p v-if="campaign.mission">- {{campaign.mission}}</p>
                         </div>
                     </div>
+                    <div class="Information-box" v-if="campaign.address">
+                        <p class="Information-labal">주소</p>
+                        <div class="Information-content">
+                            <p>{{campaign.address}} {{campaign.address_detail}}</p>
+                        </div>
+                    </div>
                     <div class="Information-box">
                         <p class="Information-labal">추가정보</p>
                         <p class="Information-content">
