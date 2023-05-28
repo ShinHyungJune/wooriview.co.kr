@@ -3,9 +3,10 @@
         <section class="section1">
             <div class="container">
 
-                <div :class="`campaign-tab img-wrap ${$route.query.type_campaign === 'REPORTER' || $route.query.type_campaign === 'DELIVERY' || !$route.query.type_campaign ? 'active' : ''}`">
-                    <img src="/images/campaign-banner2.png" alt="" class="pc">
-                    <img src="/images/campaign-banner2-m.png" alt="" class="mb">
+                <div v-for="campaignBanner in campaignBanners.data" :key="campaignBanner.id"
+                    :class="`campaign-tab img-wrap ${$route.query.type_campaign === 'REPORTER' || $route.query.type_campaign === 'DELIVERY' || !$route.query.type_campaign ? 'active' : ''}`">
+                    <img :src="campaignBanner.pc.url" alt="" class="pc" v-if="campaignBanner.pc">
+                    <img :src="campaignBanner.mobile.url" alt="" class="mb" v-if="campaignBanner.mobile">
                 </div>
 
                 <div :class="`campaign-tab ${$route.query.type_campaign === 'VISIT' || $route.query.type_campaign === 'REALTIME' ? 'active' : ''}`">
@@ -171,6 +172,12 @@ export default {
                 meta: {}
             },
 
+            campaignBanners: {
+                data: [],
+                links : {},
+                meta: {}
+            },
+
             infoWindows: [],
 
             x: "127.7362176",
@@ -229,6 +236,13 @@ export default {
                     setTimeout(function(){
                         kakao.maps.load(self.initMap);
                     }, 300);
+            })
+        },
+
+        getCampaignBanners(){
+            this.$axios.get("/api/campaignBanners")
+                .then(response => {
+                    this.campaignBanners = response.data;
             })
         },
 
@@ -353,6 +367,7 @@ export default {
 
         this.getAllCampaigns();
 
+        this.getCampaignBanners();
     },
 
     watch: {
