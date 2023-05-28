@@ -72,7 +72,7 @@
                                             <error :form="form" name="company_name" />
                                         </div>
 
-                                        <input-files title="사업자등록증 첨부" :multiple="false" comment="사업자등록증을 첨부해주세요." :default="form.file_company ? [form.file_company] : ''" @change="(data) => {form.file_company = data[0]}" />
+                                        <input-files title="사업자등록증 첨부" :multiple="false" comment="사업자등록증을 첨부해주세요." :default="$auth.user.data.file_company ? [$auth.user.data.file_company] : ''" @change="(data) => {form.file_company = data[0]}" />
                                         <error :form="form" name="file_company" />
 
                                         <div class="input-wrap Add_Features">
@@ -183,7 +183,7 @@ export default {
                 password_new_confirmation: "",
 
                 email: this.$auth.user.data.email,
-                file_company: this.$auth.user.data.file_company,
+                file_company: "",
                 company_name: this.$auth.user.data.company_name,
                 company_number: this.$auth.user.data.company_number,
                 company_contact: this.$auth.user.data.company_contact,

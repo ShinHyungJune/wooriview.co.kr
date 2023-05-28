@@ -211,6 +211,10 @@
     background-color: #ffc800 !important;
     color: #000 !important;
 }
+.bg-primary {
+    background-color: #ffc800 !important;
+    color: #000 !important;
+}
 
 .MyPage.delivery-edit .input-wrap input {
     padding-right:50px;

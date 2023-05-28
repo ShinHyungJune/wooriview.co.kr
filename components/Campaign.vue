@@ -8,6 +8,9 @@
             <input type="checkbox" name="" v-else>
             <label for="" @click="like"><i class="xi-heart"></i></label>
         </div>
+
+        <span class="price" v-if="campaign.type_campaign === 'REPORTER' && campaign.price_write">{{campaign.price_write.toLocaleString()}} ￦</span>
+
         <div class="Information-wrap">
             <div class="Period-wrap">
                 <ul class="sns-wrap">

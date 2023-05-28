@@ -29,6 +29,12 @@
                                 <i class="xi-angle-right"></i>
                             </nuxt-link>
                         </li>
+                        <li>
+                            <nuxt-link to="/admin/campaignBanners" class="scd5">
+                                캠페인배너
+                                <i class="xi-angle-right"></i>
+                            </nuxt-link>
+                        </li>
                     </ul>
                 </li>
                 <li>

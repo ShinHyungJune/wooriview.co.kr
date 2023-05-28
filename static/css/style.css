@@ -47,6 +47,13 @@
 .campaign-item .like-wrap label i { font-size: 24px; color: #fff; }
 .campaign-item .like-wrap input:checked ~ label i { color: #ffc800; }
 .campaign-item .Information-wrap { display: block; }
+.campaign-item .price {
+    padding:6px 14px;
+    position:absolute; left:16px; top:16px;
+    font-size:12px;
+    background-color:#ffc800; color:#000;
+    border-radius:8px;
+}
 /* 0510추가 */
 .campaign-item .campaign-type-wrap {width: 100%; padding: 5px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; align-items: center; gap: 5px; background-color: #33333338; }
 .campaign-item .campaign-type-wrap .campaign-type-title { font-size: 14px; color: #fff;}
@@ -3030,7 +3037,7 @@
 /* 캠페인 - 마감 및 보고서 확인 테이블 5/22 */
 
 .influencer-table_1 #tab-4  { }
-.influencer-table_1 .table-wrap  #tab-4  > ul > li:nth-child(1) { min-width: 113px;word-break: keep-all;  text-align: center; } 
+.influencer-table_1 .table-wrap  #tab-4  > ul > li:nth-child(1) { min-width: 113px;word-break: keep-all;  text-align: center; }
 .advertiser-table_1 .table-wrap #tab-4  > ul > li:nth-child(2) { width: 45%;}
 .influencer-table_1 .table-wrap #tab-4 .tbody .info-box { width: 100%;}
 .advertiser-table_1 .table-wrap #tab-4 > ul > li:nth-child(5) { min-width: 93px; width: 8%;}

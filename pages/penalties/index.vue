@@ -114,7 +114,7 @@
                                 </li>
                                 <li class="content">
                                     <p class="body" v-for="(reason, index) in penalty.reasons" :key="index">{{reason}}</p>
-                                    <p class="body" v-if="penalty.description">{{penalty.description}}</p>
+<!--                                    <p class="body" v-if="penalty.description">{{penalty.description}}</p>-->
                                 </li>
                                 <li class="state-sum" v-if="form.type === 'TAKE'">
                                     경고 <span>{{user.count_penalty}}</span>회

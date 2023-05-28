@@ -269,7 +269,10 @@ export default {
     },
 
     watch: {
-
+        '$route'(to, from) {
+            // 라우트가 변경될 때 호출되는 watch
+            this.activeAlarm = false;
+        }
     },
 
     mounted() {

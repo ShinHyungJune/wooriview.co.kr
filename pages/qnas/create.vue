@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="btn-wrap request">
-                    <a href="#" @click.prevent="store">완료</a>
+                    <a href="#" @click.prevent="store" :class="ready ? 'bg-primary' : ''">완료</a>
                 </div>
             </div>
         </div>
@@ -85,7 +85,9 @@ export default {
     },
 
     computed: {
-
+        ready(){
+            return this.form.category && this.form.title && this.form.description;
+        }
     },
 
     mounted() {

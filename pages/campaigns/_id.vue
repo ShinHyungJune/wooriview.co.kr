@@ -20,25 +20,29 @@
                     <h2 class="product-title">[{{ campaign.title_company }}] {{ campaign.title_product }}</h2>
                     <p class="product-kind">{{ campaign.title_product }}</p>
 
-                    <!-- 방문형 캠페인 -->
-                    <!-- <div class="product-type">
+                    <img src="/images/Live-icon.png" alt=""
+                    <img src="/images/Visit-icon.png" alt="">
+                    <img src="/images/Reporter-icon.png" alt="" >
+                    <img src="/images/Shipping-icon.png" alt="" >
+
+                     <div class="product-type" v-if="campaign.type_campaign === 'VISIT'">
                         <img src="/images/Visit-icon.png" alt="">
                         <p>방문형 캠페인</p>
-                    </div> -->
-                    <!-- 배송형 캠페인 -->
-                    <!-- <div class="product-type">
+                    </div>
+
+                     <div class="product-type" v-if="campaign.type_campaign === 'DELIVERY'">
                         <img src="/images/Shipping-icon.png" alt="">
-                        <p>방문형 캠페인</p>
-                    </div> -->
-                    <!-- 실시간 방문 캠페인 -->
-                    <!-- <div class="product-type">
+                        <p>배송형 캠페인</p>
+                    </div>
+
+                     <div class="product-type" v-if="campaign.type_campaign === 'REALTIME'">
                         <img src="/images/Live-icon.png" alt="">
                         <p>실시간 방문형 캠페인</p>
-                    </div> -->
-                    <!-- 기자단 캠페인 -->
-                    <!-- <div class="product-type">
+                    </div>
+
+                     <div class="product-type" v-if="campaign.type_campaign === 'REPORTER'">
                         <p>기자단 캠페인</p>
-                    </div> -->
+                    </div>
 
                     <div class="Period-wrap">
                         <div class="Period">
@@ -106,10 +110,13 @@
                         <p class="Information-labal">{{campaign.type_campaign === 'REPORTER' ? '대표 URL' : '제공내역'}}</p>
                         <p class="Information-content" v-text="campaign.description_provide"></p>
                     </div>
+                    <div class="Information-box" v-if="campaign.type_campaign === 'REPORTER' ">
+                        <p class="Information-labal">원고수수료</p>
+                        <p class="Information-content" v-if="campaign.price_write">{{campaign.price_write.toLocaleString()}}원</p>
+                    </div>
                     <div class="Information-box">
                         <p class="Information-labal">검색 키워드</p>
                         <p class="Information-content" v-text="campaign.search_keyword"></p>
-
                     </div>
                     <div class="Information-box">
                         <p class="Information-labal">캠페인미션</p>

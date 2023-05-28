@@ -78,6 +78,14 @@
                                 {{ item.description_provide }}
                             </div>
                         </li>
+                        <li class="col-group" v-if="item.type_campaign === 'REPORTER'">
+                            <div class="default">
+                                <p>원고료</p>
+                            </div>
+                            <div class="user">
+                                {{ item.price_write }}
+                            </div>
+                        </li>
                         <li class="col-group">
                             <div class="default">
                                 <p>모집수</p>

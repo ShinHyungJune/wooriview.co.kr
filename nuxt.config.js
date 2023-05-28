@@ -96,7 +96,9 @@ export default {
     auth: {
         redirect: {
             login: "/login",
-            logout: '/login'
+            logout: '/login',
+            callback: '/login',
+            home: '/'
         },
         /*redirect: {
             login: '/login',
