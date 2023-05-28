@@ -15,10 +15,6 @@
                         </form>
                     </div>
                 </div>
-                <div class="btn-wrap col-group">
-                    <nuxt-link to="/admin/campaignBanners/create" class="add-btn">신규 추가</nuxt-link>
-                    <a href="#" class="del-btn" @click.prevent="remove">선택 삭제</a>
-                </div>
             </div>
             <div class="table-wrap">
                 <table>
