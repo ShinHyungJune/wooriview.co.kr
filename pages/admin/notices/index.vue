@@ -5,13 +5,9 @@
                 <div class="col-group">
                     <div class="menu-wrap col-group">
                         <p class="title scd5">
-                            1:1문의
+                            공지사항
                         </p>
-                        <ul class="tab-link col-group">
-                            <li :class="`${form.type === '' ? 'active' : ''}`" @click="() => {form.page = 1; form.type = ''; filter()}" data-tab="tab_1">전체</li>
-                            <li :class="`${form.type === '미답변' ? 'active' : ''}`" @click="() => {form.page = 1; form.type = '미답변'; filter()}" data-tab="tab_2">미답변</li>
-                            <li :class="`${form.type === '답변' ? 'active' : ''}`" @click="() => {form.page = 1; form.type = '답변'; filter()}" data-tab="tab_3">답변</li>
-                        </ul>
+
                     </div>
 
                     <div class="search-wrap">
@@ -23,10 +19,10 @@
                         </form>
                     </div>
                 </div>
-<!--                <div class="btn-wrap col-group">
+                <div class="btn-wrap col-group">
                     <nuxt-link to="/admin/notices/create" class="add-btn">신규 추가</nuxt-link>
                     <a href="#" class="del-btn" @click.prevent="remove">선택 삭제</a>
-                </div>-->
+                </div>
             </div>
             <div class="table-wrap">
                 <table>

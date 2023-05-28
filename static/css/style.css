@@ -3075,5 +3075,29 @@
 .advertiser-table_1 .table-wrap > ul > li:nth-child(5) { justify-content: start;  padding-left: unset; }
 }
 
-
-
+.modal-policy .description {
+    max-height:calc(100vh - 400px);
+    padding:20px;
+    border:1px solid #e1e1e1; border-radius:8px;
+    overflow-y:auto;
+    text-align: left;
+}
+.modal-policy .description p {
+    text-align:left;
+}
+.modal-policy .description .policy-top {
+    display:none;
+}
+.modal-policy .policy .policy-list h3 {
+    text-align: left;
+}
+@media screen and (max-width:1440px) {
+    .policy .container {
+        padding:0;
+    }
+}
+@media screen and (max-width:991px){
+    .modal-policy .description p {
+        font-size:12px !important;
+    }
+}

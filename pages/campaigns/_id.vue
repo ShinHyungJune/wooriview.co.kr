@@ -20,11 +20,6 @@
                     <h2 class="product-title">[{{ campaign.title_company }}] {{ campaign.title_product }}</h2>
                     <p class="product-kind">{{ campaign.title_product }}</p>
 
-                    <img src="/images/Live-icon.png" alt="" style="width:auto;" v-if="campaign.type_campaign === 'REALTIME'">
-                    <img src="/images/Visit-icon.png" alt="" style="width:auto;" v-if="campaign.type_campaign === 'VISIT'">
-                    <img src="/images/Reporter-icon.png" alt=""  style="width:auto;" v-if="campaign.type_campaign === 'REPORTER'">
-                    <img src="/images/Shipping-icon.png" alt=""  style="width:auto;" v-if="campaign.type_campaign === 'DELIVERY'">
-
                      <div class="product-type" v-if="campaign.type_campaign === 'VISIT'">
                         <img src="/images/Visit-icon.png" alt="">
                         <p>방문형 캠페인</p>
@@ -41,6 +36,7 @@
                     </div>
 
                      <div class="product-type" v-if="campaign.type_campaign === 'REPORTER'">
+                         <img src="/images/Reporter-icon.png" alt="">
                         <p>기자단 캠페인</p>
                     </div>
 

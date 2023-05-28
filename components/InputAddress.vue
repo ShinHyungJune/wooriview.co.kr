@@ -1,6 +1,7 @@
 <template>
     <div class="m-input-address">
         <div class="modal-address" id="modal-address">
+            <button class="btn-close" @click="close"><i class="xi-close"></i></button>
             <div id="popup-wrap">
                 <!-- 우편번호 API가 띄워질 공간 -->
             </div>
@@ -33,11 +34,7 @@
     </div>
 </template>
 <style>
-@media screen and (max-width:500px) {
-    #popup-wrap > div {
-        width:340px !important;
-    }
-}
+
 
 .modal-address {
     position: fixed;
@@ -80,6 +77,23 @@
     transition: .3s;
 
 }
+
+.modal-address .btn-close {
+    display: none;
+    width:40px; height:40px;
+    position:absolute; top:-60px; right:-60px;
+    background-color:#fff; border:1px solid #e1e1e1;
+}
+
+@media screen and (max-width:768px) {
+    #popup-wrap > div {
+        width:340px !important;
+    }
+
+    .modal-address .btn-close {
+        right:0;
+    }
+}
 </style>
 <script>
 export default {
@@ -108,8 +122,7 @@ export default {
     },
     data(){
         return {
-
-
+            active: false,
         }
     },
 
@@ -126,6 +139,11 @@ export default {
                 value: value
             });
         },
+
+        close(){
+            document.querySelector("#popup-wrap").style.display = "none";
+            document.querySelector(".btn-close").style.display = "none";
+        }
     },
 
     mounted() {
@@ -133,9 +151,14 @@ export default {
         kakao.maps.load();
 
         let self = this;
+
         const postcodeWrap = document.querySelector("#popup-wrap");
+        const btnClose = document.querySelector(".btn-close");
 
         document.getElementById("find_address").addEventListener("click", function(){ //주소입력칸을 클릭하면
+            postcodeWrap.style.display = "block";
+            btnClose.style.display = "block";
+
             //카카오 지도 발생
             new daum.Postcode({
                 oncomplete: function(data) { //선택시 입력값 세팅
@@ -144,12 +167,16 @@ export default {
                     // self.emit(self.address, data.address);
                     self.emit(self.address, data.address);
                     self.emit(self.address_zipcode, data.zonecode);
+
+                    postcodeWrap.style.display = "none";
+                    btnClose.style.display = "none";
                 },
                 onclose:function(state) {
                     if(state === "COMPLETE_CLOSE") {
                         // 콜백함수를 실행하여 슬라이드 업 기능이 실행 완료후 작업을 진행한다.
                         offDaumZipAddress(function() {
                             postcodeWrap.style.display = "none";
+                            btnClose.style.display = "none";
                         });
                     }
                 }

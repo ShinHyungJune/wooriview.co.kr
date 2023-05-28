@@ -142,7 +142,7 @@
                                 서비스 이용약관에 동의합니다.
                             </label>
                         </div>
-                        <a target="_blank" href="/contents/servicePolicy"><i class="xi-angle-right-thin"></i></a>
+                        <a target="_blank" href="/contents/servicePolicy"  @click.prevent="activeServicePolicy = true"><i class="xi-angle-right-thin"></i></a>
                     </div>
                     <div class="Consent-form">
                         <div class="Consent-ck">
@@ -153,7 +153,7 @@
                                 개인정보 수집 및 이용에 동의합니다.
                             </label>
                         </div>
-                        <a target="_blank" href="/contents/privacyPolicy"><i class="xi-angle-right-thin"></i></a>
+                        <a target="_blank" href="/contents/privacyPolicy" @click.prevent="activePrivacyPolicy = true"><i class="xi-angle-right-thin"></i></a>
                     </div>
                     <div class="Consent-form">
                         <div class="Consent-ck">
@@ -174,6 +174,9 @@
                 <a href="#" class="Change_Information-btn" @click.prevent="store">회원가입</a>
             </div>
         </section>
+
+        <pop-privacy-policy v-if="activePrivacyPolicy" @close="activePrivacyPolicy = false" />
+        <pop-service-policy v-if="activeServicePolicy" @close="activeServicePolicy = false" />
     </main>
 </template>
 
@@ -184,6 +187,8 @@ export default {
     layout: "empty",
     data(){
         return {
+            activePrivacyPolicy: false,
+            activeServicePolicy: false,
             socialUser: null,
             form : new Form(this.$axios, {
                 social_id: "", // 소셜토큰
