@@ -174,126 +174,269 @@
                             </div>
                         </div>
 
-                        <div class="write-box help-mark">
-                            <div class="write-labal_wrap">
-                                <p class="write-labal" v-if="form.type_campaign === 'REALTIME'">인플루언서 모집시간 <span class="Essential">*</span></p>
-                                <p class="write-labal" v-else>인플루언서 모집기간 <span class="Essential">*</span></p>
-                                <i class="xi-help-o help-btn pop-up_recruitment"></i>
-                                <p class="Explanation_p">시간 내 미선정시 우리뷰 추천순으로 자동 선정</p>
-                            </div>
+                        <div v-if="form.type_campaign === 'REALTIME'">
+                            <div class="write-box">
+                                <div class="write-labal_wrap">
+                                    <p class="write-labal">인플루언서 방문 시작 시간 <span class="Essential">*</span></p>
+                                </div>
+                                <div class="write-bundle">
+                                    <div class="m-input-dates type01">
+                                        <div class="input-wrap">
+                                            <input type="datetime-local" placeholder="" v-model="for_setting_visit_started_at" ref="for_setting_visit_started_at" :min="convertDatetime(today)" :max="convertDatetime(today)">
 
-                            <div class="write-bundle">
-                                <div class="m-input-dates type01">
-                                    <div class="input-wrap">
-                                        <input class="" type="datetime-local" placeholder="" v-model="form.hire_started_at" ref="hire_started_at" :min="convertDatetime(today)" :max="convertDatetime(today)" v-if="form.type_campaign === 'REALTIME'">
-                                        <input class="" type="date" placeholder="" v-model="form.hire_started_at" ref="hire_started_at" :min="convertDate(today)" :max="convertDate(createDate(null, 3))"  v-else>
-
-                                        <error :form="form" name="hire_started_at" />
-                                    </div>
-
-                                    <span class="deco">~</span>
-
-                                    <div class="input-wrap">
-                                        <input class="" type="datetime-local" placeholder="" v-model="form.hire_finished_at" ref="hire_finished_at"  :min="convertDatetime(today)" :max="convertDatetime(today)" v-if="form.type_campaign === 'REALTIME'">
-                                        <input class="" type="date" placeholder="" v-model="form.hire_finished_at" ref="hire_finished_at" :min="convertDate(today)" :max="convertDate(createDate(form.hire_started_at, 14))" v-else>
-
-                                        <error :form="form" name="hire_finished_at" />
+                                            <error :form="form" name="visit_started_at" />
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="guide-popUp pop-up_recruitment-box">
-                                    <button class="close-btn">
-                                        <i class="xi-close"></i>
-                                    </button>
-                                    <div class="guide-content">
-                                        <p v-if="form.type_campaign === 'REALTIME'">
-                                            실시간 캠페인은 ‘당일 방문형 캠페인’으로, 당일 매장 방문시간을 설정하여 정해진 방문시간에 선정된 인플루언서가 방문하여 약속된 제공내역을 체험 후, 광고주가 지정한 컨텐츠 등록기간 내 리뷰를 작성 및 등록합니다.
-                                            <br/>‘실시간 방문형 캠페인’은 모집기간 및 선정기간이 설정하신 ‘당일 방문가능 시간’ 시작 전까지 고정됩니다. 설정하신 ‘당일 방문가능 시간’에는 캠페인 모집이 자동으로 마감됩니다.
-                                        </p>
-                                        <p v-else>
-                                            해당 캠페인에 참여하고자 하는 인플루언서들을 모집하는 기간입니다.
-                                            <br/>최대한 많은 인원을 모집하여 하고 싶으시다면, 일정을 넉넉하게 설정해주세요!
-                                        </p>
+                            <div class="write-box">
+                                <div class="write-labal_wrap">
+                                </div>
+                                <p class="write-labal">리뷰어 컨텐츠 마감일 <span class="Essential">*</span></p>
+                                <div class="write-bundle">
+                                    <div class="m-input-dates type01">
+                                        <div class="input-wrap">
+                                            <input type="date" placeholder="" v-model="for_setting_review_finished_at" ref="for_setting_review_finished_at" :min="convertDate(today)" :max="convertDate(createDate(form.select_started_at, 2))">
+
+                                            <error :form="form" name="review_finished_at" />
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="write-box help-mark">
+                                <div class="write-labal_wrap">
+                                    <p class="write-labal">인플루언서 모집시간 <span class="Essential">*</span></p>
+                                    <i class="xi-help-o help-btn pop-up_recruitment"></i>
+                                    <p class="Explanation_p">시간 내 미선정시 우리뷰 추천순으로 자동 선정</p>
+                                </div>
+
+                                <div class="write-bundle">
+                                    <div class="m-input-dates type01">
+                                        <div class="input-wrap">
+                                            <input disabled class="Deactivation" type="datetime-local" placeholder="" v-model="form.hire_started_at" ref="hire_started_at">
+
+                                            <error :form="form" name="hire_started_at" />
+                                        </div>
+
+                                        <span class="deco">~</span>
+
+                                        <div class="input-wrap">
+                                            <input disabled class="Deactivation" type="datetime-local" placeholder="" v-model="form.hire_finished_at" ref="hire_finished_at" >
+
+                                            <error :form="form" name="hire_finished_at" />
+                                        </div>
+                                    </div>
+
+                                    <div class="guide-popUp pop-up_recruitment-box">
+                                        <button class="close-btn">
+                                            <i class="xi-close"></i>
+                                        </button>
+                                        <div class="guide-content">
+                                            <p>
+                                                실시간 캠페인은 ‘당일 방문형 캠페인’으로, 당일 매장 방문시간을 설정하여 정해진 방문시간에 선정된 인플루언서가 방문하여 약속된 제공내역을 체험 후, 광고주가 지정한 컨텐츠 등록기간 내 리뷰를 작성 및 등록합니다.
+                                                <br/>‘실시간 방문형 캠페인’은 모집기간 및 선정기간이 설정하신 ‘당일 방문가능 시간’ 시작 전까지 고정됩니다. 설정하신 ‘당일 방문가능 시간’에는 캠페인 모집이 자동으로 마감됩니다.
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="write-box help-mark">
+                                <div class="write-labal_wrap">
+                                    <p class="write-labal">인플루언서 선정기간 <span class="Essential">*</span></p>
+                                    <i class="xi-help-o help-btn pop-up_selection"></i>
+                                </div>
+                                <div class="write-bundle">
+                                    <div class="m-input-dates type01">
+                                        <div class="input-wrap">
+                                            <input type="datetime-local" placeholder="" v-model="form.select_started_at" ref="select_started_at" disabled class="Deactivation">
+
+                                            <error :form="form" name="select_started_at" />
+                                        </div>
+
+                                        <span class="deco">~</span>
+
+                                        <div class="input-wrap">
+                                            <input disabled class="Deactivation" type="datetime-local" placeholder="" v-model="form.select_finished_at" ref="select_finished_at">
+
+                                            <error :form="form" name="select_finished_at" />
+                                        </div>
+                                    </div>
+
+                                    <div class="guide-popUp pop-up_selection-box">
+                                        <button class="close-btn">
+                                            <i class="xi-close"></i>
+                                        </button>
+                                        <div class="guide-content">
+                                            <p>
+                                                캠페인에 참여신청을 한 인플루언서들 중, 제품 및 서비스와 가장 잘 어울리는 인플루언서를 사장님께서 직접 선정해주세요! <br />
+                                                (별도의 선정 없이 기간이 지나면 우리뷰 추천순위에 따라 자동선정 될 수 있습니다!)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="write-box help-mark">
+                                <div class="write-labal_wrap">
+                                    <p class="write-labal">리뷰어 컨텐츠 등록기간 <span class="Essential">*</span></p>
+                                    <i class="xi-help-o help-btn pop-up_contents"></i>
+                                    <p class="Explanation_p">매장 방문기간 포함 일정</p>
+                                </div>
+                                <div class="write-bundle">
+                                    <div class="m-input-dates type01">
+                                        <div class="input-wrap">
+                                            <input type="datetime-local" placeholder="" v-model="form.review_started_at" ref="review_started_at" disabled class="Deactivation">
+
+                                            <error :form="form" name="review_started_at" />
+                                        </div>
+
+                                        <span class="deco">~</span>
+
+                                        <div class="input-wrap">
+                                            <input disabled class="Deactivation" type="datetime-local" placeholder="" v-model="form.review_finished_at" ref="review_finished_at">
+
+                                            <error :form="form" name="review_finished_at" />
+                                        </div>
+                                    </div>
+
+                                    <div class="guide-popUp pop-up_contents-box">
+                                        <button class="close-btn">
+                                            <i class="xi-close"></i>
+                                        </button>
+                                        <div class="guide-content">
+                                            <p v-if="form.type_campaign === 'REALTIME'">
+                                                선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>매장 방문기간이 포함된 일정이니 참고 부탁드립니다.
+                                            </p>
+                                            <p v-else>
+                                                선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>배송기간과 방문기간이 포함된 기간인 만큼, 조금 넉넉하게 설정해주세요!
+                                            </p>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
-                        <div class="write-box help-mark">
-                            <div class="write-labal_wrap">
-                                <p class="write-labal">인플루언서 선정기간 <span class="Essential">*</span></p>
-                                <i class="xi-help-o help-btn pop-up_selection"></i>
-                            </div>
-                            <div class="write-bundle">
-                                <div class="m-input-dates type01">
-                                    <div class="input-wrap">
-                                        <input type="date" placeholder="" v-model="form.select_started_at" ref="select_started_at" disabled class="Deactivation">
-
-                                        <error :form="form" name="select_started_at" />
-                                    </div>
-
-                                    <span class="deco">~</span>
-
-                                    <div class="input-wrap">
-                                        <input class="" type="date" placeholder="" v-model="form.select_finished_at" ref="select_finished_at" :min="form.select_started_at" :max="convertDate(createDate(form.select_started_at, 2))">
-
-                                        <error :form="form" name="select_finished_at" />
-                                    </div>
+                        <div v-else>
+                            <div class="write-box help-mark">
+                                <div class="write-labal_wrap">
+                                    <p class="write-labal">인플루언서 모집기간 <span class="Essential">*</span></p>
+                                    <i class="xi-help-o help-btn pop-up_recruitment"></i>
+                                    <p class="Explanation_p">시간 내 미선정시 우리뷰 추천순으로 자동 선정</p>
                                 </div>
 
-                                <div class="guide-popUp pop-up_selection-box">
-                                    <button class="close-btn">
-                                        <i class="xi-close"></i>
-                                    </button>
-                                    <div class="guide-content">
-                                        <p>
-                                            캠페인에 참여신청을 한 인플루언서들 중, 제품 및 서비스와 가장 잘 어울리는 인플루언서를 사장님께서 직접 선정해주세요! <br />
-                                            (별도의 선정 없이 기간이 지나면 우리뷰 추천순위에 따라 자동선정 될 수 있습니다!)
-                                        </p>
+                                <div class="write-bundle">
+                                    <div class="m-input-dates type01">
+                                        <div class="input-wrap">
+                                            <input class="" type="date" placeholder="" v-model="form.hire_started_at" ref="hire_started_at" :min="convertDate(today)" :max="convertDate(createDate(null, 3))">
+
+                                            <error :form="form" name="hire_started_at" />
+                                        </div>
+
+                                        <span class="deco">~</span>
+
+                                        <div class="input-wrap">
+                                            <input class="" type="date" placeholder="" v-model="form.hire_finished_at" ref="hire_finished_at" :min="convertDate(today)" :max="convertDate(createDate(form.hire_started_at, 14))">
+
+                                            <error :form="form" name="hire_finished_at" />
+                                        </div>
                                     </div>
+
+                                    <div class="guide-popUp pop-up_recruitment-box">
+                                        <button class="close-btn">
+                                            <i class="xi-close"></i>
+                                        </button>
+                                        <div class="guide-content">
+                                            <p>
+                                                해당 캠페인에 참여하고자 하는 인플루언서들을 모집하는 기간입니다.
+                                                <br/>최대한 많은 인원을 모집하여 하고 싶으시다면, 일정을 넉넉하게 설정해주세요!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="write-box help-mark">
+                                <div class="write-labal_wrap">
+                                    <p class="write-labal">인플루언서 선정기간 <span class="Essential">*</span></p>
+                                    <i class="xi-help-o help-btn pop-up_selection"></i>
+                                </div>
+                                <div class="write-bundle">
+                                    <div class="m-input-dates type01">
+                                        <div class="input-wrap">
+                                            <input type="date" placeholder="" v-model="form.select_started_at" ref="select_started_at" disabled class="Deactivation">
+
+                                            <error :form="form" name="select_started_at" />
+                                        </div>
+
+                                        <span class="deco">~</span>
+
+                                        <div class="input-wrap">
+                                            <input class="" type="date" placeholder="" v-model="form.select_finished_at" ref="select_finished_at" :min="form.select_started_at" :max="convertDate(createDate(form.select_started_at, 2))">
+
+                                            <error :form="form" name="select_finished_at" />
+                                        </div>
+                                    </div>
+
+                                    <div class="guide-popUp pop-up_selection-box">
+                                        <button class="close-btn">
+                                            <i class="xi-close"></i>
+                                        </button>
+                                        <div class="guide-content">
+                                            <p>
+                                                캠페인에 참여신청을 한 인플루언서들 중, 제품 및 서비스와 가장 잘 어울리는 인플루언서를 사장님께서 직접 선정해주세요! <br />
+                                                (별도의 선정 없이 기간이 지나면 우리뷰 추천순위에 따라 자동선정 될 수 있습니다!)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="write-box help-mark">
+                                <div class="write-labal_wrap">
+                                    <p class="write-labal">리뷰어 컨텐츠 등록기간 <span class="Essential">*</span></p>
+                                    <i class="xi-help-o help-btn pop-up_contents"></i>
+                                    <p class="Explanation_p">매장 방문기간 포함 일정</p>
+                                </div>
+                                <div class="write-bundle">
+                                    <div class="m-input-dates type01">
+                                        <div class="input-wrap">
+                                            <input type="date" placeholder="" v-model="form.review_started_at" ref="review_started_at" disabled class="Deactivation">
+
+                                            <error :form="form" name="review_started_at" />
+                                        </div>
+
+                                        <span class="deco">~</span>
+
+                                        <div class="input-wrap">
+                                            <input class="" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="form.review_started_at" :max="convertDate(createDate(form.review_started_at, 21))">
+
+                                            <error :form="form" name="review_finished_at" />
+                                        </div>
+                                    </div>
+
+                                    <div class="guide-popUp pop-up_contents-box">
+                                        <button class="close-btn">
+                                            <i class="xi-close"></i>
+                                        </button>
+                                        <div class="guide-content">
+                                            <p v-if="form.type_campaign === 'REALTIME'">
+                                                선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>매장 방문기간이 포함된 일정이니 참고 부탁드립니다.
+                                            </p>
+                                            <p v-else>
+                                                선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>배송기간과 방문기간이 포함된 기간인 만큼, 조금 넉넉하게 설정해주세요!
+                                            </p>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
-                        <div class="write-box help-mark">
-                            <div class="write-labal_wrap">
-                                <p class="write-labal">리뷰어 컨텐츠 등록기간 <span class="Essential">*</span></p>
-                                <i class="xi-help-o help-btn pop-up_contents"></i>
-                                <p class="Explanation_p">매장 방문기간 포함 일정</p>
-                            </div>
-                            <div class="write-bundle">
-                                <div class="m-input-dates type01">
-                                    <div class="input-wrap">
-                                        <input type="date" placeholder="" v-model="form.review_started_at" ref="review_started_at" disabled class="Deactivation">
-
-                                        <error :form="form" name="review_started_at" />
-                                    </div>
-
-                                    <span class="deco">~</span>
-
-                                    <div class="input-wrap">
-                                        <input class="" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="form.review_started_at" :max="convertDate(createDate(form.review_started_at, 21))">
-
-                                        <error :form="form" name="review_finished_at" />
-                                    </div>
-                                </div>
-
-                                <div class="guide-popUp pop-up_contents-box">
-                                    <button class="close-btn">
-                                        <i class="xi-close"></i>
-                                    </button>
-                                    <div class="guide-content">
-                                        <p v-if="form.type_campaign === 'REALTIME'">
-                                            선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>매장 방문기간이 포함된 일정이니 참고 부탁드립니다.
-                                        </p>
-                                        <p v-else>
-                                            선정 된 인플루언서들에게 제공내역을 제공하고, 해당 제품과 서비스를 체험한 리뷰어가 각자의 미디어 계정에 후기성 글을 작성하는 기간입니다. <br/>배송기간과 방문기간이 포함된 기간인 만큼, 조금 넉넉하게 설정해주세요!
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
@@ -766,6 +909,9 @@ export default {
                 img: null,
             }),
 
+            for_setting_visit_started_at: "",
+            for_setting_review_finished_at: "",
+
             max: 20,
         }
     },
@@ -789,6 +935,15 @@ export default {
 
             if(campaign) {
                 this.form.set(campaign);
+
+                this.form = {...this.form,
+                    hire_started_at: "",
+                    hire_finished_at: "",
+                    select_started_at: "",
+                    select_finished_at: "",
+                    review_started_at: "",
+                    review_finished_at: "",
+                }
             }
         },
 
@@ -830,7 +985,25 @@ export default {
         },
 
         convertDatetime(date){
-            return date.toISOString().slice(0,-8);
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            let day = date.getDate();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+
+            if(month < 10)
+                month = "0" + month;
+
+            if(day < 10)
+                day = "0" + day;
+
+            if(hours < 10)
+                hours = "0" + hours;
+
+            if(minutes < 10)
+                minutes = "0" + minutes;
+
+            return `${year}-${month}-${day}T${hours}:${minutes}`;
         },
         convertDate(date){
             return date.toISOString().slice(0,10);
@@ -838,6 +1011,12 @@ export default {
 
         addDay(date){
             date.setDate(date.getDate() + 1);
+
+            return date;
+        },
+
+        addHours(date, hours){
+            date = new Date(date.getTime() + (hours * 60 * 60 * 1000));
 
             return date;
         },
@@ -976,22 +1155,52 @@ export default {
     },
 
     watch: {
-        'form.hire_finished_at': function(newVal, oldVal) {
+        'for_setting_visit_started_at': function(newVal, oldVal) {
             if(!newVal)
                 return "";
 
-            let date = new Date(newVal);
+            let visitedAt = new Date(newVal);
 
-            this.form.select_started_at = this.convertDate(this.addDay(date));
+            let hireStartedAt = new Date(visitedAt.setHours(visitedAt.getHours() + 2));
+
+            this.form.hire_started_at = this.convertDatetime(hireStartedAt);
+
+
+            let hireFinishedAt = new Date(hireStartedAt.setHours(hireStartedAt.getHours() + 2));
+
+            this.form.hire_finished_at = this.convertDatetime(hireFinishedAt);
+
+            this.form.select_started_at = this.form.hire_finished_at;
+
+            let selectedFinishedAt = new Date(hireFinishedAt.setHours(hireFinishedAt.getHours() + 4));
+
+            this.form.select_finished_at = this.convertDatetime(selectedFinishedAt);
+
+            this.form.review_started_at = this.form.select_finished_at;
+        },
+
+        'form.hire_finished_at': function(newVal, oldVal) {
+            if(this.form.type_campaign !== "REALTIME"){
+                if(!newVal)
+                    return "";
+
+                let date = new Date(newVal);
+
+                this.form.select_started_at = this.convertDate(this.addDay(date));
+            }
+
         },
 
         'form.select_finished_at': function(newVal, oldVal) {
-            if(!newVal)
-                return "";
+            if(this.form.type_campaign !== "REALTIME"){
+                if(!newVal)
+                    return "";
 
-            let date = new Date(newVal);
+                let date = new Date(newVal);
 
-            this.form.review_started_at = this.convertDate(this.addDay(date));
+                this.form.review_started_at = this.convertDate(this.addDay(date));
+            }
+
         },
 
         'form.type_campaign': function(newVal, oldVal) {
