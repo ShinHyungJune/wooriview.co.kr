@@ -17,7 +17,7 @@ export default {
             {hid: 'description', name: 'description', content: ''},
             {name: 'format-detection', content: 'telephone=no'},
 
-            {name: 'naver-site-verification', content: 'b863a845c5511cf9868573630a136bfd3e8abedc=no'},
+            {name: 'naver-site-verification', content: '1d06441f5e532aab27a8e6e67c6ba4af0ef88ab2'},
             {name: 'google-site-verification', content: 'Fecaj1jpMSkf8_JXonbE3KeUnDLPJP3ZIngmnScSb5w=no'},
             {name: 'og:site_name', content: '우리뷰 | 우리가 만드는 모든 리뷰 우리뷰'},
             {name: 'description', content: '우리가 만드는 모든 리뷰 우리뷰'},
