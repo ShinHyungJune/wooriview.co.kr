@@ -51,9 +51,9 @@
                             <div class="sns-btn-wrap" v-if="form.type === 'CUSTOMER'">
                                 <p>SNS 계정 로그인</p>
                                 <div class="btn-wrap">
-<!--                                    <a :href="`${$store.state.domain}/openLoginPop/naverCustom?type=${form.type}`"  class="sns-btn naver">
+                                    <a :href="`${$store.state.domain}/openLoginPop/naverCustom?type=${form.type}`"  class="sns-btn naver">
                                         <img src="/images/sns-naver.png" alt="우리뷰">
-                                    </a>-->
+                                    </a>
                                     <a :href="`${$store.state.domain}/openLoginPop/kakaoCustom?type=${form.type}`" class="sns-btn kakao">
                                         <img src="/images/sns-kakao.png" alt="우리뷰">
                                     </a>
