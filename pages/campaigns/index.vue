@@ -11,7 +11,9 @@
 
                 <div :class="`campaign-tab ${$route.query.type_campaign === 'VISIT' || $route.query.type_campaign === 'REALTIME' ? 'active' : ''}`">
                     <div class="Map-Search-wrap" id="map" ref="map" v-if="showMap">
-
+                        <a href="#" class="btn-center" @click.prevent="center">
+                            <i class="xi-maker"></i>
+                        </a>
                     </div>
                     <a class="img-wrap" href="#" @click.prevent="() => showMap = true" v-else>
                         <img src="/images/Map_Search2.jpg" alt="" class="pc">
@@ -199,6 +201,10 @@ export default {
         }
     },
     methods: {
+        center(){
+            this.map.setCenter(new kakao.maps.LatLng(this.y, this.x));
+        },
+
         getCampaigns(loadMore = false){
             if(loadMore)
                 this.form.page += 1;

@@ -69,10 +69,13 @@
                             <p class="title-period">{{ product.duration }}일</p>
                             <p class="default">
                                 기본요금 {{ product.price.toLocaleString() }}원</p>
-                            <p class="discount" v-if="product.first_discount_title">
-                                {{ product.first_discount_title }}
-                            </p>
+
+                            <p class="discount" v-if="product.first_discount_title">{{ product.first_discount_title }}</p>
+                            <p class="discount" v-else></p>
+
                             <p class="default re-po" v-if="product.price_discount > 0">-{{ product.price_discount.toLocaleString() }} 원</p>
+                            <p class="default re-po" v-else></p>
+
                             <p class="default price">결제금액</p>
                             <p class="payment-price" v-if="$auth.user.data.first_order">
                                 {{(product.price - product.price_discount).toLocaleString()}}원

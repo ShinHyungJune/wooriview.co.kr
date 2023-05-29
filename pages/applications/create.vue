@@ -81,6 +81,15 @@ export default {
     },
 
     mounted() {
+        if(this.$auth.user.data.type === 'COMPANY') {
+            this.$store.commit("setPop", {
+                title: "참여불가",
+                description: "광고주는 캠페인 참여가 불가합니다."
+            });
+
+            return this.$router.back();
+        }
+
         this.getCampaign();
     }
 }

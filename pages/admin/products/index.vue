@@ -29,7 +29,8 @@
                         <th>추가연장일수</th>
                         <th>가격</th>
                         <th>첫구매 할인 제목</th>
-                        <th>첫구매 할인 비율</th>
+                        <th>첫구매 할인 가격<br/>(실적용)</th>
+<!--                        <th>첫구매 할인 비율<br/>(단순표시용)</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -56,8 +57,11 @@
                             {{item.first_discount_title}}
                         </td>
                         <td>
-                            {{item.first_discount_percent}}
+                            {{item.first_discount_price}}
                         </td>
+<!--                        <td>
+                            {{item.first_discount_percent}}
+                        </td>-->
                         <!--
                         <td>
                             {{ item.first_discount_price.toLocaleString() }}

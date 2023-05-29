@@ -2195,12 +2195,11 @@
 
 .MyPage.payment .payment-type-wrap .payment-type-list {  display: flex; flex-wrap: wrap; width: 100%; gap: 48px; margin-bottom: 95px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li {width: calc( (100% - 48px * 3)/4); padding: 24px;  border-radius: 16px; box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.08); border: solid 2px #fff;  background-color: #fff;}
-.MyPage.payment .payment-type-wrap .payment-type-list li:nth-child(2) .default { margin-bottom: 121px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .small-period { font-size: 16px; font-weight: bold;   color: #202020;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .title-period { font-size: 48px; font-weight: bold;   color: #202020; margin-bottom: 46px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .default { font-size: 18px; font-weight: 500;  color: #303030; margin-bottom: 28px;}
-.MyPage.payment .payment-type-wrap .payment-type-list li .default.re-po { margin-bottom: 43px;}
-.MyPage.payment .payment-type-wrap .payment-type-list li .discount { font-size: 20px; font-weight: bold; color: #ffc800; margin-bottom: 5px;}
+.MyPage.payment .payment-type-wrap .payment-type-list li .default.re-po {min-height:22px; margin-bottom: 43px;}
+.MyPage.payment .payment-type-wrap .payment-type-list li .discount {min-height:24px; font-size: 20px; font-weight: bold; color: #ffc800; margin-bottom: 5px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .default.price { margin-bottom: 5px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .payment-price {font-size:32px;  font-weight: bold;  color:#202020; margin-bottom: 64px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .bonus {font-size: 20px; font-weight: 600;  color: #2680eb; margin-bottom: 24px;}
@@ -2249,11 +2248,10 @@
 .MyPage.payment .payment-type-wrap .payment-type-list li .small-period { font-size: 12px; font-weight: 600;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .title-period { font-size: 18px; font-weight: 600; margin-bottom: 20px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .default { font-size: 12px;  opacity: 0.32; margin-bottom: 4px;}
-.MyPage.payment .payment-type-wrap .payment-type-list li .default.re-po { opacity: unset; margin-bottom: 20px;}
+.MyPage.payment .payment-type-wrap .payment-type-list li .default.re-po {min-height:22px; opacity: unset; margin-bottom: 20px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .discount { font-size: 14px; font-weight: 600;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .payment-price { font-size: 24px; margin-bottom: 44px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li { padding: 24px 16px 16px;}
-.MyPage.payment .payment-type-wrap .payment-type-list li:nth-child(2) .default { margin-bottom: 60px;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .default.price { opacity: unset; margin-bottom: unset;}
 .MyPage.payment .payment-type-wrap .payment-type-list li .bonus { font-size: 14px; margin-bottom: 20px; }
 .MyPage.payment .payment-type-wrap .list-box { padding: 24px 0 0; border-bottom: none;}
@@ -2954,6 +2952,17 @@
 
 
 .Map-Search-wrap {width: 100%; position: relative; margin-bottom: 40px;}
+.Map-Search-wrap .btn-center {
+    display: flex; align-items: center; justify-content: center;
+    width:40px; height:40px;
+    position:absolute; bottom:40px; right:40px;
+    background-color:#ffc800; color:#000; box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+    border-radius:8px;
+    z-index:100;
+}
+.Map-Search-wrap .btn-center i {
+    font-size:20px;
+}
 .Map-Search-wrap #map { position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%;}
 .Map-Search-wrap #mapCampain { position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%;}
 

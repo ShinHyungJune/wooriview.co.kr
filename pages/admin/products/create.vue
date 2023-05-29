@@ -63,14 +63,24 @@
                         </li>
                         <li class="col-group">
                             <div class="default">
-                                <p>첫구매 할인 비율</p>
+                                <p>첫구매 할인 금액<br/>(실적용)</p>
+                            </div>
+                            <div class="user">
+                                <input type="text" v-model="form.first_discount_price">
+
+                                <error :form="form" name="first_discount_price" />
+                            </div>
+                        </li>
+<!--                        <li class="col-group">
+                            <div class="default">
+                                <p>첫구매 할인 비율<br/>(단순표시용)</p>
                             </div>
                             <div class="user">
                                 <input type="text" v-model="form.first_discount_percent">
 
                                 <error :form="form" name="first_discount_percent" />
                             </div>
-                        </li>
+                        </li>-->
                     </ul>
 
                     <button type="submit" class="submit-btn">저장하기</button>
@@ -98,6 +108,11 @@ export default {
             item: null,
             form: new Form(this.$axios, {
                 title: "",
+                duration: "",
+                duration_extra: "",
+                first_discount_title: "",
+                first_discount_price: "",
+                first_discount_percent: "",
                 files: [],
             })
         }
@@ -128,7 +143,7 @@ export default {
                 .then(response => {
                     this.item = response.data.data;
 
-                    this.form.set({...this.item, ...this.form});
+                    this.form.set({ ...this.form, ...this.item});
 
                     this.loading = false;
 
