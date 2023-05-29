@@ -197,7 +197,7 @@
                                 <div class="write-bundle">
                                     <div class="m-input-dates type01">
                                         <div class="input-wrap">
-                                            <input type="date" placeholder="" v-model="for_setting_review_finished_at" ref="for_setting_review_finished_at" :min="convertDate(today)" :max="convertDate(createDate(form.select_started_at, 2))">
+                                            <input type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="convertDate(today)" :max="convertDate(createDate(form.select_started_at, 2))">
 
                                             <error :form="form" name="review_finished_at" />
                                         </div>
@@ -297,7 +297,7 @@
                                         <span class="deco">~</span>
 
                                         <div class="input-wrap">
-                                            <input disabled class="Deactivation" type="datetime-local" placeholder="" v-model="form.review_finished_at" ref="review_finished_at">
+                                            <input disabled class="Deactivation" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at">
 
                                             <error :form="form" name="review_finished_at" />
                                         </div>
@@ -910,7 +910,6 @@ export default {
             }),
 
             for_setting_visit_started_at: "",
-            for_setting_review_finished_at: "",
 
             max: 20,
         }
