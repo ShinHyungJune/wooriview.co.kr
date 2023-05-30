@@ -2,6 +2,18 @@
     <li class="campaign-item">
         <nuxt-link class="img-wrap" :to="`/campaigns/${campaign.id}?type_campaign=${campaign.type_campaign}`">
             <img :src="campaign.img.url" alt="" v-if="campaign.img">
+            <div class="campaign-type-wrap">
+                <div class="campaign-type-img">
+                    <img src="/images/Live-icon.png" alt="" v-if="campaign.type_campaign === 'REALTIME'">
+                    <img src="/images/Visit-icon.png" alt="" v-if="campaign.type_campaign === 'VISIT'">
+                    <img src="/images/Reporter-icon.png" alt="" v-if="campaign.type_campaign === 'REPORTER'">
+                    <img src="/images/Shipping-icon.png" alt="" v-if="campaign.type_campaign === 'DELIVERY'">
+                </div>
+                <p class="campaign-type-title" v-if="campaign.type_campaign === 'REALTIME'">실시간 방문형 캠페인</p>
+                <p class="campaign-type-title" v-if="campaign.type_campaign === 'VISIT'">방문형 캠페인</p>
+                <p class="campaign-type-title" v-if="campaign.type_campaign === 'REPORTER'">기자단 캠페인</p>
+                <p class="campaign-type-title" v-if="campaign.type_campaign === 'DELIVERY'">배송형 캠페인</p>
+            </div>
         </nuxt-link>
         <div class="like-wrap" v-if="!onlyShow">
             <input type="checkbox" name="" v-if="campaign.is_like" checked>
@@ -14,12 +26,7 @@
         <div class="Information-wrap">
             <div class="Period-wrap">
                 <ul class="sns-wrap">
-                    <li class="type">
-                        <img src="/images/Live-icon.png" alt="" v-if="campaign.type_campaign === 'REALTIME'">
-                        <img src="/images/Visit-icon.png" alt="" v-if="campaign.type_campaign === 'VISIT'">
-                        <img src="/images/Reporter-icon.png" alt="" v-if="campaign.type_campaign === 'REPORTER'">
-                        <img src="/images/Shipping-icon.png" alt="" v-if="campaign.type_campaign === 'DELIVERY'">
-                    </li>
+
                     <li class="sns">
                         <img src="/images/Instagram-icon.svg" alt="" v-if="campaign.type_sns === 'INSTAGRAM'">
                         <img src="/images/Blog-icon.svg" alt="" v-if="campaign.type_sns === 'NAVER'">

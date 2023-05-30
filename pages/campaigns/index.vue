@@ -277,9 +277,12 @@ export default {
             let self = this;
 
             this.$axios.get("/api/campaigns", {
-                type_campaigns: ["REALTIME", "VISIT"],
-                take: 1000,
-                ongoingHire: 1
+                params: {
+                    type_campaigns: ["REALTIME", "VISIT"],
+                    take: 1000,
+                    ongoingHire: 1,
+                    address: this.form.address,
+                }
             }).then(response => {
                 this.allCampaigns = response.data;
 
