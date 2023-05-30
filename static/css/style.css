@@ -2955,7 +2955,7 @@
 .Map-Search-wrap .btn-center {
     display: flex; align-items: center; justify-content: center;
     width:40px; height:40px;
-    position:absolute; bottom:40px; right:40px;
+    position:absolute; bottom:24px; left:40px;
     background-color:#ffc800; color:#000; box-shadow:0px 3px 6px rgba(0,0,0,0.16);
     border-radius:8px;
     z-index:100;
@@ -2976,6 +2976,9 @@
 .map-select-wrap select option i {font-size: 20px; font-weight: 600; color: #ffc800; }
 
 @media screen and (max-width: 768px) {
+    .Map-Search-wrap .btn-center {
+        left:30px; bottom:20px;
+    }
     .map-select-wrap { top:12px; left: 30px;}
     .map-select-wrap p { font-size: 12px; margin-left: 20px;}
     .map-select-wrap select {font-size: 14px; width: 220px; height: 36px;  padding: 0 20px 0 90px; background: url('../images/icons8-expand-arrow-24.png') no-repeat 60%; background-size: 18px;  background-color: #fff;}
@@ -2987,7 +2990,7 @@
 .marker-tips .tooltip-content .tooltip-img-wrap {display: flex; max-width: 30px; }
 .marker-tips .tooltip-content .tooltip-title { font-size: 16px;}
 @media screen and (max-width: 768px) {
-    .marker-tips { padding: 5px 10px;  bottom:12px; right: 30px; gap: 5px; }
+    .marker-tips { padding: 5px 10px;  bottom:20px; right: 30px; gap: 5px; }
     .marker-tips .tooltip-content .tooltip-img-wrap {max-width: 20px; }
     .marker-tips .tooltip-content .tooltip-title { font-size: 12px;}
 
