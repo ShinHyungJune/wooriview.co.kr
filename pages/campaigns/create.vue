@@ -1032,6 +1032,42 @@ export default {
             createdDate.setDate(createdDate.getDate() + addDays);
 
             return createdDate;
+        },
+
+        addEvent(){
+            $(".temporary_storage_open_btn").click(function () {
+                $(".temporary_storage_wrap").toggleClass("open");
+            })
+
+            $(".close-btn").click(function () {
+                $(this).parent(".pop-box").removeClass("open")
+            })
+
+            $(".pop_close_btn").click(function () {
+                $(this).parent(".pop_btn_wrap").parent(".pop-scroll-wrap").parent(".pop-box").removeClass("open")
+            })
+
+            $(".Registration_btn").click(function () {
+                $(".Warning-pop").addClass("open");
+            });
+
+            $(".pop-up_recruitment").click(function () {
+                $(".pop-up_recruitment-box").addClass("open");
+            })
+
+            $(".pop-up_selection").click(function () {
+                $(".pop-up_selection-box").addClass("open");
+            })
+
+            $(".pop-up_contents").click(function () {
+                $(".pop-up_contents-box").addClass("open");
+            })
+
+
+            $(".close-btn").click(function () {
+                $(this).parent(".pop-box").removeClass("open")
+                $(this).parent(".guide-popUp").removeClass("open")
+            })
         }
     },
 
@@ -1110,45 +1146,15 @@ export default {
                 return "지역/상호명(매장명)";
 
             return "상호명(브랜드명)"
-        }
+        },
+
+
     },
 
     mounted() {
         this.getTempCampaigns();
 
-        $(".temporary_storage_open_btn").click(function () {
-            $(".temporary_storage_wrap").toggleClass("open");
-        })
-
-        $(".close-btn").click(function () {
-            $(this).parent(".pop-box").removeClass("open")
-        })
-
-        $(".pop_close_btn").click(function () {
-            $(this).parent(".pop_btn_wrap").parent(".pop-scroll-wrap").parent(".pop-box").removeClass("open")
-        })
-
-        $(".Registration_btn").click(function () {
-            $(".Warning-pop").addClass("open");
-        });
-
-        $(".pop-up_recruitment").click(function () {
-            $(".pop-up_recruitment-box").addClass("open");
-        })
-
-        $(".pop-up_selection").click(function () {
-            $(".pop-up_selection-box").addClass("open");
-        })
-
-        $(".pop-up_contents").click(function () {
-            $(".pop-up_contents-box").addClass("open");
-        })
-
-
-        $(".close-btn").click(function () {
-            $(this).parent(".pop-box").removeClass("open")
-            $(this).parent(".guide-popUp").removeClass("open")
-        })
+        this.addEvent();
     },
 
     watch: {
@@ -1201,6 +1207,12 @@ export default {
         },
 
         'form.type_campaign': function(newVal, oldVal) {
+            let self = this;
+
+            setTimeout(function(){
+                self.addEvent();
+            },300)
+
             if(newVal === 'REALTIME' || newVal === 'VISIT'){
                 this.max = 10;
             }
