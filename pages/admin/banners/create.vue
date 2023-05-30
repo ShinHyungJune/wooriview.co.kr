@@ -79,6 +79,7 @@ export default {
                 category: "",
                 title: "",
                 subtitle: "",
+                url:"",
                 files: [],
                 files_mobile: [],
             })
