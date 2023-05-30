@@ -23,7 +23,7 @@ export default {
             {property: 'description', content: '우리가 만드는 모든 리뷰 우리뷰'},
             {property: 'og:type', content: 'wooriview'},
             {property: 'og:title', content: 'wooriview'},
-            {property: 'og:description', content: 'https://korket.co.kr/client/images/wooriview-m.png'},
+            {property: 'og:image', content: 'https://wooriview.co.kr/images/wooriview-m.png'},
             {property: 'og:url', content: 'https://wooriview.co.kr'},
             {property: 'keywords', content: 'wooriview, 우리뷰, 리뷰, 캠페인'},
         ],
