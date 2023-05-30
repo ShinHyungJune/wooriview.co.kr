@@ -933,16 +933,14 @@ export default {
             let campaign = this.tempCampaigns.data.find(tempCampaign => tempCampaign.id == this.temp_campaign_id);
 
             if(campaign) {
-                this.form.set(campaign);
-
-                this.form = {...this.form,
+                this.form.set({...campaign,
                     hire_started_at: "",
                     hire_finished_at: "",
                     select_started_at: "",
                     select_finished_at: "",
                     review_started_at: "",
                     review_finished_at: "",
-                }
+                });
             }
         },
 
@@ -1039,7 +1037,7 @@ export default {
 
     computed: {
         counts(){
-            let items = [1];
+            let items = [];
 
             for(let i = 1;  i <= this.max; i++){
                 if(i < 10 || i % 5 === 0) {
