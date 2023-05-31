@@ -1,67 +1,76 @@
 <template>
-    <div class="footer">
-        <div class="container">
-            <div class="ft-le">
-                <nuxt-link to="/" class="ft-logo"><img src="/images/ft-logo.svg" alt=""></nuxt-link>
-                <div class="ft-ri">
-                    <p class="customer">고객센터</p>
-                    <p class="Number">1644-2515</p>
-                    <p class="Holiday">
-                        상담시간 : 10:00 ~ 17:00  <br>
-                        주말,공휴일은 휴무입니다.
-                    </p>
-                    <p class="Holiday">
-                        메일 : <a href="mailto:admin@wooriview.co.kr">admin@wooriview.co.kr</a>
+    <div class="footer-wrap">
+        <div class="container row-group">
+            <div class="top-wrap col-group">
+                <nuxt-link to="/" class="footer-logo">
+                    <img src="/images/W_WhatPick_logo_Footer.svg" alt="">
+                </nuxt-link>
+                <ul class="site-map col-group">
+                    <li>
+                        <nuxt-link to="/contents/about">WHAT?</nuxt-link>
+                    </li>
+                    <li>
+                        <nuxt-link to="/cars">차량조회</nuxt-link>
+                    </li>
+                    <li>
+                        <nuxt-link to="/serviceChecks/intro">이차어때</nuxt-link>
+                        <ul class="sub-menu">
+                            <li>
+                                <nuxt-link to="/serviceChecks/intro">이차어때?</nuxt-link>
+                            </li>
+                            <li>
+                                <nuxt-link to="/serviceChecks/create">서비스 신청</nuxt-link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="service.html">동행서비스</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="service.html">동행서비스</a>
+                            </li>
+                            <li>
+                                <a href="service_apply.html">동행서비스 신청</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <nuxt-link to="/qnas/create">고객문의</nuxt-link>
+                        <ul class="sub-menu">
+                            <li>
+                                <nuxt-link to="/faqs">자주묻는질문</nuxt-link>
+                            </li>
+                            <li>
+                                <nuxt-link to="/qnas/create">1:1문의</nuxt-link>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="btm-wrap col-group">
+                <div class="copy-wrap">
+                    <p class="copy">고객센터 전화번호 : 031-510-5144</p>
+                    <p class="copy">대표자 : 이형근 | 주소 : 경기도 의정부시 의정로198번길 128, 가동 201호(가능동, 무림연립) | 사업자등록번호 : 343-03-02380</p>
+                    <!--
+                    <p class="copy">대표자 : 이형근 | 주소 : 경기도 구리시 갈매순환로166번길 45, 7층 s741호 | 사업자등록번호 : 343-03-02380</p>
+                    -->
+                    <p class="copy">
+                        Copyright WHAT PICK. All rights reserved.
                     </p>
                 </div>
-                <div class="ft-nav">
-                    <nuxt-link to="/contents/privacyPolicy">개인정보 처리방침</nuxt-link>
-                    <nuxt-link to="/contents/servicePolicy">이용방침</nuxt-link>
-                    <nuxt-link to="/qnas/create?category=광고 및 입점 문의">입점문의</nuxt-link>
-                    <nuxt-link to="/qnas">고객센터</nuxt-link>
+
+                <div class="right-menu col-group">
+                    <nuxt-link to="/contents/privacyPolicy">개인정보처리방침</nuxt-link>
+                    <nuxt-link to="/contents/servicePolicy">이용약관</nuxt-link>
                 </div>
-                <p class="Address">우리뷰(주) | 대표이사 : 정원철 </p>
-                <p class="Address">사업자등록번호 : 706-88-02900 | 통신판매업신고번호 : 제 2023-의정부흥선-0370호 </p>
-                <p class="Address">주소 : 서울특별시 노원구 상계동169-210 4층</p>
-                <p class="Address">메일 : admin@wooriview.co.kr | 전화 : 1644-2515 </p>
-                <p class="COPYRIGHT">COPYRIGHT 2022 우리뷰 ALL RIGHT RESERVED.</p>
             </div>
         </div>
-        <button id="up-btn">
-            <i class="xi-arrow-up"></i>
-        </button>
-
-        <div class="m-quicks type01">
-            <a href="/campaigns/create" class="m-quick" v-if="$auth.user && $auth.user.data.can_create_campaign">
-                <i class="xi-pen"></i>
-            </a>
-        </div>
     </div>
+
+
 </template>
 <script>
-import NuxtLogo from "./NuxtLogo";
 export default {
-    components: {NuxtLogo},
-    methods: {
-        top() {
-            window.scrollTo({top:0});
-        },
 
-        ready(){
-            alert("준비중입니다.");
-        }
-    },
-
-    mounted() {
-        $("#up-btn").click(function () {
-            $("html, body").animate(
-                {
-                    scrollTop: 0,
-                },
-                400
-            );
-            return false;
-        });
-    }
 }
 </script>
