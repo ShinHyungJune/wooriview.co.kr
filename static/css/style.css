@@ -680,7 +680,7 @@
 .write-wrap .Field-ck-wrap .category-ck { width: 91px; }
 
 /* textarea */
-.write-wrap textarea { padding: 24px; width: 100%; height: 280px; border-radius: 24px; border: solid 1px #e4e4e4; background-color: #fff; outline: unset; }
+.write-wrap textarea { padding: 24px; width: 100%; height: 140px; border-radius: 24px; border: solid 1px #e4e4e4; background-color: #fff; outline: unset; }
 .write-wrap textarea::placeholder {  font-size: 14px; font-weight: 500; color: #ccc; }
 
 /* 동의 채크박스 */
@@ -2732,6 +2732,10 @@
 .Campaign_Registration .Campaign_Registration_top_wrap { width: 100%; margin-top: 24px; margin-bottom: 40px; }
 .Campaign_Registration .Campaign_Registration_top { width: 100%; padding: 32px 48px; border-radius: 16px; background-color: #f5f5f5; display: flex; }
 .Campaign_Registration .Campaign_Registration_top .le_p { font-size: 24px; font-weight: 500; color: #303030; }
+.Campaign_Registration .Campaign_Registration_top .le_p .link {
+    display: block; margin-top:8px;
+    font-size:16px; font-weight:bold; color:#ffcb2e; text-decoration: underline;
+}
 .Campaign_Registration .Campaign_Registration_top .ri_p { font-size: 14px; font-weight: 300; line-height: 1.29; color: #202020; padding-left: 72px; }
 .Campaign_Registration .campaign-item {
     width:60%; margin:0 auto;
@@ -2930,8 +2934,16 @@
 .Campaign_Registration .guide-popUp .guide-content p { font-size: 16px;     color: #303030; max-width: 95%;}
 .guide-popUp.open {  display: unset; }
 @media screen and (max-width: 768px) {
-    .Campaign_Registration .guide-popUp { max-width: 90%; max-height: auto;}
-    .Campaign_Registration .guide-popUp .guide-content p { font-size: 12px;}
+    .Campaign_Registration .guide-popUp { max-width: 90%; max-height: auto;
+        padding:20px 10px;
+    }
+    .Campaign_Registration .guide-popUp .guide-content p {
+        font-size: 11px;
+        text-align: left;
+    }
+    .Campaign_Registration .guide-popUp .guide-content p br {
+        display: none;
+    }
     .Campaign_Registration .guide-popUp .close-btn { font-size: 15px;}
 }
 

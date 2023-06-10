@@ -19,7 +19,7 @@
             <div class="Achievement-Banner">
                 <div class="Achievement-Banner-txt">
                     <h3>빠르고 간편한 캠페인 등록</h3>
-                    <p>캠페인을 등록하고 인플루언서를 모집해보세요!</p>
+                    <p>우리뷰에서 체험단을 진행할 인플루언서를 모집해보세요!</p>
                 </div>
                 <a href="/campaigns/create">캠페인 등록하기</a>
             </div>
@@ -38,8 +38,8 @@
                     <nuxt-link to="/orders">
                         <div class="icon-wrap Payment"></div>
                         <div class="txt-wrap">
-                            <p class="labal-p">결제 내역</p>
-                            <p class="txt-p">월별 결제내역과 이용권 만료일 등을 확인할 수 있어요</p>
+                            <p class="labal-p">결제 및 내역</p>
+                            <p class="txt-p">우리뷰 결제정보와 내역을 확인할 수 있어요</p>
                         </div>
                     </nuxt-link>
                 </li>
@@ -93,7 +93,7 @@
                         <div class="icon-wrap Shipping"></div>
                         <div class="txt-wrap">
                             <p class="labal-p">배송&방문 현황</p>
-                            <p class="txt-p">배송형 캠페인의 배송현황을 확인해보세요.</p>
+                            <p class="txt-p">진행중인 캠페인의 배송 및 방문현황을 확인하세요!</p>
                         </div>
                     </nuxt-link>
                 </li>
