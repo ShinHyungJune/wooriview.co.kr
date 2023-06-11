@@ -177,15 +177,14 @@ body{ -ms-overflow-style: none; }
 
 @media screen and (max-width: 940px) {
     .header .header-le { gap: 24px; }
-    .header .header-nav { gap: 10px; }
     .header .logo {max-width: 180px;}
     .header .header-ri > ul li > button { width: 38px; height: 38px;}
     .header .header-ri > ul li > a { width: 38px; height: 38px;}
+    .header .header-nav a img {display:none;}
     .header .header-nav a img.live-icon-img { max-width: 25px; }
     .header .header-nav a img { max-width: 20px; }
     .header .header-nav li a { gap: 4px; }
     .header .header-nav li { width: fit-content;}
-    .header .header-nav a img {  margin-right:unset; }
     .header .header-nav li.client-li { width: 80px;}
 }
 
@@ -194,7 +193,7 @@ body{ -ms-overflow-style: none; }
     .header .back-btn { display: inline-block; }
     .header .back-btn i { font-size: 22px; color: #000; }
     .header .logo { max-width: 91px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-    .header .header-nav {width:100%; height: 40px; position: absolute; top: 100%; left: 0; width: 100%; justify-content: center; gap: unset; overflow-x:auto;}
+    .header .header-nav {width:100%; height: 40px; position: absolute; top: 100%; left: 0; width: 100%; justify-content: center; overflow-x:auto;}
     .header .header-nav li {  height: 100%; flex:0 0 auto; }
     .header .header-nav li.mb { display: unset; }
     .header .header-nav li a { display: flex; justify-content: center; align-items: center; height: 100%; font-size: 14px; color: #c1c1c1; gap: 4px; }
