@@ -15,87 +15,89 @@
                     </div>
                 </div>
             </section>
-            <section class="section2">
-                <div>
-                    <h2 class="product-title">[{{ campaign.title_company }}] {{ campaign.title_product }}</h2>
-                    <p class="product-kind">{{ campaign.title_product }}</p>
+            <div class="Side_wrap">
+                <section class="section2">
+                    <div>
+                        <h2 class="product-title">[{{ campaign.title_company }}] {{ campaign.title_product }}</h2>
+                        <p class="product-kind">{{ campaign.title_product }}</p>
 
-                     <div class="product-type" v-if="campaign.type_campaign === 'VISIT'">
-                        <img src="/images/Visit-icon.png" alt="">
-                        <p>방문형 캠페인</p>
-                    </div>
-
-                     <div class="product-type" v-if="campaign.type_campaign === 'DELIVERY'">
-                        <img src="/images/Shipping-icon.png" alt="">
-                        <p>배송형 캠페인</p>
-                    </div>
-
-                     <div class="product-type" v-if="campaign.type_campaign === 'REALTIME'">
-                        <img src="/images/Live-icon.png" alt="">
-                        <p>실시간 방문형 캠페인</p>
-                    </div>
-
-                     <div class="product-type" v-if="campaign.type_campaign === 'REPORTER'">
-                         <img src="/images/Reporter-icon.png" alt="">
-                        <p>기자단 캠페인</p>
-                    </div>
-
-                    <div class="Period-wrap">
-                        <div class="Period">
-                            <p class="Period-labal">
-                                인플루언서 모집기간
-                            </p>
-                            <p class="Period-date" v-if="campaign.type_campaign === 'REALTIME'">
-                                {{ campaign.time_hire_started_at }} ~ {{ campaign.time_hire_finished_at }}
-                            </p>
-                            <p class="Period-date" v-else>
-                                {{ campaign.format_hire_started_at }} ~ {{ campaign.format_hire_finished_at }}
-                            </p>
+                        <div class="product-type" v-if="campaign.type_campaign === 'VISIT'">
+                            <img src="/images/Visit-icon.png" alt="">
+                            <p>방문형 캠페인</p>
                         </div>
-                        <div class="Period">
-                            <p class="Period-labal">
-                                인플루언서 선정기간
-                            </p>
-                            <p class="Period-date">
-                                {{ campaign.format_select_started_at }} ~ {{ campaign.format_select_finished_at }}
-                            </p>
-                        </div>
-                        <div class="Period">
-                            <p class="Period-labal">
-                                리뷰어 컨텐츠 등록기간
-                            </p>
-                            <p class="Period-date">
-                                {{ campaign.format_review_started_at }} ~ {{ campaign.format_review_finished_at }}
-                            </p>
-                        </div>
-                    </div>
-                    <p class="advertiser-talk" v-text="campaign.introduce"></p>
-                </div>
-                <div>
-                    <p class="recruiting-influencer-labal">모집 인플루언서</p>
 
-                    <div class="sns-wrap">
-                        <img src="/images/Instagram-icon.svg" alt="" v-if="campaign.type_sns === 'INSTAGRAM'">
-                        <img src="/images/Blog-icon.svg" alt="" v-if="campaign.type_sns === 'NAVER'">
-                        <p>모집인원 {{campaign.max_participant.toLocaleString()}}명</p>
-<!--                        <p>{{ form.type_sns === 'INSTAGRAM' ? "팔로워" : "방문자수" }} {{ campaign.min_follower.toLocaleString() }} 이상</p>-->
-                    </div>
-                    <!-- 블러그 -->
-                    <!-- <div class="sns-wrap">
-                        <img src="/images/Blog-icon.svg" alt="">
-                        <p>방문자 일일 120명 이상</p>
-                    </div> -->
-
-                    <div class="Participation-btn-wrap">
-                        <div class="like-ck">
-                            <input type="checkbox" name="" id="" v-if="campaign.is_like" checked>
-                            <input type="checkbox" name="" id="" v-else>
-                            <label for="" @click="like"><i class="xi-heart"></i></label>
+                        <div class="product-type" v-if="campaign.type_campaign === 'DELIVERY'">
+                            <img src="/images/Shipping-icon.png" alt="">
+                            <p>배송형 캠페인</p>
                         </div>
-                        <nuxt-link :to="`/applications/create?campaign_id=${campaign.id}`" class="Participation-btn">캠페인 참여하기</nuxt-link>
+
+                        <div class="product-type" v-if="campaign.type_campaign === 'REALTIME'">
+                            <img src="/images/Live-icon.png" alt="">
+                            <p>실시간 방문형 캠페인</p>
+                        </div>
+
+                        <div class="product-type" v-if="campaign.type_campaign === 'REPORTER'">
+                            <img src="/images/Reporter-icon.png" alt="">
+                            <p>기자단 캠페인</p>
+                        </div>
+
+                        <div class="Period-wrap">
+                            <div class="Period">
+                                <p class="Period-labal">
+                                    인플루언서 모집기간
+                                </p>
+                                <p class="Period-date" v-if="campaign.type_campaign === 'REALTIME'">
+                                    {{ campaign.time_hire_started_at }} ~ {{ campaign.time_hire_finished_at }}
+                                </p>
+                                <p class="Period-date" v-else>
+                                    {{ campaign.format_hire_started_at }} ~ {{ campaign.format_hire_finished_at }}
+                                </p>
+                            </div>
+                            <div class="Period">
+                                <p class="Period-labal">
+                                    인플루언서 선정기간
+                                </p>
+                                <p class="Period-date">
+                                    {{ campaign.format_select_started_at }} ~ {{ campaign.format_select_finished_at }}
+                                </p>
+                            </div>
+                            <div class="Period">
+                                <p class="Period-labal">
+                                    리뷰어 컨텐츠 등록기간
+                                </p>
+                                <p class="Period-date">
+                                    {{ campaign.format_review_started_at }} ~ {{ campaign.format_review_finished_at }}
+                                </p>
+                            </div>
+                        </div>
+                        <p class="advertiser-talk" v-text="campaign.introduce"></p>
                     </div>
-                </div>
-            </section>
+                    <div>
+                        <p class="recruiting-influencer-labal">모집 인플루언서</p>
+
+                        <div class="sns-wrap">
+                            <img src="/images/Instagram-icon.svg" alt="" v-if="campaign.type_sns === 'INSTAGRAM'">
+                            <img src="/images/Blog-icon.svg" alt="" v-if="campaign.type_sns === 'NAVER'">
+                            <p>모집인원 {{campaign.max_participant.toLocaleString()}}명</p>
+                            <!--                        <p>{{ form.type_sns === 'INSTAGRAM' ? "팔로워" : "방문자수" }} {{ campaign.min_follower.toLocaleString() }} 이상</p>-->
+                        </div>
+                        <!-- 블러그 -->
+                        <!-- <div class="sns-wrap">
+                            <img src="/images/Blog-icon.svg" alt="">
+                            <p>방문자 일일 120명 이상</p>
+                        </div> -->
+
+                        <div class="Participation-btn-wrap">
+                            <div class="like-ck">
+                                <input type="checkbox" name="" id="" v-if="campaign.is_like" checked>
+                                <input type="checkbox" name="" id="" v-else>
+                                <label for="" @click="like"><i class="xi-heart"></i></label>
+                            </div>
+                            <nuxt-link :to="`/applications/create?campaign_id=${campaign.id}`" class="Participation-btn">캠페인 참여하기</nuxt-link>
+                        </div>
+                    </div>
+                </section>
+            </div>
 
             <section class="section3">
                 <div class="h3-wrap">
