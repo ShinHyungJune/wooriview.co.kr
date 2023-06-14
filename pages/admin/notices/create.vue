@@ -93,7 +93,7 @@ export default {
                 .then(response => {
                     this.item = response.data.data;
 
-                    this.form.set({...this.item, ...this.form});
+                    this.form.set({...this.form, ...this.item});
 
                     this.loading = false;
                 })
