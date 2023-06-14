@@ -5,7 +5,7 @@ export default {
     server: {
         port: 3001
     },
-    ssr: false,
+    ssr: true,
     head: {
         title: '우리뷰',
         htmlAttrs: {
@@ -37,7 +37,6 @@ export default {
             {src: "//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"},
             {src: "/js/swiper.min.js"},
             {src: "//www.gstatic.com/charts/loader.js"},
-            {src: "//cdn.quilljs.com/1.3.6/quill.min.js"},
             // {src: "/js/common.js"},
         ],
         link: [

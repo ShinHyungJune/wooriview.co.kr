@@ -138,9 +138,17 @@ export default {
     head() {
         return {
             link: [
+                {rel: 'stylesheet', type: 'text/css', href: '//cdn.quilljs.com/1.3.4/quill.snow.css'},
                 {rel: 'stylesheet', href: '/admin/css/common.css'},
                 {rel: 'stylesheet', href: '/admin/css/style.css'},
                 {rel: 'stylesheet', href: '/admin/css/developer.css'},
+            ],
+
+            script: [
+                {
+                    src: '//cdn.quilljs.com/1.3.6/quill.min.js',
+                    defer: true
+                },
             ],
         }
     },

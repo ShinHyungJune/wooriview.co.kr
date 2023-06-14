@@ -31,9 +31,17 @@ export default {
     head() {
         return {
             link: [
+                {rel: 'stylesheet', type: 'text/css', href: '//cdn.quilljs.com/1.3.4/quill.snow.css'},
                 {rel: 'stylesheet', type: 'text/css', href: '/css/common.css'},
                 {rel: 'stylesheet', type: 'text/css', href: '/css/style.css'},
                 {rel: 'stylesheet', type: 'text/css', href: '/css/developer.css'},
+            ],
+
+            script: [
+                {
+                    src: '//cdn.quilljs.com/1.3.6/quill.min.js',
+                    defer: true
+                },
             ],
         }
     },

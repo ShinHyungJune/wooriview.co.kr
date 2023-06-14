@@ -6,8 +6,13 @@
 
 </template>
 <script>
-
 export default {
+    head() {
+        return {
+
+        }
+    },
+
     components: {},
 
     props: {

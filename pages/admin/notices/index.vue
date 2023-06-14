@@ -28,7 +28,13 @@
                 <table>
                     <thead>
                     <tr>
-                        <th>번호</th>
+                        <th>
+                            <label for="" @click="toggle">
+                                <input type="checkbox" id="" name="chk" checked v-if="form.selected_ids.length === items.data.length">
+                                <input type="checkbox" id="" name="chk" v-else>
+                                <span class="check-icon"></span>
+                            </label>
+                        </th>
                         <th>제목</th>
                         <th>등록일자</th>
                     </tr>
@@ -36,7 +42,10 @@
                     <tbody>
                     <tr v-for="(item, index) in items.data" :key="item.id" @click="$router.push(`/admin/notices/create?id=${item.id}`)">
                         <td>
-                            {{item.id}}
+                            <label :for="item.id" @click="(e) => {e.stopPropagation()}">
+                                <input type="checkbox" :id="item.id" :value="item.id" name="chk" v-model="form.selected_ids">
+                                <span class="check-icon"></span>
+                            </label>
                         </td>
                         <td>
                             {{item.title}}
