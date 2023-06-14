@@ -5,7 +5,7 @@ export default {
     server: {
         port: 3001
     },
-    ssr: true,
+    ssr: false,
     head: {
         title: '우리뷰',
         htmlAttrs: {
@@ -37,15 +37,16 @@ export default {
             {src: "//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"},
             {src: "/js/swiper.min.js"},
             {src: "//www.gstatic.com/charts/loader.js"},
+            {src: "//cdn.quilljs.com/1.3.6/quill.min.js"},
             // {src: "/js/common.js"},
         ],
         link: [
             {rel: 'icon', type: 'image/x-icon', href: '/images/wooriview_favicon.ico'},
             /*{rel: 'stylesheet', type: 'text/css', href: 'cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css'},*/
-            {rel: 'stylesheet', type: 'text/css', href: '//uicdn.toast.com/editor/latest/toastui-editor.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '/css/swiper.min.css'},
             {rel: 'stylesheet', type: 'text/css', href: '//unpkg.com/aos@2.3.1/dist/aos.css'},
+            {rel: 'stylesheet', type: 'text/css', href: '//cdn.quilljs.com/1.3.4/quill.snow.css'},
             {
                 rel: 'stylesheet',
                 type: 'text/css',
@@ -57,16 +58,6 @@ export default {
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [],
 
-    // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [
-        {
-            src: "~plugins/toast-editor.js",
-            ssr: false,
-        },
-        {
-            src: "~plugins/axios.js"
-        },
-    ],
 
     middlewares: [""],
 

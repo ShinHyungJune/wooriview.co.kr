@@ -27,7 +27,7 @@
                                 <p>내용</p>
                             </div>
                             <div class="user">
-                                <textarea name="" id="" cols="30" rows="10" v-model="form.description"></textarea>
+                                <input-editor :default="form.description" @change="(data) => {form.description = data}"/>
 
                                 <error :form="form" name="description" />
                             </div>

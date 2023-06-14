@@ -2981,7 +2981,9 @@
 .Map-Search-wrap #map { position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%;}
 .Map-Search-wrap #mapCampain { position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%;}
 
-
+.ql-snow img {
+    width:auto;
+}
 /* 지도 지역선택  */
 .campaign-page .section1 { position: relative;}
 .map-select-wrap { display: flex; align-items: center; position: absolute; top:24px; left: 40px; gap: 32px; z-index: 5;}

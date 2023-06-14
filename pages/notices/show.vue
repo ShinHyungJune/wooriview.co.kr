@@ -27,7 +27,13 @@
                 <div class="contents">
                     <p class="title">내용</p>
                     <div class="grey-box content-wrap">
-                        <p class="content" v-text="item.description"></p>
+                        <div class="content" style="width:100%;">
+                            <div class="ql-snow">
+                                <div class="ql-editor">
+                                    <div class="editor-wrap" v-html="item.description"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
