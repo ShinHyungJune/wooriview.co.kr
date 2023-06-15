@@ -206,7 +206,7 @@ body{ -ms-overflow-style: none; }
         display: none !important;
     }
 
-    .Mobile_Menu_open_btn.open .inacive {
+    .Mobile_Menu_open_btn.open .inactive {
         display: none !important;
     }
     .Mobile_Menu_open_btn.open .active {
