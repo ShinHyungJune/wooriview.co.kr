@@ -396,12 +396,12 @@ export default {
     mounted() {
         let self = this;
 
-        alert(JSON.stringify(navigator.geolocation));
+        alert(navigator.geolocation);
         if (navigator.geolocation) {
             // 위치 정보를 가져올 수 있는 경우
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    alert(JSON.stringify(position));
+                    alert(position.coords);
 
                     this.y = position.coords.latitude;
                     this.x = position.coords.longitude;
