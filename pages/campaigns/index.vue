@@ -396,19 +396,15 @@ export default {
     mounted() {
         let self = this;
 
-        alert(navigator.geolocation);
         if (navigator.geolocation) {
             // 위치 정보를 가져올 수 있는 경우
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    alert(position.coords);
-
                     this.y = position.coords.latitude;
                     this.x = position.coords.longitude;
                     this.activeMyPosition = true;
                 },
                 (error) => {
-                    alert(error.message);
                     console.error(error.message);
                 }
             );

@@ -158,20 +158,21 @@
 </div>
 -->
                 <a href="/">
-                    <i class="xi-home-o"></i>
+                    <img src="/images/home.png" alt="">
+
                     <!-- <img src="/images/book.svg" alt=""> -->
                     <span class="text">홈</span>
                 </a>
 
                 <!-- 인플루언서용 -->
                 <a href="/campaigns?type_campaign=VISIT&showMap=1" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
-                    <i class="xi-maker"></i>
+                    <img src="/images/marker.png" alt="">
 
                     <span class="text">내 주변</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
                 <a href="/mypage/customer/campaigns" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
-                    <i class="xi-heart-o"></i>
+                    <img src="/images/heart.png" alt="">
 
                     <span class="text">찜</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
@@ -179,13 +180,13 @@
 
                 <!-- 광고주용 -->
                 <a href="/campaigns/create" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
-                    <i class="xi-plus-square-o"></i>
+                    <img src="/images/write.png" alt="">
 
                     <span class="text">캠페인 등록</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
                 <a href="/qnas/create?category=광고%20및%20입점%20문의" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
-                    <i class="xi-help-o"></i>
+                    <img src="/images/ad.png" alt="">
 
                     <span class="text">광고문의</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
@@ -193,26 +194,26 @@
 
                 <!-- 비로그인 -->
                 <a href="/login" v-if="!$auth.user">
-                    <i class="xi-log-in"></i>
+                    <img src="/images/user.png" alt="">
 
                     <span class="text">로그인</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
                 <a href="/qnas/create?category=광고%20및%20입점%20문의" v-if="!$auth.user">
-                    <i class="xi-help-o"></i>
+                    <img src="/images/ad.png" alt="">
 
                     <span class="text">광고문의</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
                 <a href="/notices" v-if="!$auth.user">
-                    <i class="xi-info-o"></i>
+                    <img src="/images/comment.png" alt="">
 
                     <span class="text">공지사항</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
 
                 <a href="/mypage" v-if="$auth.user">
-                    <i class="xi-user-o"></i>
+                    <img src="/images/user.png" alt="">
 
                     <span class="text">내 정보</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
