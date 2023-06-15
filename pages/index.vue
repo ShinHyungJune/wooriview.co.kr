@@ -18,19 +18,68 @@
             <div class="container">
                 <div class="campaign-item-wrap">
                     <div class="h2-wrap">
-                        <h2>실시간 <span>인기폭발 캠페인</span></h2>
+                        <h2><span>인기폭발 캠페인</span></h2>
                         <p class="see-more">캠페인 <nuxt-link to="/campaigns?order_by=applications_count&type_campaign=REALTIME&showMap=1&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
 
                     <empty v-if="favorCampaigns.data.length === 0" />
-                    <ul class="campaign-item-list">
-
-                        <campaign :campaign="favorCampaign" v-for="favorCampaign in favorCampaigns.data" :key="favorCampaign.id" />
-                    </ul>
+                    <div class="swiper1-1 swiper">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper campaign-item-list">
+                                <campaign add-class="swiper-slide"
+                                          v-if="index < 8"
+                                          :campaign="campaign" v-for="(campaign, index) in favorCampaigns.data" :key="campaign.id"
+                                />
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="swiper1-2 swiper" v-if="favorCampaigns.data.length > 8">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper campaign-item-list">
+                                <campaign add-class="swiper-slide"
+                                          v-if="index >= 8"
+                                          :campaign="campaign" v-for="(campaign, index) in favorCampaigns.data" :key="campaign.id"
+                                />
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         <section class="section3">
+            <div class="container">
+                <div class="campaign-item-wrap">
+                    <div class="h2-wrap">
+                        <h2>선정확률 <span>높은 캠페인</span></h2>
+                        <p class="see-more">캠페인 <nuxt-link to="/campaigns?order_by=applications_count&align=asc&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
+                    </div>
+
+                    <empty v-if="recommendCampaigns.data.length === 0" />
+
+                    <div class="swiper2-1 swiper">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper campaign-item-list">
+                                <campaign add-class="swiper-slide"
+                                          v-if="index < 8"
+                                          :campaign="campaign" v-for="(campaign, index) in recommendCampaigns.data" :key="campaign.id"
+                                />
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="swiper2-2 swiper" v-if="recommendCampaigns.data.length > 8">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper campaign-item-list">
+                                <campaign add-class="swiper-slide"
+                                          v-if="index >= 8"
+                                          :campaign="campaign" v-for="(campaign, index) in recommendCampaigns.data" :key="campaign.id"
+                                />
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section4">
             <div class="container">
                 <div class="campaign-item-wrap">
                     <div class="h2-wrap">
@@ -40,28 +89,64 @@
 
                     <empty v-if="lastCampaigns.data.length === 0" />
 
-                    <ul class="campaign-item-list">
-                        <campaign :campaign="lastCampaign" v-for="lastCampaign in lastCampaigns.data" :key="lastCampaign.id" />
-                    </ul>
+                    <div class="swiper3-1 swiper">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper campaign-item-list">
+                                <campaign add-class="swiper-slide"
+                                          v-if="index < 8"
+                                          :campaign="campaign" v-for="(campaign, index) in lastCampaigns.data" :key="campaign.id"
+                                />
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="swiper3-2 swiper" v-if="lastCampaigns.data.length > 8">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper campaign-item-list">
+                                <campaign add-class="swiper-slide"
+                                          v-if="index >= 8"
+                                          :campaign="campaign" v-for="(campaign, index) in lastCampaigns.data" :key="campaign.id"
+                                />
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
         <section class="section4">
             <div class="container">
                 <div class="campaign-item-wrap">
                     <div class="h2-wrap">
-                        <h2>MD <span> 추천 캠페인</span></h2>
-                        <p class="see-more">캠페인 <nuxt-link to="/campaigns?order_by=applications_count&align=asc&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
+                        <h2>실시간 <span>방문 캠페인</span></h2>
+                        <p class="see-more">캠페인 <nuxt-link to="/campaigns?type_campaign=REALTIME&align=asc&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
 
-                    <empty v-if="recommendCampaigns.data.length === 0" />
+                    <empty v-if="realtimeCampaigns.data.length === 0" />
 
-                    <ul class="campaign-item-list">
-                        <campaign :campaign="recommendCampaign.campaign" v-for="recommendCampaign in recommendCampaigns.data" :key="recommendCampaign.id" />
-                    </ul>
+                    <div class="swiper4-1 swiper">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper campaign-item-list">
+                                <campaign add-class="swiper-slide"
+                                          v-if="index < 8"
+                                          :campaign="campaign" v-for="(campaign, index) in realtimeCampaigns.data" :key="campaign.id"
+                                />
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="swiper4-2 swiper" v-if="realtimeCampaigns.data.length > 8">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper campaign-item-list">
+                                <campaign add-class="swiper-slide"
+                                          v-if="index >= 8"
+                                          :campaign="campaign" v-for="(campaign, index) in realtimeCampaigns.data" :key="campaign.id"
+                                />
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
         <section class="section5">
             <div class="container">
                 <img src="/images/campaign-banner2.png" alt="" class="pc">
@@ -137,6 +222,11 @@ export default {
                 links: {},
                 meta: {}
             },
+            realtimeCampaigns: {
+                data: [],
+                links: {},
+                meta: {}
+            },
             applications: {
                 data: [],
                 links: {},
@@ -172,36 +262,94 @@ export default {
             });
         },
 
+        initCampaignSwiper(className){
+            new Swiper(className + " .swiper-container", {
+                slidesPerView: 6.5,
+                loop: true,
+                spaceBetween: 10,
+                autoplay: {
+                    delay: 3000,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2.5,
+                    }
+                }
+            });
+        },
+
         getFavorCampaigns(){
+            let self = this;
+
             this.$axios.get("/api/campaigns", {
                 params: {
                     ongoingHire: 1,
                     order_by: "applications_count",
-                    take:6,
+                    take:16,
                 }
             }).then(response => {
                 this.favorCampaigns = response.data;
+
+                setTimeout(function(){
+                    self.initCampaignSwiper(".swiper1-1")
+                    self.initCampaignSwiper(".swiper1-2")
+                }, 100);
             });
         },
         getLastCampaigns(){
+            let self = this;
+
             this.$axios.get("/api/campaigns", {
                 params: {
                     ongoingHire: 1,
                     order_by: "hire_finished_at",
-                    take:6,
+                    align: "asc",
+                    take:16,
                 }
             }).then(response => {
                 this.lastCampaigns = response.data;
+
+                setTimeout(function(){
+                    self.initCampaignSwiper(".swiper3-1")
+                    self.initCampaignSwiper(".swiper3-2")
+                }, 100);
             });
         },
         getRecommendCampaigns(){
-            this.$axios.get("/api/recommendCampaigns", {
+            let self = this;
+
+            this.$axios.get("/api/campaigns", {
                 params: {
                     ongoingHire: 1,
-                    take:6,
+                    order_by: "applications_count",
+                    align: "asc",
+                    take:16,
                 }
             }).then(response => {
                 this.recommendCampaigns = response.data;
+
+                setTimeout(function(){
+                    self.initCampaignSwiper(".swiper2-1")
+                    self.initCampaignSwiper(".swiper2-2")
+                }, 100);
+            });
+        },
+        getRealtimeCampaigns(){
+            let self = this;
+
+            this.$axios.get("/api/campaigns", {
+                params: {
+                    ongoingHire: 1,
+                    type_campaigns: ["REALTIME"],
+                    take:16,
+                }
+            }).then(response => {
+                this.realtimeCampaigns = response.data;
+
+                setTimeout(function(){
+                    self.initCampaignSwiper(".swiper4-1")
+                    self.initCampaignSwiper(".swiper4-2")
+                }, 100);
             });
         },
         getApplications(){
@@ -236,6 +384,7 @@ export default {
         this.getFavorCampaigns();
         this.getLastCampaigns();
         this.getRecommendCampaigns();
+        this.getRealtimeCampaigns();
         this.getApplications();
 
 

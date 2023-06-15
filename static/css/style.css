@@ -1,3 +1,4 @@
+html, body {overflow-x:hidden;}
 /* 공통====================================================================== */
 /* input-디자인 */
 .input-wrap { position: relative; width: 100%; }
@@ -35,8 +36,40 @@
 }
 
 /* 캠페인 상품 */
+.main .swiper {
+    margin-right:calc(0px - ((100vw - 1600px) / 2));
+}
+.main .swiper + .swiper {
+    margin-top:40px;
+}
+@media screen and (max-width:1800px) {
+    .main .swiper {
+        margin-right:calc(0px - ((100vw - 1200px) / 2));
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .main .swiper {
+        margin-right:calc(0px - ((100vw - 600px) / 2));
+    }
+}
+
+@media screen and (max-width:768px){
+    .main .swiper {
+        margin-right:-20px;
+    }
+}
+
 .campaign-item-list { display: flex; padding: 0 24px; gap: 48px; flex-wrap: wrap; }
+
+.campaign-item-list.swiper-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    padding:0; gap:0; flex-wrap:nowrap;
+}
 .campaign-item-list .campaign-item { width: calc((100% - (48px * 5)) / 6); }
+.campaign-item-list .campaign-item.swiper-slide {width:auto;}
 .campaign-item { position: relative;  }
 .campaign-item .img-wrap { display: block; width: 100%; position: relative; border-radius: 16px; background-color: #f5f5f5; border-radius: 16px; overflow: hidden; margin-bottom: 8px; }
 .campaign-item .img-wrap::before { content: ''; display: block; padding-top: 100%; }
@@ -54,6 +87,13 @@
     background-color:#ffc800; color:#000;
     border-radius:8px;
 }
+
+@media screen and (max-width:768px) {
+    .campaign-item .price {
+        left:0; top:0;
+        border-radius:0 0 8px 0;
+    }
+}
 /* 0510추가 */
 .campaign-item .campaign-type-wrap {width: 100%; padding: 5px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; align-items: center; gap: 5px; background-color: #33333338; }
 .campaign-item .campaign-type-wrap .campaign-type-title { font-size: 14px; color: #fff;}
@@ -66,7 +106,14 @@
 .campaign-item .Period-wrap .sns-wrap > li img { width: auto; height: 100%; border-radius: 8px; }
 .campaign-item .Period-wrap .Period { font-size: 14px; font-weight: 300; color: #707070; }
 .campaign-item .campaign-Title { display: block; font-size: 18px; font-weight: 500; line-height: 1.44; color: #313131; margin-bottom: 6px; }
-.campaign-item .product { font-size: 14px; font-weight: 200; color: #888; margin-bottom: 24px; }
+.campaign-item .product {
+    display: -webkit-box; height:28px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px; font-weight: 200; color: #888; margin-bottom: 24px;
+}
 .campaign-item .State-wrap { display: flex; gap: 8px; }
 .campaign-item .State-wrap > p { font-size: 14px; }
 .campaign-item .State-wrap > p.Application { font-weight: 500; color: #313131; }
@@ -78,21 +125,35 @@
 @media screen and (max-width: 1440px) {
     .campaign-item-list { padding: unset; gap: 24px; }
     .campaign-item-list .campaign-item { width: calc((100% - (24px * 5)) / 6); }
+    .campaign-item-list .campaign-item.swiper-slide {width:auto;}
 }
 @media screen and (max-width: 1200px) {
     .campaign-item-list .campaign-item { width: calc((100% - (24px * 2)) / 3); }
+    .campaign-item-list .campaign-item.swiper-slide {width:auto;}
 }
 
 @media screen and (max-width: 720px) {
     .campaign-item-list { flex-direction: column; gap: 15px; }
+    .campaign-item-list.swiper-wrapper { flex-direction: unset; gap: 0px; }
     .campaign-item-list .campaign-item { width: 100%; display: flex; }
+    .campaign-item-list .campaign-item.swiper-slide {width:auto; display: block;}
     .campaign-item { width: 100%; display: flex; }
     .campaign-item .img-wrap { width: 120px; margin: unset; border-radius: 8px; }
+    .campaign-item.swiper-slide .img-wrap { width: 100%; margin: unset; border-radius: 8px; }
     .campaign-item .like-wrap { top: 0; right: 5px; }
     .campaign-item .like-wrap label i { color: #f5f5f5; }
     .campaign-item .Information-wrap { width: calc(100% - 120px); padding-left: 15px; padding-top: 5px; }
+    .campaign-item.swiper-slide .Information-wrap { width: 100%; padding-left: 0; padding-top: 5px; }
     .campaign-item .campaign-Title { font-size: 14px; margin-bottom: 4px; }
-    .campaign-item .product { font-size: 12px }
+    .campaign-item .product {
+        display: -webkit-box; height:28px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+
+    }
     .campaign-item .State-wrap > p { font-size: 12px; }
     .campaign-item .Period-wrap .sns-wrap > li { height: 24px;}
     /* 0510추가 */
@@ -326,7 +387,9 @@
     .main .section3 { background-color: unset; }
 }
 @media screen and (max-width: 720px) {
-    .main .section4 { margin-bottom: 70px; }
+    .main section {
+        margin-bottom:60px;
+    }
 }
 
 .main .section5 { padding-bottom: 80px; }
@@ -1425,7 +1488,7 @@
 .inquiry-detail .section1 { margin-bottom: 159px; }
 .inquiry-detail .section1 .container { max-width: 1200px; }
 .inquiry-detail .section1 .container .contents .title { font-size: 16px; font-weight: bold; color: #303030; margin-bottom: 16px;}
-.inquiry-detail .section1 .grey-box { width: 100%;  display: flex; border-radius: 16px;  background-color: #f5f5f5;  position: relative; overflow: hidden; justify-content: space-between; align-items: center; padding: 24px;  margin-bottom: 16px; }
+.inquiry-detail .section1 .grey-box { width: 100%;  display: flex; border-radius: 16px;  position: relative; overflow: hidden; justify-content: space-between; align-items: center; padding: 24px;  margin-bottom: 16px; }
 .inquiry-detail .section1 .title-wrap .content-title { display: block; padding-right: 10px; }
 .inquiry-detail .section1 .title-wrap .date { font-size: 14px; font-weight: 200; color: #888; }
 .inquiry-detail .section1 .grey-box.content-wrap { height: unset; align-items: flex-start; padding: 20px 24px;}

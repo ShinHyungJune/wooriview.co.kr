@@ -1,5 +1,5 @@
 <template>
-    <li class="campaign-item">
+    <li :class="`campaign-item ${addClass}`">
         <nuxt-link class="img-wrap" :to="`/campaigns/${campaign.id}?type_campaign=${campaign.type_campaign}`">
             <img :src="campaign.img.url" alt="" v-if="campaign.img">
             <div class="campaign-type-wrap">
@@ -39,7 +39,8 @@
                 [{{ campaign.title_company }}]
                 {{ campaign.title_product }}
             </nuxt-link>
-            <p class="product" v-if="campaign.type_campaign !== 'REPORTER'">{{ campaign.description_provide }}</p>
+            <p class="product" v-if="campaign.type_campaign === 'REPORTER'">원고료 제공</p>
+            <p class="product" v-else>{{ campaign.description_provide }}</p>
             <div class="State-wrap">
                 <p class="Application">신청
                     <span>{{ campaign.applications_count }}</span>
@@ -60,6 +61,9 @@ export default {
             required: true
         },
         "onlyShow": {
+            required: false,
+        },
+        addClass: {
             required: false,
         }
     },
