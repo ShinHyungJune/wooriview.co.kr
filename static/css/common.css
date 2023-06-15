@@ -162,6 +162,9 @@ body{ -ms-overflow-style: none; }
 .header .header-center {
     display: none;
 }
+.Mobile_Menu_open_btn {
+    display: none;
+}
 /* 뒤로가기 버튼 */
 .header .back-btn { display: none; }
 
@@ -193,6 +196,22 @@ body{ -ms-overflow-style: none; }
 
 @media screen and (max-width: 768px) {
     .header { border-top: none; height: 90px; padding-bottom: 40px; }
+    ·.Mobile_Menu_open_btn {
+        display: block;
+    }
+    .Mobile_Menu_open_btn .inactive {
+        display: block !important;
+    }
+    .Mobile_Menu_open_btn .active {
+        display: none !important;
+    }
+
+    .Mobile_Menu_open_btn.open .inacive {
+        display: none !important;
+    }
+    .Mobile_Menu_open_btn.open .active {
+        display: block !important;
+    }
     .header .back-btn { display: inline-block; }
     .header .back-btn i { font-size: 22px; color: #000; }
     .header .header-center {
