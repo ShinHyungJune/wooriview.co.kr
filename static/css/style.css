@@ -384,7 +384,7 @@ html, body {overflow-x:hidden;}
         margin-right:0 !important;
     }
     .main .section1 .mySwiper1 .swiper-slide { width: 100%; }
-    .main .section1 .mySwiper1 .swiper-slide::before { padding-top: 41%; }
+    .main .section1 .mySwiper1 .swiper-slide::before { padding-top: 36%; }
     .main .section1 .mySwiper1 .swiper-slide img { width: 100%; }
     .main .section1 .mySwiper1 .swiper-slide img.pc { display: none; }
     .main .section1 .mySwiper1 .swiper-slide img.mb { display: unset; }
