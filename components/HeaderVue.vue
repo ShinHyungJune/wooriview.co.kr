@@ -56,10 +56,7 @@
                     </ul>
                 </div>
                 <div class="header-ri">
-                    <button class="Mobile_Menu_open_btn">
-                        <img src="/images/Menu.svg" alt="" class="inactive">
-                        <i class="xi-close active"></i>
-                    </button>
+
                     <div class="Mobile_Menu_wrap">
                         <div class="Mobile_Menu_top">
                             <div class="Mobile_Menu_top_bg">
@@ -101,27 +98,12 @@
                             </li>
                         </ul>
                     </div>
-                    <!--
                     <ul>
                         <li>
-                            <button class="Search-Open-btn" @click.prevent="active = true">
-                                <img src="/images/Search.svg" alt="">
-                                <i class="xi-search"></i>
+                            <button class="Mobile_Menu_open_btn">
+                                <img src="/images/Menu.svg" alt="" class="inactive">
+                                <i class="xi-close active"></i>
                             </button>
-                            <div :class="`Search-box ${active ? 'Active' : ''}`">
-                                <form action="" @submit.prevent="search">
-                                    <div class="Search-wrap">
-                                        <p>찾으시는 캠페인이 있나요?</p>
-                                        <div class="Search-input-wrap">
-                                            <input type="text" v-model="word">
-                                            <button class="Search-btn"><i class="xi-search"></i></button>
-                                        </div>
-                                        <a href="#" class="map-Search" @click="() => {this.$router.push('/campaigns?type_campaign=REALTIME&showMap=1'); this.active = false;}"><img src="/images/Map_Search.png" alt=""></a>
-                                    </div>
-                                </form>
-
-                            </div>
-                            <div :class="`Search-close ${active ? 'Active' : ''}`" @click="active = false"></div>
                         </li>
                         <li v-if="$auth.user">
                             <button class="Notification-Open-btn" @click="toggleAlarm">
@@ -165,13 +147,60 @@
                             </nuxt-link>
                         </li>
                     </ul>
-                    -->
+
                 </div>
             </div>
             <a class="follow-chat">
                 <i></i>
             </a>
             <div class="mb-bottom-Bar">
+                <!--
+<button class="Mobile_Menu_open_btn">
+    <img src="/images/Menu.svg" alt="" class="inactive">
+    <i class="xi-close active"></i>
+</button>
+<div class="Mobile_Menu_wrap">
+    <div class="Mobile_Menu_top">
+        <div class="Mobile_Menu_top_bg">
+            <img src="/images/w.png" alt="">
+        </div>
+
+        <div class="login_State_wrap" v-if="$auth.user">
+            <div class="img_wrap">
+                <img :src="$auth.user.data.img.url" alt="" v-if="$auth.user.data.img">
+            </div>
+            <div class="user_name_wrap">
+                <p class="user_name">우리뷰</p>
+                <p class="email">{{ $auth.user.data.email }}</p>
+            </div>
+        </div>
+
+        <div class="No_login_State_wrap" v-else>
+            <nuxt-link to="/login">로그인 <i class="xi-angle-right"></i></nuxt-link>
+            <p>다양한 서비스를 이용하시려면 로그인해주세요.</p>
+        </div>
+
+    </div>
+
+    <ul class="Mobile_Menu_Nav">
+        <li>
+            <a href="/campaigns?type_campaign=REALTIME&showMap=1">실시간 방문형 캠페인 <i class="xi-angle-right-min"></i></a>
+        </li>
+        <li>
+            <a href="/campaigns?type_campaign=DELIVERY&showMap=1">배송형 캠페인 <i class="xi-angle-right-min"></i></a>
+        </li>
+        <li>
+            <a href="/campaigns?type_campaign=VISIT">방문형 캠페인 <i class="xi-angle-right-min"></i></a>
+        </li>
+        <li>
+            <a href="/campaigns?type_campaign=REPORTER">기자단 캠페인 <i class="xi-angle-right-min"></i></a>
+        </li>
+        <li>
+            <a href="/qnas">고객센터 <i class="xi-angle-right-min"></i></a>
+        </li>
+    </ul>
+</div>
+-->
                 <a href="/">
                     <img src="/images/home.png" alt="">
 
