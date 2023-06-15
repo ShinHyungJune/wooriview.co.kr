@@ -6,7 +6,7 @@
                     <button class="back-btn" onclick="history.back()"><i class="xi-arrow-left"></i></button>
 
                     <nuxt-link to="/" class="logo-m">
-                        <img src="/images/hd_logo.svg" alt="">
+                        <img src="/images/logo-black.png" alt="" style="width:30px;">
                     </nuxt-link>
                 </div>
                 <form class="header-center" action="" @submit.prevent="search">
@@ -221,6 +221,12 @@
                     <span class="text">찜</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
+                <a href="/notices" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
+                    <img src="/images/comment.png" alt="">
+
+                    <span class="text">공지사항</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
 
                 <!-- 광고주용 -->
                 <a href="/campaigns/create" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
@@ -233,6 +239,12 @@
                     <img src="/images/ad.png" alt="">
 
                     <span class="text">광고문의</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+                <a href="/notices" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
+                    <img src="/images/comment.png" alt="">
+
+                    <span class="text">공지사항</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
 
@@ -249,10 +261,10 @@
                     <span class="text">광고문의</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
-                <a href="/notices" v-if="!$auth.user">
+                <a href="/qnas/create" v-if="!$auth.user">
                     <img src="/images/comment.png" alt="">
 
-                    <span class="text">공지사항</span>
+                    <span class="text">1대1 문의</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
 
