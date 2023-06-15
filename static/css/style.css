@@ -1510,6 +1510,12 @@ html, body {overflow-x:hidden;}
 .inquiry-detail .section1  .btn-wrap  a {display: flex; justify-content: center; align-items: center; font-size: 18px; font-weight: 500; width: 160px; height: 48px; border-radius: 24px;  border: solid 2px #e4e4e4;  background-color: #fff; color: #8f8f8f;}
 
 @media screen and (max-width: 768px) {
+    .inquiry-detail .section1 .grey-box.content-wrap {
+        padding-left:0; padding-right:0;
+    }
+    .ql-editor {
+        padding-left:0 !important; padding-right:0 !important;
+    }
     .inquiry-detail .section1 { padding-top: 14px; margin-bottom: 40px;}
     .inquiry-detail .section1 .container .contents .title { margin-bottom: 12px;}
     .inquiry-detail .section1 .title-wrap .content-title { padding-right: unset; }

@@ -140,6 +140,7 @@ body{ -ms-overflow-style: none; }
 .header .container { display: flex; height: 100%; align-items: center; justify-content: space-between; }
 .header .header-le { display: flex; gap: 88px; }
 .header .logo { max-width: 205px; display: block; }
+.header .header-left { display:none; }
 .header .header-nav { display: flex; align-items: center; gap: 48px; }
 .header .header-nav li.active a {
     color:#ffc800;
@@ -158,7 +159,9 @@ body{ -ms-overflow-style: none; }
 .header .header-ri > ul li { display: flex; }
 .header .header-ri > ul li > button { width: 48px; height: 48px; }
 .header .header-ri > ul li > button i { display: none; }
-
+.header .header-center {
+    display: none;
+}
 /* 뒤로가기 버튼 */
 .header .back-btn { display: none; }
 
@@ -192,6 +195,34 @@ body{ -ms-overflow-style: none; }
     .header { border-top: none; height: 90px; padding-bottom: 40px; }
     .header .back-btn { display: inline-block; }
     .header .back-btn i { font-size: 22px; color: #000; }
+    .header .header-center {
+        display: block; margin:0 16px;
+        flex:auto;
+    }
+    .header .header-center input {
+        width:100%;
+        padding:8px 10px;
+        font-size:14px;
+        border:none; border-radius:15px;
+        background-color:#f5f5f5
+    }
+    .header .header-center .Search-input-wrap {
+        position:relative;
+    }
+    .header .header-center .Search-input-wrap .Search-btn {
+        position:absolute; right:12px; top:50%; transform:translateY(-50%);
+    }
+    .header .header-left {
+        display: flex; align-items: center;
+    }
+    .header .header-left a {
+        display: flex; align-items: center;
+        margin-left:12px;
+    }
+    .header .header-left .logo img {
+        display: block;
+    }
+    .header .logo {display: none;}
     .header .logo { max-width: 91px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
     .header .header-nav {width:100%; height: 40px; position: absolute; top: 100%; left: 0; width: 100%; justify-content: center; overflow-x:auto;}
     .header .header-nav li {  height: 100%; flex:0 0 auto; }
