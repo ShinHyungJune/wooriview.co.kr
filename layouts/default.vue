@@ -68,6 +68,18 @@ export default {
     },
 
     mounted() {
+        // 사이트 들어오자마자 허용여부 물어보기
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+
+                },
+                (error) => {
+
+                }
+            );
+        }
+
         // this.$store.commit("init");
         window.receiveFcmToken = (token) => {
             // console.log('Received FCM token:', token);
