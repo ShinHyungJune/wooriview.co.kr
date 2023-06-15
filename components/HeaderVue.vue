@@ -211,7 +211,7 @@
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
 
-                <a href="/mypage">
+                <a href="/mypage" v-if="$auth.user">
                     <i class="xi-user-o"></i>
 
                     <span class="text">내 정보</span>
