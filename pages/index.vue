@@ -19,7 +19,7 @@
                 <div class="campaign-item-wrap">
                     <div class="h2-wrap">
                         <h2><span>인기폭발 캠페인</span></h2>
-                        <p class="see-more">캠페인 <nuxt-link to="/campaigns?order_by=applications_count&type_campaign=REALTIME&showMap=1&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
+                        <p class="see-more"><nuxt-link to="/campaigns?order_by=applications_count&type_campaign=REALTIME&showMap=1&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
 
                     <empty v-if="favorCampaigns.data.length === 0" />
@@ -51,7 +51,7 @@
                 <div class="campaign-item-wrap">
                     <div class="h2-wrap">
                         <h2>선정확률 <span>높은 캠페인</span></h2>
-                        <p class="see-more">캠페인 <nuxt-link to="/campaigns?order_by=applications_count&align=asc&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
+                        <p class="see-more"><nuxt-link to="/campaigns?order_by=applications_count&align=asc&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
 
                     <empty v-if="recommendCampaigns.data.length === 0" />
@@ -84,7 +84,7 @@
                 <div class="campaign-item-wrap">
                     <div class="h2-wrap">
                         <h2>마감 <span>임박 캠페인</span></h2>
-                        <p class="see-more">캠페인 <nuxt-link to="/campaigns?order_by=hire_finished_at&align=asc&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
+                        <p class="see-more"><nuxt-link to="/campaigns?order_by=hire_finished_at&align=asc&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
 
                     <empty v-if="lastCampaigns.data.length === 0" />
@@ -118,7 +118,7 @@
                 <div class="campaign-item-wrap">
                     <div class="h2-wrap">
                         <h2>실시간 <span>방문 캠페인</span></h2>
-                        <p class="see-more">캠페인 <nuxt-link to="/campaigns?type_campaign=REALTIME&align=asc&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
+                        <p class="see-more"><nuxt-link to="/campaigns?type_campaign=REALTIME&align=asc&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
 
                     <empty v-if="realtimeCampaigns.data.length === 0" />
