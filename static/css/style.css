@@ -346,7 +346,10 @@ html, body {overflow-x:hidden;}
 .main .h2-wrap h2 span { font-weight: bold; color: #ffc800; }
 .main .see-more { display: flex; gap:5px; align-items: center; font-size: 20px; font-weight: 300; }
 .main .see-more a { color: #ffc800; display: flex; align-items: center; }
-.main .see-more a i { color: #ffc800; font-size: 24px; }
+.main .see-more a i {
+    display: none;
+    color: #ffc800; font-size: 24px;
+}
 @media screen and (max-width: 1728px) {
     .main .h2-wrap { padding: unset; }
 }
@@ -373,9 +376,15 @@ html, body {overflow-x:hidden;}
 .main .section1 .swiper-pagination .swiper-pagination-bullet { margin: unset; width: 10px; height: 10px; background-color: #f5f5f5; opacity: 1; }
 .main .section1 .swiper-pagination .swiper-pagination-bullet-active { background-color: #f2951c; }
 @media screen and (max-width: 730px) {
-    .main .section1 { padding: unset; }
+    .main .section1 {
+        padding: unset;
+        margin-bottom:0;
+    }
+    .main .section1 .mySwiper1 {
+        margin-right:0 !important;
+    }
     .main .section1 .mySwiper1 .swiper-slide { width: 100%; }
-    .main .section1 .mySwiper1 .swiper-slide::before { padding-top: 65%; }
+    .main .section1 .mySwiper1 .swiper-slide::before { padding-top: 41%; }
     .main .section1 .mySwiper1 .swiper-slide img { width: 100%; }
     .main .section1 .mySwiper1 .swiper-slide img.pc { display: none; }
     .main .section1 .mySwiper1 .swiper-slide img.mb { display: unset; }
