@@ -408,6 +408,7 @@ export default {
                     this.activeMyPosition = true;
                 },
                 (error) => {
+                    alert(error.message);
                     console.error(error.message);
                 }
             );
