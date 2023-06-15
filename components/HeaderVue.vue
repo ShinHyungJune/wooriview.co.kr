@@ -110,57 +110,121 @@
                 <i></i>
             </a>
             <div class="mb-bottom-Bar">
-                <button class="Mobile_Menu_open_btn">
-                    <img src="/images/Menu.svg" alt="" class="inactive">
-                    <i class="xi-close active"></i>
-                </button>
-                <div class="Mobile_Menu_wrap">
-                    <div class="Mobile_Menu_top">
-                        <div class="Mobile_Menu_top_bg">
-                            <img src="/images/w.png" alt="">
-                        </div>
+                <!--
+<button class="Mobile_Menu_open_btn">
+    <img src="/images/Menu.svg" alt="" class="inactive">
+    <i class="xi-close active"></i>
+</button>
+<div class="Mobile_Menu_wrap">
+    <div class="Mobile_Menu_top">
+        <div class="Mobile_Menu_top_bg">
+            <img src="/images/w.png" alt="">
+        </div>
 
-                        <!-- 로그인 했을때 -->
-                        <div class="login_State_wrap" v-if="$auth.user">
-                            <div class="img_wrap">
-                                <img :src="$auth.user.data.img.url" alt="" v-if="$auth.user.data.img">
-                            </div>
-                            <div class="user_name_wrap">
-                                <p class="user_name">우리뷰</p>
-                                <p class="email">{{ $auth.user.data.email }}</p>
-                            </div>
-                        </div>
+        <div class="login_State_wrap" v-if="$auth.user">
+            <div class="img_wrap">
+                <img :src="$auth.user.data.img.url" alt="" v-if="$auth.user.data.img">
+            </div>
+            <div class="user_name_wrap">
+                <p class="user_name">우리뷰</p>
+                <p class="email">{{ $auth.user.data.email }}</p>
+            </div>
+        </div>
 
-                        <!-- 비로그인 일때 -->
-                        <div class="No_login_State_wrap" v-else>
-                            <nuxt-link to="/login">로그인 <i class="xi-angle-right"></i></nuxt-link>
-                            <p>다양한 서비스를 이용하시려면 로그인해주세요.</p>
-                        </div>
+        <div class="No_login_State_wrap" v-else>
+            <nuxt-link to="/login">로그인 <i class="xi-angle-right"></i></nuxt-link>
+            <p>다양한 서비스를 이용하시려면 로그인해주세요.</p>
+        </div>
 
-                    </div>
+    </div>
 
-                    <ul class="Mobile_Menu_Nav">
-                        <li>
-                            <a href="/campaigns?type_campaign=REALTIME&showMap=1">실시간 방문형 캠페인 <i class="xi-angle-right-min"></i></a>
-                        </li>
-                        <li>
-                            <a href="/campaigns?type_campaign=DELIVERY&showMap=1">배송형 캠페인 <i class="xi-angle-right-min"></i></a>
-                        </li>
-                        <li>
-                            <a href="/campaigns?type_campaign=VISIT">방문형 캠페인 <i class="xi-angle-right-min"></i></a>
-                        </li>
-                        <li>
-                            <a href="/campaigns?type_campaign=REPORTER">기자단 캠페인 <i class="xi-angle-right-min"></i></a>
-                        </li>
-                        <li>
-                            <a href="/qnas">고객센터 <i class="xi-angle-right-min"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <a href="/mypage"><img src="/images/book.svg" alt=""></a>
-                <nuxt-link to="/"><img src="/images/hd_logo.svg" alt=""></nuxt-link>
-                <nuxt-link to="/mypage/customer/campaigns?state=like" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'"><img src="/images/heart.svg" alt=""></nuxt-link>
-                <nuxt-link to="/mypage"><img src="/images/my2.svg" alt=""></nuxt-link>
+    <ul class="Mobile_Menu_Nav">
+        <li>
+            <a href="/campaigns?type_campaign=REALTIME&showMap=1">실시간 방문형 캠페인 <i class="xi-angle-right-min"></i></a>
+        </li>
+        <li>
+            <a href="/campaigns?type_campaign=DELIVERY&showMap=1">배송형 캠페인 <i class="xi-angle-right-min"></i></a>
+        </li>
+        <li>
+            <a href="/campaigns?type_campaign=VISIT">방문형 캠페인 <i class="xi-angle-right-min"></i></a>
+        </li>
+        <li>
+            <a href="/campaigns?type_campaign=REPORTER">기자단 캠페인 <i class="xi-angle-right-min"></i></a>
+        </li>
+        <li>
+            <a href="/qnas">고객센터 <i class="xi-angle-right-min"></i></a>
+        </li>
+    </ul>
+</div>
+-->
+                <a href="/">
+                    <i class="xi-home-o"></i>
+                    <!-- <img src="/images/book.svg" alt=""> -->
+                    <span class="text">홈</span>
+                </a>
+
+                <!-- 인플루언서용 -->
+                <a href="/campaigns?type_campaign=VISIT?showMap=1" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
+                    <i class="xi-maker"></i>
+
+                    <span class="text">내 주변</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+                <a href="/mypage/customer/campaigns" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
+                    <i class="xi-heart-o"></i>
+
+                    <span class="text">찜</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+
+                <!-- 광고주용 -->
+                <a href="/campaigns/create" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
+                    <i class="xi-plus-square-o"></i>
+
+                    <span class="text">캠페인 등록</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+                <a href="/qnas/create?category=광고%20및%20입점%20문의" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
+                    <i class="xi-help-o"></i>
+
+                    <span class="text">광고문의</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+
+                <!-- 비로그인 -->
+                <a href="/login" v-if="!$auth.user">
+                    <i class="xi-log-in"></i>
+
+                    <span class="text">로그인</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+                <a href="/qnas/create?category=광고%20및%20입점%20문의" v-if="!$auth.user">
+                    <i class="xi-help-o"></i>
+
+                    <span class="text">광고문의</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+                <a href="/notices" v-if="!$auth.user">
+                    <i class="xi-info-o"></i>
+
+                    <span class="text">공지사항</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+
+                <a href="/mypage">
+                    <i class="xi-user-o"></i>
+
+                    <span class="text">내 정보</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+                <!--
+                <nuxt-link to="/mypage/customer/campaigns?state=like" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
+                    <img src="/images/heart.svg" alt="">
+                </nuxt-link>
+                <nuxt-link to="/mypage">
+                    <img src="/images/my2.svg" alt="">
+                </nuxt-link>
+                -->
             </div>
         </div>
     </header>
