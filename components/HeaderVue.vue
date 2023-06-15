@@ -164,7 +164,7 @@
                 </a>
 
                 <!-- 인플루언서용 -->
-                <a href="/campaigns?type_campaign=VISIT?showMap=1" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
+                <a href="/campaigns?type_campaign=VISIT&showMap=1" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
                     <i class="xi-maker"></i>
 
                     <span class="text">내 주변</span>
