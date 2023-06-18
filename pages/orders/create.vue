@@ -33,7 +33,9 @@
                     <div class="payment-agree-box">
                         <div class="payment-agree-top">
                             <p class="payment-agree_title">우리뷰 결제 동의</p>
+                            <!--
                             <button id="pdf-btn" @click="createPdf">PDF <i class="xi-download"></i></button>
+                            -->
                         </div>
 
 

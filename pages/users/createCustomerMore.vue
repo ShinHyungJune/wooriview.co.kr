@@ -299,6 +299,7 @@ export default {
                 marriage: "",
                 child: "",
                 animal: "",
+                more: 1,
             }),
         }
     },

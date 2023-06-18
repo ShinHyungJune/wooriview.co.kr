@@ -96,11 +96,7 @@
                                 <i class="xi-help-o" @click="openPop('beforeAccept')"></i>
                                 <span>{{ counts.unaccept }}</span>
                             </li>
-                            <li :class="`tab-link ${state === 'afterAccept' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('afterAccept')">
-                                심사통과 캠페인
-                                <i class="xi-help-o" @click="openPop('afterAccept')"></i>
-                                <span>{{ counts.accept }}</span>
-                            </li>
+
                             <li :class="`tab-link ${state === 'ongoingHire' ? 'Active' : ''}`" data-tab="tab-2" @click="changeState('ongoingHire')">
                                 모집중인 캠페인
                                 <i class="xi-help-o" @click="openPop('ongoingHire')"></i>
@@ -123,6 +119,11 @@
                                 마감 및 보고서 확인
                                 <i class="xi-help-o" @click="openPop('finishReview')"></i>
                                 <span>{{ counts.finishReview }}</span>
+                            </li>
+                            <li :class="`tab-link ${state === 'afterAccept' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('afterAccept')">
+                                모든 캠페인
+                                <i class="xi-help-o" @click="openPop('afterAccept')"></i>
+                                <span>{{ counts.accept }}</span>
                             </li>
                         </ul>
                     </div>
@@ -547,8 +548,8 @@ export default {
 
             if(type === 'afterAccept')
                 pop = {
-                    title: '심사통과 캠페인',
-                    description: '심사에 통과된 캠페인을 확인하는 단계에요!'
+                    title: '모든 캠페인',
+                    description: '심사에 통과된 캠페인이에요!'
                 }
 
             if(type === 'ongoingHire')

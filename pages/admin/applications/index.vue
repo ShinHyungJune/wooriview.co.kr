@@ -25,6 +25,7 @@
                 </div>
                 <div class="btn-wrap col-group">
                     <a href="#" type="button" class="add-btn" @click.prevent="penalty" style="background-color:red; color:#fff;">패널티 부여</a>
+                    <a href="#" class="del-btn" @click.prevent="remove">선택 삭제</a>
                 </div>
             </div>
             <div class="table-wrap">

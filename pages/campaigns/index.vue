@@ -150,6 +150,28 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="bar"></div>
+                        <div class="filter-li">
+                            <p class="filter-title">정렬</p>
+                            <ul class="filter-ck-wrap">
+                                <li class="filter-ck">
+                                    <input type="radio" name="" id="created_at" value="created_at" v-model="form.order_by" @change="() => getCampaigns()">
+                                    <label for="created_at">
+                                        <i class="xi-check-square"></i>
+                                        <i class="xi-checkbox-blank"></i>
+                                        최신순
+                                    </label>
+                                </li>
+                                <li class="filter-ck">
+                                    <input type="radio" name="" id="applications_count" value="applications_count" v-model="form.order_by" @change="() => getCampaigns()">
+                                    <label for="applications_count">
+                                        <i class="xi-check-square"></i>
+                                        <i class="xi-checkbox-blank"></i>
+                                        인기순
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -44,7 +44,8 @@
                         <th>닉네임</th>
                         <th>성별</th>
                         <th>패널티</th>
-                        <th>등급</th>
+<!--                        <th>등급</th>-->
+                        <th>가입날짜</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -75,8 +76,11 @@
                         <td>
                             {{item.penalty['title']}}
                         </td>
-                        <td>
+<!--                        <td>
                             {{item.grade ? item.grade : "-"}}
+                        </td>-->
+                        <td>
+                            {{item.created_at}}
                         </td>
                     </tr>
                     </tbody>

@@ -155,7 +155,7 @@
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">캠페인 상세이미지 <span class="Essential">*</span></p>
+                                <p class="write-labal">캠페인 상세이미지</p>
                             </div>
 
                             <div class="write-bundle">

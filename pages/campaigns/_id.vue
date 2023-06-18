@@ -172,7 +172,12 @@
                                 </div>
                                 <div class="subscriber-name">
                                     <p class="name">{{application.user.nickname}}</p>
-                                    <p class="Address">{{ application.user.address }}</p>
+                                    <p class="Address" v-if="application.selected && $auth.user && campaign.user.id == $auth.user.data.id && campaign.type_campaign === 'DELIVERY'">
+                                        {{ application.user.address }}
+                                    </p>
+                                    <p class="Address" v-if="application.selected && $auth.user && campaign.user.id == $auth.user.data.id && (campaign.type_campaign === 'VISIT' || campaign.type_campaign === 'REALTIME')">
+                                        {{ application.user.contact }}
+                                    </p>
                                 </div>
                                 <div class="Recommended_mark">
                                     <img src="/images/Recommended_mark_Gold.svg" alt="" v-if="application.user.grade === 'GOLD'">
@@ -278,6 +283,8 @@ export default {
                         $(".big-img-wrap img").attr("src" , $(this).attr("src"))
                     })
                 }, 10);
+
+                console.log(this.$auth.user.data.id, this.campaign.user.id )
             })
         },
         getApplications(loadMore = false){

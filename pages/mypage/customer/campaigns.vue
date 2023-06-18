@@ -23,8 +23,12 @@
                         <ul class="table-tab-list">
                             <li :class="`tab-link ${state === 'application' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('application')">신청한 캠페인<span>{{ counts.application }}</span></li>
                             <li :class="`tab-link ${state === 'select' ? 'Active' : ''}`" data-tab="tab-2" @click="changeState('select')">선정된 캠페인 <span>{{ counts.select }}</span></li>
-                            <li :class="`tab-link ${state === 'finish' ? 'Active' : ''}`" data-tab="tab-3" @click="changeState('finish')">완료된 캠페인 <span>{{ counts.finish }}</span></li>
+                            <li :class="`tab-link ${state === 'finish' ? 'Active' : ''}`" data-tab="tab-3" @click="changeState('finish')">체험중인 캠페인 <span>{{ counts.finish }}</span></li>
                             <li :class="`tab-link ${state === 'like' ? 'Active' : ''}`" data-tab="tab-3" @click="changeState('like')">찜한 캠페인 <span>{{ counts.like }}</span></li>
+                            <li :class="`tab-link ${state === 'all' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('all')">
+                                모든 캠페인
+                                <span>{{ counts.all }}</span>
+                            </li>
                         </ul>
                     </div>
 
@@ -188,6 +192,45 @@
                             </li>
                         </ul>
                     </div>
+
+                    <!-- 심사완료 캠페인 -->
+                    <div class="table-wrap tab-content Active" v-if="state === 'all'">
+                        <ul class="thead">
+                            <li class="th">
+                                캠페인 등록일
+                            </li>
+                            <li class="th">
+                                캠페인 정보
+                            </li>
+                            <li class="th">
+                                모집
+                            </li>
+                        </ul>
+
+                        <!-- 리스트 그룹 -->
+                        <empty v-if="campaigns.data.length == 0" />
+
+                        <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
+                            <li class="date">
+                                <span class="unit mb">캠페인 등록일</span>
+                                {{ campaign.format_created_at }}
+                            </li>
+
+                            <!-- 캠페인 정보 -->
+                            <campaign :campaign="campaign" />
+
+                            <!-- //캠페인 정보 -->
+                            <li class="recruit-num num-re-po">
+                                <span class="unit mb">모집</span>
+                                <div class="default-wrap">
+                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                    <span class="unit">명</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- //그룹 -->
+                    </div>
+                    <!-- // 심사완료 캠페인  -->
                 </div>
 
                 <pagination :meta="campaigns.meta" @paginate="(page) => {form.page = page; getCampaigns()}" />
@@ -211,6 +254,7 @@ export default {
                 select: 0,
                 finish: 0,
                 like: 0,
+                all: 0,
                 type_campaigns: ["VISIT", "REALTIME", "DELIVERY", "REPORTER"],
                 type_snses: ["NAVER", "INSTAGRAM"],
             }),
@@ -226,6 +270,7 @@ export default {
                 select: 0,
                 finish: 0,
                 like: 0,
+                all: 0,
             },
 
             state: this.$route.query.state ? this.$route.query.state : "application",
@@ -257,6 +302,10 @@ export default {
                 this.form.like = 1;
             }
 
+            if(state === "all"){
+                this.form.all = 1;
+            }
+
             this.getCampaigns();
         },
 
@@ -284,6 +333,7 @@ export default {
                 select: 0,
                 finish: 0,
                 like: 0,
+                all: 0,
             });
         }
     },

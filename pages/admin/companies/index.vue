@@ -37,6 +37,7 @@
                         <th>사업자등록증</th>
                         <th>패널티</th>
                         <th>이용권 만료일자</th>
+                        <th>가입날짜</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -64,6 +65,9 @@
                         </td>
                         <td>
                             {{item.expired_at === "" ? '구매이력 없음' : ''}}
+                        </td>
+                        <td>
+                            {{item.created_at}}
                         </td>
                     </tr>
                     </tbody>
