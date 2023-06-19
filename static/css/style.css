@@ -984,23 +984,23 @@ html, body {overflow-x:hidden;}
     .advertiser-table_1 .table-wrap#tab-6 .tbody .btn-wrap .btn-statistics {position: absolute; left: 200px; top: 125px;}
 
 
-    .advertiser-table_1.influencer-table_1 .table-wrap.table-afterAccept > ul.tbody {
+    .advertiser-table_1.influencer-table_1 .table-wrap.table-finishReview > ul.tbody {
         padding-bottom:65px;
     }
-    .advertiser-table_1.influencer-table_1 .table-wrap.table-afterAccept > ul > li:nth-child(2) {
+    .advertiser-table_1.influencer-table_1 .table-wrap.table-finishReview > ul > li:nth-child(2) {
         display: flex; flex-direction: unset;
         width:auto; padding:unset;
     }
-    .advertiser-table_1.influencer-table_1 .table-wrap.table-afterAccept > ul > li:nth-child(3) {
+    .advertiser-table_1.influencer-table_1 .table-wrap.table-finishReview > ul > li:nth-child(3) {
         width:auto; padding:unset; margin-left:8px;
     }
 
-    .advertiser-table_1.influencer-table_1 .table-wrap.table-afterAccept > ul > li:nth-child(4) {
+    .advertiser-table_1.influencer-table_1 .table-wrap.table-finishReview > ul > li:nth-child(4) {
         min-width: auto;
         position: absolute; bottom:20px; right:90px; left:auto !important; top:auto !important;
     }
 
-    .advertiser-table_1.influencer-table_1 .table-wrap.table-afterAccept > ul > li:nth-child(5) {
+    .advertiser-table_1.influencer-table_1 .table-wrap.table-finishReview > ul > li:nth-child(5) {
         min-width: auto;
         position: absolute; bottom:20px; right:0px;
     }
