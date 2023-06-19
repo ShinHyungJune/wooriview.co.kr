@@ -121,6 +121,25 @@
 					</section>
 				</div>
 				
+                <section class="section-content">
+					<div class="detailinfo showstep1">
+						<div class="content">
+							<img class="pc" src="../../images/class-long-sample.png" alt="">
+							<img class="mb" src="../../images/product-long-sample.png" alt="">
+						</div>
+						
+					</div>
+					<div class="btn-wrap">
+						<button class="user-btn btn-style2 btn_open" >
+							<p class="add-txt" style="z-index:222;">상세페이지 더보기
+							  </p>
+							  <i class="xi-angle-down-min add-btn-icon" ></i>
+						</button>
+					</div>
+
+				</section>
+
+
 
 				<section class="section3">
 					<div class="h3-wrap">
@@ -382,6 +401,64 @@
 				}
 			})
 		</script>
+
+
+    <!-- 상품상세보기 -->
+	<script>
+			$(document).ready(function() {
+				let contentImgHeight = $('.detailinfo > .content img').height();
+
+				if (contentImgHeight < 1312) {  // 이미지가 작을 경우
+					$('.section-content .content').css('height', 'unset');
+					$('.btn_open').css('display', 'none');
+				}
+			});
+
+			$(document).on('DOMContentLoaded', function() {
+				let originalHeight = '1312px'; // 지정된 높이값
+				let currentHeight; // 현재 높이값 저장
+
+				$('.btn_open').on('click', function(e) {
+					let classList = document.querySelector('.detailinfo').classList;
+					let contentOriginHeight = document.querySelector('.detailinfo > .content');
+
+					$('.add-btn-icon').addClass('turn');
+
+					if (window.innerWidth > 768) {
+						if (classList.contains('showstep1')) {
+							if (!currentHeight) {
+								currentHeight = $(contentOriginHeight).css('height'); // 현재 높이값 저장
+								$(contentOriginHeight).css('height', '100%'); // 이미지가 전체 보이게 함
+							} else {
+								$(contentOriginHeight).css('height',  originalHeight); // 원래 높이값으로 돌아감
+								currentHeight = null; // 현재 높이값 초기화
+
+								$('.add-txt').text('상품정보 더보기');
+										$('.add-btn-icon').removeClass('turn');
+							}
+							
+						}
+					} else if (window.innerWidth < 768) {
+						let originalHeight = '800px';
+						if (classList.contains('showstep1')) {
+							if (!currentHeight) {
+								currentHeight = $(contentOriginHeight).css('height'); // 현재 높이값 저장
+								$(contentOriginHeight).css('height', '100%'); // 이미지가 전체 보이게 함
+							} else {
+								$(contentOriginHeight).css('height',  originalHeight); // 원래 높이값으로 돌아감
+								currentHeight = null; // 현재 높이값 초기화
+
+								$('.add-txt').text('상품정보 더보기');
+										$('.add-btn-icon').removeClass('turn');
+							}
+						}
+					}
+				});
+			});
+
+	</script>
+
+
     </div>
 </body>
 </html>

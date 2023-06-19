@@ -3228,3 +3228,35 @@ html, body {overflow-x:hidden;}
         font-size:12px !important;
     }
 }
+
+
+/* 캠페인 디테일 상세보기  */
+.campaign_Details  .showstep1{ overflow: hidden; }
+.campaign_Details  .content{ height: 1312px;  }
+.campaign_Details  .hide { display: none; }
+.campaign_Details  .btn-wrap { width: 100%; display: flex; justify-content: center;  margin-top: 50px; }
+.campaign_Details  .btn_open { width: 100%; display: block; z-index: 223;  background-color: #fff; max-width: 336px; }
+.campaign_Details .btn_open p { font-size: 16px; font-weight: bold; }
+/* .campaign_Details .btn_open.hide { display: none;}  */
+.campaign_Details .mb { display: none;}
+.campaign_Details .btn-wrap { margin-bottom: 64px;}
+.campaign_Details .btn_open { max-width: unset; width: 480px; height: 64px; display: flex; justify-content: center; align-items: center;  border: 2px solid #ffc800; border-radius: 32px;  }
+.campaign_Details .btn_open p { display: flex; align-items: center; gap: 8px; font-size: 22px; color: #ffc800; font-weight: 500;}
+.campaign_Details .btn_open .add-btn-icon { font-size: 30px; color: #ffc800;}
+.campaign_Details .add-btn-icon.turn { transform: rotate(180deg);}
+@media screen and (max-width:1080px){
+    .campaign_Details .mb { display: block;}
+    .campaign_Details .pc { display: none;}
+}
+@media screen and (max-width:768px){
+    .campaign_Details .btn-wrap { margin-bottom: 32px;}
+    .campaign_Details .btn_open { width: 380px; height: 54px; }
+    .campaign_Details .btn_open p {  font-size: 20px;}
+    .campaign_Details .btn_open p i { font-size: 30px; }
+    .campaign_Details  .content{ height: 800px;  }
+}
+@media screen and (max-width:573px){
+    .campaign_Details .btn_open { width: 280px; height: 44px; }
+    .campaign_Details .btn_open p {  font-size: 18px;}
+    .campaign_Details .btn_open p i { font-size: 20px; ;}
+}
