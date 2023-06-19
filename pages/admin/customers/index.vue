@@ -74,7 +74,7 @@
                             {{item.sex}}
                         </td>
                         <td>
-                            {{item.penalty['title']}}
+                            {{item.penalty ? item.penalty['title'] : ''}}
                         </td>
 <!--                        <td>
                             {{item.grade ? item.grade : "-"}}
