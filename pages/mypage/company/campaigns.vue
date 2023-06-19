@@ -168,7 +168,7 @@
                     <!-- //심사중인 캠페인 -->
 
                     <!-- 심사완료 캠페인 -->
-                    <div class="table-wrap tab-content Active" v-if="state === 'afterAccept'">
+                    <div class="table-afterAccept table-wrap tab-content Active" v-if="state === 'afterAccept'">
                         <ul class="thead">
                             <li class="th">
                                 캠페인 등록일
