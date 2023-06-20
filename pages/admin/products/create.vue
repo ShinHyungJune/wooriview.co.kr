@@ -112,6 +112,7 @@ export default {
                 duration_extra: "",
                 first_discount_title: "",
                 first_discount_price: "",
+                price: "",
                 first_discount_percent: "",
                 files: [],
             })
