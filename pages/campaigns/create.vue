@@ -1222,7 +1222,7 @@ export default {
     },
 
     watch: {
-        'form.missions': function(newVal, oldVal) {
+        /*'form.missions': function(newVal, oldVal) {
             if(newVal.length > 5){
                 this.$store.commit("setPop", {
                     title: "캠페인 미션 안내",
@@ -1230,8 +1230,10 @@ export default {
                 });
 
                 this.form.missions = newVal.slice(0, 5);
+
+                console.log(this.form.missions);
             }
-        },
+        },*/
 
         'for_setting_visit_started_at': function(newVal, oldVal) {
             if(!newVal)
