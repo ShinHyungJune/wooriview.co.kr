@@ -79,6 +79,8 @@
                             <p class="write-labal">사업장 운영지역</p>
                             <div class="write-bundle">
                                 <input-address @change="(data) => form[data.name] = data.value" :form="form" />
+                                <error :form="form" name="address" />
+                                <error :form="form" name="address_detail" />
                             </div>
                         </div>
                     </div>

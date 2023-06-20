@@ -404,7 +404,7 @@
                                         <span class="deco">~</span>
 
                                         <div class="input-wrap">
-                                            <input class="" type="date" placeholder="" v-model="form.select_finished_at" ref="select_finished_at" :min="form.select_started_at" :max="convertDate(createDate(form.select_started_at, 2))">
+                                            <input class="" type="date" placeholder="" v-model="form.select_finished_at" ref="select_finished_at" :min="form.select_started_at" :max="convertDate(createDate(form.select_started_at, 1))">
 
                                             <error :form="form" name="select_finished_at" />
                                         </div>
@@ -1222,6 +1222,16 @@ export default {
     },
 
     watch: {
+        'form.missions': function(newVal, oldVal) {
+            if(oldVal.length > 5){
+                this.$store.commit("setPop", {
+                    title: "캠페인 미션 안내",
+                    description: "최대 5개까지만 선택 가능합니다."
+                });
+
+                this.form.missions = oldVal;
+            }
+        },
         'for_setting_visit_started_at': function(newVal, oldVal) {
             if(!newVal)
                 return "";
