@@ -73,9 +73,14 @@
                 </div>
             </div>
 
-            <div class="btns" v-if="campaign && campaign.on_select">
-                <button type="button" class="m-btn type01 bg-revert-primary" v-if="application.selected">선정됨</button>
-                <button type="button" class="m-btn type01"  @click="select" v-else>선정하기</button>
+            <div class="btns" v-if="campaign">
+                <div class="m-btn-wrap">
+                    <nuxt-link :to="`/chats?application_id=${application.id}`" class="m-btn type01 bg-revert-primary">1대1 채팅</nuxt-link>
+                </div>
+                <div class="m-btn-wrap" v-if="campaign.on_select">
+                    <button type="button" class="m-btn type01 bg-revert-primary" v-if="application.selected">선정됨</button>
+                    <button type="button" class="m-btn type01"  @click="select" v-else>선정하기</button>
+                </div>
             </div>
 
             <!--

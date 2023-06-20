@@ -479,6 +479,9 @@
 
                             <div class="write-bundle">
                                 <input-address @change="(data) => form[data.name] = data.value" :form="form" />
+
+                                <error :form="form" name="address" />
+                                <error :form="form" name="address_detail" />
                             </div>
                         </div>
 
@@ -521,6 +524,8 @@
                                     <input type="radio" name="1" id="b" value="NAVER" v-model="form.type_sns">
                                     <label for="b"><span><i class="xi-check-min"></i></span>네이버 블로그</label>
                                 </div>
+
+                                <error :form="form" name="type_sns" />
                             </div>
                         </div>
 

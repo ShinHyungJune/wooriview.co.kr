@@ -122,6 +122,9 @@
     display: flex; align-items: center; flex: 0 0 auto;
     margin-left:auto; padding-left:40px;
 }
+.MyPage.delivery-edit .list-box .info-box .btns .m-btn-wrap {
+    margin-left:8px;
+}
 .chat .add-box.upload {
     width:auto;
 }
@@ -150,6 +153,7 @@
     transform: rotate(-45deg);
 }
 @media screen and (max-width:768px) {
+
     .MyPage.infulenser-list .subscriber-name-wrap {
         width:100%;
     }
@@ -186,6 +190,9 @@
     }
     .MyPage.delivery-edit .list-box .info-box .btns .m-btn {
         width:100%;
+    }
+    .MyPage.delivery-edit .list-box .info-box .btns .m-btn-wrap {
+        flex:1; margin-left:4px;
     }
     .MyPage.infulenser-list .list-box {
         margin-bottom:0;

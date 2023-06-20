@@ -549,7 +549,7 @@ export default {
             if(type === 'afterAccept')
                 pop = {
                     title: '모든 캠페인',
-                    description: '심사에 통과된 캠페인이에요!'
+                    description: '광고주님께서 지금까지 진행하는 모든 캠페인이에요!'
                 }
 
             if(type === 'ongoingHire')

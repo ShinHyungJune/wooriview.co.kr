@@ -171,6 +171,7 @@ import Form from "../../utils/Form";
 export default {
     middleware: ["auth"],
 
+
     components: {},
     data(){
         return {
