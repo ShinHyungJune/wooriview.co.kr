@@ -1222,6 +1222,17 @@ export default {
     },
 
     watch: {
+        'form.missions': function(newVal, oldVal) {
+            if(newVal.length > 5){
+                this.$store.commit("setPop", {
+                    title: "캠페인 미션 안내",
+                    description: "최대 5개까지만 선택 가능합니다."
+                });
+
+                this.form.missions = newVal.slice(0, 5);
+            }
+        },
+
         'for_setting_visit_started_at': function(newVal, oldVal) {
             if(!newVal)
                 return "";
