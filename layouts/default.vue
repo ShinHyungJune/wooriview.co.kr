@@ -80,6 +80,10 @@ export default {
             );
         }
 
+        this.getAbuses();
+
+        this.getCategories();
+        
         // this.$store.commit("init");
         window.receiveFcmToken = (token) => {
             // console.log('Received FCM token:', token);
@@ -101,9 +105,7 @@ export default {
             window.webkit.messageHandlers.getFcmToken.postMessage("fcm");
         }
 
-        this.getAbuses();
-
-        this.getCategories();
+      
 
         // 기본정보를 입력 안했다면
         if(this.$auth.user && this.$auth.user.data.type === 'CUSTOMER' && !this.$auth.user.data.intro)
