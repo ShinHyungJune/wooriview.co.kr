@@ -123,7 +123,7 @@
                             <p v-if="campaign.mission">- {{campaign.mission}}</p>
                         </div>
                     </div>
-                    <div class="Information-box" v-if="campaign.address">
+                    <div class="Information-box" v-if="campaign.address && (campaign.type_campaign === 'REALTIME' || campaign.type_campaign === 'VISIT')">
                         <p class="Information-labal">주소</p>
                         <div class="Information-content">
                             <p>{{campaign.address}} {{campaign.address_detail}}</p>
