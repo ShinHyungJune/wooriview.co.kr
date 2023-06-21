@@ -21,6 +21,7 @@ export default {
             {name: 'google-site-verification', content: 'Fecaj1jpMSkf8_JXonbE3KeUnDLPJP3ZIngmnScSb5w'},
             {property: 'og:site_name', content: '우리뷰 | 우리가 만드는 모든 리뷰 우리뷰'},
             {property: 'description', content: '우리가 만드는 모든 리뷰 우리뷰'},
+            {property: 'og:description', content: '우리가 만드는 모든 리뷰 우리뷰'},
             {property: 'og:type', content: 'wooriview'},
             {property: 'og:title', content: 'wooriview'},
             {property: 'og:image', content: 'https://wooriview.co.kr/images/wooriview-m.png'},
