@@ -64,7 +64,7 @@
                             {{item.penalty['title']}}
                         </td>
                         <td>
-                            {{item.expired_at === "" ? '구매이력 없음' : ''}}
+                            {{item.expired_at === "" ? '구매이력 없음' : item.expired_at}}
                         </td>
                         <td>
                             {{item.created_at}}
