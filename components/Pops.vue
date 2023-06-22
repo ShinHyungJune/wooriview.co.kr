@@ -42,7 +42,7 @@
     transition: all .2s;
 }
 
-.pop-parent .m-ratioBox-wrap {width:100%; padding-top:100%; position:relative; overflow:hidden;}
+.pop-parent .m-ratioBox-wrap {width:400px; padding-top:400px; position:relative; overflow:hidden;}
 .pop-parent .m-ratioBox-wrap .m-ratioBox {position:absolute; top:0; left:0; right:0; bottom:0;}
 /*
 .m-ratioBox-wrap .m-ratioBox:after {content:""; width:83px; height:28px; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background:url("../img/logo.png") no-repeat; background-size:100%; opacity:0.4;}
@@ -89,6 +89,10 @@
     .pop-parent .pop {width:310px;}
     .pop-parent.active {
         right:-310px;
+    }
+    .pop-parent .m-ratioBox-wrap {
+        width:250px;
+        padding-top:250px;
     }
 }
 
