@@ -201,6 +201,7 @@ export default {
                 email: this.$route.query.email ? this.$route.query.email : "",
                 contact: "",
 
+                file_company: "",
                 company_name: "",
                 company_number: "",
                 company_contact: "",
