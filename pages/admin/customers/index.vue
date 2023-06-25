@@ -18,18 +18,14 @@
                         </form>
                     </div>
                 </div>
-                <!--
                 <div class="btn-wrap col-group">
-                    <nuxt-link to="/admin/users/create" class="add-btn">신규 추가</nuxt-link>
-                    <a href="#" class="del-btn" @click.prevent="remove">선택 삭제</a>
+                    <a href="#" class="del-btn" @click.prevent="remove">계정 정지</a>
                 </div>
-                -->
             </div>
             <div class="table-wrap">
                 <table>
                     <thead>
                     <tr>
-                        <!--
                         <th>
                             <label for="" @click="toggle">
                                 <input type="checkbox" id="" name="chk" checked v-if="form.selected_ids.length === items.data.length">
@@ -37,8 +33,6 @@
                                 <span class="check-icon"></span>
                             </label>
                         </th>
-                        -->
-                        <th>번호</th>
                         <th>이메일</th>
                         <th>연락처</th>
                         <th>닉네임</th>
@@ -46,20 +40,16 @@
                         <th>패널티</th>
 <!--                        <th>등급</th>-->
                         <th>가입날짜</th>
+                        <th>정지일자</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr v-for="(item, index) in items.data" :key="item.id" style="cursor:default;">
-                        <!--
                         <td>
                             <label :for="item.id" @click="(e) => {e.stopPropagation()}">
                                 <input type="checkbox" :id="item.id" :value="item.id" name="chk" v-model="form.selected_ids">
                                 <span class="check-icon"></span>
                             </label>
-                        </td>
-                        -->
-                        <td>
-                            {{item.id}}
                         </td>
                         <td>
                             {{item.email}}
@@ -81,6 +71,9 @@
                         </td>-->
                         <td>
                             {{item.created_at}}
+                        </td>
+                        <td>
+                            {{item.deleted_at}}
                         </td>
                     </tr>
                     </tbody>
@@ -132,7 +125,8 @@ export default {
         remove(){
             this.form.delete("/api/admin/users/1")
                 .then(response => {
-                    this.items.data = this.items.data.filter(itemData => !this.form.selected_ids.includes(itemData.id));
+                    this.filter();
+                    // this.items.data = this.items.data.filter(itemData => !this.form.selected_ids.includes(itemData.id));
                     this.form.selected_ids = [];
                 });
         },

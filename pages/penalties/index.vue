@@ -184,6 +184,8 @@ export default {
     },
 
     mounted() {
+        this.$auth.fetchUser();
+
         this.getPenalties();
 
         this.getCounts();

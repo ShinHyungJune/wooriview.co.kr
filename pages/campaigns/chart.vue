@@ -88,9 +88,9 @@
         <div class="grap-box">
             <div class="grap-info-wrap">
                 <div class="left-wrap">
-<!--                    <p class="title">누적 성과</p>-->
-                    <p class="title">리뷰 작성 기간</p>
-                    <p class="period">{{ campaign.format_review_started_at }} ~ {{ campaign.format_review_finished_at }}</p>
+                    <p class="title">누적 성과</p>
+<!--                    <p class="title">리뷰 작성 기간</p>-->
+                    <p class="period">{{ campaign.format_review_started_at }} ~ {{ campaign.format_report_finished_at }}</p>
                 </div>
                 <div class="right-wrap">
                     <div class="data">

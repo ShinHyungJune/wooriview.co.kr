@@ -113,8 +113,22 @@
                     <div class="write-wrap-le">
 
                         <div class="write-box">
+                            <p class="write-labal">생년월일</p>
+                            <div class="write-bundle">
+                                <div class="input-wrap">
+                                    <input type="date" v-model="form.birth">
+
+                                    <error :form="form" name="birth" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="write-box">
                             <p class="write-labal">개인정보</p>
                             <div class="write-bundle">
+
+
                                 <div class="radio-wrap1">
                                     <div class="radio-box">
                                         <input type="radio" name="Gender" id="Man" value="남자" v-model="form.sex">
@@ -130,6 +144,11 @@
                                 <div class="gap"></div>
 
                                 <input-address @change="(data) => form[data.name] = data.value" :form="form" />
+
+                                <div class="gap"></div>
+
+
+
                             </div>
                         </div>
 
@@ -279,6 +298,7 @@ export default {
 
             form : new Form(this.$axios, {
                 categories: [],
+                birth: "",
                 intro: "",
                 history: "",
 

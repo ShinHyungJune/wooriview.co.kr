@@ -33,7 +33,7 @@
 
                         <div class="product-type" v-if="campaign.type_campaign === 'REALTIME'">
                             <img src="/images/Live-icon.png" alt="">
-                            <p>실시간 방문형 캠페인</p>
+                            <p>실시간 방문형</p>
                         </div>
 
                         <div class="product-type" v-if="campaign.type_campaign === 'REPORTER'">
@@ -114,11 +114,12 @@
                     </div>
                     <div class="Information-box">
                         <p class="Information-labal">검색 키워드</p>
-                        <p class="Information-content" v-text="campaign.search_keyword"></p>
+                        <p class="Information-content" v-text="campaign.search_keyword" style="white-space: pre-wrap"></p>
                     </div>
                     <div class="Information-box">
                         <p class="Information-labal">캠페인미션</p>
                         <div class="Information-content">
+                            <p v-if="campaign.type_sns === 'INSTAGRAM'">- 포스팅 최상단에 '#광고 #협찬' 문구를 필수적으로 기재해주세요.</p>
                             <p v-for="(mission, index) in campaign.missions" :key="index">- {{mission}}<br/><br/></p>
                             <p v-if="campaign.mission">- {{campaign.mission}}</p>
                         </div>
@@ -218,6 +219,18 @@
                                     <li v-if="application.user.camera">카메라</li>
                                 </ul>
                                 <ul class="Size-list">
+                                    <li>
+                                        <p class="Size-labal">나이:</p>
+                                        <p class="Size">{{application.user.age}}</p>
+                                    </li>
+                                    <li>
+                                        <p class="Size-labal">성별:</p>
+                                        <p class="Size">{{application.user.sex}}</p>
+                                    </li>
+                                    <li>
+                                        <p class="Size-labal">상의 사이즈:</p>
+                                        <p class="Size">{{application.user.size_top}}</p>
+                                    </li>
                                     <li>
                                         <p class="Size-labal">상의 사이즈:</p>
                                         <p class="Size">{{application.user.size_top}}</p>

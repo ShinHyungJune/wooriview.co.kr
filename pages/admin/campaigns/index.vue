@@ -50,6 +50,7 @@
                         <th>모집수</th>
                         <th>참여수</th>
                         <th>진행단계</th>
+                        <th>인원 미달 시 진행여부</th>
                         <th>등록일자</th>
                     </tr>
                     </thead>
@@ -92,6 +93,9 @@
                         </td>
                         <td>
                             {{item.state}}
+                        </td>
+                        <td>
+                            {{item.have_to_satisfied ? '미진행' : '진행'}}
                         </td>
                         <td>
                             {{ item.created_at}}

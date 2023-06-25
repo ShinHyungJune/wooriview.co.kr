@@ -31,13 +31,13 @@
                         </li>
                         <li :class="typeCampaign === 'VISIT' ? 'active' : ''">
                             <a href="/campaigns?type_campaign=VISIT&showMap=1">
-                                <img src="/images/Shipping-icon.png" alt="">
+                                <img src="/images/Visit-icon.png" alt="">
                                 방문형
                             </a>
                         </li>
                         <li :class="typeCampaign === 'DELIVERY' ? 'active' : ''">
                             <a href="/campaigns?type_campaign=DELIVERY">
-                                <img src="/images/Visit-icon.png" alt="">
+                                <img src="/images/Shipping-icon.png" alt="">
                                 배송형
                             </a>
                         </li>
@@ -82,7 +82,7 @@
 
                         <ul class="Mobile_Menu_Nav">
                             <li>
-                                <a href="/campaigns?type_campaign=REALTIME&showMap=1">실시간 방문형 캠페인 <i class="xi-angle-right-min"></i></a>
+                                <a href="/campaigns?type_campaign=REALTIME&showMap=1">실시간 방문형 <i class="xi-angle-right-min"></i></a>
                             </li>
                             <li>
                                 <a href="/campaigns?type_campaign=DELIVERY&showMap=1">배송형 캠페인 <i class="xi-angle-right-min"></i></a>
@@ -209,18 +209,20 @@
                 </a>
 
                 <!-- 인플루언서용 -->
-                <a href="/campaigns?type_campaign=VISIT&showMap=1" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
-                    <img src="/images/marker.png" alt="">
-
-                    <span class="text">내 주변</span>
-                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
-                </a>
                 <a href="/mypage/customer/campaigns" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
                     <img src="/images/heart.png" alt="">
 
                     <span class="text">찜</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
+
+                <a href="/campaigns?type_campaign=VISIT&showMap=1" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
+                    <img src="/images/marker.png" alt="">
+
+                    <span class="text">내 주변</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+
                 <a href="/notices" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
                     <img src="/images/comment.png" alt="">
 
@@ -229,16 +231,22 @@
                 </a>
 
                 <!-- 광고주용 -->
-                <a href="/campaigns/create" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
+                <a href="/campaigns/create" v-if="$auth.user && $auth.user.data.can_create_campaign">
                     <img src="/images/write.png" alt="">
 
                     <span class="text">캠페인 등록</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
-                <a href="/qnas/create?category=광고%20및%20입점%20문의" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
+                <a href="/qnas/create?category=광고%20및%20입점%20문의" v-if="$auth.user && $auth.user.data.type === 'COMPANY' && !$auth.user.data.can_create_campaign">
                     <img src="/images/ad.png" alt="">
 
                     <span class="text">광고문의</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+                <a href="/campaigns?type_campaign=VISIT&showMap=1" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
+                    <img src="/images/marker.png" alt="">
+
+                    <span class="text">내 주변</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
                 <a href="/notices" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
@@ -261,10 +269,10 @@
                     <span class="text">광고문의</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
-                <a href="/qnas/create" v-if="!$auth.user">
+                <a href="/notices" v-if="!$auth.user">
                     <img src="/images/comment.png" alt="">
 
-                    <span class="text">1대1 문의</span>
+                    <span class="text">공지사항</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
 

@@ -156,7 +156,7 @@
                                 {{ order.state === 'REFUND' ? '환불' : '구매' }}
                             </li>
                             <li class="sign-th">
-                                <a :href="order.file.url" class="m-btn type01 bg-revert-primary" v-if="order.file">계약서 보기</a>
+                                <a target="_blank" :href="order.file.url" class="m-btn type01 bg-revert-primary" v-if="order.file">계약서 보기</a>
                             </li>
                         </ul>
                     </div>

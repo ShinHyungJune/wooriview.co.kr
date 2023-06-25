@@ -924,7 +924,7 @@
     /* 선정된 페이지 리뷰 버튼 모바일에서 생성 */
     .influencer-table_1 .table-wrap#tab-2 .btn-wrap.review { display: block;}
     /* // */
-    .influencer-table_1 .table-wrap .tbody { position: relative; border-bottom: unset;}
+    .influencer-table_1 .table-wrap .tbody { position: relative;}
     /* 단위관련 속성 - 하나로 동시에 속성 되도록 수정해 볼 것... 왜 따로 먹지? */
     .influencer-table_1 .table-wrap#tab-1 .num-re-po,
     .influencer-table_1 .table-wrap#tab-4 .num-re-po { position: absolute; bottom: 0; left: 130px; flex-direction: unset; min-width: unset; width: unset; padding: 0 8px 8px 8px;}

@@ -63,7 +63,7 @@
                                             </p>
                                             <p class="page-detail_list-title">서비스 기간</p>
                                             <p class="page-detail_list-sub">
-                                                1개월, 3개월, 6개월, 12개월
+                                                {{ product ? product.title : '' }}
                                             </p>
                                         </div>
                                     </div>
@@ -119,9 +119,8 @@
                                             (부가세 10% 포함)
                                         </p>
                                         <div class="page-detail_list">
-                                            <p class="page-detail_list-title">
-                                                구독형 1개월 200,000원 / 3개월 450,000원 / 6개월 855,000원 / 12개월 1,620,000원 <br />
-                                                (전체 금액 VAT포함)
+                                            <p class="page-detail_list-title" v-if="product">
+                                                구독형 {{product.title}} / {{(product.price - product.price_discount).toLocaleString()}}원
                                             </p>
                                         </div>
                                     </div>
@@ -131,7 +130,7 @@
                             <div class="write-wrap">
                                 <div class="Consent-form">
                                     <div class="Consent-ck">
-                                        <input type="checkbox" name="1" id="Consent">
+                                        <input type="checkbox" name="1" id="Consent" v-model="agree1">
                                         <label for="Consent">
                                             <span class="ck-from"><i class="xi-check-min"></i></span>
                                             이용약관 상세 내용을 확인하였습니다.
@@ -255,14 +254,14 @@
                             <div class="write-wrap">
                                 <div class="Consent-form">
                                     <div class="Consent-ck">
-                                        <input type="checkbox" name="2" id="refund">
+                                        <input type="checkbox" name="2" id="refund" v-model="agree2">
                                         <label for="refund">
                                             <span class="ck-from"><i class="xi-check-min"></i></span>
                                             환불 규정 상세 내용을 확인하였습니다.
                                         </label>
                                     </div>
                                     <div class="Consent-ck">
-                                        <input type="checkbox" name="3" id="Limitation">
+                                        <input type="checkbox" name="3" id="Limitation" v-model="agree3">
                                         <label for="Limitation">
                                             <span class="ck-from"><i class="xi-check-min"></i></span>
                                             책임 제한 규정 상세 내용을 확인하였습니다.
@@ -320,7 +319,7 @@
                             <div class="write-wrap">
                                 <div class="Consent-form">
                                     <div class="Consent-ck">
-                                        <input type="checkbox" name="4" id="INFO">
+                                        <input type="checkbox" name="4" id="INFO" v-model="agree4">
                                         <label for="INFO">
                                             <span class="ck-from"><i class="xi-check-min"></i></span>
                                             매칭되는 인플루언서 회원에게 광고주 회원의 개인 정보를 제공하는 데에 동의합니다.
@@ -427,6 +426,11 @@ export default {
         },
 
         order(){
+            if(!this.agree1 || !this.agree2 || !this.agree3 || !this.agree4 || !this.signImg)
+                return this.$store.commit("setPop", {
+                    title: "확인필요",
+                    description: "모든 약관에 동의 및 서명해야만 결제 가능합니다."
+                });
 
             this.form.post("/api/orders")
                 .then(response => {

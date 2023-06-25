@@ -9,7 +9,7 @@
                     <img src="/images/Reporter-icon.png" alt="" v-if="campaign.type_campaign === 'REPORTER'">
                     <img src="/images/Shipping-icon.png" alt="" v-if="campaign.type_campaign === 'DELIVERY'">
                 </div>
-                <p class="campaign-type-title" v-if="campaign.type_campaign === 'REALTIME'">실시간 방문형 캠페인</p>
+                <p class="campaign-type-title" v-if="campaign.type_campaign === 'REALTIME'">실시간 방문형</p>
                 <p class="campaign-type-title" v-if="campaign.type_campaign === 'VISIT'">방문형 캠페인</p>
                 <p class="campaign-type-title" v-if="campaign.type_campaign === 'REPORTER'">기자단 캠페인</p>
                 <p class="campaign-type-title" v-if="campaign.type_campaign === 'DELIVERY'">배송형 캠페인</p>
