@@ -201,7 +201,7 @@
                         </div>
 
                         <div v-if="form.type_campaign === 'REALTIME'">
-                            <div class="write-box help-mark">
+<!--                            <div class="write-box help-mark">
                                 <div class="write-labal_wrap">
                                     <p class="write-labal">인플루언서 방문 시작 시간 <span class="Essential">*</span></p>
                                     <i class="xi-help-o help-btn" data-target="pop-up_realtime_start"></i>
@@ -210,8 +210,6 @@
                                     <div class="m-input-dates type01">
                                         <div class="input-wrap input-date">
                                             <input type="datetime-local" id="visit_started_at" placeholder="" v-model="for_setting_visit_started_at" ref="for_setting_visit_started_at" :min="convertDatetime(today)" :max="convertDatetime(today)">
-
-                                            <label for="visit_started_at" class="cover"></label>
 
                                             <error :form="form" name="visit_started_at" />
                                         </div>
@@ -226,7 +224,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
                             <!--
                             <div class="write-box">
@@ -249,7 +247,6 @@
                                 <div class="write-labal_wrap">
                                     <p class="write-labal">인플루언서 모집시간 <span class="Essential">*</span></p>
                                     <i class="xi-help-o help-btn pop-up_recruitment"></i>
-
                                 </div>
 
                                 <div class="write-bundle">
@@ -286,14 +283,14 @@
 
                             <div class="write-box help-mark">
                                 <div class="write-labal_wrap">
-                                    <p class="write-labal">인플루언서 선정기간 <span class="Essential">*</span></p>
+                                    <p class="write-labal">인플루언서 방문시간 <span class="Essential">*</span></p>
                                     <i class="xi-help-o help-btn pop-up_selection"></i>
                                     <p class="Explanation_p">시간 내 미선정시 우리뷰 추천순으로 자동 선정</p>
                                 </div>
                                 <div class="write-bundle">
                                     <div class="m-input-dates type01">
                                         <div class="input-wrap">
-                                            <input type="datetime-local" placeholder="" v-model="form.select_started_at" ref="select_started_at" disabled class="Deactivation">
+                                            <input type="datetime-local" placeholder="" v-model="form.select_started_at" ref="select_started_at" :min="convertDatetime(new Date(this.form.hire_finished_at))" :max="convertDatetime(new Date())">
 
                                             <error :form="form" name="select_started_at" />
                                         </div>
@@ -340,7 +337,7 @@
                                         <span class="deco">~</span>
 
                                         <div class="input-wrap">
-                                            <input class="" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="form.review_started_at" :max="convertDate(createDate(form.review_started_at, 21))">
+                                            <input class="" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="convertDate(addDays(new Date(), 5))" :max="convertDate(createDate(form.review_started_at, 14))">
 
                                             <error :form="form" name="review_finished_at" />
                                         </div>
@@ -1098,6 +1095,12 @@ export default {
             return date;
         },
 
+        addDays(date, days){
+            date.setDate(date.getDate() + days);
+
+            return date;
+        },
+
         addHours(date, hours){
             date = new Date(date.getTime() + (hours * 60 * 60 * 1000));
 
@@ -1330,6 +1333,20 @@ export default {
 
         },
 
+        'form.select_started_at': function(newVal, oldVal) {
+            if(this.form.type_campaign === "REALTIME"){
+                if(!newVal)
+                    return "";
+
+                let date = new Date(newVal);
+
+                this.form.select_finished_at = this.convertDatetime(new Date(date.setHours(date.getHours() + 4)));
+
+                this.form.review_started_at = this.form.select_finished_at.slice(0, 10);
+            }
+
+        },
+
         'form.select_finished_at': function(newVal, oldVal) {
             if(this.form.type_campaign !== "REALTIME"){
                 if(!newVal)
@@ -1358,8 +1375,8 @@ export default {
             }
 
             if(newVal === "REALTIME"){
-                this.form.hire_started_at = "";
-                this.form.hire_finished_at = "";
+                this.form.hire_started_at = this.convertDatetime(new Date());
+                this.form.hire_finished_at = this.convertDatetime(this.addHours(new Date(), 2));
             }
         }
     }
