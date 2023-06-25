@@ -196,8 +196,10 @@
                                 </div>
                                 <div class="write-bundle">
                                     <div class="m-input-dates type01">
-                                        <div class="input-wrap">
-                                            <input type="datetime-local" placeholder="" v-model="for_setting_visit_started_at" ref="for_setting_visit_started_at" :min="convertDatetime(today)" :max="convertDatetime(today)">
+                                        <div class="input-wrap input-date">
+                                            <input type="datetime-local" id="visit_started_at" placeholder="" v-model="for_setting_visit_started_at" ref="for_setting_visit_started_at" :min="convertDatetime(today)" :max="convertDatetime(today)">
+
+                                            <label for="visit_started_at" class="cover"></label>
 
                                             <error :form="form" name="visit_started_at" />
                                         </div>
@@ -317,7 +319,8 @@
                                 <div class="write-bundle">
                                     <div class="m-input-dates type01">
                                         <div class="input-wrap">
-                                            <input type="date" placeholder="" v-model="form.review_started_at" ref="review_started_at" disabled class="Deactivation">
+                                            <input type="date" id="review_started_at" placeholder="" v-model="form.review_started_at" ref="review_started_at" disabled class="Deactivation">
+
 
                                             <error :form="form" name="review_started_at" />
                                         </div>
@@ -1074,6 +1077,11 @@ export default {
         },
 
         addEvent(){
+
+            $("input[type='datetime-local']").on('focus', function() {
+                this.click(); // 클릭 이벤트를 발생시켜 팝업을 엽니다.
+            });
+
             $(".temporary_storage_open_btn").click(function () {
                 $(".temporary_storage_wrap").toggleClass("open");
             })
@@ -1224,6 +1232,8 @@ export default {
         this.getTempCampaigns();
 
         this.addEvent();
+
+
     },
 
     watch: {

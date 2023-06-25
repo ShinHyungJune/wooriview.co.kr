@@ -28,10 +28,8 @@
                                     <div class="write-bundle">
 
                                         <div class="input-wrap Add_Features">
-                                            <input type="text" placeholder="이메일 아이디" v-model="form.email" disabled class="Deactivation">
-                                            <!--                                    <div class="Add_Features-box">
-                                                                                    <button>인증번호</button>
-                                                                                </div>-->
+                                            <input type="text" placeholder="이메일 아이디" v-model="form.email">
+
                                             <error :form="form" name="email" />
                                         </div>
 
@@ -74,16 +72,16 @@
 
                                     <div class="write-bundle">
                                         <div class="sns-radio-box">
-                                            <input type="radio" name="1" id="a" checked>
-                                            <label for="a"><span><i class="xi-check-min"></i></span>인스타그램 URL</label>
+                                            <input type="radio" name="" id="a" checked>
+                                            <label for="">인스타그램 URL</label>
                                         </div>
                                         <div class="input-wrap">
                                             <input class="" type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요." v-model="form.instagram">
                                         </div>
 
                                         <div class="sns-radio-box">
-                                            <input type="radio" name="1" id="b">
-                                            <label for="b"><span><i class="xi-check-min"></i></span>네이버블로그 URL</label>
+                                            <input type="radio" name="" id="b" checked>
+                                            <label for="">네이버블로그 URL</label>
                                         </div>
                                         <div class="input-wrap">
                                             <input class="" type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요." v-model="form.naver">
@@ -362,7 +360,8 @@ export default {
     },
     methods: {
         update(){
-            console.log(this.form.categories);
+            this.form.errors.clear();
+
             this.form.patch("/api/users")
                 .then(response => {
                     this.$store.commit("setPop", {

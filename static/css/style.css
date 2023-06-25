@@ -2334,7 +2334,13 @@
 }
 
 @media screen and (max-width: 768px) {
-
+    .MyPage.payment .table-section.list-table .table-tab-wrap li.sign-th {
+        width: 100%;
+        margin-top:12px;
+    }
+    .MyPage.payment .table-section.list-table .table-tab-wrap li.sign-th .m-btn.type01 {
+        width:100%;
+    }
 .MyPage.payment .caution-box { flex-direction: column;  padding: 14px 0px 25px; border-bottom: none; margin-bottom: unset;}
 .MyPage.payment .caution-box .caution-left {width: 100%; border-right: unset; }
 .MyPage.payment .caution-box .caution-left.after .guide-sub,
@@ -3259,4 +3265,9 @@
     .campaign_Details .btn_open { width: 280px; height: 44px; }
     .campaign_Details .btn_open p {  font-size: 18px;}
     .campaign_Details .btn_open p i { font-size: 20px; ;}
+}
+
+.input-date .cover {
+    width:100%; height:100%;
+    position:absolute; top:0; left:0;
 }

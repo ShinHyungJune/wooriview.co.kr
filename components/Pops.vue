@@ -86,9 +86,9 @@
 .pop-parent.active .btn-toggle {transform:rotate(180deg);}
 
 @media screen and (max-width:1200px) {
-    .pop-parent .pop {width:310px;}
+    .pop-parent .pop {width:250px;}
     .pop-parent.active {
-        right:-310px;
+        right:-250px;
     }
     .pop-parent .m-ratioBox-wrap {
         width:250px;

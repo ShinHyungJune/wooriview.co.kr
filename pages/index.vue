@@ -258,7 +258,7 @@ export default {
                         },
                     });
 
-                }, 1000);
+                }, 1);
             });
         },
 
@@ -293,7 +293,7 @@ export default {
                 setTimeout(function(){
                     self.initCampaignSwiper(".swiper1-1")
                     self.initCampaignSwiper(".swiper1-2")
-                }, 100);
+                }, 1);
             });
         },
         getLastCampaigns(){
@@ -374,7 +374,7 @@ export default {
                             },
                         }
                     });
-                }, 10);
+                }, 1);
             });
         },
     },

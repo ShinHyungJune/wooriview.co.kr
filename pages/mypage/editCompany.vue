@@ -28,7 +28,7 @@
                                     <div class="write-bundle">
 
                                         <div class="input-wrap Add_Features">
-                                            <input type="text" placeholder="이메일 아이디" v-model="form.email" disabled class="Deactivation">
+                                            <input type="text" placeholder="이메일 아이디" v-model="form.email">
                                             <!--                                    <div class="Add_Features-box">
                                                                                     <button>인증번호</button>
                                                                                 </div>-->
@@ -198,7 +198,8 @@ export default {
     },
     methods: {
         update(){
-            console.log(this.form.categories);
+            this.form.errors.clear();
+
             this.form.patch("/api/users")
                 .then(response => {
                     this.$store.commit("setPop", {

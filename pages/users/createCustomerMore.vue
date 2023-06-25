@@ -47,19 +47,19 @@
 
                             <div class="write-bundle">
                                 <div class="sns-radio-box">
-                                    <input type="radio" name="1" id="a" checked>
-                                    <label for="a"><span><i class="xi-check-min"></i></span>인스타그램 URL</label>
+                                    <input type="radio" checked>
+                                    <label for="">인스타그램 URL</label>
                                 </div>
                                 <div class="input-wrap">
-                                    <input class="" type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요.">
+                                    <input class="" type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요." v-model="form.instagram">
                                 </div>
 
                                 <div class="sns-radio-box">
-                                    <input type="radio" name="1" id="b">
-                                    <label for="b"><span><i class="xi-check-min"></i></span>네이버블로그 URL</label>
+                                    <input type="radio" id="" checked>
+                                    <label for="">네이버블로그 URL</label>
                                 </div>
                                 <div class="input-wrap">
-                                    <input type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요.">
+                                    <input type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요." v-model="form.naver">
                                 </div>
                             </div>
                         </div>

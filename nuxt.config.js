@@ -123,6 +123,8 @@ export default {
         ]
     },
 
+    plugins: ['~plugins/axios'],
+
     router: {
         scrollBehavior(to, from, savedPosition) {
             if (savedPosition) {
