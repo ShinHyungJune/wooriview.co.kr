@@ -954,7 +954,7 @@ export default {
                 introduce: "",
                 search_keyword: "",
                 missions: [
-                    "구매할 수 있는 링크 URL을 넣어주세요."
+
                 ],
                 mission : "",
                 have_to_satisfied: 0,
