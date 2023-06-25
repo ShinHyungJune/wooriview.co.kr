@@ -290,7 +290,7 @@
                                 <div class="write-bundle">
                                     <div class="m-input-dates type01">
                                         <div class="input-wrap">
-                                            <input type="datetime-local" placeholder="" v-model="form.select_started_at" ref="select_started_at" :min="convertDatetime(new Date(this.form.hire_finished_at))" :max="convertDatetime(new Date())">
+                                            <input type="datetime-local" placeholder="" v-model="form.select_started_at" ref="select_started_at" class="Deactivation" disabled>
 
                                             <error :form="form" name="select_started_at" />
                                         </div>
@@ -1375,8 +1375,9 @@ export default {
             }
 
             if(newVal === "REALTIME"){
-                this.form.hire_started_at = this.convertDatetime(new Date());
-                this.form.hire_finished_at = this.convertDatetime(this.addHours(new Date(), 2));
+                this.form.hire_started_at = this.convertDatetime(this.addHours(new Date(), 2));
+                this.form.hire_finished_at = this.convertDatetime(this.addHours(new Date(), 4));
+                this.form.select_started_at =  this.form.hire_finished_at;
             }
         }
     }
