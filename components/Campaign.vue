@@ -39,7 +39,7 @@
                 [{{ campaign.title_company }}]
                 {{ campaign.title_product }}
             </nuxt-link>
-            <p class="product" v-if="campaign.type_campaign === 'REPORTER'">원고료 제공</p>
+            <p class="product" v-if="campaign.type_campaign === 'REPORTER'">원고료 {{ campaign.price_write.toLocaleString() }}원 제공</p>
             <p class="product" v-else>{{ campaign.description_provide }}</p>
             <div class="State-wrap">
                 <p class="Application">신청

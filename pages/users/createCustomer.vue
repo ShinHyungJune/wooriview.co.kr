@@ -43,7 +43,7 @@
                                     <error :form="form" name="nickname" />
 
                                 </div>
-                                <p class="input-sub">회원가입시 '닉네임 한번 결정시 수정이 불가합니다</p>
+                                <p class="input-sub" style="color:red; font-weight:bold;">회원가입시 '닉네임 한번 결정시 수정이 불가합니다</p>
 
                             </div>
                         </div>

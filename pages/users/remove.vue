@@ -1,100 +1,39 @@
 <template>
-    <article>
-        <form @submit.prevent="remove">
-            <div class="container lg">
-                <div class="title-box">
-                    <h2 class="tl">탈퇴하기</h2>
-                    <p class="tl mt10">회원 탈퇴 전 아래 사항을 꼭 확인해주시기 바랍니다.</p>
-                </div>
-                <div class="text-box mt48 mt-lg-30">
-                    <dl>
-                        <dd class="dot">탈퇴 후에도 게시판에 작성한 게시글 및 댓글은 그대로 남아 있습니다.</dd>
-                        <dd class="dot">삭제를 원하는 게시글이 있다면 반드시 탈퇴 전에 삭제하여 주시기 바랍니다.</dd>
-                        <dd class="dot">탈퇴 후에는 회원 본인 여부를 확인할 수 있는 방법이 없기 때문에,<br>게시글을 임의로 삭제해 드릴 수 없습니다.</dd>
-                        <dd class="dot">탈퇴 후에는 현재 로그인 아이디로 다시 가입할 수 없으며<br>아이디와 데이터는 복구할 수 없습니다.</dd>
-                        <dd class="dot">또한 탈퇴 후 같은 본인인증 정보를 가진 간편로그인 계정으로 가입이 불가능합니다.</dd>
-                        <dd class="dot">부정한 목적으로 탈퇴 후 재가입을 한 경우에는 이용에 제한이 있을 수 있습니다.</dd>
-                    </dl>
-                </div>
-                <div class="gray-box mt48 mt-lg-30 bdr0 px30 px-lg-15 py24 py-lg-15">
-                    <div class="text-box">
-                        <h3>안내사항</h3>
-                        <dl class="mb16 mb-lg-10">
-                            <dt class="dot">계약 또는 청약 철회 등에 관한 기록</dt>
-                            <dd>
-                                <span>보존근거 : 전자상거래 등에서의 소비자보호에 관한 법률<br>보존기간 : 5년</span>
-                            </dd>
-                        </dl>
-                        <dl class="mb16 mb-lg-10">
-                            <dt class="dot">대금 결제 및 재화 등의 공급에 관한 기록</dt>
-                            <dd>
-                                <span>보존근거 : 전자상거래 등에서의 소비자보호에 관한 법률<br>보존기간 : 5년</span>
-                            </dd>
-                        </dl>
-                        <dl class="mb16 mb-lg-10">
-                            <dt class="dot">소비자의 불만 또는 분쟁 처리에 관한 기록</dt>
-                            <dd>
-                                <span>보존근거 : 전자상거래 등에서의 소비자보호에 관한 법률<br>보존기간 : 3년</span>
-                            </dd>
-                        </dl>
-                    </div>
-                </div>
-                <div class="text-box mt32 mt-lg-16">
-                    <dl>
-                        <dd>위 안내사항을 확인하였으며, 탈퇴 시 계정에 남아있는 정보는 복구되지 않음을 인지하였으며 이에 동의합니다.</dd>
-                    </dl>
-                </div>
-
-                <div class="div mt20 pt25">
-                    <div class="title-box">
-                        <h2 class="tl">
-                            탈퇴하는 이유가 무엇인가요?
-                        </h2>
-                    </div>
-                    <form class="mt20 mt-lg-30">
-                        <div class="check-box mb16 mb-lg-10">
-                            <input type="radio" name="radio" id="radio01" value="낮은 퀄리티" v-model="form.reason_leave_out">
-                            <label for="radio01"><span>낮은 퀄리티</span></label>
-                        </div>
-                        <div class="check-box mb16 mb-lg-10">
-                            <input type="radio" name="radio" id="radio02" value="원하는 콘텐츠가 없음" v-model="form.reason_leave_out">
-                            <label for="radio02"><span>원하는 콘텐츠가 없음</span></label>
-                        </div>
-                        <div class="check-box mb16 mb-lg-10">
-                            <input type="radio" name="radio" id="radio03" value="서비스 이용 불편" v-model="form.reason_leave_out">
-                            <label for="radio03"><span>서비스 이용 불편</span></label>
-                        </div>
-                        <div class="check-box mb16 mb-lg-10">
-                            <input type="radio" name="radio" id="radio04" value="불친절한 고객 서비스" v-model="form.reason_leave_out">
-                            <label for="radio04"><span>불친절한 고객 서비스</span></label>
-                        </div>
-                        <div class="textarea-box">
-                            <div class="box">
-                                <textarea placeholder="기타이유를 입력해주세요." v-model="form.reason_leave_out"></textarea>
-<!--                                <sub class="tr">0/300</sub>-->
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="input-box mt16 mt-lg-10">
-                    <div class="box" @keydown="() => {form.errors.clear()}">
-                        <input type="password" placeholder="비밀번호" v-model="form.password">
-                    </div>
+    <main class="find_account mypage_leave done">
+        <div class="title-wrap">
+                <span class="icon">
+                    <i class="xi-warning"></i>
+                </span>
+            <h2 class="title scd5">
+                회원 탈퇴
+            </h2>
+            <ul class="txt">
+                <li>회원탈퇴시 정보 수집기간 : 3년</li>
+                <li>안내사항 : 탈퇴 후 회원정보 및 이용기록은 모두 삭제되며 다시 복구하실 수 없습니다.</li>
+            </ul>
+        </div>
+        <div class="find-method container row-group">
+            <form action="" @submit.prevent="">
+                <div class="method-box form">
+                    <input type="password" placeholder="비밀번호를 입력해주세요" v-model="form.password"> <!-- 일치하는 정보가 없을 때 wrong 클래스 추가 -->
                     <error :form="form" name="password" />
+                    <label for="leave_agree">
+                        <input type="checkbox" id="leave_agree" v-model="agree">
+                        <span class="check-icon"></span>
+                        위 내용을 동의하고 탈퇴합니다.
+                    </label>
                 </div>
-                <div class="button-box mx-box mt48 mt-lg-24">
-                    <div class="col-6 pr6">
-                        <a href="#" class="btn btn-bd-active btn-md" @click.prevent="() => $router.back()">취소</a>
-                    </div>
-                    <div class="col-6 pl6">
-                        <a href="#" class="btn btn-active btn-md" @click.prevent="remove">탈퇴</a>
-                    </div>
-                </div>
+            </form>
+            <div class="btn-wrap col-group" style="margin-top:20px;">
+                <a href="#" class="prev-btn" @click.prevent="remove">
+                    탈퇴하기
+                </a>
+                <a href="#" class="next-btn" @click.prevent="$router.back()">
+                    취소
+                </a>
             </div>
-        </form>
-    </article>
-
+        </div>
+    </main>
 </template>
 
 <script>

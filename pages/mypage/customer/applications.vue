@@ -24,6 +24,9 @@
                     <div class="table-wrap">
                         <ul class="thead">
                             <li class="th">
+                                썸네일
+                            </li>
+                            <li class="th">
                                 캠페인 정보
                             </li>
                             <li class="th">
@@ -36,6 +39,10 @@
                         <empty v-if="applications.data.length === 0" />
                         <!-- 배송 일 경우 -->
                         <ul class="tbody" v-for="application in applications.data" :key="application.id">
+                            <li class="img-wrap">
+                                <img :src="application.campaign ? application.campaign.img.url : ''" alt="">
+                            </li>
+
                             <li class="campaign-title">
                                 <p class="title">{{ application.campaign.title_company }}</p>
                                 <p class="sub-title">{{ application.campaign.title_product }}</p>
