@@ -212,6 +212,12 @@
                                     <h4>지난 활동 내역</h4>
                                     <p style="white-space: pre-line" v-text="application.user.history"></p>
                                 </div>
+                                <div class="Activity_History-wrap" v-if="campaign.type_sns === 'NAVER'">
+                                    <a :href="application.user.naver" target="_blank" style="display:block; margin-top:20px; text-decoration: underline; font-weight:bold;">네이버 블로그 바로가기</a>
+                                </div>
+                                <div class="Activity_History-wrap" v-else>
+                                    <a :href="application.user.instagram" target="_blank" style="display:block; margin-top:20px; text-decoration: underline; font-weight:bold;">인스타그램 바로가기</a>
+                                </div>
                             </div>
                             <div class="Additional-wrap content-box">
                                 <ul class="Whether-list">

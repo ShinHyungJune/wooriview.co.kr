@@ -60,7 +60,7 @@
                                         <div class="gap"></div>
 
                                         <div class="input-wrap Add_Features">
-                                            <input type="text" placeholder="닉네임" v-model="form.nickname">
+                                            <input type="text" placeholder="닉네임" v-model="form.nickname" disabled class="Deactivation">
 
                                             <error :form="form" name="nickname" />
                                         </div>

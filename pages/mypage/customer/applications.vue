@@ -39,7 +39,7 @@
                         <empty v-if="applications.data.length === 0" />
                         <!-- 배송 일 경우 -->
                         <ul class="tbody" v-for="application in applications.data" :key="application.id">
-                            <li class="img-wrap">
+                            <li class="img-wrap" @click="$router.push(`/campaigns/${application.campaign.id}`)" style="cursor:pointer;">
                                 <img :src="application.campaign ? application.campaign.img.url : ''" alt="">
                             </li>
 

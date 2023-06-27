@@ -59,7 +59,7 @@
                                 <p>브랜드명</p>
                             </div>
                             <div class="user">
-                                {{ item.title_company }}
+                                <input type="text" v-model="form.title_company">
                             </div>
                         </li>
                         <li class="col-group">
@@ -67,7 +67,7 @@
                                 <p>제품명</p>
                             </div>
                             <div class="user">
-                                {{ item.title_product }}
+                                <input type="text" v-model="form.title_product">
                             </div>
                         </li>
                         <li class="col-group">
@@ -75,7 +75,7 @@
                                 <p>{{item.type_campaign === 'REPORTER' ? '대표 URL' : '제공내역'}}</p>
                             </div>
                             <div class="user">
-                                {{ item.description_provide }}
+                                <textarea name="" id="" v-model="form.description_provide"></textarea>
                             </div>
                         </li>
                         <li class="col-group" v-if="item.type_campaign === 'REPORTER'">
@@ -83,7 +83,7 @@
                                 <p>원고료</p>
                             </div>
                             <div class="user">
-                                {{ item.price_write }}
+                                <input type="number" v-model="form.price_write">
                             </div>
                         </li>
                         <li class="col-group">
@@ -91,7 +91,7 @@
                                 <p>모집수</p>
                             </div>
                             <div class="user">
-                                {{ item.max_participant }}
+                                <input type="number" v-model="form.max_participant">
                             </div>
                         </li>
                         <li class="col-group">
@@ -159,7 +159,15 @@
                                 <p>주소</p>
                             </div>
                             <div class="user">
-                                {{ item.address }} {{item.address_detail }}
+                                <input type="text" v-model="form.address">
+                            </div>
+                        </li>
+                        <li class="col-group">
+                            <div class="default">
+                                <p>상세주소</p>
+                            </div>
+                            <div class="user">
+                                <input type="text" v-model="form.address_detail">
                             </div>
                         </li>
                         <li class="col-group">
@@ -167,7 +175,7 @@
                                 <p>소개</p>
                             </div>
                             <div class="user">
-                                {{ item.introduce }}
+                                <textarea name="" id="" v-model="form.introduce"></textarea>
                             </div>
                         </li>
                         <li class="col-group">
@@ -175,7 +183,7 @@
                                 <p>검색키워드</p>
                             </div>
                             <div class="user">
-                                {{ item.search_keyword }}
+                                <textarea name="" id="" v-model="form.search_keyword"></textarea>
                             </div>
                         </li>
                         <li class="col-group">
@@ -183,11 +191,10 @@
                                 <p>미션</p>
                             </div>
                             <div class="user">
+                                <textarea name="" id="" v-model="form.mission" placeholder="기타 요청사항" style="margin-bottom:10px;"></textarea>
+
                                 <p v-for="(mission, index) in item.missions" :key="index">
                                     - {{ mission }}
-                                </p>
-                                <p>
-                                    - {{ item.mission }}
                                 </p>
                             </div>
                         </li>
@@ -241,6 +248,16 @@ export default {
                 select_finished_at: "",
                 review_started_at: "",
                 review_finished_at: "",
+                title_company: "",
+                title_product: "",
+                description_provide: "",
+                price_write: "",
+                max_participant: "",
+                address: "",
+                address_detail: "",
+                introduce: "",
+                search_keyword: "",
+                mission: ""
             })
         }
     },
