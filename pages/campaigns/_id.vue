@@ -187,7 +187,18 @@
                                 </div>
                             </div>
                             <p class="Follow" v-if="application.user && campaign.type_sns === 'INSTAGRAM'">팔로워 <span>{{ application.user.count_follower_instagram.toLocaleString() }} 명</span></p>
-                            <a style="text-decoration: underline; color:#ffc800;" :href="application.user.naver" class="Follow" v-if="application.user && application.user.naver && campaign.type_sns === 'INSTAGRAM'"><span style="color:#ffc800;">블로그 바로가기</span></a>
+
+                            <div v-if="$auth.user && $auth.user.data.id == campaign.user.id">
+                                <a style="display:flex; align-items:center; margin-top:10px; text-decoration: underline;" target="_blank" :href="application.user.naver" class="Follow" v-if="campaign.type_sns === 'NAVER'">
+                                    <img src="/images/Blog-icon.png" alt="" style="width:25px; margin-right:8px;">
+                                    <span>네이버블로그 바로가기</span>
+                                </a>
+                                <a style="display:flex; align-items:center; margin-top:10px; text-decoration: underline;" target="_blank" :href="application.user.instagram" class="Follow" v-if="campaign.type_sns === 'INSTAGRAM'">
+                                    <img src="/images/Instagram-icon.png" alt="" style="width:25px; margin-right:8px;">
+                                    <span>인스타그램 바로가기</span>
+                                </a>
+                            </div>
+
                         </div>
                         <div class="subscriber-ri">
                             <div class="subscriber-ri-top">
@@ -211,12 +222,6 @@
                                 <div class="Activity_History-wrap">
                                     <h4>지난 활동 내역</h4>
                                     <p style="white-space: pre-line" v-text="application.user.history"></p>
-                                </div>
-                                <div class="Activity_History-wrap" v-if="campaign.type_sns === 'NAVER'">
-                                    <a :href="application.user.naver" target="_blank" style="display:block; margin-top:20px; text-decoration: underline; font-weight:bold;">네이버 블로그 바로가기</a>
-                                </div>
-                                <div class="Activity_History-wrap" v-else>
-                                    <a :href="application.user.instagram" target="_blank" style="display:block; margin-top:20px; text-decoration: underline; font-weight:bold;">인스타그램 바로가기</a>
                                 </div>
                             </div>
                             <div class="Additional-wrap content-box">

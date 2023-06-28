@@ -360,6 +360,18 @@ export default {
     },
     methods: {
         update(){
+            if(this.form.instagram && (!this.form.instagram.includes("http://")) && !this.form.instagram.includes("https://"))
+                return this.$store.commit("setPop", {
+                    title: "URL 확인필요",
+                    description: "반드시 인스타 URL에 http://나 https://을 포함하여 작성해주세요."
+                });
+
+            if(this.form.naver && (!this.form.naver.includes("http://")) && !this.form.naver.includes("https://"))
+                return this.$store.commit("setPop", {
+                    title: "URL 확인필요",
+                    description: "반드시 네이버 URL에 http://나 https://을 포함하여 작성해주세요."
+                });
+
             this.form.errors.clear();
 
             this.form.patch("/api/users")

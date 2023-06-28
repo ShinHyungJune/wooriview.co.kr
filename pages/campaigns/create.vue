@@ -290,7 +290,7 @@
                                 <div class="write-bundle">
                                     <div class="m-input-dates type01">
                                         <div class="input-wrap">
-                                            <input type="datetime-local" placeholder="" v-model="form.select_started_at" ref="select_started_at" class="Deactivation" disabled>
+                                            <input type="datetime-local" placeholder="" v-model="form.select_started_at" ref="select_started_at">
 
                                             <error :form="form" name="select_started_at" />
                                         </div>
