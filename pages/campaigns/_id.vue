@@ -70,7 +70,7 @@
                                 </p>
                             </div>
                         </div>
-                        <p class="advertiser-talk" v-text="campaign.introduce"></p>
+                        <p class="advertiser-talk" v-text="campaign.introduce" style="white-space: pre-wrap"></p>
                     </div>
                     <div>
                         <p class="recruiting-influencer-labal">모집 인플루언서</p>
@@ -121,7 +121,7 @@
                         <div class="Information-content">
                             <p v-if="campaign.type_sns === 'INSTAGRAM'">- 포스팅 최상단에 '#광고 #협찬' 문구를 필수적으로 기재해주세요.</p>
                             <p v-for="(mission, index) in campaign.missions" :key="index">- {{mission}}<br/><br/></p>
-                            <p v-if="campaign.mission">- {{campaign.mission}}</p>
+                            <p v-if="campaign.mission" style="white-space: pre-wrap">- {{campaign.mission}}</p>
                         </div>
                     </div>
                     <div class="Information-box" v-if="campaign.address && (campaign.type_campaign === 'REALTIME' || campaign.type_campaign === 'VISIT')">
