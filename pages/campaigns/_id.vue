@@ -99,6 +99,22 @@
                 </section>
             </div>
 
+            <section class="section-content" v-if="campaign.img_detail">
+                <div class="detailinfo showstep1">
+                    <div class="content">
+                        <img :src="campaign.img_detail.url" alt="" style="max-width:100%;">
+                    </div>
+
+                </div>
+                <div class="btn-wrap">
+                    <button class="user-btn btn-style2 btn_open" >
+                        <p class="add-txt" style="z-index:222;">상세페이지 더보기
+                        </p>
+                        <i class="xi-angle-down-min add-btn-icon" ></i>
+                    </button>
+                </div>
+            </section>
+
             <section class="section3">
                 <div class="h3-wrap">
                     <h3>캠페인 정보</h3>
@@ -142,9 +158,7 @@
                             <br/><br/>- 제공내역 수령 및 체험 후에 리뷰 미작성 등 리뷰어의 의무를 이행하지 않을시 우리뷰 자체 패널티 적용과 내용증명 발송 및 지급명령 등의 법적인 조치를 취할 수 있습니다.
                         </p>
                     </div>
-                    <div class="Information-box" v-if="campaign.img_detail">
-                        <img :src="campaign.img_detail.url" alt="" style="display:block; max-width:100%; width:auto; margin:0 auto;">
-                    </div>
+
                 </div>
 
             </section>
@@ -295,6 +309,7 @@ export default {
     },
     methods: {
         getCampaign(){
+            let self = this;
             this.$axios.get("/api/campaigns/" + this.$route.params.id, {
 
             }).then(response => {
@@ -306,9 +321,9 @@ export default {
                     $(".sm-img-list li img").click(function () {
                         $(".big-img-wrap img").attr("src" , $(this).attr("src"))
                     })
-                }, 10);
 
-                console.log(this.$auth.user.data.id, this.campaign.user.id )
+                    self.setDetailMore();
+                }, 10);
             })
         },
         getApplications(loadMore = false){
@@ -368,6 +383,55 @@ export default {
                         return applicationData;
                     })
                 });
+        },
+
+        setDetailMore(){
+            let contentImgHeight = $('.detailinfo > .content img').height();
+
+            if (contentImgHeight < 1312) {  // 이미지가 작을 경우
+                $('.section-content .content').css('height', 'unset');
+                $('.btn_open').css('display', 'none');
+            }
+
+            let originalHeight = '1312px'; // 지정된 높이값
+            let currentHeight; // 현재 높이값 저장
+
+            $('.btn_open').on('click', function(e) {
+                let classList = document.querySelector('.detailinfo').classList;
+                let contentOriginHeight = document.querySelector('.detailinfo > .content');
+
+                $('.add-btn-icon').addClass('turn');
+
+                if (window.innerWidth > 768) {
+                    if (classList.contains('showstep1')) {
+                        if (!currentHeight) {
+                            currentHeight = $(contentOriginHeight).css('height'); // 현재 높이값 저장
+                            $(contentOriginHeight).css('height', '100%'); // 이미지가 전체 보이게 함
+                        } else {
+                            $(contentOriginHeight).css('height',  originalHeight); // 원래 높이값으로 돌아감
+                            currentHeight = null; // 현재 높이값 초기화
+
+                            $('.add-txt').text('상품정보 더보기');
+                            $('.add-btn-icon').removeClass('turn');
+                        }
+
+                    }
+                } else if (window.innerWidth < 768) {
+                    let originalHeight = '800px';
+                    if (classList.contains('showstep1')) {
+                        if (!currentHeight) {
+                            currentHeight = $(contentOriginHeight).css('height'); // 현재 높이값 저장
+                            $(contentOriginHeight).css('height', '100%'); // 이미지가 전체 보이게 함
+                        } else {
+                            $(contentOriginHeight).css('height',  originalHeight); // 원래 높이값으로 돌아감
+                            currentHeight = null; // 현재 높이값 초기화
+
+                            $('.add-txt').text('상품정보 더보기');
+                            $('.add-btn-icon').removeClass('turn');
+                        }
+                    }
+                }
+            });
         }
     },
 
@@ -378,6 +442,7 @@ export default {
     mounted() {
         this.getCampaign();
         this.getApplications();
+
     }
 }
 </script>
