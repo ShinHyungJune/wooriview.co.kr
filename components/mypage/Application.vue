@@ -36,6 +36,13 @@
                     </p>
                 </div>
 
+                <div class="content">
+                    <h3 class="title">연락처</h3>
+                    <p class="body">
+                        {{application.user.contact }}
+                    </p>
+                </div>
+
                 <div class="content" v-if="application.selected && application.campaign.type_campaign === 'DELIVERY'">
                     <h3 class="title">운송장번호</h3>
 
