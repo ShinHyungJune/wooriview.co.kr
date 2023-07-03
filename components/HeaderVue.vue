@@ -123,12 +123,12 @@
                                             <div class="Notification-img">
                                                 <img src="/images/crown.png" alt="">
                                             </div>
-                                            <div class="Notification-data" @click.prevent="() => {$router.push(alarm.info.url)}">
+                                            <a :href="alarm.info.url" class="Notification-data">
                                                 <p class="Notification-title">우리:뷰</p>
                                                 <p class="Notification-content">
                                                     {{alarm.info.message}}
                                                 </p>
-                                            </div>
+                                            </a>
                                             <div class="data-wrap">
                                                 <span class="date">{{ alarm.format_created_at }}</span>
                                                 <button class="Notification-delete" @click="removeAlarm(alarm)">삭제</button>
