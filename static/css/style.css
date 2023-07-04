@@ -1469,7 +1469,7 @@
 .inquiry-request .section1 .top-wrap .title { font-size: 20px; font-weight: 600; color: #303030; margin-bottom: 16px;}
 .inquiry-request .section1 .category-wrap { width: 39.6%;}
 /* 문의 분류 카테고리 */
-.inquiry-request .section1 .category-wrap .select {position: relative; padding: 20px 24px; border-radius: 16px;  border: solid 1px #e4e4e4; background-color: #fff; z-index: 999;}
+.inquiry-request .section1 .category-wrap .select {position: relative; padding: 20px 24px; border-radius: 16px;  border: solid 1px #e4e4e4; background-color: #fff; /* z-index: 999; */}
 .inquiry-request .section1 .category-wrap .select .selected { position: relative; display: flex;  justify-content: space-between; align-items: center; cursor: pointer;}
 .inquiry-request .section1 .category-wrap .select .selected i { font-size: 20px; color: #303030;}
 .inquiry-request .section1 .category-wrap .select .selected .selected-value { font-size: 18px;  color: #303030; word-break: keep-all;}
