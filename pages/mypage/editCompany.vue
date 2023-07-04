@@ -26,6 +26,7 @@
                                 <div class="write-box">
                                     <p class="write-labal">회원정보</p>
                                     <div class="write-bundle">
+                                        <input-avatar @change="data => form.img = data" :default="$auth.user.data.img"/>
 
                                         <div class="input-wrap Add_Features">
                                             <input type="text" placeholder="이메일 아이디" v-model="form.email">
@@ -178,6 +179,7 @@ export default {
             activePassword: false,
             activeContact: false,
             form: new Form(this.$axios, {
+                img: "",
                 contact: "",
                 password: "",
                 password_new: "",

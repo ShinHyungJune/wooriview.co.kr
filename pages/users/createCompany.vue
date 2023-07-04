@@ -14,6 +14,7 @@
                         <div class="write-box">
                             <p class="write-labal">회원정보</p>
                             <div class="write-bundle">
+                                <input-avatar @change="data => form.img = data" />
 
                                 <div class="input-wrap Add_Features">
                                     <input type="text" placeholder="이메일 아이디" v-model="form.email">
@@ -193,6 +194,7 @@ export default {
             activeServicePolicy: false,
             socialUser: null,
             form : new Form(this.$axios, {
+                img: "",
                 social_id: "", // 소셜토큰
                 social_platform: "", // 소셜플랫폼
 

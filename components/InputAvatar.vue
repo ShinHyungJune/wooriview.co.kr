@@ -3,6 +3,7 @@
         <div class="user-image" :style="`background-image:url(${url});`">
 
         </div>
+
         <label :for="id">
             <input type="file" name="file" :id="id" @change="changeFile" accept="image/*">
             <span>사진변경</span>
@@ -142,6 +143,10 @@ export default {
 
             return "";
         }
+    },
+
+    mounted() {
+        console.log("123" + this.default);
     }
 }
 </script>
