@@ -47,7 +47,7 @@
                             {{item.id}}
                         </td>
                         <td>
-                            {{item.user.nickname}}
+                            {{item.user.nickname || item.user.company_name}}
                         </td>
                         <td>
                             {{item.user.contact}}
