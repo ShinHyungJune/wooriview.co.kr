@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="grey-box answer" v-if="item.answer">
-                    <p class="answer-content" v-text="item.answer"></p>
+                    <p class="answer-content" v-text="item.answer" style="white-space: pre-wrap"></p>
                     <p class="answer-date">{{ item.format_updated_at }}</p>
                 </div>
 
