@@ -111,7 +111,7 @@
                     <div class="table-wrap tab-content Active"  id="tab-3"  v-if="state === 'finish'">
                         <ul class="thead">
                             <li class="th">
-                                인플루언서 선정 기간
+                                컨텐츠 등록 기간
                             </li>
                             <li class="th">
                                 캠페인 정보
@@ -129,8 +129,8 @@
                         <!-- 리스트 그룹 -->
                         <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
                             <li class="period">
-                                <span class="unit mb">인플루언서 선정 기간</span>
-                                {{ campaign.format_select_started_at }} <br class="br-pc"/> ~ {{campaign.format_select_finished_at}}
+                                <span class="unit mb">컨텐츠 등록 기간</span>
+                                {{ campaign.format_review_started_at }} <br class="br-pc"/> ~ {{campaign.format_review_finished_at}}
                             </li>
 
                             <!-- 캠페인 정보 -->
