@@ -2,7 +2,7 @@
 
     <div class="m-input-region">
         <select name="city" id="" v-model="cityData" @change="changeCity">
-            <option value="" disabled>시/도 선택해 주세요</option>
+            <option value="" disabled>시/도</option>
             <option value="">전체</option>
             <option value="서울">서울특별시</option>
             <option value="인천">인천광역시</option>
@@ -23,7 +23,7 @@
         </select>
 
         <select name="city" id="" v-model="areaData" @change="change">
-            <option value="" disabled>구/군을 선택해 주세요</option>
+            <option value="" disabled>구/군</option>
             <option :value="areaItem" v-for="(areaItem, index) in areaItems" :key="index">{{areaItem}}</option>
         </select>
     </div>

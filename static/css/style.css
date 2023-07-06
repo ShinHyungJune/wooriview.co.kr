@@ -3120,6 +3120,12 @@
     .map-select-wrap { top:12px; left: 30px;}
     .map-select-wrap p { font-size: 12px; margin-left: 20px;}
     .map-select-wrap select {font-size: 14px; width: 220px; height: 36px;  padding: 0 20px 0 90px; background: url('../images/icons8-expand-arrow-24.png') no-repeat 60%; background-size: 18px;  background-color: #fff;}
+    .map-select-wrap .m-input-region {
+        display: flex;
+    }
+    .map-select-wrap .m-input-region select {
+        width:auto; padding-right:63px;
+    }
 }
 
 /* 지도 마커 툴팁 */
