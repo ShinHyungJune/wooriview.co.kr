@@ -265,7 +265,7 @@ export default {
         initCampaignSwiper(className){
             new Swiper(className + " .swiper-container", {
                 slidesPerView: 6.5,
-                loop: true,
+                loop: false,
                 spaceBetween: 10,
                 autoplay: {
                     delay: 3000,
