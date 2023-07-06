@@ -276,6 +276,9 @@ body{ -ms-overflow-style: none; }
 .header .Search-close.Active { display: block; }
 .header .map-Search { display: none; }
 @media screen and (max-width: 768px) {
+    .header {
+        z-index:100000000;
+    }
     .header .Search-box { top: 50px; width: 100%; }
     .header .Search-box.Active { height: calc(100vh - 50px - 70px); }
     .header .Search-box .Search-wrap { padding: 24px; }
