@@ -99,6 +99,7 @@ export default {
                 page:1,
                 campaign_id: this.$route.query.campaign_id,
                 type_campaign: "",
+                selected: ""
             }),
         }
     },
@@ -146,6 +147,9 @@ export default {
     },
 
     mounted() {
+        if(this.$route.query.selected)
+            this.form.selected = this.$route.query.selected;
+
         this.getApplications();
 
         this.getCampaign();
