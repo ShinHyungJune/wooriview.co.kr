@@ -298,8 +298,12 @@ export default {
                     campaign_id: this.$route.query.campaign_id
                 }
             }).then(response => {
+
                 this.reports = response.data.data.reports;
                 this.metrics = response.data.data.metrics;
+
+                console.log(this.reports);
+                console.log(this.metrics);
 
                 this.drawChart();
             })
@@ -313,14 +317,30 @@ export default {
                 google.charts.setOnLoadCallback(drawChart);
 
                 function drawChart() {
-                    var data = google.visualization.arrayToDataTable([
-                        ['Year', '좋아요', '댓글'],
-                        ...self.reports.map(report => {
-                            return [
-                                report.date, parseInt(report.total_like), parseInt(report.total_comment)
-                            ];
-                        })]
-                    );
+                    if(self.campaign.type_sns === 'INSTAGRAM'){
+                        var data = google.visualization.arrayToDataTable([
+                            ['Year', '좋아요', '댓글'],
+                            ...self.reports.map(report => {
+                                return [
+                                    report.date,
+                                    parseInt(report.total_like),
+                                    parseInt(report.total_comment)
+                                ];
+                            })]
+                        );
+                    }
+
+                    if(self.campaign.type_sns === 'NAVER'){
+                        var data = google.visualization.arrayToDataTable([
+                            ['Year', '조회수'],
+                            ...self.reports.map(report => {
+                                return [
+                                    report.date,
+                                    parseInt(report.total_view),
+                                ];
+                            })]
+                        );
+                    }
 
                     var options = {
                         curveType: 'function',
