@@ -302,7 +302,9 @@ body{ -ms-overflow-style: none; }
 .header .Notification-box .Notification-list-wrap li .Notification-img img { width: 100%; height: 100%; }
 .header .Notification-box .Notification-list-wrap li .Notification-data { width: calc(100% - 56px - 40px); padding: 0 16px 0 24px; position: relative; }
 .header .Notification-box .Notification-list-wrap li .Notification-data .Notification-title { font-size: 20px; font-weight: bold; letter-spacing: -0.5px; color: #585858; margin-bottom: 9px; }
-.header .Notification-box .Notification-list-wrap li .Notification-data .Notification-content { line-height: 1.5; letter-spacing: -0.4px; color: #585858; }
+.header .Notification-box .Notification-list-wrap li .Notification-data .Notification-content {
+    line-height: 1.5; letter-spacing: -0.4px; color: #585858;
+}
 .header .Notification-box .Notification-list-wrap li .data-wrap { display: flex; flex-direction: column; justify-content: space-between; width: 40px; }
 .header .Notification-box .Notification-list-wrap li .data-wrap .date { font-size: 14px; font-weight: 300; line-height: 1.43; letter-spacing: -0.35px; color: #c1c1c1; }
 .header .Notification-box .Notification-list-wrap li .data-wrap .Notification-delete { font-size: 16px; font-weight: 500; line-height: 1.25; letter-spacing: -0.4px; color: #c1c1c1; text-decoration: underline; }
@@ -322,7 +324,10 @@ body{ -ms-overflow-style: none; }
     .header .Notification-box .Notification-list-wrap li .Notification-img { width: 48px; height: 48px; }
     .header .Notification-box .Notification-list-wrap li .Notification-data { width: calc(100% - 48px - 35px); }
     .header .Notification-box .Notification-list-wrap li .Notification-data .Notification-title { font-size: 16px; line-height: 1.38; margin-bottom: 12px; }
-    .header .Notification-box .Notification-list-wrap li .Notification-data .Notification-content { font-size: 14px; font-weight: 600; line-height: 1.43; letter-spacing: -0.35px; }
+    .header .Notification-box .Notification-list-wrap li .Notification-data .Notification-content {
+        font-size: 14px; font-weight: 600; line-height: 1.43; letter-spacing: -0.35px;
+        white-space: nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
     .header .Notification-box .Notification-list-wrap li .data-wrap { width: 35px; }
     .header .Notification-box .Notification-list-wrap li .data-wrap .date { font-size: 12px; }
     .header .Notification-box .Notification-list-wrap li .data-wrap .Notification-delete { font-size: 12px; }
