@@ -163,7 +163,7 @@
             </div>
             <div class="swiper mySwiper2">
                 <div class="swiper-wrapper">
-                    <a :href="application.url_review" target="_blank" class="swiper-slide" v-for="application in applications.data" :key="application.id">
+                    <a :href="application.url_review" :target="webview ? 'self' : '_blank'" class="swiper-slide" v-for="application in applications.data" :key="application.id">
                         <div class="img-wrap">
                             <img :src="application.campaign.img.url" alt="" v-if="application.campaign.img">
                             <div class="sns_wrap">
@@ -199,6 +199,8 @@ export default {
 
     data(){
         return {
+            webview: false,
+
             form: new Form(this.$axios, {
 
             }),
@@ -387,7 +389,7 @@ export default {
         this.getRealtimeCampaigns();
         this.getApplications();
 
-
+        this.webview = /WEBVIEW/.test(navigator.userAgent);
     }
 
 }

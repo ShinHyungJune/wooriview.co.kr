@@ -18,7 +18,7 @@
                         </div>
 
                         <div class="map-select-wrap">
-                            <input-region @change="(data) => {form.address=data.city + ' ' + data.area; getAllCampaigns()}" />
+                            <input-region @change="changeAddress" />
                         </div>
 
                         <div class="marker-tips">
@@ -229,6 +229,9 @@ export default {
             x: "127.047059839521",
             y: "37.5179681611717",
 
+            defaultX: "127.047059839521",
+            defaultY: "37.5179681611717",
+
             form : new Form(this.$axios, {
                 address: "",
                 word: this.$route.query.word ? this.$route.query.word : "",
@@ -247,7 +250,7 @@ export default {
     },
     methods: {
         center(){
-            this.map.setCenter(new kakao.maps.LatLng(this.y, this.x));
+            this.map.setCenter(new kakao.maps.LatLng(this.defaultY, this.defaultX));
         },
 
         getCampaigns(loadMore = false){
@@ -267,6 +270,30 @@ export default {
             })
         },
 
+        searchAddress(address){
+            let self = this;
+            let geocoder = new kakao.maps.services.Geocoder();
+
+            geocoder.addressSearch(
+                    address,
+                    function (result, status) {
+                        // 정상적으로 검색이 완료됐으면
+                        if (status === kakao.maps.services.Status.OK) {
+                            self.y = result[0].y;
+                            self.x = result[0].x;
+                        }
+                    }
+                );
+        },
+
+        changeAddress(data){
+            this.form.address = data.city + " " + data.area;
+
+            this.getAllCampaigns(false);
+
+            this.searchAddress(this.form.address);
+        },  
+
         getCategories(){
             this.$axios.get("/api/categories")
                 .then(response => {
@@ -276,7 +303,7 @@ export default {
                 });
         },
 
-        getAllCampaigns(loadMore = false){
+        getAllCampaigns(defaultCenter = true){
             let self = this;
 
             this.$axios.get("/api/campaigns", {
@@ -291,7 +318,7 @@ export default {
 
                 if(this.showMap)
                     setTimeout(function(){
-                        kakao.maps.load(self.initMap);
+                        kakao.maps.load(() => {self.initMap(defaultCenter)});
                     }, 300);
             })
         },
@@ -322,7 +349,7 @@ export default {
             let self = this;
 
             if(this.activeMyPosition){
-                var coords = new kakao.maps.LatLng(this.y, this.x);
+                var coords = new kakao.maps.LatLng(this.defaultY, this.defaultX);
 
                 // 결과값으로 받은 위치를 마커로 표시합니다
                 var marker = new kakao.maps.Marker({
@@ -383,7 +410,8 @@ export default {
                             // infowindow.open(map, marker);
 
                             // 내 위치를 기준으로 계속 고정시키기
-                            map.setCenter(new kakao.maps.LatLng(self.y, self.x));
+                            if(defaultCenter)
+                                map.setCenter(new kakao.maps.LatLng(self.y, self.x));
                         }
                     }
                 );
@@ -404,7 +432,9 @@ export default {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     this.y = position.coords.latitude;
+                    this.defaultY = position.coords.latitude;
                     this.x = position.coords.longitude;
+                    this.defaultX = position.coords.longitude;
                     this.activeMyPosition = true;
                 },
                 (error) => {
