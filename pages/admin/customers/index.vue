@@ -38,7 +38,8 @@
                         <th>닉네임</th>
                         <th>성별</th>
                         <th>패널티</th>
-<!--                        <th>등급</th>-->
+                        <th>등급</th>
+                        <th>마케팅 수신여부</th>
                         <th>가입날짜</th>
                         <th>정지일자</th>
                     </tr>
@@ -66,9 +67,12 @@
                         <td>
                             {{item.penalty ? item.penalty['title'] : ''}}
                         </td>
-<!--                        <td>
+                        <td>
                             {{item.grade ? item.grade : "-"}}
-                        </td>-->
+                        </td>
+                        <td>
+                            {{item.agree_marketing == 1 ? '동의' : '거부'}}
+                        </td>
                         <td>
                             {{item.created_at}}
                         </td>
