@@ -67,7 +67,7 @@
                                         </div>
 
                                         <div class="input-wrap Add_Features">
-                                            <input type="text" placeholder="생년월일" v-model="form.birth">
+                                            <input type="date" placeholder="생년월일" v-model="form.birth">
 
                                             <error :form="form" name="birth" />
                                         </div>
