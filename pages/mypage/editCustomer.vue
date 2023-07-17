@@ -65,6 +65,12 @@
 
                                             <error :form="form" name="nickname" />
                                         </div>
+
+                                        <div class="input-wrap Add_Features">
+                                            <input type="text" placeholder="생년월일" v-model="form.birth">
+
+                                            <error :form="form" name="birth" />
+                                        </div>
                                     </div>
                                 </div>
 
@@ -357,6 +363,7 @@ export default {
                 animal: this.$auth.user.data.animal,
                 intro: this.$auth.user.data.intro,
                 history: this.$auth.user.data.history,
+                birth: this.$auth.user.data.birth,
             })
         }
     },
