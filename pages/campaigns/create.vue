@@ -119,6 +119,7 @@
                                     <i class="xi-angle-down"></i>
                                     <select name="ttt" id="ttt" v-model="form.price_write" required>
                                         <option value="" style="color:gray" disabled selected>원고료 선택</option>
+                                        <option value="5000">5,000원</option>
                                         <option value="10000">10,000원</option>
                                         <option value="15000">15,000원</option>
                                         <option value="20000">20,000원</option>
