@@ -322,7 +322,7 @@ export default {
                             ['Year', '좋아요', '댓글'],
                             ...self.reports.map(report => {
                                 return [
-                                    report.date,
+                                    report.date.substring(5),
                                     parseInt(report.total_like),
                                     parseInt(report.total_comment)
                                 ];
@@ -335,7 +335,7 @@ export default {
                             ['Year', '조회수'],
                             ...self.reports.map(report => {
                                 return [
-                                    report.date,
+                                    report.date.substring(5),
                                     parseInt(report.total_view),
                                 ];
                             })]
