@@ -15,7 +15,7 @@ export default {
             {charset: 'utf-8'},
             {name: 'viewport', content: 'width=device-width, initial-scale=1'},
             {name: 'format-detection', content: 'telephone=no'},
-
+            {name: 'facebook-domain-verification', content: 'j4q6hdk32e97pia9tkltmaa9lsgvgs'},
             {name: 'naver-site-verification', content: '1d06441f5e532aab27a8e6e67c6ba4af0ef88ab2'},
             {name: 'google-site-verification', content: 'Fecaj1jpMSkf8_JXonbE3KeUnDLPJP3ZIngmnScSb5w'},
             {property: 'og:site_name', content: '우리뷰 | 우리가 만드는 모든 리뷰 우리뷰'},

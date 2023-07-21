@@ -182,7 +182,8 @@
                     <li v-for="application in applications.data" :key="application.id">
                         <div class="subscriber-le">
                             <div class="subscriber-name-wrap">
-                                <div class="subscriber-img">
+                                <div class="subscriber-img" :style="`background-image:url(${application.user.img ? application.user.img.url : ''})`">
+
                                     <!-- <img src="/images/Blog-icon.svg" alt=""> -->
                                 </div>
                                 <div class="subscriber-name">
@@ -323,7 +324,7 @@ export default {
                     })
 
                     self.setDetailMore();
-                }, 10);
+                }, 100);
             })
         },
         getApplications(loadMore = false){
