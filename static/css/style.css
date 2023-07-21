@@ -531,7 +531,11 @@
 .campaign_Details .section4 .subscriber-list > li { padding: 24px 0 32px; border-top: 1px solid #e4e4e4; display: flex; }
 .campaign_Details .section4 .subscriber-list .subscriber-le { width: 236px; }
 .campaign_Details .section4 .subscriber-list .subscriber-le .subscriber-name-wrap { width: 100%; display: flex; gap: 12px; align-items: center; margin-bottom: 16px; position: relative; }
-.campaign_Details .section4 .subscriber-list .subscriber-le .subscriber-img { width: 60px; height: 60px; background-image: url(../images/Profile.svg); overflow: hidden; border-radius: 100%; }
+.campaign_Details .section4 .subscriber-list .subscriber-le .subscriber-img {
+    width: 60px; height: 60px;
+    background-image: url(../images/Profile.svg); overflow: hidden; border-radius: 100%;
+    background-size:cover; background-position:center center; background-repeat: no-repeat;
+}
 .campaign_Details .section4 .subscriber-list .subscriber-le .subscriber-name .name { font-size: 20px; font-weight: 600; color: #202020; margin-bottom: 8px; }
 .campaign_Details .section4 .subscriber-list .subscriber-le .subscriber-name .Address { font-size: 14px; font-weight: 500; color: #202020; }
 .campaign_Details .section4 .subscriber-list .subscriber-le .Recommended_mark { width: 24px; position: absolute; left: 0; top: 0; }
@@ -852,7 +856,7 @@
 .influencer-table_1 .table-wrap > ul > li:nth-child(5) { justify-content: center;}
 
 /* 인플루언서 표  탭 4 - 체험중인 캠페인 */
-.influencer-table_1 .table-wrap#tab-4 > ul > li:nth-child(1) { min-width: unset; } 
+.influencer-table_1 .table-wrap#tab-4 > ul > li:nth-child(1) { min-width: unset; }
 .influencer-table_1 .table-wrap#tab-4 > ul > li:nth-child(4) { position: unset;  width: calc(100% - 128px);  display: flex; justify-content: start;  margin-left: 8px; }
 .influencer-table_1 .table-wrap#tab-4 > ul > li:nth-child(5) { min-width: 94px;}
 .influencer-table_1 .table-wrap#tab-4 > ul > li:nth-child(6) { min-width: 94px;}
