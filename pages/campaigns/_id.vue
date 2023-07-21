@@ -182,7 +182,7 @@
                     <li v-for="application in applications.data" :key="application.id">
                         <div class="subscriber-le">
                             <div class="subscriber-name-wrap">
-                                <div class="subscriber-img" :style="`background-image:url(${application.user.img ? application.user.img.url : ''})`">
+                                <div class="subscriber-img" :style="`background-image:url(${application.user.img ? application.user.img.url : '/images/Profile.svg'})`">
 
                                     <!-- <img src="/images/Blog-icon.svg" alt=""> -->
                                 </div>
