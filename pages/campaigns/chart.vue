@@ -293,19 +293,18 @@ export default {
         },
 
         getChart(){
+            let self = this;
             this.$axios.get("/api/campaigns/chart", {
                 params: {
                     campaign_id: this.$route.query.campaign_id
                 }
             }).then(response => {
-
                 this.reports = response.data.data.reports;
                 this.metrics = response.data.data.metrics;
 
-                console.log(this.reports);
-                console.log(this.metrics);
-
-                this.drawChart();
+                setTimeout(function(){
+                    self.drawChart();
+                }, 300);
             })
         },
 
