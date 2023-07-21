@@ -7,7 +7,7 @@ export default {
     },
     ssr: true,
     head: {
-        title: '우리뷰',
+        title: '우리뷰-구독형 체험단 마케팅 플랫폼',
         htmlAttrs: {
             lang: 'ko'
         },
@@ -19,10 +19,10 @@ export default {
             {name: 'naver-site-verification', content: '1d06441f5e532aab27a8e6e67c6ba4af0ef88ab2'},
             {name: 'google-site-verification', content: 'Fecaj1jpMSkf8_JXonbE3KeUnDLPJP3ZIngmnScSb5w'},
             {property: 'og:site_name', content: '우리뷰 | 우리가 만드는 모든 리뷰 우리뷰'},
-            {name: 'description', content: "지금까지 이런 체험단은 없었다! 대한민국 NO.1 체험단 마케팅 '우리뷰', 캠페인 등록부터 마감까지 직접! 인원과 횟수 제한 없이 전략적인 체험단 마케팅을 기획해보세요!"},
-            {property: 'og:description', content: "지금까지 이런 체험단은 없었다! 대한민국 NO.1 체험단 마케팅 '우리뷰', 캠페인 등록부터 마감까지 직접! 인원과 횟수 제한 없이 전략적인 체험단 마케팅을 기획해보세요!"},
+            {name: 'description', content: "우리뷰, 구독형 체험단, 인플루언서 마케팅, SNS마케팅, 체험단, 블로그 체험단, 인스타그램 체험단, 블로그 마케팅, 인스타그램 마케팅, SNS 체험단"},
+            {property: 'og:description', content: "우리뷰, 구독형 체험단, 인플루언서 마케팅, SNS마케팅, 체험단, 블로그 체험단, 인스타그램 체험단, 블로그 마케팅, 인스타그램 마케팅, SNS 체험단"},
             {property: 'og:type', content: 'wooriview'},
-            {property: 'og:title', content: '우리뷰'},
+            {property: 'og:title', content: '우리뷰-구독형 체험단 마케팅 플랫폼'},
             {property: 'og:image', content: 'https://wooriview.co.kr/images/wooriview-m.png'},
             {property: 'og:url', content: 'https://wooriview.co.kr'},
             {name: 'keywords', content: 'wooriview, 우리뷰, 리뷰, 캠페인'},
