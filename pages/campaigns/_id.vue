@@ -204,11 +204,11 @@
                             <p class="Follow" v-if="application.user && campaign.type_sns === 'INSTAGRAM'">팔로워 <span>{{ application.user.count_follower_instagram.toLocaleString() }} 명</span></p>
 
                             <div v-if="$auth.user && $auth.user.data.id == campaign.user.id">
-                                <a style="display:flex; align-items:center; margin-top:10px; text-decoration: underline;" target="_blank" :href="application.user.naver" class="Follow" v-if="campaign.type_sns === 'NAVER'">
+                                <a style="display:flex; align-items:center; margin-top:10px; text-decoration: underline;" :href="application.user.naver" class="Follow" v-if="campaign.type_sns === 'NAVER'">
                                     <img src="/images/Blog-icon.png" alt="" style="width:25px; margin-right:8px;">
                                     <span>네이버블로그 바로가기</span>
                                 </a>
-                                <a style="display:flex; align-items:center; margin-top:10px; text-decoration: underline;" target="_blank" :href="application.user.instagram" class="Follow" v-if="campaign.type_sns === 'INSTAGRAM'">
+                                <a style="display:flex; align-items:center; margin-top:10px; text-decoration: underline;" :href="application.user.instagram" class="Follow" v-if="campaign.type_sns === 'INSTAGRAM'">
                                     <img src="/images/Instagram-icon.png" alt="" style="width:25px; margin-right:8px;">
                                     <span>인스타그램 바로가기</span>
                                 </a>
