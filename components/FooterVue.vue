@@ -32,11 +32,13 @@
             <i class="xi-arrow-up"></i>
         </button>
 
+        <!--
         <div class="m-quicks type01">
             <a href="/campaigns/create" class="m-quick" v-if="$auth.user && $auth.user.data.can_create_campaign">
                 <i class="xi-pen"></i>
             </a>
         </div>
+        -->
     </div>
 </template>
 <script>
