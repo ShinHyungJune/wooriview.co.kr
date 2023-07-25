@@ -59,6 +59,7 @@ export default {
                     defer: true
                 }
             ],
+            __dangerouslyDisableSanitizers: ['script']
         }
     },
 
