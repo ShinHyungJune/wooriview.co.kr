@@ -8,7 +8,7 @@
                     <div class="swiper-slide" v-for="banner in banners.data" :key="banner.id">
                         <img :src="banner.pc.url" class="pc" alt="" v-if="banner.pc">
                         <img :src="banner.mobile.url" class="mb" alt="" v-if="banner.mobile">
-                        <nuxt-link :to="banner.url"></nuxt-link>
+                        <a :href="banner.url"></a>
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
