@@ -251,6 +251,7 @@ export default {
                         slidesPerView: "auto",
                         centeredSlides: true,
                         loop: true,
+                        disableOnInteraction: false,
                         pagination: {
                             el: ".swiper-pagination",
                             clickable: true,
@@ -272,6 +273,7 @@ export default {
                 autoplay: {
                     delay: 3000,
                 },
+                disableOnInteraction: false,
                 breakpoints: {
                     768: {
                         slidesPerView: 2.5,
@@ -370,6 +372,7 @@ export default {
                             nextEl: ".swiper-button-next",
                             prevEl: ".swiper-button-prev",
                         },
+                        disableOnInteraction: false,
                         breakpoints: {
                             768: {
                                 spaceBetween: 16,
