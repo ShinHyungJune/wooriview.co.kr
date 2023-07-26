@@ -28,7 +28,6 @@ export default {
             {name: 'keywords', content: 'wooriview, 우리뷰, 리뷰, 캠페인'},
         ],
         script: [
-            {src: "//unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"},
             {src: "//code.jquery.com/jquery-1.12.4.min.js"},
             {src: "//cdn.iamport.kr/js/iamport.payment-1.1.5.js"},
             {src: "//cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"},
@@ -37,6 +36,7 @@ export default {
             {src: "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=b93c6e67af109eb2377106556643ab7d&libraries=services"},
             {src: "//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"},
             {src: "/js/swiper.min.js"},
+            {src: "//unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"},
             {src: "//www.gstatic.com/charts/loader.js"},
             // {src: "/js/common.js"},
         ],
