@@ -28,6 +28,7 @@ export default {
             {name: 'keywords', content: 'wooriview, 우리뷰, 리뷰, 캠페인'},
         ],
         script: [
+            {src: "//unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"},
             {src: "//code.jquery.com/jquery-1.12.4.min.js"},
             {src: "//cdn.iamport.kr/js/iamport.payment-1.1.5.js"},
             {src: "//cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"},

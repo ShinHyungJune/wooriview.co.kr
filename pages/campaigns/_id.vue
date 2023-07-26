@@ -317,13 +317,15 @@ export default {
                 this.campaign = response.data.data;
 
                 setTimeout(function(){
-                    $(".big-img-wrap img").attr("src" , $(".sm-img-list li:first-child img").attr("src"))
+                    $(".container2").imagesLoaded(function(){
+                        $(".big-img-wrap img").attr("src" , $(".sm-img-list li:first-child img").attr("src"))
 
-                    $(".sm-img-list li img").click(function () {
-                        $(".big-img-wrap img").attr("src" , $(this).attr("src"))
-                    })
+                        $(".sm-img-list li img").click(function () {
+                            $(".big-img-wrap img").attr("src" , $(this).attr("src"))
+                        })
 
-                    self.setDetailMore();
+                        self.setDetailMore();
+                    });
                 }, 100);
             })
         },
