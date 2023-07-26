@@ -274,7 +274,6 @@ export default {
                     delay: 3000,
                     disableOnInteraction: false,
                 },
-                disableOnInteraction: false,
                 breakpoints: {
                     768: {
                         slidesPerView: 2.5,
