@@ -2,7 +2,7 @@
     <div class="footer">
         <div class="container">
             <div class="ft-le">
-                <nuxt-link to="/" class="ft-logo"><img src="/images/ft-logo.svg" alt=""></nuxt-link>
+                <nuxt-link to="/" class="ft-logo"><img src="/images/logo_footer.png" alt=""></nuxt-link>
                 <div class="ft-ri">
                     <p class="customer">고객센터</p>
                     <p class="Number">1644-2515</p>
