@@ -3401,11 +3401,12 @@
 .user-update-box label span:before {display:inline-block; content:""; width:24px; height:24px; background:url('../images/icon_photo.png') no-repeat center / cover; margin-right:5px; opacity:0.6;}
 
 .m-comment.type01 {
-    font-size:14px; color:#999;
+    font-size:16px; color:#555;
     word-break: keep-all;
+    line-height:24px;
 }
 .m-comment.type01 span {
-    font-size:14px; font-weight:bold; color:#000;
+    font-size:16px; font-weight:bold; color:#000;
 }
 
 @media screen and (max-width:768px) {
