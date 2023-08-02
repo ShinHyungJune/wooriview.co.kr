@@ -145,6 +145,10 @@
 
                                 <input-address @change="(data) => form[data.name] = data.value" :form="form" />
 
+                                <p class="m-comment type01" style="margin-top:12px;">
+                                    본 주소는 <span class="point">배송형 캠페인 선정 시</span> 광고주가 <span class="point">배송 진행</span>에 이용함으로 <span class="point">오기입</span>으로
+                                    <br/>인한 <span>오발송, 누락</span> 등 문제 발생에 따른 책임은 <span>우리뷰와는 무관함을 알려드립니다.</span>
+                                </p>
                                 <div class="gap"></div>
 
 

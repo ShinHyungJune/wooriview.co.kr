@@ -164,8 +164,9 @@
             <div class="swiper mySwiper2">
                 <div class="swiper-wrapper">
                     <a :href="application.url_review" :target="webview ? '_self' : '_blank'" class="swiper-slide" v-for="application in applications.data" :key="application.id">
-                        <div class="img-wrap">
-                            <img :src="application.campaign.img.url" alt="" v-if="application.campaign.img">
+                        <div class="img-wrap" :style="`background-image:url(${application.campaign.img.url}); background-position:center center; background-size:cover;`">
+                            <!-- <img :src="application.campaign.img.url" alt="" v-if="application.campaign.img">
+                            -->
                             <div class="sns_wrap">
                                 <img src="/images/Blog-icon.svg" alt="" v-if="application.campaign.type_sns === 'NAVER'">
                                 <img src="/images/Instagram-icon.svg" alt="" v-if="application.campaign.type_sns === 'INSTAGRAM'">
