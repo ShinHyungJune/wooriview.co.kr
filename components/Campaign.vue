@@ -1,7 +1,12 @@
 <template>
     <li :class="`campaign-item ${addClass}`">
-        <nuxt-link class="img-wrap" :to="`/campaigns/${campaign.id}?type_campaign=${campaign.type_campaign}`">
+        <nuxt-link
+            class="img-wrap" :to="`/campaigns/${campaign.id}?type_campaign=${campaign.type_campaign}`"
+            :style="`background-image:url(${campaign.img.url}); background-size:cover; background-position:center center;`"
+        >
+            <!--
             <img :src="campaign.img.url" alt="" v-if="campaign.img">
+            -->
             <div class="campaign-type-wrap">
                 <div class="campaign-type-img">
                     <img src="/images/Live-icon.png" alt="" v-if="campaign.type_campaign === 'REALTIME'">
@@ -28,7 +33,6 @@
         <div class="Information-wrap">
             <div class="Period-wrap">
                 <ul class="sns-wrap">
-
                     <li class="sns">
                         <img src="/images/Instagram-icon.svg" alt="" v-if="campaign.type_sns === 'INSTAGRAM'">
                         <img src="/images/Blog-icon.svg" alt="" v-if="campaign.type_sns === 'NAVER'">
