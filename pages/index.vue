@@ -277,7 +277,7 @@ export default {
                 },
                 breakpoints: {
                     768: {
-                        slidesPerView: 2.5,
+                        slidesPerView: 2,
                     }
                 }
             });
