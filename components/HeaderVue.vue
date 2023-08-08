@@ -120,11 +120,9 @@
                                     <empty v-if="alarms.data.length === 0" />
                                     <ul class="Notification-list-wrap" v-else>
                                         <li v-for="alarm in alarms.data" :key="alarm.id">
-                                            <div class="Notification-img">
-                                                <img src="/images/crown.png" alt="">
-                                            </div>
+                                            <div class="Notification-img" :style="`background-image:url(${alarm.campaign ? alarm.campaign.img.url : '/images/crown.png'})`"></div>
                                             <a :href="alarm.info.url" class="Notification-data">
-                                                <p class="Notification-title">우리:뷰</p>
+                                                <p class="Notification-title">{{alarm.title || "우리:뷰"}}</p>
                                                 <p class="Notification-content">
                                                     {{alarm.info.message}}
                                                 </p>

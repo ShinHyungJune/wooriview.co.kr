@@ -214,10 +214,20 @@
                                 {{ item.count_select }}
                             </div>
                         </li>
+                        <li class="col-group" v-if="item && item.accept != 1">
+                            <div class="default">
+                                <p>반려사유</p>
+                            </div>
+                            <div class="user">
+                                {{ item.reason_deny }}
+                            </div>
+                        </li>
                     </ul>
 
-                    <button type="submit" class="submit-btn">저장하기</button>
-
+                    <div class="btns">
+                        <button type="button" class="submit-btn" @click="deny" style="background-color:red; color:#fff;" v-if="item && item.accept == 1">선정 취소</button>
+                        <button type="submit" class="submit-btn">저장하기</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -257,7 +267,8 @@ export default {
                 address_detail: "",
                 introduce: "",
                 search_keyword: "",
-                mission: ""
+                mission: "",
+                reason_deny: ""
             })
         }
     },
@@ -267,6 +278,17 @@ export default {
             return this.form.post("/api/admin/campaigns/update/" + this.item.id)
                 .then(response => {
                     this.$router.back();
+                });
+        },
+
+        deny(){
+            this.form.reason_deny = prompt("반려사유를 입력해주세요.");
+
+            this.form.patch("/api/admin/campaigns/deny/" + this.item.id)
+                .then(response => {
+                    this.item.accept = 0;
+
+                    this.item.reason_deny = this.form.reason_deny;
                 });
         },
 
@@ -281,7 +303,6 @@ export default {
                 .then(response => {
                     this.item = response.data.data;
 
-                    console.log(this.item);
                     this.item.hire_started_at = this.item.origin_hire_started_at;
                     this.item.hire_finished_at = this.item.origin_hire_finished_at;
                     this.item.select_started_at = this.item.origin_select_started_at;

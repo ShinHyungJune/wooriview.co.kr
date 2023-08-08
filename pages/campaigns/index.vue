@@ -2,7 +2,6 @@
     <main id="main" class="campaign-page">
         <section class="section1">
             <div class="container">
-
                 <div v-for="campaignBanner in campaignBanners.data" :key="campaignBanner.id"
                     :class="`campaign-tab img-wrap ${$route.query.type_campaign === 'REPORTER' || $route.query.type_campaign === 'DELIVERY' || !$route.query.type_campaign ? 'active' : ''}`">
                     <img :src="campaignBanner.pc.url" alt="" class="pc" v-if="campaignBanner.pc">
@@ -292,7 +291,7 @@ export default {
             this.getAllCampaigns(false);
 
             this.searchAddress(this.form.address);
-        },  
+        },
 
         getCategories(){
             this.$axios.get("/api/categories")
