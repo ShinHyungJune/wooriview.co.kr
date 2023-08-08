@@ -19,7 +19,7 @@
             <p class="info-title">
                 [{{ campaign.title_company }}] {{campaign.title_product }}
             </p>
-            <P class="info-sub">{{campaign.title_product }}</P>
+            <p class="info-sub">{{ campaign.type_campaign === 'REPORTER' ? `원고료 ${campaign.price_write.toLocaleString()}원 제공` : campaign.description_provide }}</p>
         </div>
     </li>
 </template>
