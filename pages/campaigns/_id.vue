@@ -258,10 +258,6 @@
                                         <p class="Size">{{application.user.size_top}}</p>
                                     </li>
                                     <li>
-                                        <p class="Size-labal">상의 사이즈:</p>
-                                        <p class="Size">{{application.user.size_top}}</p>
-                                    </li>
-                                    <li>
                                         <p class="Size-labal">하의 사이즈:</p>
                                         <p class="Size">{{application.user.size_bottom}}</p>
                                     </li>
