@@ -122,7 +122,7 @@
                                         <li v-for="alarm in alarms.data" :key="alarm.id">
                                             <div class="Notification-img" :style="`background-image:url(${alarm.campaign ? alarm.campaign.img.url : '/images/crown.png'})`"></div>
                                             <a :href="alarm.info.url" class="Notification-data">
-                                                <p class="Notification-title">{{alarm.title || "우리:뷰"}}</p>
+                                                <p class="Notification-title">{{alarm.info.title || "우리:뷰"}}</p>
                                                 <p class="Notification-content">
                                                     {{alarm.info.message}}
                                                 </p>
