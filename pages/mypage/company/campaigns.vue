@@ -157,10 +157,8 @@
                             <!-- //캠페인 정보 -->
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">모집</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                <span class="unit">명</span>
                             </li>
                         </ul>
                         <!-- //그룹 -->
@@ -199,17 +197,13 @@
                             <!-- //캠페인 정보 -->
                             <li class="application-num num-re-po">
                                 <span class="unit mb">신청</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
+                                <span class="unit pc">명</span>
                             </li>
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">모집</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                <span class="unit pc">명</span>
                             </li>
                         </ul>
                         <!-- //그룹 -->
@@ -251,17 +245,13 @@
                             <!-- //캠페인 정보 -->
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">신청</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
+                                <span class="unit">명</span>
                             </li>
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">모집</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                <span class="unit">명</span>
                             </li>
                             <li class="btn-wrap list">
                                 <nuxt-link :to="`/mypage/company/applications?campaign_id=${campaign.id}`" class="btn-list">리스트보기</nuxt-link>
@@ -307,18 +297,14 @@
                             <!-- //캠페인 정보 -->
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">참여</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
+                                <span class="unit">명</span>
                             </li>
 
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">선정</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.count_select.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="num">{{ campaign.count_select.toLocaleString() }}</span>
+                                <span class="unit">명</span>
                             </li>
 
                             <li class="btn-wrap list">
@@ -360,18 +346,14 @@
 
                             <li class="recruit-num num-re-po" style="width:auto;">
                                 <span class="unit mb">컨텐츠</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
-                                    <span class="unit">개</span>
-                                </div>
+                                <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
+                                <span class="unit">개</span>
                             </li>
 
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">선정</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.count_select.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="num">{{ campaign.count_select.toLocaleString() }}</span>
+                                <span class="unit">명</span>
                             </li>
                             <li class="btn-wrap list">
                                 <nuxt-link :to="`/mypage/company/applications?campaign_id=${campaign.id}`" class="btn-list">리스트보기</nuxt-link>
@@ -411,10 +393,8 @@
                             <!-- //캠페인 정보 -->
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">모집</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                <span class="unit">명</span>
                             </li>
                         </ul>
                         <!-- //그룹 -->

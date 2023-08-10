@@ -18,7 +18,7 @@
 
         <div class="table-section">
             <div class="container3">
-                <div class="table-tab-wrap influencer-table_1 advertiser-table_1">
+                <div class="table-tab-wrap influencer-table_1 influ">
                     <div class="scroll-wrap">
                         <ul class="table-tab-list">
                             <li :class="`tab-link ${state === 'application' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('application')">신청한 캠페인<span>{{ counts.application }}</span></li>
@@ -60,16 +60,14 @@
                             <campaign :campaign="campaign" />
 
                             <li class="recruit-num num-re-po">
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="unit mb">신청</span>
+                                <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
+                                <span class="unit pc">명</span>
                             </li>
                             <li class="recruit-num num-re-po">
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="unit mb">모집</span>
+                                <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                <span class="unit pc">명</span>
                             </li>
                         </ul>
                     </div>
@@ -179,16 +177,14 @@
                             <campaign :campaign="campaign" />
 
                             <li class="recruit-num num-re-po">
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="unit mb">신청</span>
+                                <span class="num">{{ campaign.applications_count.toLocaleString() }}</span>
+                                <span class="unit pc">명</span>
                             </li>
                             <li class="recruit-num num-re-po">
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="unit mb">모집</span>
+                                <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                <span class="unit pc">명</span>
                             </li>
                         </ul>
                     </div>
@@ -222,10 +218,8 @@
                             <!-- //캠페인 정보 -->
                             <li class="recruit-num num-re-po">
                                 <span class="unit mb">모집</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
+                                <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                <span class="unit pc">명</span>
                             </li>
                         </ul>
                         <!-- //그룹 -->
