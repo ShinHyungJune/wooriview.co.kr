@@ -170,7 +170,8 @@
 
                         <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
                             <li class="period">
-                                {{ campaign.format_review_started_at }} ~ {{ campaign.format_review_finished_at }}
+                                <p class="br-mb">리뷰어 컨텐츠 등록기간</p>
+                                {{ campaign.format_review_started_at }} <br/> ~ {{ campaign.format_review_finished_at }}
                             </li>
 
                             <!-- 캠페인 정보 -->
