@@ -33,7 +33,7 @@
                     </div>
 
                     <!--신청한 캠페인-->
-                    <div class="table-wrap tab-content Active" v-if="state === 'application'">
+                    <div class="table-wrap tab-content Active" id="tab-1" v-if="state === 'application'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 모집 기간
@@ -75,7 +75,7 @@
                     </div>
 
                     <!-- 선정된 캠페인 -->
-                    <div class="table-wrap tab-content Active" v-if="state === 'select'">
+                    <div class="table-wrap tab-content Active" id="tab-2" v-if="state === 'select'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 선정 기간
@@ -107,7 +107,7 @@
 
                     </div>
 
-                    <!-- 완료된 캠페인 -->
+                    <!-- 체험중인 캠페인 -->
                     <div class="table-wrap tab-content Active"  id="tab-3"  v-if="state === 'finish'">
                         <ul class="thead">
                             <li class="th">
@@ -152,7 +152,7 @@
                     </div>
 
                     <!-- 찜한 캠페인 -->
-                    <div class="table-wrap tab-content Active" v-if="state === 'like'">
+                    <div class="table-wrap tab-content Active" id="tab-4" v-if="state === 'like'">
                         <ul class="thead">
                             <li class="th">
                                 리뷰어 컨텐츠 등록기간
@@ -193,8 +193,8 @@
                         </ul>
                     </div>
 
-                    <!-- 심사완료 캠페인 -->
-                    <div class="table-wrap tab-content Active" v-if="state === 'all'">
+                    <!-- 모든 캠페인 -->
+                    <div class="table-wrap tab-content Active" id="tab-5" v-if="state === 'all'">
                         <ul class="thead">
                             <li class="th">
                                 캠페인 등록일

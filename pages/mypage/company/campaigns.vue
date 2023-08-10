@@ -129,7 +129,7 @@
                     </div>
 
                     <!-- 심사중인 캠페인 -->
-                    <div class="table-wrap tab-content Active" v-if="state === 'beforeAccept'">
+                    <div id="tab-1" class="table-wrap tab-content Active" v-if="state === 'beforeAccept'">
                         <ul class="thead">
                             <li class="th">
                                 캠페인 등록일
@@ -168,7 +168,7 @@
                     <!-- //심사중인 캠페인 -->
 
                     <!-- 심사완료 캠페인 -->
-                    <div class="table-wrap tab-content Active" v-if="state === 'afterAccept'">
+                    <div id="tab-2" class="table-wrap tab-content Active" v-if="state === 'afterAccept'">
                         <ul class="thead">
                             <li class="th">
                                 캠페인 등록일
@@ -207,7 +207,7 @@
                     <!-- // 심사완료 캠페인  -->
 
                     <!-- 인플루언서 모집 -->
-                    <div class="table-wrap tab-content Active" v-if="state === 'ongoingHire'">
+                    <div id="tab-3" class="table-wrap tab-content Active" v-if="state === 'ongoingHire'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 모집 기간
@@ -256,7 +256,7 @@
                     </div>
 
                     <!-- 인플루언서 선정 -->
-                    <div class="table-wrap tab-content Active"  id="tab-3"  v-if="state === 'ongoingSelect'">
+                    <div id="tab-4" class="table-wrap tab-content Active" v-if="state === 'ongoingSelect'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 선정 기간
@@ -309,7 +309,7 @@
                     </div>
 
                     <!-- 체험중인 캠페인 -->
-                    <div class="table-wrap tab-content Active"  id="tab-4" v-if="state === 'ongoingReview'">
+                    <div id="tab-5" class="table-wrap tab-content Active" v-if="state === 'ongoingReview'">
                         <ul class="thead">
                             <li class="th">
                                 리뷰어 컨텐츠 등록기간
@@ -370,7 +370,7 @@
                     </div>
 
                     <!-- 마감및보고서확인 -->
-                    <div class="table-finishReview table-wrap tab-content Active"  id="tab-6" v-if="state === 'finishReview'">
+                    <div  id="tab-6" class="table-finishReview table-wrap tab-content Active" v-if="state === 'finishReview'">
                         <ul class="thead">
                             <li class="th">
                                 캠페인 정보
