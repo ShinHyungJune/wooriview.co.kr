@@ -128,7 +128,7 @@ export default {
             },
 
             form: new Form(this.$axios, {
-                page: 1,
+                page: this.$route.query.page || 1,
                 selected_ids: [],
                 word: "",
                 selected: "",
