@@ -3472,7 +3472,7 @@
         .advertiser-table_1 .table-wrap#tab-2 .num-re-po { font-size: 14px;}
         .advertiser-table_1 .table-wrap#tab-2 > ul > li:nth-child(1) {  width: 100%; }
         .advertiser-table_1 .table-wrap#tab-2 > ul > li:nth-child(2) { width: 100%; }
-        .advertiser-table_1.influencer-table_1 .table-wrap#tab-2 > ul > li:nth-child(3) { position: unset; min-width: 82px; padding: unset; margin-left: 84px; margin-right: 16px; }
+        .advertiser-table_1.influencer-table_1 .table-wrap#tab-2 > ul > li:nth-child(3) { position: unset; min-width: fit-content; padding: unset; margin-left: 84px; margin-right: 16px; }
         .advertiser-table_1.influencer-table_1 .table-wrap#tab-2 > ul > li:nth-child(4) { position: unset; min-width: 82px; padding: unset;}
        } 
 
@@ -3486,7 +3486,7 @@
             .advertiser-table_1 .table-wrap#tab-3 > ul > li:nth-child(1) { width: 100%; }
             .advertiser-table_1 .table-wrap#tab-3 .tbody .info-box .info-sub { margin-bottom: unset;}
             .advertiser-table_1 .table-wrap#tab-3 > ul > li:nth-child(2) { width: 100%;}
-            .advertiser-table_1.influencer-table_1 .table-wrap#tab-3 > ul > li:nth-child(3) { position: unset; padding: unset;}
+            .advertiser-table_1.influencer-table_1 .table-wrap#tab-3 > ul > li:nth-child(3) { position: unset; padding: unset; }
             .advertiser-table_1 .table-wrap#tab-3 > ul > li:nth-child(3) { width: 100%; justify-content: start; margin-left: 84px;}
             .advertiser-table_1.influencer-table_1 .table-wrap#tab-3 > ul > li:nth-child(4) { margin-left: 84px; }
         } 
@@ -3518,14 +3518,14 @@
             .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(3) { position: static; width: unset;  min-width: 82px; padding-left: unset;  padding-top: unset;}
             .advertiser-table_1 .table-wrap#tab-4 .recruit-num {  position: static; }
             .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(4) { position: static; width: calc(100% - 180px);   min-width: 100px;  justify-content: start;  padding: unset;}
-            .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(5) { width: unset; justify-content: unset;}
+            .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(5) { width: unset; justify-content: unset; padding-left: unset; margin-left: 84px;}
             .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(6) { width: unset; justify-content: unset;}
             .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(6) { padding: unset; margin-top: unset;}
             .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(7) { padding: unset; margin-top: unset; margin-right: unset; }
             .advertiser-table_1 .table-wrap#tab-4 .tbody .btn-wrap .btn-list { margin-top: unset; margin-right: unset;  }
             .advertiser-table_1 .table-wrap#tab-4 .tbody .btn-wrap { margin-top: 8px;}
-            .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(3){ margin-left: 84px; }
-            .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(6){ margin-left: 84px; margin-right: 5px;}
+            .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(3){ margin-left: 84px; justify-content: start;  }
+            .advertiser-table_1 .table-wrap#tab-4 > ul > li:nth-child(6){ margin-right: 5px;}
             .advertiser-table_1 .table-wrap#tab-4 .tbody .info-box .info-sub { margin-bottom: unset;}
             .advertiser-table_1 .table-wrap#tab-4 .num-re-po .unit.mb { font-size: 14px;}
         } 
@@ -3561,7 +3561,7 @@
             .advertiser-table_1 .table-wrap#tab-5 > ul > li:nth-child(2) { width: auto;  padding: unset; flex-direction: row; margin-left: 84px; }
             .advertiser-table_1 .table-wrap#tab-5 > ul > li:nth-child(3){  position: static;  justify-content: flex-start; margin-left: 8px; width: 100%; min-width: unset; }
             .advertiser-table_1.influencer-table_1 .table-wrap#tab-5 > ul > li:nth-child(3) { width: calc(100% - 380px);  min-width: 82px; }
-            .advertiser-table_1 .table-wrap#tab-5 > ul > li:nth-child(5) { position: static; width: unset; margin-left: 84px; }
+            .advertiser-table_1 .table-wrap#tab-5 > ul > li:nth-child(4) { position: static; width: unset; margin-left: 84px; }
             .advertiser-table_1 .table-wrap#tab-5 .tbody .btn-wrap .btn-statistics { width: 128px;}
             .advertiser-table_1 .table-wrap#tab-5 > ul > li:nth-child(2).recruit-num.num-re-po {  width: unset; min-width: 82px; padding-left: unset; padding-top: unset;}
             .advertiser-table_1 .table-wrap#tab-5 > ul > li:nth-child(3).recruit-num.num-re-po {  width: calc(100% - 360px);  min-width: 100px; justify-content: start; padding-top: unset; padding-left: unset; margin-left: unset;}
@@ -3632,6 +3632,7 @@
     .influencer-table_1.influ .table-wrap#tab-1  > ul > li:nth-child(4) { position: static; padding: unset; width: unset; min-width: fit-content;  justify-content: start; }
     .advertiser-table_1.influencer-table_1.influ .table-wrap#tab-1 > ul > li:nth-child(3).recruit-num.num-re-po { width: 10%; }
     .influencer-table_1.influ .table-wrap#tab-1 .num-re-po.recruit-num { left: unset;}
+    .influencer-table_1.influ .table-wrap#tab-1  > ul > li:nth-child(3).recruit-num.num-re-po { min-width: fit-content;}
  }
 
 /* 인플루언서 - 선정된 캠페인 tab-2*/    
@@ -3683,9 +3684,9 @@
 .influencer-table_1.influ  .table-wrap#tab-5 > ul > li:nth-child(3) { width: 10%; min-width: 120px;}
 @media screen and (max-width:768px) {
     .influencer-table_1.influ  .table-wrap#tab-5 > ul > li:nth-child(1) { width: 100%; text-align: start; padding-left: 0px;  padding-bottom: 0px;}
-    .influencer-table_1.influ  .table-wrap#tab-5 > ul > li:nth-child(2) { width: 100%; }
+    .influencer-table_1.influ  .table-wrap#tab-5 > ul > li:nth-child(2) { width: 100%;  margin-left: unset; padding: 16px 0 8px;}
     .influencer-table_1.influ .table-wrap#tab-5 > ul > li:nth-child(3) {  position: static; padding: unset; width: unset; min-width: fit-content;  margin-left: 84px; margin-right: 16px; left: unset;  justify-content: start;}
-
+    .influencer-table_1.influ .table-wrap#tab-5 > ul > li:nth-child(3).recruit-num.num-re-po { margin-left: 84px;}
 }
 
 
