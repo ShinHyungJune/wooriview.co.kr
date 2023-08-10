@@ -167,47 +167,8 @@
                     </div>
                     <!-- //심사중인 캠페인 -->
 
-                    <!-- 심사완료 캠페인 -->
-                    <div id="tab-2" class="table-wrap tab-content Active" v-if="state === 'afterAccept'">
-                        <ul class="thead">
-                            <li class="th">
-                                캠페인 등록일
-                            </li>
-                            <li class="th">
-                                캠페인 정보
-                            </li>
-                            <li class="th">
-                                모집
-                            </li>
-                        </ul>
-
-                        <!-- 리스트 그룹 -->
-                        <empty v-if="campaigns.data.length == 0" />
-
-                        <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
-                            <li class="date">
-                                <span class="unit mb">캠페인 등록일</span>
-                                {{ campaign.format_created_at }}
-                            </li>
-
-                            <!-- 캠페인 정보 -->
-                            <campaign :campaign="campaign" />
-
-                            <!-- //캠페인 정보 -->
-                            <li class="recruit-num num-re-po">
-                                <span class="unit mb">모집</span>
-                                <div class="default-wrap">
-                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
-                                    <span class="unit">명</span>
-                                </div>
-                            </li>
-                        </ul>
-                        <!-- //그룹 -->
-                    </div>
-                    <!-- // 심사완료 캠페인  -->
-
                     <!-- 인플루언서 모집 -->
-                    <div id="tab-3" class="table-wrap tab-content Active" v-if="state === 'ongoingHire'">
+                    <div id="tab-2" class="table-wrap tab-content Active" v-if="state === 'ongoingHire'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 모집 기간
@@ -256,7 +217,7 @@
                     </div>
 
                     <!-- 인플루언서 선정 -->
-                    <div id="tab-4" class="table-wrap tab-content Active" v-if="state === 'ongoingSelect'">
+                    <div id="tab-3" class="table-wrap tab-content Active" v-if="state === 'ongoingSelect'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 선정 기간
@@ -309,7 +270,7 @@
                     </div>
 
                     <!-- 체험중인 캠페인 -->
-                    <div id="tab-5" class="table-wrap tab-content Active" v-if="state === 'ongoingReview'">
+                    <div id="tab-4" class="table-wrap tab-content Active" v-if="state === 'ongoingReview'">
                         <ul class="thead">
                             <li class="th">
                                 리뷰어 컨텐츠 등록기간
@@ -370,7 +331,7 @@
                     </div>
 
                     <!-- 마감및보고서확인 -->
-                    <div  id="tab-6" class="table-finishReview table-wrap tab-content Active" v-if="state === 'finishReview'">
+                    <div  id="tab-5" class="table-finishReview table-wrap tab-content Active" v-if="state === 'finishReview'">
                         <ul class="thead">
                             <li class="th">
                                 캠페인 정보
@@ -420,6 +381,45 @@
                             </li>
                         </ul>
                     </div>
+
+                    <!-- 모든 캠페인 -->
+                    <div id="tab-6" class="table-wrap tab-content Active" v-if="state === 'afterAccept'">
+                        <ul class="thead">
+                            <li class="th">
+                                캠페인 등록일
+                            </li>
+                            <li class="th">
+                                캠페인 정보
+                            </li>
+                            <li class="th">
+                                모집
+                            </li>
+                        </ul>
+
+                        <!-- 리스트 그룹 -->
+                        <empty v-if="campaigns.data.length == 0" />
+
+                        <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
+                            <li class="date">
+                                <span class="unit mb">캠페인 등록일</span>
+                                {{ campaign.format_created_at }}
+                            </li>
+
+                            <!-- 캠페인 정보 -->
+                            <campaign :campaign="campaign" />
+
+                            <!-- //캠페인 정보 -->
+                            <li class="recruit-num num-re-po">
+                                <span class="unit mb">모집</span>
+                                <div class="default-wrap">
+                                    <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                    <span class="unit">명</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- //그룹 -->
+                    </div>
+                    <!-- // 모든 캠페인  -->
                 </div>
 
                 <pagination :meta="campaigns.meta" @paginate="(page) => {form.page = page; getCampaigns()}" />
