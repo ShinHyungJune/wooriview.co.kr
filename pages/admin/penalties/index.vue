@@ -15,25 +15,37 @@
                         </form>
                     </div>
                 </div>
-<!--                <div class="btn-wrap col-group">
-                    <nuxt-link to="/admin/penalties/create" class="add-btn">신규 추가</nuxt-link>
-                </div>-->
+
+                <div class="btn-wrap col-group" style="margin-left:auto;">
+                    <a href="#" type="button" class="add-btn" @click.prevent="agree">승인</a>
+                    <a href="#" type="button" class="add-btn" @click.prevent="deny" style="background-color:red; color:#fff;">반려</a>
+                </div>
             </div>
             <div class="table-wrap">
                 <table>
                     <thead>
                     <tr>
-                        <th>번호</th>
+                        <th>
+                            <label for="" @click="toggle">
+                                <input type="checkbox" id="" name="chk" checked v-if="form.selected_ids.length === items.data.length">
+                                <input type="checkbox" id="" name="chk" v-else>
+                                <span class="check-icon"></span>
+                            </label>
+                        </th>
                         <th>캠페인명</th>
                         <th>패널티 대상</th>
                         <th>패널티 사유</th>
+                        <th>패널티 상태</th>
                         <th>등록일자</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr v-for="(item, index) in items.data" :key="item.id">
                         <td>
-                            {{item.id}}
+                            <label :for="item.id" @click="(e) => {e.stopPropagation()}">
+                                <input type="checkbox" :id="item.id" :value="item.id" name="chk" v-model="form.selected_ids">
+                                <span class="check-icon"></span>
+                            </label>
                         </td>
                         <td>[{{item.campaign.title_company}}] {{item.campaign.title_product}}</td>
                         <td>
@@ -43,6 +55,7 @@
                             <p v-for="(reason, index) in item.reasons" :key="index">{{item.reason}}</p>
                             <p>{{item.description}}</p>
                         </td>
+                        <td>{{item.state}}</td>
                         <td>
                             {{item.created_at}}
                         </td>
@@ -107,41 +120,22 @@ export default {
             return this.form.selected_ids = this.items.data.map(item => item.id);
         },
 
-        up(e, item, index){
-            e.stopPropagation();
-            e.preventDefault();
+        deny(){
+            this.form.post("/api/admin/penalties/deny")
+                .then(response => {
+                    this.form.selected_ids = [];
 
-            if(index > 0){
-                let temp = null;
-
-                temp = this.items.data.splice(index, 1)[0];
-
-                this.items.data.splice(index - 1,0, temp);
-
-                this.form.patch("/api/admin/penalties/" + item.id + "/up")
-                    .then(response => {
-
-                    });
-            }
+                    this.filter();
+                });
         },
+        agree(){
+            this.form.post("/api/admin/penalties/agree")
+                .then(response => {
+                    this.form.selected_ids = [];
 
-        down(e, item, index){
-            e.stopPropagation();
-            e.preventDefault();
-
-            if(index < this.items.data.length){
-                let temp = null;
-
-                temp = this.items.data.splice(index, 1)[0];
-
-                this.items.data.splice(index + 1,0, temp);
-
-                this.form.patch("/api/admin/penalties/" + item.id + "/down")
-                    .then(response => {
-
-                    });
-            }
-        },
+                    this.filter();
+                });
+        }
     },
 
     mounted() {
