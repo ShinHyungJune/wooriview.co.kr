@@ -118,8 +118,8 @@
                                 </div>
                                 <div class="Notification-wrap">
                                     <div class="m-tabs type01">
-                                        <button :class="`m-tab ${alarmForm.type === 'MESSAGE_CREATED' ? 'active' : ''}`" @click="() => {alarmForm.type = 'MESSAGE_CREATED'; getAlarms()}">채팅</button>
-                                        <button :class="`m-tab ${alarmForm.type === '' ? 'active' : ''}`" @click="() => {alarmForm.type = ''; getAlarms()}">캠페인</button>
+                                        <button :class="`m-tab ${alarmForm.type === 'MESSAGE_CREATED' ? 'active' : ''}`" @click="() => {alarmForm.type = 'MESSAGE_CREATED'; }">채팅</button>
+                                        <button :class="`m-tab ${alarmForm.type === '' ? 'active' : ''}`" @click="() => {alarmForm.type = '';}">캠페인</button>
                                     </div>
 
                                     <div class="Notification-list-wrap"  v-if="alarms.data.length === 0">
@@ -127,7 +127,7 @@
                                     </div>
 
                                     <ul class="Notification-list-wrap" v-else>
-                                        <li v-for="alarm in alarms.data" :key="alarm.id">
+                                        <li v-for="alarm in alarms.data" :key="alarm.id" v-if="alarmForm.type ? alarm.type === alarmForm.type : alarm.type !== 'MESSAGE_CREATED'">
                                             <div class="Notification-img" :style="`background-image:url(${alarm.campaign ? alarm.campaign.img.url : '/images/crown.png'})`"></div>
                                             <a :href="alarm.info.url" class="Notification-data">
                                                 <p class="Notification-title">{{alarm.info.title || "우리:뷰"}}</p>
@@ -258,12 +258,6 @@
                     <span class="text">내 주변</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
-                <a href="/notices" v-if="$auth.user && $auth.user.data.type === 'COMPANY'">
-                    <img src="/images/comment.png" alt="">
-
-                    <span class="text">공지사항</span>
-                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
-                </a>
                 <a href="#" v-if="$auth.user && $auth.user.data.type === 'COMPANY'" @click.prevent="activeAlarm = !activeAlarm">
                     <div class="img-wrap">
                         <img src="/images/comment.png" alt="">
@@ -369,14 +363,11 @@ export default {
 
                     if(loadMore)
                         return this.alarms = {
-                            ...this.alarms,
-                            meta: {total: response.data.total},
-                            data: [...this.alarms.data, ...response.data.items]
+                            ...response.data,
+                            data: [...this.alarms.data, ...response.data]
                         };
 
-                    this.alarms.data = response.data.items;
-
-                    this.alarms.meta.total = response.data.total;
+                    this.alarms = response.data;
 
                     this.$auth.fetchUser();
                 })
@@ -393,7 +384,6 @@ export default {
 
         removeAlarm(alarm){
             this.alarms.data = this.alarms.data.filter(alarmData => alarmData.id != alarm.id);
-            this.alarms.meta.total = this.alarms.meta.total - 1;
 
             this.alarmForm.delete("/api/alarms/" + alarm.id)
                 .then(response => {
