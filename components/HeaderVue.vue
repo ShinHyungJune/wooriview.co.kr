@@ -234,7 +234,7 @@
                 <a href="#" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'" @click.prevent="activeAlarm = !activeAlarm">
                     <div class="img-wrap">
                         <img src="/images/comment.png" alt="">
-                        <span class="count" v-if="alarms.meta.total > 0">{{alarms.meta.total}}</span>
+                        <span class="count" v-if="alarms.data.length > 0">{{alarms.data.length}}</span>
                     </div>
 
                     <span class="text">채팅</span>
@@ -263,7 +263,7 @@
                 <a href="#" v-if="$auth.user && $auth.user.data.type === 'COMPANY'" @click.prevent="activeAlarm = !activeAlarm">
                     <div class="img-wrap">
                         <img src="/images/comment.png" alt="">
-                        <span class="count" v-if="alarms.meta.total > 0">{{alarms.meta.total}}</span>
+                        <span class="count" v-if="alarms.data.length > 0">{{alarms.data.length}}</span>
                     </div>
 
                     <span class="text">채팅</span>
