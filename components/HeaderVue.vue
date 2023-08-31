@@ -122,7 +122,7 @@
                                         <button :class="`m-tab ${alarmForm.type === '' ? 'active' : ''}`" @click="() => {alarmForm.type = '';}">캠페인</button>
                                     </div>
 
-                                    <div class="Notification-list-wrap"  v-if="alarms.data.length === 0">
+                                    <div class="Notification-list-wrap" v-if="alarmForm.type === 'MESSAGE_CREATED' ? alarms.data.filter(alarm => alarmForm.type === alarm.type).length === 0 : alarms.data.filter(alarm => alarmForm.type !== 'MESSAGE_CREATED').length === 0">
                                         <empty />
                                     </div>
 
@@ -141,7 +141,9 @@
                                             </div>
                                         </li>
 
+                                        <!--
                                         <button class="see_more" @click="() => {getAlarms(true);}" v-if="alarms.links && alarms.links.next">더보기</button>
+                                        -->
                                     </ul>
                                 </div>
                             </div>
