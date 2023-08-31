@@ -3,7 +3,7 @@
         <div class="yellow-box"></div>
         <section class="section1">
             <div class="logo-wrap">
-                <img src="/images/logo.svg" alt="">
+                <img src="/images/logo.png" alt="">
             </div>
             <p class="title">아이디 찾기</p>
             <p class="sub" style="margin-bottom:40px;">회원가입 시 등록했던 휴대폰번호로 아이디를 찾을 수 있습니다.</p>

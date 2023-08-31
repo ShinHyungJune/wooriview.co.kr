@@ -3,7 +3,7 @@
         <div class="yellow-box"></div>
         <section class="section1">
             <div class="logo-wrap">
-                <img src="/images/logo.svg" alt="">
+                <img src="/images/logo.png" alt="">
             </div>
             <p class="title">비밀번호를 잊어버리셨나요?</p>
             <p class="sub" style="text-align: center;">

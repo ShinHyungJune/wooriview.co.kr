@@ -4,7 +4,7 @@
 
         <section class="payment-detail-wrap">
             <div class="logo-wrap">
-                <img src="/images/logo.svg" alt="">
+                <img src="/images/logo.png" alt="">
             </div>
 
             <div class="payment-top">

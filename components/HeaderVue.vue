@@ -20,7 +20,7 @@
 
                 <div class="header-le">
                     <nuxt-link to="/" class="logo">
-                        <img src="/images/logo.svg" alt="">
+                        <img src="/images/logo.png" alt="">
                     </nuxt-link>
                     <ul class="header-nav">
                         <li :class="typeCampaign === 'REALTIME' ? 'active' : ''">

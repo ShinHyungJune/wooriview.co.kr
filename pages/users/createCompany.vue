@@ -3,7 +3,7 @@
         <div class="yellow-box"></div>
         <section class="section1">
             <div class="logo-wrap">
-                <img src="/images/logo.svg" alt="">
+                <img src="/images/logo.png" alt="">
             </div>
         </section>
         <div class="write-section">

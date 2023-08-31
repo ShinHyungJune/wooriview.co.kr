@@ -2,7 +2,7 @@
     <main class="login" style="width:100%;">
         <div class="login-wrap col-group" style="margin:0 auto;">
             <h1 class="logo">
-                <img src="/images/hd_logo.svg" alt="">
+                <img src="/images/hd_logo.png" alt="">
             </h1>
             <form @submit.prevent="login">
                 <ul class="login-form">

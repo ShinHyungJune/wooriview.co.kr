@@ -3,7 +3,7 @@
         <div class="yellow-box"></div>
         <section class="section1">
             <div class="logo-wrap">
-                <img src="/images/logo.svg" alt="">
+                <img src="/images/logo.png" alt="">
             </div>
             <p class="title">회원가입이 완료되었습니다.</p>
             <p class="sub">로그인 후 우리뷰를 이용해보세요!</p>

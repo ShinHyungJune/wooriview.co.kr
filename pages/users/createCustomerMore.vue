@@ -3,7 +3,7 @@
         <div class="yellow-box"></div>
         <section class="section1">
             <div class="logo-wrap">
-                <img src="/images/logo.svg" alt="">
+                <img src="/images/logo.png" alt="">
             </div>
             <p class="title" v-if="step != 3">
                 캠페인에 참여하려면 필수로 입력해야 하는 정보로 <br />

@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="left-wrap">
                         <nuxt-link to="/" class="logo-wrap">
-                            <img src="/images/logo.svg" alt="">
+                            <img src="/images/logo.png" alt="">
                         </nuxt-link>
                         <p class="sub">우리:뷰를 가입하고 캠페인을 공모해보세요.</p>
                     </div>
