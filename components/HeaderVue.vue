@@ -105,9 +105,10 @@
                                 <i class="xi-close active"></i>
                             </button>
                         </li>
-                        <li v-if="$auth.user">
+                        <li v-if="$auth.user" class="btn-alarm">
                             <button class="Notification-Open-btn" @click="toggleAlarm">
-                                <span class="new" v-if="hasUnreadAlarm"></span>
+                                <span class="count" v-if="alarms.meta.total > 0">{{alarms.meta.total}}</span>
+
                                 <img src="/images/Notification.svg" alt="">
                                 <i class="xi-bell-o"></i>
                             </button>
@@ -116,8 +117,15 @@
                                     <div class="Notification-Arrow"></div>
                                 </div>
                                 <div class="Notification-wrap">
-                                    <p class="Notification-p">알림</p>
-                                    <empty v-if="alarms.data.length === 0" />
+                                    <div class="m-tabs type01">
+                                        <button :class="`m-tab ${alarmForm.type === 'MESSAGE_CREATED' ? 'active' : ''}`" @click="() => {alarmForm.type = 'MESSAGE_CREATED'; getAlarms()}">채팅</button>
+                                        <button :class="`m-tab ${alarmForm.type === '' ? 'active' : ''}`" @click="() => {alarmForm.type = ''; getAlarms()}">캠페인</button>
+                                    </div>
+
+                                    <div class="Notification-list-wrap"  v-if="alarms.data.length === 0">
+                                        <empty />
+                                    </div>
+
                                     <ul class="Notification-list-wrap" v-else>
                                         <li v-for="alarm in alarms.data" :key="alarm.id">
                                             <div class="Notification-img" :style="`background-image:url(${alarm.campaign ? alarm.campaign.img.url : '/images/crown.png'})`"></div>
@@ -221,10 +229,13 @@
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
 
-                <a href="/notices" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'">
-                    <img src="/images/comment.png" alt="">
+                <a href="#" v-if="$auth.user && $auth.user.data.type === 'CUSTOMER'" @click.prevent="activeAlarm = !activeAlarm">
+                    <div class="img-wrap">
+                        <img src="/images/comment.png" alt="">
+                        <span class="count" v-if="alarms.meta.total > 0">{{alarms.meta.total}}</span>
+                    </div>
 
-                    <span class="text">공지사항</span>
+                    <span class="text">채팅</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
 
@@ -251,6 +262,15 @@
                     <img src="/images/comment.png" alt="">
 
                     <span class="text">공지사항</span>
+                    <!-- <img src="/images/hd_logo.svg" alt=""> -->
+                </a>
+                <a href="#" v-if="$auth.user && $auth.user.data.type === 'COMPANY'" @click.prevent="activeAlarm = !activeAlarm">
+                    <div class="img-wrap">
+                        <img src="/images/comment.png" alt="">
+                        <span class="count" v-if="alarms.meta.total > 0">{{alarms.meta.total}}</span>
+                    </div>
+
+                    <span class="text">채팅</span>
                     <!-- <img src="/images/hd_logo.svg" alt=""> -->
                 </a>
 
@@ -301,18 +321,22 @@ export default {
 
             alarms: {
                 data: [],
-                meta: {},
+                meta: {
+                    total: 0,
+                },
                 links: {}
             },
 
             alarmForm: new Form(this.$axios, {
-                page: 1
+                page: 1,
+                type: "MESSAGE_CREATED"
             }),
 
             active: false,
             activeAlarm: false,
             timer : null,
             interval: null,
+            alarmLoading: false,
         }
     },
 
@@ -330,6 +354,8 @@ export default {
         },
 
         getAlarms(loadMore = false){
+            this.alarmLoading = true;
+
             let self = this;
 
             if(this.$auth.user){
@@ -339,13 +365,18 @@ export default {
                 this.$axios.get("/api/alarms", {
                     params: this.alarmForm
                 }).then(response => {
+                    this.alarmLoading = false;
+
                     if(loadMore)
                         return this.alarms = {
-                            ...response.data,
-                            data: [...this.alarms.data, ...response.data.data]
+                            ...this.alarms,
+                            meta: {total: response.data.total},
+                            data: [...this.alarms.data, ...response.data.items]
                         };
 
-                    this.alarms = response.data;
+                    this.alarms.data = response.data.items;
+
+                    this.alarms.meta.total = response.data.total;
 
                     this.$auth.fetchUser();
                 })
@@ -362,6 +393,7 @@ export default {
 
         removeAlarm(alarm){
             this.alarms.data = this.alarms.data.filter(alarmData => alarmData.id != alarm.id);
+            this.alarms.meta.total = this.alarms.meta.total - 1;
 
             this.alarmForm.delete("/api/alarms/" + alarm.id)
                 .then(response => {
@@ -409,7 +441,8 @@ export default {
             clearInterval(this.interval);
 
         this.interval = setInterval(() => {
-            self.getAlarms();
+            if(!self.alarmLoading)
+                self.getAlarms();
         }, 5000);
 
         $(".Mobile_Menu_open_btn").click(function () {
