@@ -46,6 +46,7 @@
                         <th>상품명</th>
                         <th>선정여부</th>
                         <th>베스트여부</th>
+                        <th>참여배너 URL</th>
 
                         <!--
                         <th>좋아요</th>
@@ -98,6 +99,9 @@
 
                         <td>
                             {{ item.created_at}}
+                        </td>
+                        <td>
+                            {{item.url_banner}}
                         </td>
                     </tr>
                     </tbody>
