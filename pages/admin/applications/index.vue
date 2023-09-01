@@ -96,13 +96,13 @@
                             {{item.count_comment}}
                         </td>
                         -->
-
-                        <td>
-                            {{ item.created_at}}
-                        </td>
                         <td>
                             {{item.url_banner}}
                         </td>
+                        <td>
+                            {{ item.created_at}}
+                        </td>
+
                     </tr>
                     </tbody>
                 </table>
