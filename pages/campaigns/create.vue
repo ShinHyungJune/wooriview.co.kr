@@ -1012,6 +1012,10 @@ export default {
 
             if(campaign) {
                 this.form.set({...campaign,
+                    imgs: [],
+                    img: "",
+                    img_detail:"",
+                    missions: [],
                     hire_started_at: "",
                     hire_finished_at: "",
                     select_started_at: "",
