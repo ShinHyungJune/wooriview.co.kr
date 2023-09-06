@@ -76,7 +76,7 @@
                                     <div class="page-detail m-repo">
                                         <p class="page-detail_title">특약사항</p>
                                         <div class="page-detail_list line-repo">
-                                            <p class="page-detail_list-title">첫 결제시, 1개월 이용권한 추가제공 <span class="list-title-sub">프로모션</span></p>
+<!--                                            <p class="page-detail_list-title">첫 결제시, 1개월 이용권한 추가제공 <span class="list-title-sub">프로모션</span></p>-->
                                             <p class="page-detail_list-title">
                                                 계약기간내 별도의 추가결제 없이 우리뷰에서 중개하는 모든 광고채널 <br />
                                                 (블로그, 인스타그램, 유튜브) 이용 가능
