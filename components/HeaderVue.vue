@@ -385,11 +385,13 @@ export default {
         },
 
         removeAlarm(alarm){
+            this.alarmLoading = true;
+
             this.alarms.data = this.alarms.data.filter(alarmData => alarmData.id != alarm.id);
 
             this.alarmForm.delete("/api/alarms/" + alarm.id)
                 .then(response => {
-
+                    this.alarmLoading = false;
                 });
         },
 
