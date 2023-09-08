@@ -107,7 +107,7 @@
                         </li>
                         <li v-if="$auth.user" class="btn-alarm">
                             <button class="Notification-Open-btn" @click="toggleAlarm">
-                                <span class="count" v-if="alarms.meta.total > 0">{{alarms.meta.total}}</span>
+                                <span class="count" v-if="alarms.data.length > 0">{{alarms.data.length}}</span>
 
                                 <img src="/images/Notification.svg" alt="">
                                 <i class="xi-bell-o"></i>
