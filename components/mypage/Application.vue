@@ -78,11 +78,22 @@
                         <button class="tracking-add-btn" @click="update">등록</button>
                     </div>
                 </div>
+
+                <div class="content" v-if="application.selected && (application.campaign.type_campaign === 'REALTIME' || application.campaign.type_campaign === 'VISIT')">
+                    <h3 class="title">체험인증</h3>
+
+                    <div class="body tracking-wrap">
+                        <div class="input-wrap-view">
+                            <p class="tracking-num">{{application.finished == 1 ? '인증완료' : '미인증'}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="btns" v-if="campaign">
-                <div class="m-btn-wrap">
-                    <nuxt-link :to="`/chats?application_id=${application.id}`" class="m-btn type01 bg-revert-primary">1대1 채팅</nuxt-link>
+                <div class="m-btn-wrap" style="display:flex; gap:10px">
+                    <a href="#" class="m-btn type01 bg-revert-primary" v-if="application.selected == 1 && application.finished == 1" style="background-color:red !important; color:#fff !important; border-color:red !important;" @click.prevent="unfinish">체험인증취소</a>
+                    <nuxt-link :to="`/chats?application_id=${application.id}`" class="m-btn type01 bg-revert-primary" v-if="application.selected == 1">1대1 채팅</nuxt-link>
                 </div>
                 <div class="m-btn-wrap" v-if="campaign.on_select">
                     <button type="button" class="m-btn type01 bg-revert-primary" v-if="application.selected">선정됨</button>
@@ -143,6 +154,13 @@ export default {
             this.form.patch("/api/applications/" + this.application.id + "/select")
                 .then(response => {
                     this.$emit("selected", response.data);
+                });
+        },
+
+        unfinish(){
+            this.form.patch("/api/applications/" + this.application.id + "/unfinish")
+                .then(response => {
+                    this.$emit("unfinished", response.data);
                 });
         },
 

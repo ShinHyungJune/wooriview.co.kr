@@ -129,7 +129,7 @@
                                     <ul class="Notification-list-wrap" v-else>
                                         <li v-for="alarm in alarms.data" :key="alarm.id" v-if="alarmForm.type ? alarm.type === alarmForm.type : alarm.type !== 'MESSAGE_CREATED'">
                                             <div class="Notification-img" :style="`background-image:url(${alarm.campaign ? alarm.campaign.img.url : '/images/crown.png'})`"></div>
-                                            <a :href="alarm.info.url" class="Notification-data">
+                                            <a href="#" class="Notification-data" @click.prevent="alarmMove(alarm)">
                                                 <p class="Notification-title">{{alarm.info.title || "우리:뷰"}}</p>
                                                 <p class="Notification-content">
                                                     {{alarm.info.message}}
@@ -403,6 +403,12 @@ export default {
             }
 
             this.activeAlarm = false;
+        },
+
+        alarmMove(alarm){
+            this.removeAlarm(alarm);
+
+            this.$router.push(alarm.info.url);
         }
     },
 

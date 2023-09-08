@@ -67,7 +67,7 @@
                 <div class="list-box">
                     <div class="scroll-wrap">
                         <ul>
-                            <application @updated="updated" @selected="selected" :campaign="campaign" :application="application" v-for="application in applications.data" :key="application.id" />
+                            <application @updated="updated" @selected="selected" @unfinished="unfinished" :campaign="campaign" :application="application" v-for="application in applications.data" :key="application.id" />
                         </ul>
                     </div>
                 </div>
@@ -139,6 +139,15 @@ export default {
             })
 
             this.campaign.count_select += 1;
+        },
+
+        unfinished(application){
+            this.applications.data = this.applications.data.map((applicationData) => {
+                if(applicationData.id == application.id)
+                    return application;
+
+                return applicationData;
+            })
         },
     },
 

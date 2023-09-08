@@ -130,7 +130,7 @@
                     </div>
                     <div class="Information-box">
                         <p class="Information-labal">검색 키워드</p>
-                        <p class="Information-content" v-text="campaign.search_keyword" style="white-space: pre-wrap"></p>
+                        <p class="Information-content" style="white-space: pre-wrap">#우리뷰 {{campaign.search_keyword}}</p>
                     </div>
                     <div class="Information-box">
                         <p class="Information-labal">캠페인미션</p>
@@ -223,8 +223,8 @@
                                 </ul>
                             </div>
                             <div v-if="$auth.user && $auth.user.data.id == campaign.user.id">
-                                <a href="#" class="Application-btn toggle" @click.prevent="" v-if="application.selected">선정됨</a>
-                                <a href="#" class="Application-btn" @click.prevent="select(application)" v-else>선정하기</a>
+                                <a href="#" class="Application-btn toggle" @click.prevent="" v-if="application.selected == 1">선정됨</a>
+                                <a href="#" class="Application-btn" @click.prevent="select(application)" v-if="campaign.on_select == 1">선정하기</a>
                             </div>
                             <div class="Introduction-wrap content-box open">
                                 <p class="Comments">{{ application.description }}</p>

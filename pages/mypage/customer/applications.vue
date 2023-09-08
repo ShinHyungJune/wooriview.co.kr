@@ -36,7 +36,9 @@
                                 채팅
                             </li>
                         </ul>
+
                         <empty v-if="applications.data.length === 0" />
+
                         <!-- 배송 일 경우 -->
                         <ul class="tbody" v-for="application in applications.data" :key="application.id">
                             <li class="img-wrap" @click="$router.push(`/campaigns/${application.campaign.id}`)" style="cursor:pointer;">
@@ -56,7 +58,7 @@
                                 <p class="num-title">{{ application.format_visited_at ? application.format_visited_at : "-" }}</p>
                             </li>
                             <li class="chat">
-                                <nuxt-link :to="`/chats?application_id=${application.id}`">1:1 채팅</nuxt-link>
+                                <nuxt-link :to="`/chats?application_id=${application.id}`" v-if="application.selected == 1">1:1 채팅</nuxt-link>
                             </li>
                         </ul>
                     </div>
