@@ -130,7 +130,10 @@
                     </div>
                     <div class="Information-box">
                         <p class="Information-labal">검색 키워드</p>
-                        <p class="Information-content" style="white-space: pre-wrap">#우리뷰 {{campaign.search_keyword}}</p>
+                        <p class="Information-content" style="white-space: pre-wrap">
+                            {{ campaign.type_sns === "NAVER" ? "포스팅 최상단에 '#우리뷰' 문구를 필수적으로 기재해주세요." : "포스팅 최상단에 '#우리뷰 #광고 #협찬' 문구를 필수적으로 기재해주세요."  }}
+                            <br/><br/>{{campaign.search_keyword}}
+                        </p>
                     </div>
                     <div class="Information-box">
                         <p class="Information-labal">캠페인미션</p>
