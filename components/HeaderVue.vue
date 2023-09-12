@@ -410,6 +410,9 @@ export default {
         alarmMove(alarm){
             this.removeAlarm(alarm);
 
+            if(alarm.info.url.includes("http") || alarm.info.url.includes("https"))
+                return location.href = alarm.info.url;
+
             this.$router.push(alarm.info.url);
         }
     },
