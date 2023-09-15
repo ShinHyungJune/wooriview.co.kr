@@ -15,8 +15,8 @@
         <div class="find-method container row-group">
             <form action="" @submit.prevent="">
                 <div class="method-box form">
-                    <input type="password" placeholder="비밀번호를 입력해주세요" v-model="form.password"> <!-- 일치하는 정보가 없을 때 wrong 클래스 추가 -->
-                    <error :form="form" name="password" />
+<!--                    <input type="password" placeholder="비밀번호를 입력해주세요" v-model="form.password"> &lt;!&ndash; 일치하는 정보가 없을 때 wrong 클래스 추가 &ndash;&gt;
+                    <error :form="form" name="password" />-->
                     <label for="leave_agree">
                         <input type="checkbox" id="leave_agree" v-model="agree">
                         <span class="check-icon"></span>
