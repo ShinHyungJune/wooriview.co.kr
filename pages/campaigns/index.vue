@@ -389,7 +389,7 @@ export default {
                                 position: coords,
                                 content:
                                     `<div class="infoWindow" style="">
-<a href="/campaigns/${campaign.id}" class="campaign" style="display: block;">
+<a href="/campaigns/${campaign.id}" class="campaign">
     <div class="img-wrap" style="background-image:url(${campaign.img.url})"></div>
     <div class="content">
         <div class="types">
