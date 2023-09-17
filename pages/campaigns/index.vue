@@ -391,7 +391,7 @@ export default {
                                     `<div class="infoWindow" style="">
 <div class="campaign">
     <div class="img-wrap" style="background-image:url(${campaign.img.url})"></div>
-    <div class="content">
+    <a href="/campaigns/${campaign.id}" class="content">
         <div class="types">
            ${campaign.type_campaign === 'REALTIME' ? '<img src="/images/Live-icon.png" alt="">' : ''}
            ${campaign.type_sns === 'INSTAGRAM' ? '<img src="/images/Instagram-icon.png" alt="">' : ''}
@@ -399,7 +399,7 @@ export default {
         </div>
         <h3 class="title">${campaign.title_product}</h3>
         <p class="body">${ campaign.description_provide }</p>
-    </div>
+    </a>
 </div>
 <button type="button" class="btn">닫기</button>
 </div>`,
