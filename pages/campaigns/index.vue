@@ -389,9 +389,9 @@ export default {
                                 position: coords,
                                 content:
                                     `<div class="infoWindow" style="">
-<div class="campaign">
+<a href="/campaigns/${campaign.id}" class="campaign" style="display: block;">
     <div class="img-wrap" style="background-image:url(${campaign.img.url})"></div>
-    <a href="/campaigns/${campaign.id}" class="content">
+    <div class="content">
         <div class="types">
            ${campaign.type_campaign === 'REALTIME' ? '<img src="/images/Live-icon.png" alt="">' : ''}
            ${campaign.type_sns === 'INSTAGRAM' ? '<img src="/images/Instagram-icon.png" alt="">' : ''}
@@ -399,8 +399,8 @@ export default {
         </div>
         <h3 class="title">${campaign.title_product}</h3>
         <p class="body">${ campaign.description_provide }</p>
-    </a>
-</div>
+    </div>
+</a>
 <button type="button" class="btn">닫기</button>
 </div>`,
                                 yAnchor: 1,
