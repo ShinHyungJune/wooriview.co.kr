@@ -92,13 +92,27 @@
 <!--                    <p class="title">리뷰 작성 기간</p>-->
                     <p class="period">{{ campaign.format_report_started_at }} ~ {{ campaign.format_report_finished_at }}</p>
                 </div>
-                <div class="right-wrap">
+                <div class="right-wrap" v-if="campaign.type_sns === 'NAVER'">
+                    <div class="data">
+                        <div class="cir black"></div>
+                        <p class="name">전체</p>
+                    </div>
                     <div class="data">
                         <div class="cir yellow"></div>
+                        <p class="name">PC</p>
+                    </div>
+                    <div class="data">
+                        <div class="cir green"></div>
+                        <p class="name">모바일</p>
+                    </div>
+                </div>
+                <div class="right-wrap" v-else>
+                    <div class="data">
+                        <div class="cir black"></div>
                         <p class="name">좋아요</p>
                     </div>
                     <div class="data">
-                        <div class="cir black"></div>
+                        <div class="cir yellow"></div>
                         <p class="name">댓글</p>
                     </div>
                 </div>
@@ -107,7 +121,7 @@
                 <div id="curve_chart"></div>
             </div>
             <div class="grap-statistics-wrap">
-                <ul>
+                <ul v-if="campaign.type_sns === 'INSTAGRAM'">
                     <li>
                         <p class="title">등록된 리뷰</p>
                         <p class="count">{{ parseInt(applications.meta.total).toLocaleString() }}</p>
@@ -120,7 +134,7 @@
                             <p class="average">{{ parseInt(metrics.average_engagement).toLocaleString() }}</p>
                         </div>
                     </li>
-                    <li v-if="campaign.type_sns === 'INSTAGRAM'">
+                    <li>
                         <p class="title">좋아요 수(누적|평균)</p>
                         <div class="count-wrap">
                             <p class="count">{{ parseInt(metrics.count_like).toLocaleString() }}</p>
@@ -128,7 +142,7 @@
                             <p class="average">{{ parseInt(metrics.average_like).toLocaleString() }}</p>
                         </div>
                     </li>
-                    <li v-if="campaign.type_sns === 'INSTAGRAM'">
+                    <li>
                         <p class="title">댓글 수(누적|평균)</p>
                         <div class="count-wrap">
                             <p class="count">{{ parseInt(metrics.count_comment).toLocaleString() }}</p>
@@ -136,12 +150,35 @@
                             <p class="average">{{ parseInt(metrics.average_comment).toLocaleString() }}</p>
                         </div>
                     </li>
-                    <li v-if="campaign.type_sns === 'NAVER'">
-                        <p class="title">조회 수(누적|평균)</p>
+                </ul>
+
+                <ul v-else>
+                    <li>
+                        <p class="title">등록된 리뷰</p>
+                        <p class="count">{{ parseInt(applications.meta.total).toLocaleString() }}</p>
+                    </li>
+                    <li>
+                        <p class="title">전체 조회수</p>
+                        <div class="count-wrap">
+                            <p class="count">{{ (parseInt(metrics.count_view) + (parseInt(metrics.count_view) * 3)).toLocaleString() }}</p>
+                            |
+                            <p class="average">{{ (parseInt(metrics.average_engagement) + parseInt(metrics.average_engagement) * 3).toLocaleString() }}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="title">PC 조회수</p>
                         <div class="count-wrap">
                             <p class="count">{{ parseInt(metrics.count_view).toLocaleString() }}</p>
                             |
                             <p class="average">{{ parseInt(metrics.average_view).toLocaleString() }}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="title">모바일 조회수 (예측치)</p>
+                        <div class="count-wrap">
+                            <p class="count">{{ (parseInt(metrics.count_view) * 3).toLocaleString() }}</p>
+                            |
+                            <p class="average">{{ (parseInt(metrics.average_view) * 3).toLocaleString() }}</p>
                         </div>
                     </li>
                 </ul>
@@ -331,11 +368,13 @@ export default {
 
                     if(self.campaign.type_sns === 'NAVER'){
                         var data = google.visualization.arrayToDataTable([
-                            ['Year', '조회수'],
+                            ['Year', '전체', 'PC 조회수', '모바일 조회수'],
                             ...self.reports.map(report => {
                                 return [
                                     report.date.substring(5),
+                                    parseInt(report.total_view) + parseInt(report.total_view) * 3,
                                     parseInt(report.total_view),
+                                    parseInt(report.total_view) * 3,
                                 ];
                             })]
                         );
@@ -352,7 +391,7 @@ export default {
                                 0: { lineWidth: 3 },
                                 1: { lineWidth: 3 }, //라인 굵기
                             },
-                        colors: ['#ffc800', '#202020' ], // 좋아요 라인 , 댓글 라인 색상
+                        colors: ['#000000', '#ffc800' , '#00c13a' ], // 좋아요 라인 , 댓글 라인 색상
                         chartArea: {'width': '86%', 'height': '70%'}, // 차트가 차지하는 범위
                         scales: {
                             yAxes: [{

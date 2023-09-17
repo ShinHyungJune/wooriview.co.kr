@@ -291,7 +291,7 @@
                                 <div class="write-bundle">
                                     <div class="m-input-dates type01">
                                         <div class="input-wrap">
-                                            <input type="datetime-local" placeholder="" v-model="form.select_started_at" ref="select_started_at">
+                                            <input type="datetime-local" placeholder="" v-model="form.select_started_at" ref="select_started_at" :min="convertDatetime(today)" :max="convertDatetime(addDays(new Date(), 1))">
 
                                             <error :form="form" name="select_started_at" />
                                         </div>
