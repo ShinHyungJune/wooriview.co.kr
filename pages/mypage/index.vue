@@ -111,7 +111,7 @@
                         <div class="icon-wrap CustomerService"></div>
                         <div class="txt-wrap">
                             <p class="labal-p">고객센터</p>
-                            <p class="txt-p">지원한 캠페인을 열람하고 선정되었는지 확인해보세요.</p>
+                            <p class="txt-p">문의사항을 전달하고 열람할 수 있어요.</p>
                         </div>
                     </nuxt-link>
                 </li>

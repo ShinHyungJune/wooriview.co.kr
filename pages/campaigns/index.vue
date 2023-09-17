@@ -329,7 +329,7 @@ export default {
             })
         },
 
-        initMap() {
+        initMap(defaultCenter) {
             const container = this.$refs.map; //지도를 담을 영역의 DOM 레퍼런스
 
             const options = {
@@ -357,7 +357,7 @@ export default {
                 });
             }
 
-            this.allCampaigns.data.map(campaign => {
+            this.allCampaigns.data.map((campaign, index) => {
                 // 주소로 좌표를 검색합니다
                 geocoder.addressSearch(
                     campaign.address,
@@ -389,8 +389,19 @@ export default {
                                 position: coords,
                                 content:
                                     `<div class="infoWindow" style="">
-<h3 class="title">${campaign.title_product}</h3>
-<a href="/campaigns/${campaign.id}" class="btn">바로가기</a>
+<div class="campaign">
+    <div class="img-wrap" style="background-image:url(${campaign.img.url})"></div>
+    <div class="content">
+        <div class="types">
+           ${campaign.type_campaign === 'REALTIME' ? '<img src="/images/Live-icon.png" alt="">' : ''}
+           ${campaign.type_sns === 'INSTAGRAM' ? '<img src="/images/Instagram-icon.png" alt="">' : ''}
+           ${campaign.type_sns === 'NAVER' ? '<img src="/images/Blog-icon.png" alt="">' : ''}
+        </div>
+        <h3 class="title">${campaign.title_product}</h3>
+        <p class="body">${ campaign.description_provide }</p>
+    </div>
+</div>
+<button type="button" class="btn">닫기</button>
 </div>`,
                                 yAnchor: 1,
                             });
@@ -404,19 +415,29 @@ export default {
 
                                 // InfoWindow를 마커 위에 표시합니다
                                 infowindow.setVisible(!infowindow.getVisible());
-                            });
 
-                            // infowindow.open(map, marker);
+                                $(".infoWindow .btn").unbind("click").bind("click",function(){
+                                    self.closeOverlay();
+                                });
+                            });
 
                             // 내 위치를 기준으로 계속 고정시키기
                             if(defaultCenter)
                                 map.setCenter(new kakao.maps.LatLng(self.y, self.x));
+
+
                         }
+
+
                     }
                 );
             });
 
         },
+
+        closeOverlay(){
+            this.infoWindows.map(infoWindow => infoWindow.setVisible(false));
+        }
     },
 
     computed: {

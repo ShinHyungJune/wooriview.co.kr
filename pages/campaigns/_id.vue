@@ -122,7 +122,7 @@
                 <div class="Information-wrap">
                     <div class="Information-box">
                         <p class="Information-labal">{{campaign.type_campaign === 'REPORTER' ? '대표 URL' : '제공내역'}}</p>
-                        <p class="Information-content" v-text="campaign.description_provide"></p>
+                        <p class="Information-content" v-text="campaign.description_provide" style="white-space: pre-line"></p>
                     </div>
                     <div class="Information-box" v-if="campaign.type_campaign === 'REPORTER' ">
                         <p class="Information-labal">원고수수료</p>
