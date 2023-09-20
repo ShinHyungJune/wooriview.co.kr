@@ -127,7 +127,7 @@
                         <p class="count">{{ parseInt(applications.meta.total).toLocaleString() }}</p>
                     </li>
                     <li>
-                        <p class="title">총 인게이지먼트(누적|평균)</p>
+                        <p class="title">총 인게이지먼트({{ campaign.type_sns === 'INSTAGRAM' ? '최근' : '누적' }}|평균)</p>
                         <div class="count-wrap">
                             <p class="count">{{ parseInt(metrics.count_engagement).toLocaleString() }}</p>
                             |
@@ -135,7 +135,7 @@
                         </div>
                     </li>
                     <li>
-                        <p class="title">좋아요 수(누적|평균)</p>
+                        <p class="title">좋아요 수(({{ campaign.type_sns === 'INSTAGRAM' ? '최근' : '누적' }}|평균)</p>
                         <div class="count-wrap">
                             <p class="count">{{ parseInt(metrics.count_like).toLocaleString() }}</p>
                             |
@@ -143,7 +143,7 @@
                         </div>
                     </li>
                     <li>
-                        <p class="title">댓글 수(누적|평균)</p>
+                        <p class="title">댓글 수(({{ campaign.type_sns === 'INSTAGRAM' ? '최근' : '누적' }}|평균)</p>
                         <div class="count-wrap">
                             <p class="count">{{ parseInt(metrics.count_comment).toLocaleString() }}</p>
                             |
