@@ -83,6 +83,7 @@ export default {
             form: new Form(this.$axios, {
                 user_id: this.$auth.user.data.id,
                 type_campaigns: ["VISIT", "DELIVERY"],
+                selected: 1,
             }),
 
             applications: {
