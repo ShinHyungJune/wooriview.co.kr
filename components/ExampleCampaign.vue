@@ -1,8 +1,6 @@
 <template>
     <li class="campaign-item">
-        <div class="img-wrap">
-            <img :src="campaign.img.url" alt="" v-if="campaign.img">
-        </div>
+        <div class="img-wrap" :style="`background-image:url(${campaign.img.url}); background-size:cover; background-position:center center;`" v-if="campaign.img"></div>
         <div class="Information-wrap">
             <div class="Period-wrap">
                 <ul class="sns-wrap">

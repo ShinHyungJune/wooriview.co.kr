@@ -85,6 +85,9 @@ export default {
         },
         onlyShow: {
             default: false,
+        },
+        max: {
+            default: 10
         }
     },
 
@@ -98,6 +101,9 @@ export default {
 
     methods: {
         changeFile(event) {
+            if(this.max && this.max < Array.from(event.target.files).length)
+                return alert(`최대 ${this.max}개의 파일만 업로드할 수 있습니다.`);
+
             let files = Array.from(event.target.files).map(file => {
                 return {
                     name: file.name,
@@ -124,14 +130,11 @@ export default {
             // 기존 업로드된 파일 목록 중 삭제
             this.files.splice(index, 1);
 
-            this.$emit("change");
+            this.$emit("change", this.files);
         }
     },
 
     mounted() {
-        console.log("야!!!");
-        console.log(this.default);
-        console.log(this.defaultFiles);
     }
 }
 </script>
