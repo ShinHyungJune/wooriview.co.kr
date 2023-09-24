@@ -114,7 +114,7 @@ export default {
             if(this.max && this.max < Array.from(event.target.files).length)
                 return alert(`최대 ${this.max}개의 파일만 업로드할 수 있습니다.`);
 
-            let files = Array.from(event.target.files).map((file, index) => {
+            Array.from(event.target.files).map((file, index) => {
                 readers.push(new FileReader());
                 images.push(new Image());
 
@@ -125,9 +125,9 @@ export default {
                         let result = self.resize(images[index]);
 
                         self.files.push({
-                            name: file.name,
+                            name: result.name,
                             file: result,
-                            thumbnail: URL.createObjectURL(file),
+                            url: URL.createObjectURL(result),
                         });
 
                         countResize++;
@@ -141,8 +141,6 @@ export default {
                     images[index].src = readerEvent.target.result;
                 };
             });
-
-            this.files = [...this.files, ...files];
 
             this.$emit("change", this.files);
         },
