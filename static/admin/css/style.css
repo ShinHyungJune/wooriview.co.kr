@@ -113,7 +113,10 @@
 .manage_detail .form-box img {
     max-width:250px;
 }
-.manage_detail .form-box> li.col-group { align-items: center; }
+.manage_detail .form-box> li.col-group {
+    align-items: center; padding-bottom:20px;
+    border-bottom:1px solid #e1e1e1;
+}
 .manage_detail .form-box> li.textarea { align-items: flex-start; }
 .manage_detail .form-box> li .default { width: 200px; min-height: 56px; }
 .manage_detail .form-box> li .default p { font-size: 16px; padding: 16px 0; font-weight: bold; }

@@ -172,7 +172,7 @@
                             </div>
 
                             <div class="write-bundle">
-                                <input-files id="img_detail" title="사진 등록" :multiple="false" max="1" accept="image/*" @change="(data) => {form.img_detail = data[0]}" />
+                                <input-files id="img_detail" title="사진 등록" :multiple="true" accept="image/*" @change="(data) => {form.img_detail = data}" />
 
                                 <error :form="form" name="img_detail" />
                             </div>
@@ -936,7 +936,7 @@ export default {
                 title_product: "",
                 description_provide: "",
                 imgs: [],
-                img_detail:"",
+                img_detail:[],
                 max_participant: "",
 
                 hire_started_at: "",
@@ -1014,7 +1014,7 @@ export default {
                 this.form.set({...campaign,
                     imgs: [],
                     img: "",
-                    img_detail:"",
+                    img_detail:[],
                     missions: [],
                     hire_started_at: "",
                     hire_finished_at: "",
@@ -1324,6 +1324,18 @@ export default {
             this.form.select_finished_at = this.convertDatetime(selectedFinishedAt);
 
             this.form.review_started_at = this.form.select_finished_at;
+        },
+
+        'form.hire_started_at': function(newVal, oldVal) {
+            if(this.form.type_campaign !== "REALTIME"){
+                if(!newVal)
+                    return "";
+
+                let date = new Date(newVal);
+
+                this.$refs.hire_finished_at.min = this.convertDate(this.addDays(date, 1));
+            }
+
         },
 
         'form.hire_finished_at': function(newVal, oldVal) {

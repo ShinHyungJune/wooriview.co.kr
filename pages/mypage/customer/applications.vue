@@ -78,6 +78,7 @@ export default {
     middleware: ["auth"],
 
     components: {Campaign},
+
     data(){
         return {
             form: new Form(this.$axios, {

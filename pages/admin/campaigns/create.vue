@@ -33,11 +33,18 @@
                                 <p>캠페인 이미지</p>
                             </div>
                             <div class="user">
-                                <div class="imgs">
-                                    <img :src="img.url" alt="" v-for="(img,index) in item.imgs" :key="index">
-                                </div>
+                                <input-images :default="item.imgs" :only-show="true" />
                             </div>
                         </li>
+                        <li class="col-group">
+                            <div class="default">
+                                <p>캠페인 상세이미지</p>
+                            </div>
+                            <div class="user">
+                                <input-images :default="item.img_detail" @change="data => form.img_detail = data" @removed="data => form.remove_img_detail_ids = data" :multiple="true" />
+                            </div>
+                        </li>
+
                         <li class="col-group">
                             <div class="default">
                                 <p>캠페인 유형</p>
@@ -251,6 +258,8 @@ export default {
             keep: false,
             item: null,
             form: new Form(this.$axios, {
+                img_detail: [],
+                remove_img_detail_ids: [],
                 selected_ids: "",
                 hire_started_at: "",
                 hire_finished_at: "",
@@ -311,6 +320,8 @@ export default {
                     this.item.review_finished_at = this.item.origin_review_finished_at;
 
                     this.form.set({...this.form, ...this.item});
+
+                    console.log(this.item.img_detail);
 
                     this.loading = false;
                 })

@@ -99,10 +99,10 @@
                 </section>
             </div>
 
-            <section class="section-content" v-if="campaign.img_detail">
+            <section class="section-content" v-if="campaign.img_detail.length > 0">
                 <div class="detailinfo showstep1">
                     <div class="content">
-                        <img :src="campaign.img_detail.url" alt="" style="max-width:100%;">
+                        <img :src="img.url" alt="" style="max-width:100%;" v-for="img in campaign.img_detail">
                     </div>
 
                 </div>
