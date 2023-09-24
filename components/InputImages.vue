@@ -88,6 +88,9 @@ export default {
         },
         max: {
             default: 10
+        },
+        maxWidth: {
+            default: 1920
         }
     },
 
@@ -101,14 +104,41 @@ export default {
 
     methods: {
         changeFile(event) {
+            let self = this;
+            let readers = [];
+            let images = [];
+
+            let length = event.target.files.length;
+            let countResize = 0;
+
             if(this.max && this.max < Array.from(event.target.files).length)
                 return alert(`최대 ${this.max}개의 파일만 업로드할 수 있습니다.`);
 
-            let files = Array.from(event.target.files).map(file => {
-                return {
-                    name: file.name,
-                    file: file,
-                    url: URL.createObjectURL(file),
+            let files = Array.from(event.target.files).map((file, index) => {
+                readers.push(new FileReader());
+                images.push(new Image());
+
+                readers[index].readAsDataURL(file);
+
+                readers[index].onload = function (readerEvent) {
+                    images[index].onload = function () {
+                        let result = self.resize(images[index]);
+
+                        self.files.push({
+                            name: file.name,
+                            file: result,
+                            thumbnail: URL.createObjectURL(file),
+                        });
+
+                        countResize++;
+
+                        if(length === countResize)
+                            self.$emit("change", self.files);
+
+                        return result;
+                    };
+
+                    images[index].src = readerEvent.target.result;
                 };
             });
 
@@ -131,6 +161,38 @@ export default {
             this.files.splice(index, 1);
 
             this.$emit("change", this.files);
+        },
+
+        resize(image){
+            let width = image.width;
+            let height = image.height;
+            let canvas = document.createElement("canvas");
+
+            if(image.width > this.maxWidth){
+                height *= this.maxWidth / width;
+                width = this.maxWidth;
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+
+            const dataUrl = canvas.toDataURL('image/png');
+
+            return this.dataURLtoBlob(dataUrl);
+        },
+
+        dataURLtoBlob(dataURI){
+            const bytes =
+                dataURI.split(',')[0].indexOf('base64') >= 0
+                    ? atob(dataURI.split(',')[1])
+                    : unescape(dataURI.split(',')[1]);
+            const mime = dataURI.split(',')[0].split(':')[1].split(';')[0];
+            const max = bytes.length;
+            const ia = new Uint8Array(max);
+            for (let i = 0; i < max; i++) ia[i] = bytes.charCodeAt(i);
+
+            return new Blob([ia], { type: mime });
         }
     },
 
