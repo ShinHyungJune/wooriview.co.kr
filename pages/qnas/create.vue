@@ -67,20 +67,28 @@ export default {
                 title: "",
                 description: "",
             }),
+
+            loading: false,
         }
     },
 
     methods: {
         store(){
-            this.form.post("/api/qnas")
-                .then(response => {
-                    this.$store.commit("setPop", {
-                        title : "문의완료",
-                        description: "성공적으로 처리되었습니다."
-                    });
+            if(!this.loading) {
+                this.loading = true;
 
-                    this.$router.back();
-                });
+                this.form.post("/api/qnas")
+                    .then(response => {
+                        this.loading = false;
+
+                        this.$store.commit("setPop", {
+                            title: "문의완료",
+                            description: "성공적으로 처리되었습니다."
+                        });
+
+                        this.$router.back();
+                    });
+            }
         }
     },
 

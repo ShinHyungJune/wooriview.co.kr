@@ -385,9 +385,9 @@ export default {
         },
 
         setDetailMore(){
-            let contentImgHeight = $('.detailinfo > .content img').height();
+            let contentHeight = $('.detailinfo > .content').height();
 
-            if (contentImgHeight < 1312) {  // 이미지가 작을 경우
+            if (contentHeight < 1312) {  // 이미지가 작을 경우
                 $('.section-content .content').css('height', 'unset');
                 $('.btn_open').css('display', 'none');
             }
