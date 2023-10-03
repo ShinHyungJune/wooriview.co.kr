@@ -7,9 +7,9 @@
                     <ul class="route">
                         <li>마이페이지</li>
                         <li><i class="xi-angle-right"></i></li>
-                        <li>결제 내역</li>
+                        <li>결제 및 내역</li>
                     </ul>
-                    <h2>결제 내역</h2>
+                    <h2>결제 및 내역</h2>
                     <div class="route-bg">
                         <img src="/images/route-bg-4.png" alt="">
                     </div>
@@ -123,6 +123,7 @@
                 </div>
 
                 <div class="table-tab-wrap">
+                    <div class="table-count" style=" margin-bottom:10px;font-weight:bold;">총 {{orders.data.length}}건</div>
                     <div class="table-wrap">
                         <ul class="thead">
                             <li class="th">

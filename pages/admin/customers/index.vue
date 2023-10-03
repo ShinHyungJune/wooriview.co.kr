@@ -53,7 +53,7 @@
                             </label>
                         </td>
                         <td>
-                            {{item.email}}
+                            <span style="font-weight:bold">[{{item.social_platform}}]</span> {{item.email}}
                         </td>
                         <td>
                             {{item.contact}}

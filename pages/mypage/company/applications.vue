@@ -65,6 +65,18 @@
                     </div>
                 </div>
                 <div class="list-box">
+                    <div class="list-box-top">
+                        <p class="comment">
+                            ※ 운송장 일괄 업로드 시 고유번호 입력란은 하단 지원내역에 명시되어있는 고유번호를 참고해주세요.
+                        </p>
+                        <div class="btns-box">
+                            <a href="/files/업로드양식.xlsx" class="m-btn type01">업로드양식 다운로드</a>
+
+                            <input type="file" id="file" style="position:absolute; z-index:-1; opacity:0" @change="upload">
+                            <label for="file" class="m-btn type01">운송장 일괄 업로드</label>
+                        </div>
+                    </div>
+
                     <div class="scroll-wrap">
                         <ul>
                             <application @updated="updated" @selected="selected" @unfinished="unfinished" :campaign="campaign" :application="application" v-for="application in applications.data" :key="application.id" />
@@ -99,7 +111,8 @@ export default {
                 page:1,
                 campaign_id: this.$route.query.campaign_id,
                 type_campaign: "",
-                selected: ""
+                selected: "",
+                file:"",
             }),
         }
     },
@@ -148,6 +161,22 @@ export default {
 
                 return applicationData;
             })
+        },
+
+        upload(e){
+            this.form.file = e.target.files[0];
+
+            e.target.value = "";
+
+            this.form.post("/api/applications/import")
+                .then(response => {
+                    alert("성공적으로 처리되었습니다.");
+
+                    this.getApplications();
+                })
+                .catch(error => {
+
+                });
         },
     },
 

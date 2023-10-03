@@ -74,7 +74,7 @@
 
                 <form @submit.prevent="storeMessage" class="btm-wrap">
                     <div class="input-wrap">
-                        <input type="text" v-model="form.body" placeholder="메세지를 입력하세요">
+                        <textarea name="" v-model="form.body" placeholder="메세지를 입력하세요"></textarea>
                     </div>
                     <div class="btns">
                         <button class="send-btn">
@@ -138,7 +138,9 @@
                     </div>
                     <div class="subscriver-name">
                         <p class="name">{{ targetUser.type === 'CUSTOMER' ? targetUser.nickname : targetUser.company_name }}</p>
-                        <p class="Address">{{targetUser.address}} {{targetUser.address_detail}}</p>
+<!--                        <p class="Address">{{targetUser.address}} {{targetUser.address_detail}}</p>-->
+                        <p class="Address">{{ targetUser.type === 'CUSTOMER' ? targetUser.contact : targetUser.company_contact }}</p>
+
                     </div>
                     <div class="follower" v-if="targetUser.type === 'CUSTOMER' && chat.campaign.type_sns === 'INSTAGRAM'">
                         팔로워

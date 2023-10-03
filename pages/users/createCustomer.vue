@@ -13,11 +13,12 @@
 
                         <div class="write-box">
                             <div class="write-bundle">
-                                <input-avatar @change="data => form.img = data" />
+                                <input-avatar @change="data => form.img = data"/>
 
                                 <div class="input-wrap Add_Features">
-                                    <input type="text" placeholder="이메일 아이디" v-model="form.email">
-                                    <error :form="form" name="email" />
+                                    <input type="text" placeholder="이메일 아이디" v-model="form.email"
+                                           @input="(e) => clearLetter(e,'email')">
+                                    <error :form="form" name="email"/>
                                 </div>
                                 <p class="input-sub">이메일 형식으로 입력해주세요</p>
 
@@ -25,34 +26,48 @@
 
                                 <div class="input-wrap Add_Features" v-if="!$route.query.socialUser">
                                     <input type="password" placeholder="비밀번호" v-model="form.password">
-                                    <error :form="form" name="password" />
+                                    <error :form="form" name="password"/>
 
                                 </div>
                                 <div class="input-wrap Add_Features" v-if="!$route.query.socialUser">
                                     <input type="password" placeholder="비밀번호 확인" v-model="form.password_confirmation">
-                                    <error :form="form" name="password_confirmation" />
+                                    <error :form="form" name="password_confirmation"/>
                                 </div>
                                 <p class="input-sub">
-                                    영문 대문자와 소문자, 숫자, 특수문자 중 2가지 이상을 조합하여 8자이상으로<br class="br-pc" />입력해주세요</p>
+                                    영문 대문자와 소문자, 숫자, 특수문자 중 2가지 이상을 조합하여 8자이상으로<br class="br-pc"/>입력해주세요</p>
                             </div>
                         </div>
 
                         <div class="write-box">
                             <div class="write-bundle">
                                 <div class="input-wrap Add_Features">
-                                    <input type="text" placeholder="닉네임" v-model="form.nickname">
-                                    <error :form="form" name="nickname" />
+                                    <input type="text" placeholder="이름" v-model="form.name"
+                                           @input="(e) => clearLetter(e, 'name')">
+                                    <error :form="form" name="name"/>
 
                                 </div>
-                                <p class="input-sub" style="color:red; font-weight:bold;">회원가입시 '닉네임 한번 결정시 수정이 불가합니다</p>
 
                             </div>
                         </div>
 
                         <div class="write-box">
-                            <input-verify-number @verified="(data) => {form.contact = data}" />
+                            <div class="write-bundle">
+                                <div class="input-wrap Add_Features">
+                                    <input type="text" placeholder="닉네임" v-model="form.nickname"
+                                           @input="(e) => clearLetter(e, 'nickname')">
+                                    <error :form="form" name="nickname"/>
 
-                            <error :form="form" name="contact" />
+                                </div>
+                                <p class="input-sub" style="color:red; font-weight:bold;">회원가입시 '닉네임 한번 결정시 수정이
+                                    불가합니다</p>
+
+                            </div>
+                        </div>
+
+                        <div class="write-box">
+                            <input-verify-number @verified="(data) => {form.contact = data}"/>
+
+                            <error :form="form" name="contact"/>
                         </div>
                     </div>
 
@@ -83,7 +98,8 @@
                                 서비스 이용약관에 동의합니다.
                             </label>
                         </div>
-                        <a target="_blank" href="/contents/servicePolicy" @click.prevent="activeServicePolicy = true"><i class="xi-angle-right-thin"></i></a>
+                        <a target="_blank" href="/contents/servicePolicy" @click.prevent="activeServicePolicy = true"><i
+                            class="xi-angle-right-thin"></i></a>
                     </div>
                     <div class="Consent-form">
                         <div class="Consent-ck">
@@ -94,7 +110,8 @@
                                 개인정보 수집 및 이용에 동의합니다.
                             </label>
                         </div>
-                        <a target="_blank" href="/contents/privacyPolicy" @click.prevent="activePrivacyPolicy = true"><i class="xi-angle-right-thin"></i></a>
+                        <a target="_blank" href="/contents/privacyPolicy" @click.prevent="activePrivacyPolicy = true"><i
+                            class="xi-angle-right-thin"></i></a>
                     </div>
                     <div class="Consent-form">
                         <div class="Consent-ck">
@@ -116,22 +133,23 @@
             </div>
         </section>
 
-        <pop-privacy-policy v-if="activePrivacyPolicy" @close="activePrivacyPolicy = false" />
-        <pop-service-policy v-if="activeServicePolicy" @close="activeServicePolicy = false" />
+        <pop-privacy-policy v-if="activePrivacyPolicy" @close="activePrivacyPolicy = false"/>
+        <pop-service-policy v-if="activeServicePolicy" @close="activeServicePolicy = false"/>
     </main>
 </template>
 
 <script>
 import Form from "../../utils/Form";
+
 export default {
     name: 'Register',
     layout: "empty",
-    data(){
+    data() {
         return {
             activePrivacyPolicy: false,
             activeServicePolicy: false,
             socialUser: null,
-            form : new Form(this.$axios, {
+            form: new Form(this.$axios, {
                 img: "",
                 social_id: "", // 소셜토큰
                 social_platform: "", // 소셜플랫폼
@@ -143,6 +161,7 @@ export default {
                 company_number: "",
                 company_contact: "",
                 company_email: "",
+                name: "",
                 nickname: "",
 
                 address: "",
@@ -153,8 +172,8 @@ export default {
 
                 type: "CUSTOMER",
 
-                password:"",
-                password_confirmation:"",
+                password: "",
+                password_confirmation: "",
 
                 // name: this.$route.query.name ? this.$route.query.name : "",
                 // sex: this.$route.query.sex ? this.$route.query.sex : "공개안함",
@@ -168,20 +187,26 @@ export default {
         }
     },
     methods: {
-        store(){
-            if(this.form.instagram && (!this.form.instagram.includes("http://")) && !this.form.instagram.includes("https://"))
+        clearLetter(e, attribute) {
+            const filter = attribute === 'email' ? /[^a-zA-Z0-9@.]+/g : /[^a-zA-Z0-9가-힣]+/g;
+
+            this.form[attribute] = e.target.value.replace(filter, '');
+        },
+
+        store() {
+            if (this.form.instagram && (!this.form.instagram.includes("http://")) && !this.form.instagram.includes("https://"))
                 return this.$store.commit("setPop", {
                     title: "URL 확인필요",
                     description: "반드시 인스타 URL에 http://나 https://을 포함하여 작성해주세요."
                 });
 
-            if(this.form.naver && (!this.form.naver.includes("http://")) && !this.form.naver.includes("https://"))
+            if (this.form.naver && (!this.form.naver.includes("http://")) && !this.form.naver.includes("https://"))
                 return this.$store.commit("setPop", {
                     title: "URL 확인필요",
                     description: "반드시 네이버 URL에 http://나 https://을 포함하여 작성해주세요."
                 });
 
-            if(!this.form.agree_privacy || !this.form.agree_usage)
+            if (!this.form.agree_privacy || !this.form.agree_usage)
                 return this.$store.commit("setPop", {
                     title: "약관동의",
                     description: "필수약관에 동의해주세요."
@@ -193,13 +218,13 @@ export default {
                 });
         },
 
-        checkAll(){
+        checkAll() {
             this.form.agree_privacy = 1;
             this.form.agree_usage = 1;
             this.form.agree_marketing = 1;
         },
 
-        unCheckAll(){
+        unCheckAll() {
             this.form.agree_privacy = 0;
             this.form.agree_usage = 0;
             this.form.agree_marketing = 0;
@@ -211,35 +236,35 @@ export default {
             return this.$store.state.categories;
         },
 
-        isCheckAll(){
+        isCheckAll() {
             return this.form.agree_marketing && this.form.agree_privacy && this.form.agree_usage;
         }
     },
 
     mounted() {
-        if(this.$route.query.socialUser)
+        if (this.$route.query.socialUser)
             this.socialUser = JSON.parse(this.$route.query.socialUser);
 
-        if(this.socialUser){
-            if(this.socialUser.social_id)
+        if (this.socialUser) {
+            if (this.socialUser.social_id)
                 this.form.social_id = this.socialUser.social_id;
 
-            if(this.socialUser.social_platform)
+            if (this.socialUser.social_platform)
                 this.form.social_platform = this.socialUser.social_platform;
 
-            if(this.socialUser.name)
+            if (this.socialUser.name)
                 this.form.name = this.socialUser.name;
 
-            if(this.socialUser.email)
+            if (this.socialUser.email)
                 this.form.email = this.socialUser.email;
 
-            if(this.socialUser.sex)
+            if (this.socialUser.sex)
                 this.form.sex = this.socialUser.sex;
 
-            if(this.socialUser.birth)
+            if (this.socialUser.birth)
                 this.form.birth = this.socialUser.birth;
 
-            if(this.socialUser.contact)
+            if (this.socialUser.contact)
                 this.form.contact = this.socialUser.contact;
         }
     }

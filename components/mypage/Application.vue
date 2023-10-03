@@ -23,9 +23,23 @@
             </nuxt-link>
             <div class="contents">
                 <div class="content">
+                    <h3 class="title">고유번호</h3>
+                    <p class="body">
+                        {{ application.id }}
+                    </p>
+                </div>
+
+                <div class="content">
                     <h3 class="title">지원글</h3>
                     <p class="body">
                         {{ application.description }}
+                    </p>
+                </div>
+
+                <div class="content">
+                    <h3 class="title">이름</h3>
+                    <p class="body">
+                        {{ application.campaign.can_see_name == 1 ? application.user.name : '***' }}
                     </p>
                 </div>
 
@@ -48,12 +62,15 @@
 
                     <div class="body tracking-wrap" v-if="!editMode && application.delivery_number">
                         <div class="input-wrap-view">
-                            <p class="tracking-num">{{ application.delivery_number }}</p>
+                            <p class="tracking-num">{{application.delivery_company}} {{ application.delivery_number }}</p>
                             <i class="xi-pen edit-btn" @click="edit"></i>
                         </div>
                     </div>
 
                     <div class="body tracking-wrap" v-else>
+                        <div class="input-wrap">
+                            <input type="text" placeholder="택배사를 입력해주세요." v-model="form.delivery_company">
+                        </div>
                         <div class="input-wrap">
                             <input type="text" placeholder="송장번호를 작성해주세요." v-model="form.delivery_number">
                         </div>
@@ -126,6 +143,7 @@ export default {
 
             form : new Form(this.$axios, {
                 delivery_number: "",
+                delivery_company: "",
                 visited_at: "",
             }),
         }
@@ -166,6 +184,8 @@ export default {
 
         edit() {
             this.editMode = true;
+
+            this.form.delivery_company = this.application.delivery_company;
 
             this.form.delivery_number = this.application.delivery_number;
 

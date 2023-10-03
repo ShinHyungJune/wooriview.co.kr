@@ -46,6 +46,7 @@
                         <th>상품명</th>
                         <th>선정여부</th>
                         <th>베스트여부</th>
+                        <th>리뷰</th>
                         <th>참여배너 URL</th>
 
                         <!--
@@ -96,6 +97,9 @@
                             {{item.count_comment}}
                         </td>
                         -->
+                        <td>
+                            <a :href="item.url_review" target="_blank" v-if="item.url_review" style="white-space: nowrap">리뷰보기</a>
+                        </td>
                         <td>
                             {{item.url_banner}}
                         </td>

@@ -51,7 +51,7 @@
                                     <label for="">인스타그램 URL</label>
                                 </div>
                                 <div class="input-wrap">
-                                    <input class="" type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요." v-model="form.instagram">
+                                    <input class="" type="text" placeholder="https://를 포함한 정확한 미디어 주소를 입력해주세요." v-model="form.instagram">
                                 </div>
 
                                 <div class="sns-radio-box">
@@ -59,9 +59,13 @@
                                     <label for="">네이버블로그 URL</label>
                                 </div>
                                 <div class="input-wrap">
-                                    <input type="text" placeholder="http:// 또는 https://를 포함한 정확한 미디어 주소를 입력해주세요." v-model="form.naver">
+                                    <input type="text" placeholder="https://를 포함한 정확한 미디어 주소를 입력해주세요." v-model="form.naver">
                                 </div>
                             </div>
+
+                            <p class="m-comment type01" style="margin-top:12px;">
+                                ※ 본 링크는 <span class="point">광고주</span>에게 노출될 링크입니다.
+                            </p>
                         </div>
 
                         <div class="write-box">
@@ -144,6 +148,8 @@
                                 <div class="gap"></div>
 
                                 <input-address @change="(data) => form[data.name] = data.value" :form="form" />
+                                <error :form="form" name="address" />
+                                <error :form="form" name="address_detail" />
 
                                 <p class="m-comment type01" style="margin-top:12px;">
                                     본 주소는 <span class="point">배송형 캠페인 선정 시</span> 광고주가 <span class="point">배송 진행</span>에 이용함으로 <span class="point">오기입</span>으로
@@ -336,6 +342,18 @@ export default {
         },
         next(){
             if(this.step == 1){
+                if(this.form.instagram && !this.form.instagram.includes('https://www.instagram.com'))
+                    return this.$store.commit("setPop", {
+                        title: "입력확인",
+                        description: "https://www.instagram.com를 포함한 전체 url을 입력해주세요."
+                    });
+
+                if(this.form.naver && !this.form.naver.includes('https://blog.naver.com'))
+                    return this.$store.commit("setPop", {
+                        title: "입력확인",
+                        description: "https://blog.naver.com을 포함한 전체 url을 입력해주세요."
+                    });
+
                 if(this.form.categories.length === 0)
                     return this.$store.commit("setPop", {
                         title: "입력확인",

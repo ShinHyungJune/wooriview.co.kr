@@ -120,7 +120,9 @@ export default {
         },
 
         clearLetter(){
-            this.form.contact = this.form.contact.replace("-", "");
+            const filter = /[^0-9]+/g;
+
+            this.form.contact = this.form.contact.replace(filter, "");
         }
     }
 }

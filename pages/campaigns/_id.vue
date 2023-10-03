@@ -135,7 +135,7 @@
                     <div class="Information-box">
                         <p class="Information-labal">캠페인미션</p>
                         <div class="Information-content">
-                            <p>- {{ campaign.type_sns === "NAVER" ? "포스팅 최상단에 '#우리뷰' 문구를 필수적으로 기재해주세요." : "포스팅 최상단에 '#우리뷰 #광고 #협찬' 문구를 필수적으로 기재해주세요."  }}</p>
+                            <p>- {{ campaign.type_sns === "NAVER" ? "포스팅 최상단에 '#우리뷰' 문구를 필수적으로 기재해주세요." : "포스팅 최상단에 '#우리뷰 #광고 #협찬' 문구를 필수적으로 기재해주세요."  }}<br/><br/></p>
                             <p v-for="(mission, index) in campaign.missions" :key="index">- {{mission}}<br/><br/></p>
                             <p v-if="campaign.mission" style="white-space: pre-wrap">- {{campaign.mission}}</p>
                         </div>
@@ -287,6 +287,30 @@
 <script>
 import Form from "../../utils/Form";
 export default {
+
+    head() {
+        return {
+            title: this.campaign ? `[${this.campaign.title_company}] ${this.campaign.title_product}` : '',
+            meta: [
+                {
+                    hid: 'og:title',
+                    property: 'og:title',
+                    content: this.campaign ? `[${this.campaign.title_company}] ${this.campaign.title_product}` : ''
+                },
+                {
+                    hid: 'og:description',
+                    property: 'og:description',
+                    content: this.campaign ? this.campaign.description_provide : ''
+                },
+                {
+                    hid: 'og:image',
+                    property: 'og:image',
+                    content: this.campaign ? this.campaign.img.url : ''
+                },
+            ]
+        }
+    },
+
     data(){
         return {
             campaign: "",
@@ -325,6 +349,7 @@ export default {
                 }, 100);
             })
         },
+
         getApplications(loadMore = false){
             if(loadMore)
                 this.form.page += 1;

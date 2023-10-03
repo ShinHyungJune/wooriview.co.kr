@@ -38,6 +38,9 @@
                                     <p class="title">[{{tempCampaign.title_company}}] {{ tempCampaign.title_product }}</p>
                                     <p class="date">{{ tempCampaign.format_created_at }}</p>
                                 </label>
+                                <button class="btn-remove" @click="removeCampaign(tempCampaign)">
+                                    <i class="xi-close"></i>
+                                </button>
                             </li>
                         </ul>
                         <button class="bring_btn" @click="setTempCampaign">불러오기</button>
@@ -978,11 +981,17 @@ export default {
                     temp: 1,
                     open: 1,
                     accept: 0,
-                    take: 3,
+                    take: 10,
                 }
             }).then(response => {
                 this.tempCampaigns = response.data;
             });
+        },
+
+        removeCampaign(campaign){
+            this.tempCampaigns.data = this.tempCampaigns.data.filter(tempCapaign => tempCapaign.id != campaign.id);
+
+            this.$axios.delete("/api/campaigns/" + campaign.id);
         },
 
         checkOverMissions(e){
@@ -1024,6 +1033,8 @@ export default {
                     review_finished_at: "",
                 });
             }
+
+            $(".temporary_storage_wrap").removeClass("open");
         },
 
         storeTemp(){
@@ -1134,7 +1145,7 @@ export default {
                 this.click(); // 클릭 이벤트를 발생시켜 팝업을 엽니다.
             });
 
-            $(".temporary_storage_open_btn").click(function () {
+            $(".temporary_storage_open_btn").unbind("click").bind("click",function () {
                 $(".temporary_storage_wrap").toggleClass("open");
             })
 
@@ -1281,6 +1292,9 @@ export default {
     },
 
     mounted() {
+        if(this.$auth.user.data.can_create_campaign != 1)
+            return this.$router.push("/orders");
+
         this.getTempCampaigns();
 
         this.addEvent();
@@ -1384,7 +1398,7 @@ export default {
             },300)
 
             if(newVal === 'REALTIME' || newVal === 'VISIT'){
-                this.max = 10;
+                this.max = 5;
             }
 
             if(newVal === 'REPORTER' || newVal === 'DELIVERY'){

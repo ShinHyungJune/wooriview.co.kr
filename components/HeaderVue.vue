@@ -145,7 +145,13 @@
                                         <button class="see_more" @click="() => {getAlarms(true);}" v-if="alarms.links && alarms.links.next">더보기</button>
                                         -->
                                     </ul>
+
+                                    <button class="btn-remove" v-if="alarms.data.length > 0" @click="removeAllAlarm">
+                                        모두 삭제
+                                    </button>
                                 </div>
+
+
                             </div>
                             <div class="Notification-close" @click="activeAlarm = false"></div>
                         </li>
@@ -390,6 +396,19 @@ export default {
             this.alarms.data = this.alarms.data.filter(alarmData => alarmData.id != alarm.id);
 
             this.alarmForm.delete("/api/alarms/" + alarm.id)
+                .then(response => {
+                    this.alarmLoading = false;
+                });
+        },
+
+        removeAllAlarm(){
+            this.alarmLoading = true;
+
+            this.alarms.data = this.alarmForm.type === 'MESSAGE_CREATED'
+                ? this.alarms.data.filter(alarm => alarm.type !== 'MESSAGE_CREATED')
+                : this.alarms.data.filter(alarm => alarm.type === 'MESSAGE_CREATED');
+
+            this.alarmForm.delete("/api/alarms")
                 .then(response => {
                     this.alarmLoading = false;
                 });
