@@ -295,7 +295,7 @@ export default {
                 {
                     hid: 'og:url',
                     property: 'og:url',
-                    content: window.location.href
+                    content: 'https://wooriview.co.kr' + this.$route.fullPath
                 },
                 {
                     hid: 'og:title',
