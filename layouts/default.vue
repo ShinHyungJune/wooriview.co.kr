@@ -29,26 +29,7 @@ import HeaderVue from "../components/HeaderVue";
 import FooterVue from "../components/FooterVue";
 export default {
     head() {
-        let meta = [
-            {
-                hid: 'og:title',
-                property: 'og:title',
-                content: '우리뷰-구독형 체험단 마케팅 플랫폼'
-            },
-            {
-                hid: 'og:description',
-                property: 'og:description',
-                content: '우리뷰, 구독형 체험단, 인플루언서 마케팅, SNS마케팅, 체험단, 블로그 체험단, 인스타그램 체험단, 블로그 마케팅, 인스타그램 마케팅, SNS 체험단'
-            },
-            {
-                hid: 'og:image',
-                property: 'og:image',
-                content: 'https://wooriview.co.kr/images/wooriview-m.png'
-            },
-        ];
-
         return {
-            meta: this.$route.params.id && this.$route.path.includes("/campaigns") ? [] : meta,
             link: [
                 {rel: 'stylesheet', type: 'text/css', href: '//cdn.quilljs.com/1.3.4/quill.snow.css'},
                 {rel: 'stylesheet', type: 'text/css', href: '/css/common.css'},

@@ -293,6 +293,11 @@ export default {
             title: this.campaign ? `[${this.campaign.title_company}] ${this.campaign.title_product}` : '',
             meta: [
                 {
+                    hid: 'og:url',
+                    property: 'og:url',
+                    content: window.location.href
+                },
+                {
                     hid: 'og:title',
                     property: 'og:title',
                     content: this.campaign ? `[${this.campaign.title_company}] ${this.campaign.title_product}` : ''
