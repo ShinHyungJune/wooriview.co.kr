@@ -287,35 +287,6 @@
 <script>
 import Form from "../../utils/Form";
 export default {
-
-    head() {
-        return {
-            title: this.campaign ? `[${this.campaign.title_company}] ${this.campaign.title_product}` : '',
-            meta: [
-                {
-                    hid: 'og:url',
-                    property: 'og:url',
-                    content: 'https://wooriview.co.kr' + this.$route.fullPath
-                },
-                {
-                    hid: 'og:title',
-                    property: 'og:title',
-                    content: this.campaign ? `[${this.campaign.title_company}] ${this.campaign.title_product}` : ''
-                },
-                {
-                    hid: 'og:description',
-                    property: 'og:description',
-                    content: this.campaign ? this.campaign.description_provide : ''
-                },
-                {
-                    hid: 'og:image',
-                    property: 'og:image',
-                    content: this.campaign ? this.campaign.img.url : ''
-                },
-            ]
-        }
-    },
-
     data(){
         return {
             campaign: "",
