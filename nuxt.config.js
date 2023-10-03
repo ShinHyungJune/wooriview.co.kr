@@ -22,7 +22,6 @@ export default {
             {name: 'description', content: "우리뷰, 구독형 체험단, 인플루언서 마케팅, SNS마케팅, 체험단, 블로그 체험단, 인스타그램 체험단, 블로그 마케팅, 인스타그램 마케팅, SNS 체험단"},
             {property: 'og:type', content: 'wooriview'},
 
-            {property: 'og:url', content: 'https://wooriview.co.kr'},
             {name: 'keywords', content: 'wooriview, 우리뷰, 리뷰, 캠페인'},
         ],
         script: [
