@@ -33,7 +33,7 @@ export default {
             {
                 hid: 'og:url',
                 property: 'og:url',
-                content: 'https://wooriview.co.kr' + this.$route.fullPath
+                content: 'https://wooriview.co.kr'
             },
             {
                 hid: 'og:title',
