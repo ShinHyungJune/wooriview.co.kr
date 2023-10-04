@@ -354,7 +354,7 @@ body{ -ms-overflow-style: none; }
     .header .Notification-box .Notification-p { font-size: 16px; }
     .header .Notification-box .Notification-list-wrap {
         padding: unset; padding-top: 24px; gap: 16px;
-        max-height:none; height:calc(100vh - 113px);
+        max-height:none; height:calc(100vh - 149px);
     }
     .header .Notification-box .Notification-list-wrap li { padding-right: 24px; padding-bottom: 24px; padding-left: 24px; }
     .header .Notification-box .Notification-list-wrap li::after { width: calc(100% - 72px); }
