@@ -435,6 +435,8 @@ export default {
 
                 $('.add-btn-icon').addClass('turn');
 
+                alert(123);
+
                 if (window.innerWidth > 768) {
                     if (classList.contains('showstep1')) {
                         if (!currentHeight) {
