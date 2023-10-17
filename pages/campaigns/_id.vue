@@ -418,15 +418,14 @@ export default {
 
         setDetailMore(){
             let contentHeight = $('.detailinfo > .content').height();
+            let overflowHeight = window.innerWidth > 768 ? 1312 : 600;
 
-            alert(contentHeight);
-            alert($('.detailinfo > img').length);
-            if (contentHeight < 1312) {  // 이미지가 작을 경우
+            if (contentHeight < overflowHeight) {  // 이미지가 작을 경우
                 $('.section-content .content').css('height', 'unset');
                 $('.btn_open').css('display', 'none');
             }
 
-            let originalHeight = '1312px'; // 지정된 높이값
+            let originalHeight = overflowHeight + 'px'; // 지정된 높이값
             let currentHeight; // 현재 높이값 저장
 
             $('.btn_open').on('click', function(e) {
@@ -434,8 +433,6 @@ export default {
                 let contentOriginHeight = document.querySelector('.detailinfo > .content');
 
                 $('.add-btn-icon').addClass('turn');
-
-                alert(123);
 
                 if (window.innerWidth > 768) {
                     if (classList.contains('showstep1')) {
