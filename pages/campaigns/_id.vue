@@ -349,7 +349,9 @@ export default {
                             $(".big-img-wrap img").attr("src" , $(this).attr("src"))
                         })
 
-                        self.setDetailMore();
+                        setTimeout(function(){
+                            self.setDetailMore();
+                        }, 100);
                     });
                 }, 100);
             })
