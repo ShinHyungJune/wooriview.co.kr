@@ -83,7 +83,7 @@
                                 <p>선정여부</p>
                             </div>
                             <div class="user">
-                                {{ item.select ? "O" : "X" }}
+                                {{ item.select == 1 ? "O" : "X" }}
                             </div>
                         </li>
                         <li class="col-group">

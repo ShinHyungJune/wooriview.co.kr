@@ -419,6 +419,8 @@ export default {
         setDetailMore(){
             let contentHeight = $('.detailinfo > .content').height();
 
+            alert(contentHeight);
+            alert($('.detailinfo > img').length);
             if (contentHeight < 1312) {  // 이미지가 작을 경우
                 $('.section-content .content').css('height', 'unset');
                 $('.btn_open').css('display', 'none');

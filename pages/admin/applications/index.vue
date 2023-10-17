@@ -83,7 +83,7 @@
                             {{item.campaign.title_product}}
                         </td>
                         <td>
-                            {{item.selected ? 'O' : 'X'}}
+                            {{item.selected == 1 ? 'O' : 'X'}}
                         </td>
                         <td>
                             {{item.best ? 'O' : 'X'}}
