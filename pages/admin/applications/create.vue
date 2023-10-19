@@ -59,7 +59,7 @@
                                 <p>리뷰 URL</p>
                             </div>
                             <div class="user">
-                                {{ item.url_review }}
+                                <input type="text" v-model="form.url_review">
                             </div>
                         </li>
                         <li class="col-group">
@@ -143,11 +143,20 @@ export default {
             item: null,
             form: new Form(this.$axios, {
                 selected_ids: "",
+                url_review: ""
             })
         }
     },
 
     methods: {
+        store(){
+            return this.form.post("/api/admin/applications/update/" + this.item.id)
+                .then(response => {
+                    this.$router.back();
+                });
+        },
+
+
         select(){
             this.form.selected_ids = [this.item.id];
 
@@ -196,6 +205,8 @@ export default {
                     this.item = response.data.data;
 
                     this.form.set({...this.item, ...this.form});
+
+                    this.form.url_review = this.item.url_review;
 
                     this.loading = false;
                 })
