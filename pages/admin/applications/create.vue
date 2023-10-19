@@ -117,6 +117,7 @@
                         <button type="button" class="submit-btn" @click="unselect" v-else>선정취소</button>
                         <button type="button" class="submit-btn" @click="best" v-if="!item.best">베스트</button>
                         <button type="button" class="submit-btn" @click="unbest" v-else>베스트 취소</button>
+                        <button type="button" class="submit-btn" @click="store">저장</button>
                     </div>
 
                 </form>
