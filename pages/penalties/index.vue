@@ -78,7 +78,7 @@
                     <div class="table-tab-wrap advertiser-table_2">
                         <ul class="table-tab-list">
                             <li :class="`tab-link ${form.type === 'GIVE' ? 'Active' : ''}`" data-tab="tab-1" @click="()=>{form.type = 'GIVE'; getPenalties()}">내가 준 패널티 <span>{{counts.count_give}}</span></li>
-                            <li :class="`tab-link ${form.type === 'TAKE' ? 'Active' : ''}`" data-tab="tab-2" @click="()=>{form.type = 'TAKE'; getPenalties()}">내가 받은 패널티 <span>{{counts.count_take}}</span></li>
+                            <li :class="`tab-link ${form.type === 'TAKE' ? 'Active' : ''}`" data-tab="tab-2" @click="()=>{form.type = 'TAKE'; getPenalties()}" v-if="$auth.user.data.type === 'COMPANY'">내가 받은 패널티 <span>{{counts.count_take}}</span></li>
                         </ul>
 
                         <!-- 내가 준 패널티 -->

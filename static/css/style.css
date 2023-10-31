@@ -548,7 +548,9 @@
 .campaign_Details .section4 .subscriber-list .subscriber-ri .subscriber-tab li { height: 32px; display: flex; align-items: center; cursor: pointer; font-size: 14px; color: #c1c1c1; }
 .campaign_Details .section4 .subscriber-list .subscriber-ri .subscriber-tab li.Active { font-weight: 600; color: #202020; border-bottom: 2px solid #ffc800; }
 .campaign_Details .section4 .subscriber-list .subscriber-ri .Application-btn { display: flex; justify-content: center; align-items: center; width: 122px; height: 32px; border-radius: 16px; border: solid 1px #ffc800; font-size: 14px; font-weight: 500; color: #ffc800; position: absolute; top: 0; right: 0; }
-
+.campaign_Details .section4 .subscriber-list .subscriber-ri .Application-btn.toggle {
+    z-index:1;
+}
 .campaign_Details .section4 .content-box { display: none; }
 .campaign_Details .section4 .content-box.open { display: block; }
 
