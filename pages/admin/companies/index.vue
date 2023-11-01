@@ -113,7 +113,7 @@
                         <input type="text" v-model="form.password">
                     </div>
                     <div class="button-box">
-                        <a href="#" @click.prevent="changePassword(item)" class="btn">확인</a>
+                        <a href="#" @click.prevent="changePassword" class="btn">확인</a>
                     </div>
                 </div>
             </div>
@@ -188,8 +188,8 @@ export default {
                 })
         },
 
-        changePassword(item){
-            this.form.patch("/api/admin/users/changePassword/" + item.id)
+        changePassword(){
+            this.form.patch("/api/admin/users/changePassword/" + this.target.id)
                 .then(response => {
                     alert("성공적으로 처리되었습니다.");
 
