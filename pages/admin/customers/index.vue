@@ -101,7 +101,7 @@
                     <input type="text" v-model="form.password">
                 </div>
                 <div class="button-box">
-                    <a href="#" @click.prevent="changePassword" class="btn">확인</a>
+                    <a href="#" @click.prevent="changePassword(item)" class="btn">확인</a>
                 </div>
             </div>
         </div>
@@ -153,6 +153,8 @@ export default {
                     alert("성공적으로 처리되었습니다.");
 
                     this.form.password = "";
+
+                    this.target = null;
                 })
         },
 

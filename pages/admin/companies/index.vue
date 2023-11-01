@@ -44,6 +44,7 @@
                         <th>이용권 만료일자</th>
                         <th>가입날짜</th>
                         <th>정지일자</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -81,6 +82,9 @@
                         <td>
                             {{item.deleted_at}}
                         </td>
+                        <td>
+                            <a href="#" class="add-btn" @click.prevent="target = item">비밀번호 변경</a>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -101,6 +105,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modal-box fixed" v-if="target">
+                <div class="box">
+                    <h2>비밀번호 변경</h2>
+                    <div class="m-input-text type01">
+                        <input type="text" v-model="form.password">
+                    </div>
+                    <div class="button-box">
+                        <a href="#" @click.prevent="changePassword(item)" class="btn">확인</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 </template>
@@ -127,9 +144,11 @@ export default {
                 word: "",
                 type: "COMPANY",
                 expired_at: "",
+                password: "",
             }),
 
             activeExpiredPop: false,
+            target: null,
         }
     },
 
@@ -166,6 +185,17 @@ export default {
                     this.filter();
 
                     this.activeExpiredPop = false;
+                })
+        },
+
+        changePassword(item){
+            this.form.patch("/api/admin/users/changePassword/" + item.id)
+                .then(response => {
+                    alert("성공적으로 처리되었습니다.");
+
+                    this.form.password = "";
+
+                    this.target = null;
                 })
         },
 
