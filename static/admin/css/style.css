@@ -3,6 +3,11 @@
     font-size:14px; color:red;
 }
 
+.m-input-text.type01 input {
+    padding:12px 20px;
+    border:1px solid #e1e1e1;
+}
+
 /* 로그인 메뉴 */
 .login { justify-content: center; }
 .login-wrap { height: 100vh; width: 300px; margin: 0 auto; flex-flow: column; justify-content: center; }
