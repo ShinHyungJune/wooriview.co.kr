@@ -37,20 +37,26 @@
                 </div>
 
                 <div class="content">
+                    <h3 class="title">닉네임</h3>
+                    <p class="body">
+                        {{ application.user.nickname }}
+                    </p>
+                </div>
+<!--                <div class="content">
                     <h3 class="title">이름</h3>
                     <p class="body">
                         {{ application.campaign.can_see_name == 1 ? application.user.name : '***' }}
                     </p>
-                </div>
+                </div>-->
 
-                <div class="content">
+                <div class="content" v-if="application.selected && application.campaign.type_campaign === 'DELIVERY'">
                     <h3 class="title">주소</h3>
                     <p class="body">
                         {{application.user.address }} {{application.user.address_detail}}
                     </p>
                 </div>
 
-                <div class="content">
+                <div class="content" v-if="application.selected">
                     <h3 class="title">연락처</h3>
                     <p class="body">
                         {{application.user.contact }}
