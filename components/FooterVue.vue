@@ -23,7 +23,7 @@
                 <p class="Address">우리뷰(주) | 대표이사 : 정원철 </p>
                 <p class="Address">사업자등록번호 : 706-88-02900 | 통신판매업신고번호 : 제 2023-의정부흥선-0370호 </p>
                 <!--                <p class="Address">주소 : 서울특별시 노원구 상계동169-210 4층</p>-->
-                <p class="Address">주소 : 서울특별시 노원구 상계동 169-210 4층</p>
+                <p class="Address">주소 : 서울특별시 강서구 양천로 583, 에이동 9층 903호 우리뷰(염창동, 우림블루나인비즈니스센터)</p>
                 <p class="Address">메일 : admin@wooriview.co.kr | 전화 : 1644-2515 </p>
                 <p class="COPYRIGHT">COPYRIGHT 2022 우리뷰 ALL RIGHT RESERVED.</p>
             </div>
