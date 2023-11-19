@@ -353,7 +353,7 @@ export default {
 
             this.$axios.get("/api/campaigns", {
                 params: {
-                    // ongoingHire: 1,
+                    ongoingHire: 1,
                     order_by: "applications_count",
                     take:16,
                 }
@@ -371,10 +371,10 @@ export default {
 
             this.$axios.get("/api/campaigns", {
                 params: {
-                    // ongoingHire: 1,
+                    ongoingHire: 1,
                     order_by: "hire_finished_at",
-                    // align: "asc",
-                    align: "desc",
+                    align: "asc",
+                    // align: "desc",
                     take:16,
                 }
             }).then(response => {
@@ -410,7 +410,7 @@ export default {
 
             this.$axios.get("/api/campaigns", {
                 params: {
-                    // ongoingHire: 1,
+                    ongoingHire: 1,
                     order_by: "hire_finished_at",
                     align: "desc",
                     type_campaigns: ["REALTIME"],
