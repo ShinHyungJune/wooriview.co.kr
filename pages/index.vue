@@ -391,7 +391,7 @@ export default {
 
             this.$axios.get("/api/campaigns", {
                 params: {
-                    // ongoingHire: 1,
+                    ongoingHire: 1,
                     order_by: "applications_count",
                     align: "asc",
                     take:16,
