@@ -14,6 +14,71 @@
                 <div class="swiper-pagination"></div>
             </div>
         </section>
+
+        <section class="section1-1">
+            <div class="container">
+                <div class="campaign-item-wrap">
+                    <div class="h2-wrap">
+                        <h2><span>이용가이드</span></h2>
+                    </div>
+
+                    <div class="boxes">
+                        <div class="box-wrap">
+                            <a href="#" class="box">
+                                <h3 class="title">
+                                    캠페인등록
+                                </h3>
+
+                                <img src="/images/캠페인등록.png" alt="">
+                            </a>
+                        </div>
+
+                        <div class="box-wrap">
+                            <a href="#" class="box">
+                                <h3 class="title">
+                                    나의캠페인
+                                </h3>
+
+                                <img src="/images/나의캠페인.png" alt="">
+                            </a>
+                        </div>
+
+                        <div class="box-wrap">
+                            <a href="#" class="box">
+                                <h3 class="title">
+                                    이용가이드
+                                </h3>
+
+                                <img src="/images/이용가이드.png" alt="">
+                            </a>
+                        </div>
+
+                        <div class="box-wrap">
+                            <a href="#" class="box">
+                                <h3 class="title">
+                                    고객센터
+                                </h3>
+
+                                <img src="/images/고객센터.png" alt="">
+                            </a>
+                        </div>
+
+                        <div class="box-wrap">
+                            <a href="#" class="box">
+                                <h3 class="title">
+                                    입점문의
+                                </h3>
+
+                                <img src="/images/입점문의.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
         <section class="section2">
             <div class="container">
                 <div class="campaign-item-wrap">
@@ -288,7 +353,7 @@ export default {
 
             this.$axios.get("/api/campaigns", {
                 params: {
-                    ongoingHire: 1,
+                    // ongoingHire: 1,
                     order_by: "applications_count",
                     take:16,
                 }
@@ -306,7 +371,7 @@ export default {
 
             this.$axios.get("/api/campaigns", {
                 params: {
-                    ongoingHire: 1,
+                    // ongoingHire: 1,
                     order_by: "hire_finished_at",
                     align: "asc",
                     take:16,
@@ -325,7 +390,7 @@ export default {
 
             this.$axios.get("/api/campaigns", {
                 params: {
-                    ongoingHire: 1,
+                    // ongoingHire: 1,
                     order_by: "applications_count",
                     align: "asc",
                     take:16,
@@ -344,7 +409,7 @@ export default {
 
             this.$axios.get("/api/campaigns", {
                 params: {
-                    ongoingHire: 1,
+                    // ongoingHire: 1,
                     type_campaigns: ["REALTIME"],
                     take:16,
                 }
