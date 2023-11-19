@@ -373,7 +373,8 @@ export default {
                 params: {
                     // ongoingHire: 1,
                     order_by: "hire_finished_at",
-                    align: "asc",
+                    // align: "asc",
+                    align: "desc",
                     take:16,
                 }
             }).then(response => {
@@ -410,6 +411,8 @@ export default {
             this.$axios.get("/api/campaigns", {
                 params: {
                     // ongoingHire: 1,
+                    order_by: "hire_finished_at",
+                    align: "desc",
                     type_campaigns: ["REALTIME"],
                     take:16,
                 }
