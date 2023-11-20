@@ -96,8 +96,6 @@ export default {
         getCategories() {
             this.$axios.get("/api/categories")
                 .then(response => {
-                    console.log("categories");
-                    console.log(response.data);
                     this.$store.commit("setCategories", response.data);
                 })
         },
