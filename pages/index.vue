@@ -456,7 +456,7 @@ export default {
         checkCompany(){
             if(!this.$auth.user && this.$auth.user.data.type !== "COMPANY")
                 return this.$store.commit("setPop", {
-                    description: "광고주만 이용 가능합니다."
+                    description: "캠페인 등록은 광고주만 가능합니다"
                 });
 
             return this.$router.push("/campaigns/create");
