@@ -20,7 +20,7 @@
             <div class="container3">
                 <div class="m-boxes type01">
                     <div class="box-wrap" v-for="item in items.data" :key="item.id">
-                        <a href="#" class="box" @click.prevent="targetItem = item">
+                        <a href="#" class="box" @click.prevent="() => targetItem = item">
                             <h3 class="title">{{ item.title }}</h3>
                             <img :src="item.img ? item.img.url : ''" alt="">
                         </a>

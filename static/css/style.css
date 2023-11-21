@@ -431,6 +431,16 @@
 }
 
 @media screen and (max-width: 1200px) {
+    .main .section1-1 .boxes {
+        display: block;
+        margin-right:-20px;
+        white-space: nowrap;
+        overflow-x:auto;
+    }
+    .main .section1-1 .box-wrap {
+        display: inline-block;
+    }
+
     .main .section1-1 {
         padding-bottom:0px;
     }

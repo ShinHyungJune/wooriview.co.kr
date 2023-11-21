@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="boxes">
                     <div class="box-wrap">
-                        <nuxt-link to="/campaigns/create" class="box">
+                        <a href="#" class="box" @click.prevent="checkCompany">
                             <div class="img-wrap">
                                 <img src="/images/캠페인등록.png" alt="">
                             </div>
@@ -27,7 +27,7 @@
                             <h3 class="title">
                                 캠페인등록
                             </h3>
-                        </nuxt-link>
+                        </a>
                     </div>
 
                     <div class="box-wrap">
@@ -452,6 +452,15 @@ export default {
                 }, 1);
             });
         },
+
+        checkCompany(){
+            if(!this.$auth.user && this.$auth.user.data.type !== "COMPANY")
+                return this.$store.commit("setPop", {
+                    description: "광고주만 이용 가능합니다."
+                });
+
+            return this.$router.push("/campaigns/create");
+        }
     },
 
     mounted() {
