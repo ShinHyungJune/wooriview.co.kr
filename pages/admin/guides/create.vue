@@ -17,7 +17,7 @@
                                 <p>이미지</p>
                             </div>
                             <div class="user">
-                                <input-images id="pc" :multiple="false" @change="(data) => form.files = data" :default="[item ? item.pc : '']" />
+                                <input-images id="pc" :multiple="false" @change="(data) => form.files = data" :default="[item && item.img ? item.img : '']" />
                                 <error :form="form" name="files" />
                             </div>
                         </li>
