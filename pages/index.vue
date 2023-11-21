@@ -17,65 +17,67 @@
 
         <section class="section1-1">
             <div class="container">
-                <div class="campaign-item-wrap">
-                    <div class="h2-wrap">
-                        <h2><span>이용가이드</span></h2>
-                    </div>
-
-                    <div class="boxes">
-                        <div class="box-wrap">
-                            <a href="#" class="box">
-                                <h3 class="title">
-                                    캠페인등록
-                                </h3>
-
+                <div class="boxes">
+                    <div class="box-wrap">
+                        <nuxt-link to="/campaigns/create" class="box">
+                            <div class="img-wrap">
                                 <img src="/images/캠페인등록.png" alt="">
-                            </a>
-                        </div>
+                            </div>
 
-                        <div class="box-wrap">
-                            <a href="#" class="box">
-                                <h3 class="title">
-                                    나의캠페인
-                                </h3>
-
-                                <img src="/images/나의캠페인.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="box-wrap">
-                            <a href="#" class="box">
-                                <h3 class="title">
-                                    이용가이드
-                                </h3>
-
-                                <img src="/images/이용가이드.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="box-wrap">
-                            <a href="#" class="box">
-                                <h3 class="title">
-                                    고객센터
-                                </h3>
-
-                                <img src="/images/고객센터.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="box-wrap">
-                            <a href="#" class="box">
-                                <h3 class="title">
-                                    입점문의
-                                </h3>
-
-                                <img src="/images/입점문의.png" alt="">
-                            </a>
-                        </div>
+                            <h3 class="title">
+                                캠페인등록
+                            </h3>
+                        </nuxt-link>
                     </div>
 
-                </div>
+                    <div class="box-wrap">
+                        <nuxt-link to="/mypage" class="box">
+                            <div class="img-wrap">
+                                <img src="/images/나의캠페인.png" alt="">
+                            </div>
 
+                            <h3 class="title">
+                                나의캠페인
+                            </h3>
+                        </nuxt-link>
+                    </div>
+
+                    <div class="box-wrap">
+                        <nuxt-link to="/guides" class="box">
+                            <div class="img-wrap">
+                                <img src="/images/이용가이드.png" alt="">
+                            </div>
+
+                            <h3 class="title">
+                                이용가이드
+                            </h3>
+                        </nuxt-link>
+                    </div>
+
+                    <div class="box-wrap">
+                        <nuxt-link to="/qnas" class="box">
+                            <div class="img-wrap">
+                                <img src="/images/고객센터.png" alt="">
+                            </div>
+
+                            <h3 class="title">
+                                고객센터
+                            </h3>
+                        </nuxt-link>
+                    </div>
+
+                    <div class="box-wrap">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSejYcDdXucpmhh6fGIlX1r2GSQZr97UZiS8vh294vsAb8TKRQ/viewform" class="box">
+                            <div class="img-wrap">
+                                <img src="/images/입점문의.png" alt="">
+                            </div>
+
+                            <h3 class="title">
+                                입점문의
+                            </h3>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 

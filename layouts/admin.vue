@@ -67,6 +67,12 @@
                             </nuxt-link>
                         </li>
                         <li>
+                            <nuxt-link to="/admin/guides" class="scd5">
+                                이용가이드
+                                <i class="xi-angle-right"></i>
+                            </nuxt-link>
+                        </li>
+                        <li>
                             <nuxt-link to="/admin/penalties" class="scd5">
                                 패널티
                                 <i class="xi-angle-right"></i>
