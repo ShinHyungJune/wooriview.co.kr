@@ -426,22 +426,22 @@
 }
 @media screen and (max-width: 1728px) {
     .main .section1-1 .boxes {
-        padding:0 24px;
+        flex-wrap:wrap;
     }
 }
 
 @media screen and (max-width: 1200px) {
     .main .section1-1 {
-        padding-bottom:60px;
+        padding-bottom:0px;
     }
     .main .section1-1 .boxes {
-        flex-wrap:wrap;
+        margin:-20px -10px;
     }
     .main .section1-1 .box-wrap {
-
+        padding:20px 10px;
     }
     .main .section1-1 .box {
-        padding:24px; padding-bottom:12px;
+
     }
     .main .section1-1 .box .title {
         margin-bottom:12px;
