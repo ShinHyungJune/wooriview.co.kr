@@ -98,7 +98,7 @@ export default {
             form : new Form(this.$axios, {
                 email:"",
                 password:"",
-                type: "CUSTOMER",
+                type: "COMPANY",
                 push_token: "",
             })
         }
