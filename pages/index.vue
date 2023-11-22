@@ -21,7 +21,7 @@
                     <div class="box-wrap">
                         <a href="#" class="box" @click.prevent="checkCompany">
                             <div class="img-wrap">
-                                <img src="/images/캠페인등록.png" alt="">
+                                <img src="/images/캠페인등록.png?v=1" alt="">
                             </div>
 
                             <h3 class="title">
@@ -33,7 +33,7 @@
                     <div class="box-wrap">
                         <nuxt-link to="/mypage" class="box">
                             <div class="img-wrap">
-                                <img src="/images/나의캠페인.png" alt="">
+                                <img src="/images/나의캠페인.png?v=1" alt="">
                             </div>
 
                             <h3 class="title">
@@ -45,7 +45,7 @@
                     <div class="box-wrap">
                         <nuxt-link to="/guides" class="box">
                             <div class="img-wrap">
-                                <img src="/images/이용가이드.png" alt="">
+                                <img src="/images/이용가이드.png?v=1" alt="">
                             </div>
 
                             <h3 class="title">
@@ -57,7 +57,7 @@
                     <div class="box-wrap">
                         <nuxt-link to="/qnas" class="box">
                             <div class="img-wrap">
-                                <img src="/images/고객센터.png" alt="">
+                                <img src="/images/고객센터.png?v=1" alt="">
                             </div>
 
                             <h3 class="title">
@@ -69,7 +69,7 @@
                     <div class="box-wrap">
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSejYcDdXucpmhh6fGIlX1r2GSQZr97UZiS8vh294vsAb8TKRQ/viewform" class="box">
                             <div class="img-wrap">
-                                <img src="/images/입점문의.png" alt="">
+                                <img src="/images/입점문의.png?v=1" alt="">
                             </div>
 
                             <h3 class="title">
