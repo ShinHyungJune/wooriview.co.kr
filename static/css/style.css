@@ -36,7 +36,7 @@
 }
 
 /* 캠페인 상품 */
-.main .swiper {
+/*.main .swiper {
     margin-right:calc(0px - ((100vw - 1600px) / 2));
 }
 .main .swiper + .swiper {
@@ -58,7 +58,7 @@
     .main .swiper {
         margin-right:-20px;
     }
-}
+}*/
 
 .campaign-item-list { display: flex; padding: 0 24px; gap: 48px; flex-wrap: wrap; }
 
@@ -365,7 +365,7 @@
 
 .main .section1 { padding-top: 24px; }
 .main .section1 .mySwiper1 { position: relative; overflow: hidden; }
-.main .section1 .mySwiper1 .swiper-slide { width: calc(100vw - 40px); max-width: 1280px; position: relative; }
+.main .section1 .mySwiper1 .swiper-slide {position: relative; }
 .main .section1 .mySwiper1 .swiper-slide::before { content: ''; display: block; width: 100%; padding-top: 34.22%; }
 .main .section1 .mySwiper1 .swiper-slide img { position: absolute; width: 88%; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: all 0.5s; }
 .main .section1 .mySwiper1 .swiper-slide img.mb { display: none; }
@@ -383,7 +383,7 @@
     .main .section1 .mySwiper1 {
         margin-right:0 !important;
     }
-    .main .section1 .mySwiper1 .swiper-slide { width: 100%; }
+    .main .section1 .mySwiper1 .swiper-slide { width: 100%; height:236px; }
     .main .section1 .mySwiper1 .swiper-slide::before { padding-top: 36%; }
     .main .section1 .mySwiper1 .swiper-slide img { width: 100%; }
     .main .section1 .mySwiper1 .swiper-slide img.pc { display: none; }
@@ -443,6 +443,7 @@
     }
 
     .main .section1-1 {
+        padding-top:20px; margin-bottom:-30px;
         padding-bottom:0px;
     }
 
@@ -452,11 +453,18 @@
     .main .section1-1 .box {
 
     }
+
+    .main .section1-1 .box .img-wrap {
+        width:auto; height:auto;
+        border:none;
+    }
+    .main .section1-1 .box img {
+        width:40px;
+    }
     .main .section1-1 .box .title {
         margin-bottom:12px;
-        font-size:16px;
+        font-size:12px;
     }
-
 }
 
 .area-guides {}

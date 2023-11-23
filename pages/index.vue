@@ -316,7 +316,7 @@ export default {
 
                 setTimeout(function(){
                     var swiper = new Swiper(".mySwiper1", {
-                        slidesPerView: "auto",
+                        slidesPerView: 1,
                         centeredSlides: true,
                         loop: true,
                         pagination: {
