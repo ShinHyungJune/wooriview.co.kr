@@ -364,7 +364,10 @@
 }
 
 .main .section1 { padding-top: 24px; }
-.main .section1 .mySwiper1 { position: relative; overflow: hidden; }
+.main .section1 .mySwiper1 {
+    max-width:1680px; margin:0 auto; position: relative; overflow: hidden;
+    border-radius:30px;
+}
 .main .section1 .mySwiper1 .swiper-slide {position: relative; }
 .main .section1 .mySwiper1 .swiper-slide::before { content: ''; display: block; width: 100%; padding-top: 34.22%; }
 .main .section1 .mySwiper1 .swiper-slide img { position: absolute; width: 88%; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: all 0.5s; }
