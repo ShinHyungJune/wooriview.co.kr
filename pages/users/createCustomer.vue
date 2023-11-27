@@ -16,8 +16,9 @@
                                 <input-avatar @change="data => form.img = data"/>
 
                                 <div class="input-wrap Add_Features">
-                                    <input type="text" placeholder="이메일 아이디" v-model="form.email"
-                                           @input="(e) => clearLetter(e,'email')">
+<!--                                    <input type="text" placeholder="이메일 아이디" v-model="form.email"
+                                           @input="(e) => clearLetter(e,'email')">-->
+                                    <input type="text" placeholder="이메일 아이디" v-model="form.email"">
                                     <error :form="form" name="email"/>
                                 </div>
                                 <p class="input-sub">이메일 형식으로 입력해주세요</p>
