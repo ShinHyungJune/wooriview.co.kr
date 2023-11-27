@@ -509,7 +509,7 @@
 }
 .m-boxes.type01 .box .title {
     margin-bottom:20px;
-    font-size:24px; font-weight:bold;
+    font-size:20px; font-weight:bold; word-break: keep-all;
 }
 .m-boxes.type01 .box img {
     width:100px;
