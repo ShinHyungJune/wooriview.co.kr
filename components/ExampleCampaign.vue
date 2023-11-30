@@ -16,10 +16,10 @@
                     </li>
                 </ul>
             </div>
-            <nuxt-link :to="`/campaigns/${campaign.id}?type_campaign=${campaign.type_campaign}`" class="campaign-Title">
+            <div class="campaign-Title">
                 [{{ campaign.title_company ? campaign.title_company : '상호명' }}]
                 {{ campaign.title_product ? campaign.title_product : '홍보제품명' }}
-            </nuxt-link>
+            </div>
             <p class="product" v-if="campaign.type_campaign === 'REPORTER'">원고료 {{ campaign.price_write.toLocaleString() }}원 제공</p>
             <p class="product" v-else>{{ campaign.description_provide }}</p>
         </div>
