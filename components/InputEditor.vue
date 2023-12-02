@@ -87,7 +87,6 @@ export default {
                 }
             },
             theme: 'snow',
-            formats: ['link'],
             attributes: {
                 a: {
                     target: '_self',
