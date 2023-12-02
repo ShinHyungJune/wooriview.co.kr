@@ -66,6 +66,10 @@ export default {
         this.$axios.get("/api/notices/" + this.$route.query.id)
             .then(response => {
                 this.item = response.data.data;
+
+                this.$nextTick(function (){
+                    $('.ql-editor a').attr("target", "_self");
+                })
             })
     }
 }

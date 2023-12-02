@@ -74,7 +74,7 @@ export default {
             [{'font': []}],
             [{'align': []}],
             ['clean', 'image'],
-            ['link', { target: '_self' }],
+            ['link', { target: '_self' }], // self 안먹어
         ]
 
         this.editor = new Quill(this.$refs.editor, {
