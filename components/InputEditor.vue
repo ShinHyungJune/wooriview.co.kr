@@ -74,7 +74,7 @@ export default {
             [{'font': []}],
             [{'align': []}],
             ['clean', 'image'],
-            [{'link':'link'}]
+            ['link', { target: '_self' }],
         ]
 
         this.editor = new Quill(this.$refs.editor, {
@@ -87,11 +87,6 @@ export default {
                 }
             },
             theme: 'snow',
-            attributes: {
-                a: {
-                    target: '_self',
-                },
-            },
         })
 
         this.editor.on("text-change", () => {
