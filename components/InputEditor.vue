@@ -73,7 +73,8 @@ export default {
             [{'color': []}, {'background': []}],
             [{'font': []}],
             [{'align': []}],
-            ['clean', 'image']
+            ['clean', 'image'],
+            [{'link':'link'}]
         ]
 
         this.editor = new Quill(this.$refs.editor, {

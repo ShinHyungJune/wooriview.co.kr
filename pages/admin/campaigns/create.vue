@@ -33,7 +33,11 @@
                                 <p>캠페인 이미지</p>
                             </div>
                             <div class="user">
-                                <input-images :default="item.imgs" :only-show="true" />
+                                <input-images :default="item.imgs"
+                                              @change="data => form.imgs = data"
+                                              @removed="data => form.remove_imgs_ids = data"
+                                              :multiple="true"
+                                />
                             </div>
                         </li>
                         <li class="col-group">
@@ -41,7 +45,10 @@
                                 <p>캠페인 상세이미지</p>
                             </div>
                             <div class="user">
-                                <input-images :default="item.img_detail" @change="data => form.img_detail = data" @removed="data => form.remove_img_detail_ids = data" :multiple="true" />
+                                <input-images :default="item.img_detail" @change="data => form.img_detail = data"
+                                              @removed="data => form.remove_img_detail_ids = data"
+                                              :multiple="true"
+                                />
                             </div>
                         </li>
 
@@ -258,6 +265,8 @@ export default {
             keep: false,
             item: null,
             form: new Form(this.$axios, {
+                imgs: [],
+                remove_imgs_ids: [],
                 img_detail: [],
                 remove_img_detail_ids: [],
                 selected_ids: "",
