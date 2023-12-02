@@ -87,6 +87,11 @@ export default {
                 }
             },
             theme: 'snow',
+            attributes: {
+                a: {
+                    target: '_self',
+                },
+            },
         })
 
         this.editor.on("text-change", () => {
