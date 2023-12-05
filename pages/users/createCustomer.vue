@@ -53,8 +53,7 @@
                         <div class="write-box">
                             <div class="write-bundle">
                                 <div class="input-wrap Add_Features">
-                                    <input type="text" placeholder="닉네임" v-model="form.nickname"
-                                           @input="(e) => clearLetter(e, 'nickname')">
+                                    <input type="text" placeholder="닉네임" v-model="form.nickname">
                                     <error :form="form" name="nickname"/>
 
                                 </div>
