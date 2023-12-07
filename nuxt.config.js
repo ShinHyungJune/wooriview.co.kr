@@ -126,7 +126,7 @@ export default {
 
     plugins: [
         '~plugins/axios',
-        '~plugins/karrotPixel.js',
+        // '~plugins/karrotPixel.js',
     ],
 
     router: {
