@@ -7,7 +7,7 @@
                     <p class="customer">고객센터</p>
                     <p class="Number">1644-2515</p>
                     <p class="Holiday">
-                        상담시간 : 10:00 ~ 17:00  <br>
+                        상담시간 : 10:00 ~ 18:00  <br>
                         주말,공휴일은 휴무입니다.
                     </p>
                     <p class="Holiday">

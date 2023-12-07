@@ -72,7 +72,7 @@
                                 <img src="/images/입점문의.png?v=1" alt="">
                             </div>
 
-                            <h3 class="title">
+                            <h3 class="title" style="color:#ff5757;">
                                 입점문의
                             </h3>
                         </a>

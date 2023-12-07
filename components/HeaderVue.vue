@@ -54,9 +54,9 @@
                             </a>
                         </li>
                         <li class="" v-if="!$auth.user || $auth.user.data.type === 'COMPANY'">
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSejYcDdXucpmhh6fGIlX1r2GSQZr97UZiS8vh294vsAb8TKRQ/viewform">
+                            <a style="color:#ff5757;" href="https://docs.google.com/forms/d/e/1FAIpQLSejYcDdXucpmhh6fGIlX1r2GSQZr97UZiS8vh294vsAb8TKRQ/viewform">
                                 <img class="client-icon-img" src="/images/enter-icon.png" alt="">
-                                입점문의
+                                무료체험
                             </a>
                         </li>
                     </ul>
