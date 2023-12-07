@@ -73,7 +73,7 @@
                             </div>
 
                             <h3 class="title" style="color:#ff5757;">
-                                입점문의
+                                무료체험
                             </h3>
                         </a>
                     </div>

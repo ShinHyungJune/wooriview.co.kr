@@ -124,7 +124,10 @@ export default {
         ]
     },
 
-    plugins: ['~plugins/axios'],
+    plugins: [
+        '~plugins/axios',
+        '~/plugins/karrotPixel.js',
+    ],
 
     router: {
         scrollBehavior(to, from, savedPosition) {
