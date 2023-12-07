@@ -109,7 +109,8 @@ export default {
     },
 
     mounted() {
-        // this.$karrotPixel.track('ViewPage');
+        window.karrotPixel.init('1701914796237900001');
+        window.karrotPixel.track('ViewPage');
         // 사이트 들어오자마자 허용여부 물어보기
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(

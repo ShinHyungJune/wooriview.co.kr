@@ -38,6 +38,7 @@ export default {
             {src: "/js/swiper.min.js"},
             {src: "//unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"},
             {src: "//www.gstatic.com/charts/loader.js"},
+            {src: "//karrot-pixel.business.daangn.com/0.1/karrot-pixel.umd.js"},
             // {src: "/js/common.js"},
         ],
         link: [
