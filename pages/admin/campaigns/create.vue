@@ -45,7 +45,7 @@
                                 <p>캠페인 상세이미지</p>
                             </div>
                             <div class="user">
-                                <input-images :default="item.img_detail" @change="data => form.img_detail = data"
+                                <input-images id="detail" :default="item.img_detail" @change="data => form.img_detail = data"
                                               @removed="data => form.remove_img_detail_ids = data"
                                               :multiple="true"
                                 />
