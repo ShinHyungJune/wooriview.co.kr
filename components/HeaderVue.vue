@@ -143,7 +143,7 @@
                                             </a>
                                             <div class="data-wrap">
                                                 <span class="date">{{ alarm.format_created_at }}</span>
-                                                <button class="Notification-delete" @click="removeAlarm(alarm)">삭제</button>
+                                                <button class="Notification-delete" @click="removeAlarm(alarm)">{{alarmForm.type === 'MESSAGE_CREATED' ? '나가기' : '삭제'}}</button>
                                             </div>
                                         </li>
 
