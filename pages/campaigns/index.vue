@@ -241,6 +241,7 @@ export default {
                 order_by : this.$route.query.order_by || "hire_finished_at",
                 align : this.$route.query.align || "desc",
                 ongoing : this.$route.query.ongoing || "",
+                ongoingHire : this.$route.query.ongoingHire || "",
             }),
 
             activeMyPosition: false,
