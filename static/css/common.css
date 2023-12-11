@@ -344,9 +344,8 @@ body{ -ms-overflow-style: none; }
 }
 @media screen and (max-width: 768px) {
     .header .Notification-box {
-        width: 100%; height:calc(100vh - 40px);
+        width: 100%; height:calc(100vh - 100px);
         position:fixed; top: 0px;
-        background-color:#fff;
     }
     .header .Notification-box .Notification-wrap {
         box-shadow:none;
@@ -355,7 +354,7 @@ body{ -ms-overflow-style: none; }
     .header .Notification-box .Notification-p { font-size: 16px; }
     .header .Notification-box .Notification-list-wrap {
         padding: unset; padding-top: 24px; gap: 16px;
-        max-height:none; height:calc(100vh - 149px);
+        max-height:none; height:calc(100vh - 147px);
     }
     .header .Notification-box .Notification-list-wrap li { padding-right: 24px; padding-bottom: 24px; padding-left: 24px; }
     .header .Notification-box .Notification-list-wrap li::after { width: calc(100% - 72px); }
