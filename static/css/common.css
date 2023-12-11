@@ -344,7 +344,7 @@ body{ -ms-overflow-style: none; }
 }
 @media screen and (max-width: 768px) {
     .header .Notification-box {
-        width: 100%; height:calc(100vh - 100px);
+        width: 100%; height:calc(100vh - 49px);
         position:fixed; top: 0px;
     }
     .header .Notification-box .Notification-wrap {

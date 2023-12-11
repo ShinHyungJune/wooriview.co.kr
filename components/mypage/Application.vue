@@ -1,8 +1,8 @@
 <template>
     <li>
-        <nuxt-link :to="`/chats?application_id=${application.id}`" class="subscriber-name-wrap">
-            <div class="subscriber-img" :style="`background-image:url('${application.user.img.url}')`" v-if="application.user.img"></div>
-            <div class="subscriber-img" v-else></div>
+        <div class="subscriber-name-wrap">
+            <nuxt-link :to="`/chats?application_id=${application.id}`" class="subscriber-img" :style="`background-image:url('${application.user.img.url}')`" v-if="application.user.img"></nuxt-link>
+            <nuxt-link :to="`/chats?application_id=${application.id}`" class="subscriber-img" v-else></nuxt-link>
             <div class="Recommended_mark">
                 <!-- 골드 -->
                 <img src="/static/images/Recommended_mark_Gold.svg" alt="" v-if="application.user.grade === 'GOLD'">
@@ -13,7 +13,12 @@
                 <!-- 브론즈 -->
                 <!-- <img src="/images/Recommended_mark_Bronze.svg" alt=""> -->
             </div>
-        </nuxt-link>
+
+            <a :href="application.url_review" :target="/WEBVIEW/.test(navigator.userAgent) ? '_self' : '_blank'" class="bottom" v-if="application.url_review">
+                <img src="/images/external-primary.png" alt="">
+                리뷰 바로가기
+            </a>
+        </div>
 
         <div class="info-box">
             <nuxt-link :to="`/chats?application_id=${application.id}`" class="subscriber-name">
