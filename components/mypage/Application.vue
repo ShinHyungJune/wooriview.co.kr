@@ -14,7 +14,7 @@
                 <!-- <img src="/images/Recommended_mark_Bronze.svg" alt=""> -->
             </div>
 
-            <a :href="application.url_review" :target="webview ? '_self' : '_blank'" class="bottom" v-if="application.url_review">
+            <a :href="application.url_review" :target="webview ? '_self' : '_blank'" class="bottom" v-if="application.url_review && showReview">
                 <img src="/images/external-primary.png" alt="">
                 리뷰 바로가기
             </a>
@@ -169,6 +169,9 @@ export default {
         "campaign": {
             required: false,
         },
+        "showReview" : {
+            default : false,
+        }
     },
 
     methods: {

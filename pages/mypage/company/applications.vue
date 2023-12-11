@@ -79,7 +79,7 @@
 
                     <div class="scroll-wrap">
                         <ul>
-                            <application @updated="updated" @selected="selected" @unfinished="unfinished" :campaign="campaign" :application="application" v-for="application in applications.data" :key="application.id" />
+                            <application :show-review="true" @updated="updated" @selected="selected" @unfinished="unfinished" :campaign="campaign" :application="application" v-for="application in applications.data" :key="application.id" />
                         </ul>
                     </div>
                 </div>
