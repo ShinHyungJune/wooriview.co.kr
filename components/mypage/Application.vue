@@ -14,9 +14,9 @@
                 <!-- <img src="/images/Recommended_mark_Bronze.svg" alt=""> -->
             </div>
 
-            <a :href="application.url_review" :target="webview ? '_self' : '_blank'" class="bottom" v-if="application.url_review && showReview">
+            <a :href="application.campaign.type_sns === 'NAVER' ? application.user.naver : application.user.instagram" :target="webview ? '_self' : '_blank'" class="bottom" v-if="showReview">
                 <img src="/images/external-primary.png" alt="">
-                리뷰 바로가기
+                네이버/인스타 바로가기
             </a>
         </div>
 
