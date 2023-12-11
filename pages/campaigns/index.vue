@@ -240,7 +240,7 @@ export default {
                 page:1,
                 order_by : this.$route.query.order_by || "hire_finished_at",
                 align : this.$route.query.align || "desc",
-                // ongoingHire : this.$route.ongoingHire || 1,
+                ongoing : this.$route.ongoing || "",
             }),
 
             activeMyPosition: false,
