@@ -14,7 +14,7 @@
                 <!-- <img src="/images/Recommended_mark_Bronze.svg" alt=""> -->
             </div>
 
-            <a :href="application.url_review" :target="/WEBVIEW/.test(navigator.userAgent) ? '_self' : '_blank'" class="bottom" v-if="application.url_review">
+            <a :href="application.url_review" :target="webview ? '_self' : '_blank'" class="bottom" v-if="application.url_review">
                 <img src="/images/external-primary.png" alt="">
                 리뷰 바로가기
             </a>
@@ -150,6 +150,8 @@ import Form from "../../utils/Form";
 export default {
     data(){
         return {
+            webview: false,
+
             editMode: false,
 
             form : new Form(this.$axios, {
@@ -207,7 +209,7 @@ export default {
     },
 
     mounted() {
-
+        this.webview = /WEBVIEW/.test(navigator.userAgent);
     }
 }
 </script>
