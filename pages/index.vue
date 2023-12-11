@@ -151,7 +151,7 @@
                 <div class="campaign-item-wrap">
                     <div class="h2-wrap">
                         <h2>마감 <span>임박 캠페인</span></h2>
-                        <p class="see-more"><nuxt-link to="/campaigns?order_by=hire_finished_at&align=asc&ongoing=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
+                        <p class="see-more"><nuxt-link to="/campaigns?order_by=hire_finished_at&align=asc&ongoingHire=1">더보기<i class="xi-plus-min"></i></nuxt-link></p>
                     </div>
 
                     <empty v-if="lastCampaigns.data.length === 0" />
