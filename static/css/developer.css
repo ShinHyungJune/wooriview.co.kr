@@ -264,11 +264,28 @@
 .table-wrap .m-empty.type01 {
     margin-top:0;
 }
-
+.MyPage.infulenser-list .subscriber-name-wrap {
+    position:relative;
+}
 .MyPage.infulenser-list .subscriber-name-wrap .subscriber-img {
+    display: block;
     background-size:cover; background-position:center;
 }
-
+.MyPage.infulenser-list .subscriber-name-wrap .bottom {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 500;
+    position: absolute;
+    bottom: -31px;
+    left: 36px;
+}
+.MyPage.infulenser-list .subscriber-name-wrap .bottom img {
+    display: block;
+    width: 20px;
+    margin-right: 12px;
+}
 .header .Notification-box .Notification-wrap .m-empty {
     margin:0;
 }
