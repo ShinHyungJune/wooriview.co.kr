@@ -19,8 +19,8 @@
                 <div class="pop-btns">
                     <!-- <a href="#a" id="popupToday" class="btnDivPopClose"><span class="icon"></span> 오늘하루 보지 않기</a> -->
                     <input type="checkbox" name="oneday" id="oneday_check" @click="closeToday()">
-                    <label for="oneday_check" @click="closeToday()">
-                        <span class="icon"></span> 오늘하루 보지 않기
+                    <label for="oneday_check" @click="closePop">
+                        <span class="icon"></span> 닫기
                     </label>
 
 
@@ -78,7 +78,10 @@
 .pop-parent .pop-btns a {color: #fff; padding: 7px 14px;}
 .pop-parent .pop-btns #oneday_check {position: absolute; clip: rect(0,0,0,0);}
 .pop-parent .pop-btns #oneday_check + label {display:flex; align-items:center; height:40px; padding:0 10px; font-size:14px; color:#fff; cursor:pointer;}
-.pop-parent .pop-btns #oneday_check + label:before {content:""; display:inline-block; width:12px; height:12px; margin-right:10px;  border:1px solid #fff;}
+.pop-parent .pop-btns #oneday_check + label:before {
+    content:""; display:inline-block; width:12px; height:12px; margin-right:10px;  border:1px solid #fff;
+    display: none;
+}
 .pop-parent .pop-btns #oneday_check:checked + label .icon {position:absolute; left:7px; top:7px; display:inline-block; width:20px; height:20px; background:url('/img/check_checked.png') no-repeat center center}
 
 .pop-parent .pop .swiper-btn-control {width:8px; height:11px; margin-left:16px; position:relative; top:2px;}
