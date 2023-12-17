@@ -152,8 +152,8 @@
                                         -->
                                     </ul>
 
-                                    <button class="btn-remove" v-if="alarms.data.length > 0" @click="removeAllAlarm">
-                                        모두 삭제
+                                    <button class="btn"  @click="activeAlarm = false">
+                                        닫기
                                     </button>
                                 </div>
 
