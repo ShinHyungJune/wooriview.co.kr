@@ -25,9 +25,9 @@
 
 
                     <!-- <input type="checkbox" id="popupToday"> <label for="popupToday">오늘하루 열지않음</label> -->
-                    <button class="btn-toggle">
+<!--                    <button class="btn-toggle">
                         <i class="xi-angle-up" style="color:#fff;"></i>
-                    </button>
+                    </button>-->
                 </div>
             </div>
         </div>
@@ -35,11 +35,14 @@
 </template>
 <style>
 .pop-parent {
+    display: flex; align-items: center; justify-content: center;
+    width:100%; height:100%;
     position: fixed;
-    top: 200px;
-    right: 0;
+    top: 0; left:0;
     z-index: 99;
     transition: all .2s;
+    backdrop-filter: blur(10px); /* 흐림 정도를 조절하세요 */
+    -webkit-backdrop-filter: blur(10px); /* Safari 지원을 위한 접두사 추가 */
 }
 
 .pop-parent .m-ratioBox-wrap {width:400px; padding-top:400px; position:relative; overflow:hidden;}
@@ -68,12 +71,13 @@
     position:absolute; top:50%; left:50%; transform:translate(-50%, -50%) rotate(-90deg);
     transition:all .3s;
 }
-.pop-parent .pop-btns {display:flex; position:absolute; top:80px; left:-120px; background-color:#3c3c3c; opacity:1;
-    transform:rotate(90deg);
+.pop-parent .pop-btns {
+    display:flex; position:absolute; bottom:-40px; right:0px; background-color:#3c3c3c; opacity:1;
+
 }
 .pop-parent .pop-btns a {color: #fff; padding: 7px 14px;}
 .pop-parent .pop-btns #oneday_check {position: absolute; clip: rect(0,0,0,0);}
-.pop-parent .pop-btns #oneday_check + label {display:flex; align-items:center; padding:0 10px; font-size:14px; color:#fff; cursor:pointer;}
+.pop-parent .pop-btns #oneday_check + label {display:flex; align-items:center; height:40px; padding:0 10px; font-size:14px; color:#fff; cursor:pointer;}
 .pop-parent .pop-btns #oneday_check + label:before {content:""; display:inline-block; width:12px; height:12px; margin-right:10px;  border:1px solid #fff;}
 .pop-parent .pop-btns #oneday_check:checked + label .icon {position:absolute; left:7px; top:7px; display:inline-block; width:20px; height:20px; background:url('/img/check_checked.png') no-repeat center center}
 
