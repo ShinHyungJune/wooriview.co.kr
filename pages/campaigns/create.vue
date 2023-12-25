@@ -341,7 +341,7 @@
                                         <span class="deco">~</span>
 
                                         <div class="input-wrap">
-                                            <input class="" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="convertDate(addDays(new Date(), 5))" :max="convertDate(createDate(form.review_started_at, 14))">
+                                            <input class="" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="convertDate(createDate(form.review_started_at, 7))" :max="convertDate(createDate(form.review_started_at, 14))">
 
                                             <error :form="form" name="review_finished_at" />
                                         </div>
@@ -459,7 +459,7 @@
                                         <span class="deco">~</span>
 
                                         <div class="input-wrap">
-                                            <input class="" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="form.review_started_at" :max="convertDate(createDate(form.review_started_at, 21))">
+                                            <input class="" type="date" placeholder="" v-model="form.review_finished_at" ref="review_finished_at" :min="convertDate(createDate(form.review_started_at, 7))" :max="convertDate(createDate(form.review_started_at, 21))">
 
                                             <error :form="form" name="review_finished_at" />
                                         </div>
@@ -857,7 +857,7 @@
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">신청인원이 미달되어도 해당 캠페인을 진행 하시겠습니까? <span class="Essential">*</span></p>
+                                <p class="write-labal">선정기간 내 인플루언서 미선정시 (모집인원만큼 자동선정/캠페인취소) <span class="Essential">*</span></p>
                             </div>
                             <div class="write-bundle">
                                 <div class="radio-wrap1">
@@ -1024,7 +1024,6 @@ export default {
                     imgs: [],
                     img: "",
                     img_detail:[],
-                    missions: [],
                     hire_started_at: "",
                     hire_finished_at: "",
                     select_started_at: "",
