@@ -13,7 +13,7 @@ export default {
         },
         meta: [
             {charset: 'utf-8'},
-            {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+            {name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=0'},
             {name: 'format-detection', content: 'telephone=no'},
             {name: 'facebook-domain-verification', content: 'j4q6hdk32e97pia9tkltmaa9lsgvgs'},
             {name: 'naver-site-verification', content: '1d06441f5e532aab27a8e6e67c6ba4af0ef88ab2'},
