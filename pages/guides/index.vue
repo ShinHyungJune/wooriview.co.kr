@@ -20,14 +20,14 @@
             <div class="container3">
                 <div class="m-boxes type01">
                     <div class="box-wrap" v-for="item in items.data" :key="item.id">
-                        <a href="#" class="box" @click.prevent="() => targetItem = item">
+                        <a href="#target" class="box" @click="() => targetItem = item">
                             <h3 class="title">{{ item.title }}</h3>
                             <img :src="item.img ? item.img.url : ''" alt="">
                         </a>
                     </div>
                 </div>
 
-                <div class="grey-box content-wrap" v-if="targetItem">
+                <div class="grey-box content-wrap" v-if="targetItem" id="target">
                     <div class="content" style="width:100%;">
                         <div class="ql-snow">
                             <div class="ql-editor">
@@ -48,6 +48,15 @@ import NuxtLogo from "../../components/NuxtLogo";
 
 export default {
     components: {NuxtLogo},
+
+    head() {
+        return {
+            meta: [
+                { hid: 'description', name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=1' },
+            ]
+        };
+    },
+
     data() {
         return {
             items: {
