@@ -135,7 +135,7 @@
                     <div class="Information-box">
                         <p class="Information-labal">캠페인미션</p>
                         <div class="Information-content">
-                            <p>- {{ campaign.type_sns === "NAVER" ? "" : "포스팅 최상단에 '#우리뷰 #광고 #협찬' 문구를 필수적으로 기재해주세요."  }}<br/><br/></p>
+                            <p v-if="campaign.type_sns === 'INSTAGRAM'">- 포스팅 최상단에 '#우리뷰 #광고 #협찬' 문구를 필수적으로 기재해주세요.<br/><br/></p>
                             <p v-for="(mission, index) in campaign.missions" :key="index">- {{mission}}<br/><br/></p>
                             <p v-if="campaign.mission" style="white-space: pre-wrap">- {{campaign.mission}}</p>
                         </div>
