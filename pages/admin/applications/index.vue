@@ -55,6 +55,7 @@
                         -->
 
                         <th>등록일자</th>
+                        <th>컨텐츠등록마감일</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -106,7 +107,9 @@
                         <td>
                             {{ item.created_at}}
                         </td>
-
+                        <td>
+                            {{ item.campaign.format_review_finished_at}}
+                        </td>
                     </tr>
                     </tbody>
                 </table>
