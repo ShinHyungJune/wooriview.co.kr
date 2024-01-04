@@ -17,10 +17,10 @@
                 </div>
 
                 <div class="pop-btns">
-                    <!-- <a href="#a" id="popupToday" class="btnDivPopClose"><span class="icon"></span> 오늘하루 보지 않기</a> -->
-                    <input type="checkbox" name="oneday" id="oneday_check" @click="closeToday()">
-                    <label for="oneday_check" @click="closePop">
-                        <span class="icon"></span> 닫기
+                    <a href="#a" id="popupToday" class="btnDivPopClose" @click="closeToday"><span class="icon"></span> 오늘하루 보지 않기</a>
+                    <label for="oneday_check" @click="closePop" style="display: flex; align-items: center; justify-content: center; padding:0 16px; color:#fff; background-color:black;">
+                        닫기
+<!--                        <span class="icon"></span> -->
                     </label>
 
 
@@ -72,7 +72,7 @@
     transition:all .3s;
 }
 .pop-parent .pop-btns {
-    display:flex; position:absolute; bottom:-40px; right:0px; background-color:#3c3c3c; opacity:1;
+    display:flex; position:absolute; bottom:-34px; right:0px; background-color:#3c3c3c; opacity:1;
 
 }
 .pop-parent .pop-btns a {color: #fff; padding: 7px 14px;}
