@@ -110,7 +110,12 @@ input,textarea {
 .campaign-item .Period-wrap .sns-wrap > li { height: 26px; }
 .campaign-item .Period-wrap .sns-wrap > li img { width: auto; height: 100%; border-radius: 8px; }
 .campaign-item .Period-wrap .Period { font-size: 14px; font-weight: 300; color: #707070; }
-.campaign-item .campaign-Title { display: block; font-size: 18px; font-weight: 500; line-height: 1.44; color: #313131; margin-bottom: 6px; }
+.campaign-item .campaign-Title {
+    display: block;
+    font-size: 18px; font-weight: 500; line-height: 1.44; color: #313131;
+    white-space: nowrap; text-overflow: ellipsis; overflow:hidden;
+    margin-bottom: 6px;
+}
 .campaign-item .product {
     display: -webkit-box; height:28px;
     -webkit-line-clamp: 2;
