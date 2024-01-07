@@ -135,7 +135,7 @@
                                     <ul class="Notification-list-wrap" v-else>
                                         <li v-for="alarm in alarms.data" :key="alarm.id" v-if="alarmForm.type ? alarm.type === alarmForm.type : alarm.type !== 'MESSAGE_CREATED'">
                                             <div class="Notification-img" :style="`background-image:url(${alarm.campaign ? alarm.campaign.img.url : '/images/crown.png'})`"></div>
-                                            <a href="#" class="Notification-data" @click.prevent="alarmMove(alarm)">
+                                            <a href="#" class="Notification-data">
                                                 <p class="Notification-title">{{alarm.info.title || "우리:뷰"}}</p>
                                                 <p class="Notification-content">
                                                     {{alarm.info.message}}
