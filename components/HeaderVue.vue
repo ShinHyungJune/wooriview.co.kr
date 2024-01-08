@@ -135,12 +135,12 @@
                                     <ul class="Notification-list-wrap" v-else>
                                         <li v-for="alarm in alarms.data" :key="alarm.id" v-if="alarmForm.type ? alarm.type === alarmForm.type : alarm.type !== 'MESSAGE_CREATED'">
                                             <div class="Notification-img" :style="`background-image:url(${alarm.campaign ? alarm.campaign.img.url : '/images/crown.png'})`"></div>
-                                            <a href="#" class="Notification-data">
+                                            <nuxt-link :to="alarm.info.url" class="Notification-data">
                                                 <p class="Notification-title">{{alarm.info.title || "우리:뷰"}}</p>
                                                 <p class="Notification-content">
                                                     {{alarm.info.message}}
                                                 </p>
-                                            </a>
+                                            </nuxt-link>
                                             <div class="data-wrap">
                                                 <span class="date">{{ alarm.format_created_at }}</span>
                                                 <button class="Notification-delete" @click="removeAlarm(alarm)">{{alarmForm.type === 'MESSAGE_CREATED' ? '나가기' : '삭제'}}</button>
