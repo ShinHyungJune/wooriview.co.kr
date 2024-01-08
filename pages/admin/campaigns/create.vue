@@ -239,7 +239,7 @@
                     </ul>
 
                     <div class="btns">
-                        <button type="button" class="submit-btn" @click="deny" style="background-color:red; color:#fff;" v-if="item && (item.accept == 1 || item.accept === '') ">반려</button>
+                        <button type="button" class="submit-btn" @click="deny" style="background-color:red; color:#fff;">반려</button>
                         <button type="submit" class="submit-btn">저장하기</button>
                     </div>
                 </form>
