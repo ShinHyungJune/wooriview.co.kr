@@ -3,16 +3,28 @@
         <pops />
 
         <section class="section1">
-            <div class="swiper mySwiper1">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for="banner in banners.data" :key="banner.id">
-                        <img :src="banner.pc.url" class="pc" alt="" v-if="banner.pc">
-                        <img :src="banner.mobile.url" class="mb" alt="" v-if="banner.mobile">
-                        <a :href="banner.url"></a>
+            <div class="mySwiper1-wrap">
+                <div class="swiper mySwiper1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" v-for="banner in banners.data" :key="banner.id">
+                            <img :src="banner.pc.url" class="pc" alt="" v-if="banner.pc">
+                            <img :src="banner.mobile.url" class="mb" alt="" v-if="banner.mobile">
+                            <a :href="banner.url"></a>
+                        </div>
                     </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="swiper-pagination"></div>
+
+                <div class="swiper-btns">
+                    <button class="swiper-btn swiper-btn-prev">
+                        <i class="xi-angle-left"></i>
+                    </button>
+                    <button class="swiper-btn swiper-btn-next">
+                        <i class="xi-angle-right"></i>
+                    </button>
+                </div>
             </div>
+
         </section>
 
         <section class="section1-1">
@@ -316,16 +328,28 @@ export default {
 
                 setTimeout(function(){
                     var swiper = new Swiper(".mySwiper1", {
-                        slidesPerView: 1,
-                        centeredSlides: true,
+                        slidesPerView: 2,
+                        spaceBetween: 20,
                         loop: true,
                         pagination: {
-                            el: ".swiper-pagination",
+                            el: ".mySwiper1-wrap .swiper-pagination",
                             clickable: true,
                         },
                         autoplay: {
                             delay: 3000,
                             disableOnInteraction: false,
+                        },
+                        breakpoints: {
+                            768: {
+                                slidesPerView: 1,
+                                spaceBetween: 0,
+
+                            }
+                        },
+
+                        navigation: {
+                            nextEl: '.mySwiper1-wrap .swiper-btn-next',
+                            prevEl: '.mySwiper1-wrap .swiper-btn-prev',
                         },
                     });
 

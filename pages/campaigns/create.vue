@@ -77,6 +77,9 @@
                                 <li :class="form.type_campaign === 'REPORTER' ? 'now' : ''">
                                     <a href="#" @click.prevent="form.type_campaign = 'REPORTER'">기자단</a>
                                 </li>
+                                <li :class="form.type_campaign === 'REVIEW' ? 'now' : ''">
+                                    <a href="#" @click.prevent="form.type_campaign = 'REVIEW'">구매평</a>
+                                </li>
                             </ul>
                         </div>
 
@@ -151,8 +154,41 @@
                             </div>
 
                             <div class="write-bundle">
-                                <textarea name="" id="" :placeholder="form.type_campaign === 'REPORTER' ? '홈페이지 주소 및 구매처 URL 등을 입력해주세요.' : '인플루언서들에게 제공할 제품이나 서비스를 구체적으로 작성해주세요.'" v-model="form.description_provide"></textarea>
+                                <div class="input-wrap">
+                                    <input name="" id="" :placeholder="form.type_campaign === 'REPORTER' ? '홈페이지 주소 및 구매처 URL 등을 입력해주세요.' : '14자 이내로 적어주세요.'" v-model="form.description_provide"></input>
+                                </div>
                                 <error :form="form" name="description_provide" />
+                            </div>
+                        </div>
+
+                        <div class="write-box" v-if="form.type_campaign === 'DELIVERY'">
+                            <div class="write-labal_wrap">
+                                <p class="write-labal">제공할 제품 및 서비스의 가격을 입력해주세요. <span class="Essential">*</span></p>
+                            </div>
+
+                            <div class="write-bundle">
+                                <textarea name="" id="" v-model="form.product_and_price" placeholder="인플루언서들에게 제공할 제품이나 서비스의 가격을 입력해주세요.
+ex) 50,000원 상당 제공"></textarea>
+                                <error :form="form" name="product_and_price" />
+                            </div>
+                        </div>
+
+                        <div class="write-box" v-if="form.type_campaign === 'REVIEW'">
+                            <div class="write-labal_wrap">
+                                <p class="write-labal">환급 예정 금액(총 결제 금액) <span class="Essential">*</span></p>
+                            </div>
+
+                            <div class="write-bundle">
+                                <textarea name="" id="" v-model="form.review_refund_price" placeholder="인플루언서들에게 환급 예정인 금액을 입력해주세요.
+(제품가격 + 배송비 포함)"></textarea>
+                                <error :form="form" name="review_refund_price"/>
+                            </div>
+
+                            <div class="write-bundle" style="margin-top:12px;">
+                                <div class="sns-radio-box">
+                                    <input type="checkbox" name="" id="agree_review_refund_price" v-model="agree_review_refund_price">
+                                    <label for="agree_review_refund_price" style="font-size:12px; color:black;"><span><i class="xi-check-min"></i></span>컨텐츠 등록기간 마감일 이후 3일 이내 환급 금액을 지급하는 것에 동의합니다.</label>
+                                </div>
                             </div>
                         </div>
 
@@ -527,19 +563,49 @@
 
                         <div class="write-box ">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">모집 인플루언서 유형 <span class="Essential">*</span></p>
-                                <p class="Explanation_p">인스타그램 혹은 네이버 블로그 중 하나만 선택가능합니다.</p>
+                                <p class="write-labal" v-if="form.type_campaign === 'REVIEW'">구매평 작성할 스토어 유형 <span class="Essential">*</span></p>
+                                <p class="write-labal" v-else>모집 인플루언서 유형 <span class="Essential">*</span></p>
                             </div>
                             <div class="write-bundle">
-                                <div class="sns-radio-box">
-                                    <input type="radio" name="1" id="a" value="INSTAGRAM" v-model="form.type_sns">
-                                    <label for="a"><span><i class="xi-check-min"></i></span>인스타그램</label>
-                                </div>
+                                <template v-if="form.type_campaign === 'REVIEW'">
+                                    <div class="sns-radio-box">
+                                        <input type="radio" name="1" id="SHOP_SMART" value="SHOP_SMART" v-model="form.type_sns">
+                                        <label for="SHOP_SMART"><span><i class="xi-check-min"></i></span>스마트 스토어</label>
+                                    </div>
 
-                                <div class="sns-radio-box">
-                                    <input type="radio" name="1" id="b" value="NAVER" v-model="form.type_sns">
-                                    <label for="b"><span><i class="xi-check-min"></i></span>네이버 블로그</label>
-                                </div>
+                                    <div class="sns-radio-box">
+                                        <input type="radio" name="1" id="SHOP_COUPANG" value="SHOP_COUPANG" v-model="form.type_sns">
+                                        <label for="SHOP_COUPANG"><span><i class="xi-check-min"></i></span>쿠팡</label>
+                                    </div>
+
+                                    <div class="sns-radio-box">
+                                        <input type="radio" name="1" id="SHOP_OTHER" value="SHOP_OTHER" v-model="form.type_sns">
+                                        <label for="SHOP_OTHER"><span><i class="xi-check-min"></i></span>기타몰</label>
+                                    </div>
+                                </template>
+
+                                <template v-else>
+                                    <div class="sns-radio-box">
+                                        <input type="radio" name="1" id="b" value="NAVER" v-model="form.type_sns">
+                                        <label for="b"><span><i class="xi-check-min"></i></span>네이버 블로그</label>
+                                    </div>
+
+                                    <div class="sns-radio-box">
+                                        <input type="radio" name="1" id="a" value="INSTAGRAM" v-model="form.type_sns">
+                                        <label for="a"><span><i class="xi-check-min"></i></span>인스타그램 릴스</label>
+                                    </div>
+
+                                    <div class="sns-radio-box">
+                                        <input type="radio" name="1" id="YOUTUBE_SHORTS" value="YOUTUBE_SHORTS" v-model="form.type_sns">
+                                        <label for="YOUTUBE_SHORTS"><span><i class="xi-check-min"></i></span>유튜브 쇼츠</label>
+                                    </div>
+
+                                    <div class="sns-radio-box">
+                                        <input type="radio" name="1" id="TIKTOK" value="TIKTOK" v-model="form.type_sns">
+                                        <label for="TIKTOK"><span><i class="xi-check-min"></i></span>틱톡</label>
+                                    </div>
+                                </template>
+
 
                                 <error :form="form" name="type_sns" />
                             </div>
@@ -547,11 +613,34 @@
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">캠페인 안내 <span class="Essential">*</span></p>
+                                <p class="write-labal">제공할 제품 및 서비스 상세 내역 <span class="Essential">*</span></p>
                             </div>
 
                             <div class="write-bundle">
-                                <textarea name="" id="" placeholder="중요한 안내사항 및 참여하고자 하는 인플루언서들에게 제품이나 캠페인의 간단한 소개 등을 작성해주세요" v-model="form.introduce"></textarea>
+                                <!--
+                                <textarea v-if="form.type_campaign === 'REVIEW'" name="" id="" placeholder="중요한 안내사항 및 참여하고자 하는 인플루언서들에게 제품이나 캠페인의 간단한 소개 등을 작성해주세요" v-model="form.introduce"></textarea>
+                                -->
+                                <!-- 구매평 -->
+                                <textarea v-if="form.type_campaign === 'REVIEW'" name="" id="" style="height:250px;" placeholder="인플루언서들에게 제공할 제품 및 서비스를 상세히 작성해주세요.
+
+[예시] 결제금액 : 제품가 22,000원 + 배송비 무료 = 총 22,000원
+[옵션(색상) : 자율선택]
+[옵션(수량) : 1개입]
+[수량 : 1개]
+
+캠페인 참여 시 주의사항 및 미션 내에 공정위문구(대가성 표기) 안내를 반드시 확인해주세요.
+" v-model="form.introduce"></textarea>
+
+
+                                <!-- 나머지 -->
+                                <textarea  v-else style="height:250px;" name="" id="" placeholder="인플루언서들에게 제공할 제품 및 서비스를 상세히 작성해주세요. 인플루언서가 확인 후 체험하고자 하는 제품 및 서비스를 작성하여 광고주에게 전달합니다.
+
+ex)
+- 고기 2인분 + 막국수, 볶음밥 택 1
+- 고기 종류 : 목살/삼겹살/갈매기살/항정살을 제공하고 있습니다. 체험 원하시는 고기 2종류(중복가능) 남겨주세요.
+- 막국수 또는 볶음밥 중 한가지를 남겨주세요." v-model="form.introduce"></textarea>
+
+
 
                                 <error :form="form" name="introduce" />
 
@@ -563,12 +652,35 @@
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">검색 키워드 <span class="Essential">*</span></p>
+                                <p class="write-labal">메인 검색 키워드 <span class="Essential">*</span></p>
                             </div>
 
                             <div class="write-bundle">
-									<textarea style="height: 360px;" name="" id="" v-model="form.search_keyword" :placeholder="searchKeywordPlaceholder"></textarea>
+                                <div class="input-wrap">
+                                    <input type="text" v-model="form.search_keyword" placeholder="" />
+                                    <error :form="form" name="search_keyword" />
+                                </div>
+                                <!--
+								<textarea style="height: 360px;" name="" id="" v-model="form.search_keyword" :placeholder="searchKeywordPlaceholder"></textarea>
                                 <error :form="form" name="search_keyword" />
+                                -->
+                            </div>
+                        </div>
+
+                        <div class="write-box">
+                            <div class="write-labal_wrap">
+                                <p class="write-labal">서브 검색 키워드 <span class="Essential">*</span></p>
+                            </div>
+
+                            <div class="write-bundle">
+                                <div class="input-wrap">
+                                    <input type="text" v-model="form.search_keyword_sub" placeholder="" />
+                                    <error :form="form" name="search_keyword_sub" />
+                                </div>
+                                <!--
+								<textarea style="height: 360px;" name="" id="" v-model="form.search_keyword" :placeholder="searchKeywordPlaceholder"></textarea>
+                                <error :form="form" name="search_keyword" />
+                                -->
                             </div>
                         </div>
 
@@ -838,6 +950,29 @@
                                 </div>
                             </div>
 
+                            <div class="Field-ck-wrap" v-if="form.type_campaign === 'REVIEW'">
+                                <div class="category-ck mission2">
+                                    <input type="checkbox" name="" id="mission2" class="misssion-chkbox" value="상품찜, 알림받기 꼭 해주세요." v-model="form.missions" @change="checkOverMissions">
+                                    <label for="mission2">
+                                        <p class="label-title">상품찜, 알림받기 꼭 해주세요.</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission3">
+                                    <input type="checkbox" name="" id="mission3" class="misssion-chkbox" value="내용을 참고하시어 사진 3장, 리뷰 3줄 이상 작성해주세요. (상세페이지 캡처 불가)" v-model="form.missions" @change="checkOverMissions">
+                                    <label for="mission3">
+                                        <p class="label-title">내용을 참고하시어 사진 3장, 리뷰 3줄 이상 작성해주세요. (상세페이지 캡처 불가)</p>
+                                    </label>
+                                </div>
+
+                                <div class="category-ck mission4">
+                                    <input type="checkbox" name="" id="mission4" class="misssion-chkbox" value="별점 5점과 단순 소개 형식이 아닌 직접 경험을 반영한 자연스러운 리뷰 부탁드립니다." v-model="form.missions" @change="checkOverMissions">
+                                    <label for="mission4">
+                                        <p class="label-title">별점 5점과 단순 소개 형식이 아닌 직접 경험을 반영한 자연스러운 리뷰 부탁드립니다.</p>
+                                    </label>
+                                </div>
+                            </div>
+
                             <error :form="form" name="missions" />
 
                         </div>
@@ -857,17 +992,17 @@
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">선정기간 내 인플루언서 미선정시 (모집인원만큼 자동선정/캠페인취소) <span class="Essential">*</span></p>
+                                <p class="write-labal">선정기간 내 인플루언서 미선정시 <span class="Essential">*</span></p>
                             </div>
                             <div class="write-bundle">
                                 <div class="radio-wrap1">
                                     <div class="radio-box">
                                         <input type="radio" name="Gender" id="Man" :value="0" v-model="form.have_to_satisfied">
-                                        <label for="Man">진행</label>
+                                        <label for="Man">모집인원만큼 자동선정</label>
                                     </div>
                                     <div class="radio-box">
                                         <input type="radio" name="Gender" id="Woman" :value="1" v-model="form.have_to_satisfied">
-                                        <label for="Woman">미 진행</label>
+                                        <label for="Woman">캠페인취소</label>
                                     </div>
                                 </div>
                             </div>
@@ -932,12 +1067,18 @@ export default {
 
             temp_campaign_id: "",
 
+            agree_review_refund_price: false,
+
             form : new Form(this.$axios, {
                 temp: 0,
                 type_campaign: "DELIVERY",
                 title_company: "",
                 title_product: "",
+
                 description_provide: "",
+                product_and_price: "",
+                review_refund_price: "",
+
                 imgs: [],
                 img_detail:[],
                 max_participant: "",
@@ -957,6 +1098,7 @@ export default {
                 type_sns: "",
                 introduce: "",
                 search_keyword: "",
+                search_keyword_sub: "",
                 missions: [
 
                 ],
@@ -1054,6 +1196,12 @@ export default {
                 return this.$store.commit("setPop", {
                     title : "입력값 확인필요",
                     description: "원고료 제공일정에 동의헤주세요."
+                });
+
+            if(this.form.type_campaign === "REVIEW" && !this.agree_review_refund_price)
+                return this.$store.commit("setPop", {
+                    title : "입력값 확인필요",
+                    description: "환급금액 지급동의에 동의해주세요."
                 });
 
             this.activeAsk = false;

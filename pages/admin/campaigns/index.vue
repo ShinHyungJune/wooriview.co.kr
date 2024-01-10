@@ -8,9 +8,9 @@
                             캠페인
                         </p>
                         <ul class="tab-link col-group">
-                            <li :class="`${form.accept === '' ? 'active' : ''}`" @click="() => {form.page = 1; form.accept = ''; filter()}" data-tab="tab_1">전체</li>
                             <li :class="`${form.accept === 1 ? 'active' : ''}`" @click="() => {form.page = 1; form.accept = 1; filter()}" data-tab="tab_2">승인</li>
-                            <li :class="`${form.accept === 0 ? 'active' : ''}`" @click="() => {form.page = 1; form.accept = 0; filter()}" data-tab="tab_3">미승인</li>
+                            <li :class="`${form.accept === '' ? 'active' : ''}`" @click="() => {form.page = 1; form.accept = ''; filter()}" data-tab="tab_1">승인대기</li>
+                            <li :class="`${form.accept === 0 ? 'active' : ''}`" @click="() => {form.page = 1; form.accept = 0; filter()}" data-tab="tab_3">반려</li>
                         </ul>
                     </div>
 
@@ -92,7 +92,7 @@
                             {{item.applications_count}}
                         </td>
                         <td>
-                            {{item.state}}
+                            {{item.format_accept === '반려' || item.format_accept === '대기' ? item.format_accept : item.state}}
                         </td>
                         <td>
                             {{item.have_to_satisfied ? '미진행' : '진행'}}
@@ -132,7 +132,7 @@ export default {
                 page: 1,
                 selected_ids: [],
                 word: "",
-                accept: "",
+                accept: 1,
             }),
         }
     },

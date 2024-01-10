@@ -84,6 +84,24 @@
                                 <input type="text" v-model="form.title_product">
                             </div>
                         </li>
+                        <li class="col-group" v-if="form.type_campaign === 'DELIVERY'">
+                            <div class="default">
+                                <p>제공할 제품 및 서비스 가격</p>
+                            </div>
+                            <div class="user">
+                                <textarea name="" id="" v-model="form.product_and_price"></textarea>
+                            </div>
+                        </li>
+
+                        <li class="col-group" v-if="form.type_campaign === 'REVIEW'">
+                            <div class="default">
+                                <p>환급예정금액</p>
+                            </div>
+                            <div class="user">
+                                <input type="text" v-model="form.review_refund_price">
+                            </div>
+                        </li>
+
                         <li class="col-group">
                             <div class="default">
                                 <p>{{item.type_campaign === 'REPORTER' ? '대표 URL' : '제공내역'}}</p>
@@ -194,12 +212,22 @@
                         </li>
                         <li class="col-group">
                             <div class="default">
-                                <p>검색키워드</p>
+                                <p>메인 검색키워드</p>
                             </div>
                             <div class="user">
                                 <textarea name="" id="" v-model="form.search_keyword"></textarea>
                             </div>
                         </li>
+
+                        <li class="col-group">
+                            <div class="default">
+                                <p>서브 검색키워드</p>
+                            </div>
+                            <div class="user">
+                                <textarea name="" id="" v-model="form.search_keyword_sub"></textarea>
+                            </div>
+                        </li>
+
                         <li class="col-group">
                             <div class="default">
                                 <p>미션</p>
@@ -243,6 +271,7 @@
                             </div>
                         </li>
 
+                        <!--
                         <li class="col-group" v-if="item && item.accept != 1">
                             <div class="default">
                                 <p>반려사유</p>
@@ -251,6 +280,7 @@
                                 {{ item.reason_deny }}
                             </div>
                         </li>
+                        -->
 
 
                     </ul>
@@ -297,12 +327,15 @@ export default {
                 title_company: "",
                 title_product: "",
                 description_provide: "",
+                product_and_price: "",
+                review_refund_price: "",
                 price_write: "",
                 max_participant: "",
                 address: "",
                 address_detail: "",
                 introduce: "",
                 search_keyword: "",
+                search_keyword_sub: "",
                 mission: "",
                 reason_deny: ""
             })
