@@ -13,11 +13,13 @@
                     <img src="/images/Visit-icon.png" alt="" v-if="campaign.type_campaign === 'VISIT'">
                     <img src="/images/Reporter-icon.png" alt="" v-if="campaign.type_campaign === 'REPORTER'">
                     <img src="/images/Shipping-icon.png" alt="" v-if="campaign.type_campaign === 'DELIVERY'">
+                    <img src="/images/구매평.svg" style="width:25px;" alt="" v-if="campaign.type_campaign === 'REVIEW'">
                 </div>
                 <p class="campaign-type-title" v-if="campaign.type_campaign === 'REALTIME'">실시간 방문형</p>
                 <p class="campaign-type-title" v-if="campaign.type_campaign === 'VISIT'">방문형 캠페인</p>
                 <p class="campaign-type-title" v-if="campaign.type_campaign === 'REPORTER'">기자단 캠페인</p>
                 <p class="campaign-type-title" v-if="campaign.type_campaign === 'DELIVERY'">배송형 캠페인</p>
+                <p class="campaign-type-title" v-if="campaign.type_campaign === 'REVIEW'">구매평 캠페인</p>
             </div>
         </nuxt-link>
         <div class="like-wrap" v-if="!onlyShow">
@@ -34,8 +36,14 @@
             <div class="Period-wrap">
                 <ul class="sns-wrap">
                     <li class="sns">
-                        <img src="/images/Instagram-icon.svg" alt="" v-if="campaign.type_sns === 'INSTAGRAM'">
+                        <img src="/images/릴스.svg" alt="" v-if="campaign.type_sns === 'INSTAGRAM'">
                         <img src="/images/Blog-icon.svg" alt="" v-if="campaign.type_sns === 'NAVER'">
+
+                        <img src="/images/숏츠.svg" alt="" v-if="campaign.type_sns === 'YOUTUBE'">
+                        <img src="/images/틱톡.svg" alt="" v-if="campaign.type_sns === 'TIKTOK'">
+                        <img src="/images/스마트스토어.svg" alt="" v-if="campaign.type_sns === 'SHOP_SMART'">
+                        <img src="/images/쿠팡.svg" alt="" v-if="campaign.type_sns === 'SHOP_COUPANG'">
+                        <img src="/images/기타몰.svg" alt="" v-if="campaign.type_sns === 'SHOP_OTHER'">
                     </li>
                 </ul>
                 <p class="Period" v-if="campaign.d_day === '종료' || campaign.d_day === '진행중'">{{ campaign.d_day }}</p>
