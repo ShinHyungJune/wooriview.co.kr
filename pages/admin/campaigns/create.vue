@@ -228,6 +228,21 @@
                                 {{ item.count_select }}
                             </div>
                         </li>
+                        <li class="col-group">
+                            <div class="default">
+                                <p>승인상태</p>
+                            </div>
+                            <div class="user">
+                                <select name="" id="" v-model="form.accept">
+                                    <option value="" disabled selected>선택</option>
+                                    <option :value="1">승인</option>
+                                    <option :value="0">반려</option>
+                                </select>
+
+                                <error :form="form" name="category" />
+                            </div>
+                        </li>
+
                         <li class="col-group" v-if="item && item.accept != 1">
                             <div class="default">
                                 <p>반려사유</p>
@@ -236,10 +251,12 @@
                                 {{ item.reason_deny }}
                             </div>
                         </li>
+
+
                     </ul>
 
                     <div class="btns">
-                        <button type="button" class="submit-btn" @click="deny" style="background-color:red; color:#fff;">반려</button>
+                        <!-- <button type="button" class="submit-btn" @click="deny" style="background-color:red; color:#fff;">반려</button> -->
                         <button type="submit" class="submit-btn">저장하기</button>
                     </div>
                 </form>
@@ -266,6 +283,7 @@ export default {
             item: null,
             form: new Form(this.$axios, {
                 imgs: [],
+                accept: "",
                 remove_imgs_ids: [],
                 img_detail: [],
                 remove_img_detail_ids: [],
