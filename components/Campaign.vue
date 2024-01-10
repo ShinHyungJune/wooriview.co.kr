@@ -39,7 +39,7 @@
                         <img src="/images/릴스.svg" alt="" v-if="campaign.type_sns === 'INSTAGRAM'">
                         <img src="/images/Blog-icon.svg" alt="" v-if="campaign.type_sns === 'NAVER'">
 
-                        <img src="/images/숏츠.svg" alt="" v-if="campaign.type_sns === 'YOUTUBE'">
+                        <img src="/images/숏츠.svg" alt="" v-if="campaign.type_sns === 'YOUTUBE_SHORTS'">
                         <img src="/images/틱톡.svg" alt="" v-if="campaign.type_sns === 'TIKTOK'">
                         <img src="/images/스마트스토어.svg" alt="" v-if="campaign.type_sns === 'SHOP_SMART'">
                         <img src="/images/쿠팡.svg" alt="" v-if="campaign.type_sns === 'SHOP_COUPANG'">
