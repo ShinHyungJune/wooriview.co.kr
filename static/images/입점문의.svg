@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_2" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        stroke: #41210d;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #f5c520;
+      }
+
+      .cls-5 {
+        fill: #40210d;
+      }
+
+      .cls-3, .cls-4 {
+        stroke: #fef3f3;
+        stroke-linecap: round;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        fill: #f0a225;
+      }
+    </style>
+  </defs>
+  <g id="MasterLayer_1" data-name="MasterLayer 1">
+    <g>
+      <path class="cls-2" d="M41,39.4c0,.88-.64,1.6-1.42,1.6H2.42c-.78,0-1.42-.72-1.42-1.6V18.96c0-.88,.64-1.6,1.42-1.6H39.58c.78,0,1.42,.72,1.42,1.6v20.44Z"/>
+      <ellipse class="cls-2" cx="21.59" cy="4.48" rx="3.07" ry="3.48"/>
+      <line class="cls-2" x1="2.42" y1="17.36" x2="18.52" y2="4.48"/>
+      <line class="cls-1" x1="24.66" y1="4.48" x2="39.58" y2="17.36"/>
+      <path class="cls-6" d="M21,29.25v-10.64H2.54c-.31,0-.56,.28-.56,.63v20.02c0,.25,.18,.45,.4,.45H21v-10.46Z"/>
+      <g>
+        <path class="cls-5" d="M4.34,33.57v-10.15h6.16v2.04h-3.65v2.3h2.85v1.99h-2.85v3.82h-2.51Z"/>
+        <path class="cls-5" d="M12.85,33.57v-10.15h3.76c1.15,0,2,.26,2.56,.77s.84,1.31,.84,2.4c0,.66-.12,1.2-.37,1.59-.25,.4-.62,.72-1.11,.96v.06l2,4.36h-2.61l-1.63-3.7h-.93v3.7h-2.51Zm2.48-5.41h.95c.44,0,.75-.12,.95-.36,.2-.24,.29-.6,.29-1.08s-.1-.83-.3-1.05c-.2-.22-.53-.32-.98-.32h-.91v2.81Z"/>
+        <path class="cls-5" d="M22.6,33.57v-10.15h6.19v2.04h-3.71v1.93h2.89v1.99h-2.89v2.14h3.83v2.04h-6.31Z"/>
+        <path class="cls-5" d="M31.36,33.57v-10.15h6.19v2.04h-3.71v1.93h2.89v1.99h-2.89v2.14h3.83v2.04h-6.31Z"/>
+      </g>
+      <line class="cls-4" x1="27.99" y1="37.64" x2="37.08" y2="37.64"/>
+      <path class="cls-3" d="M3.42,22.39v-1c0-.63,.45-1.14,1.01-1.14h6.18"/>
+    </g>
+  </g>
+</svg>
