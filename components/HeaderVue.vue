@@ -23,39 +23,45 @@
                         <img src="/images/logo.png" alt="">
                     </nuxt-link>
                     <ul class="header-nav">
-                        <li :class="typeCampaign === 'REALTIME' ? 'active' : ''">
-                            <a href="/campaigns?type_campaign=REALTIME&showMap=1">
-                                <img class="live-icon-img" src="/images/Live-icon.png" alt="">
-                                실시간
-                            </a>
-                        </li>
                         <li :class="typeCampaign === 'VISIT' ? 'active' : ''">
                             <a href="/campaigns?type_campaign=VISIT&showMap=1">
-                                <img src="/images/Visit-icon.png" alt="">
+                                <!-- <img src="/images/Visit-icon.png" alt=""> -->
                                 방문형
                             </a>
                         </li>
                         <li :class="typeCampaign === 'DELIVERY' ? 'active' : ''">
                             <a href="/campaigns?type_campaign=DELIVERY">
-                                <img src="/images/Shipping-icon.png" alt="">
+                                <!-- <img src="/images/Shipping-icon.png" alt=""> -->
                                 배송형
+                            </a>
+                        </li>
+                        <li :class="typeCampaign === 'REVIEW' ? 'active' : ''">
+                            <a href="/campaigns?type_campaign=REVIEW">
+                                <!-- <img src="/images/review-icon.svg" alt=""> -->
+                                구매평
                             </a>
                         </li>
                         <li :class="typeCampaign === 'REPORTER' ? 'active' : ''">
                             <a href="/campaigns?type_campaign=REPORTER">
-                                <img src="/images/Reporter-icon.png" alt="">
+                                <!-- <img src="/images/Reporter-icon.png" alt=""> -->
                                 기자단
+                            </a>
+                        </li>
+                        <li :class="typeCampaign === 'REALTIME' ? 'active' : ''">
+                            <a href="/campaigns?type_campaign=REALTIME&showMap=1">
+                                <!-- <img class="live-icon-img" src="/images/Live-icon.png" alt=""> -->
+                                실시간
                             </a>
                         </li>
                         <li :class="$route.path.includes('/qnas') || $route.path.includes('/notices') ? 'active' : ''">
                             <a href="/qnas">
-                                <img class="client-icon-img" src="/images/client-icon.png" alt="">
+                                <!-- <img class="client-icon-img" src="/images/client-icon.png" alt=""> -->
                                 고객센터
                             </a>
                         </li>
                         <li class="" v-if="!$auth.user || $auth.user.data.type === 'COMPANY'">
                             <a style="color:#ff5757;" href="https://docs.google.com/forms/d/e/1FAIpQLSejYcDdXucpmhh6fGIlX1r2GSQZr97UZiS8vh294vsAb8TKRQ/viewform">
-                                <img class="client-icon-img" src="/images/enter-icon.png" alt="">
+                                <!-- <img class="client-icon-img" src="/images/enter-icon.png" alt=""> -->
                                 무료체험
                             </a>
                         </li>

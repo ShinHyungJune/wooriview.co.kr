@@ -141,13 +141,14 @@ body{ -ms-overflow-style: none; }
 .header .header-le { display: flex; gap: 88px; }
 .header .logo { max-width: 205px; display: block; }
 .header .header-left { display:none; }
-.header .header-nav { display: flex; align-items: center; gap: 48px; }
+.header .header-nav { display: flex; align-items: center; gap: 80px;}
 .header .header-nav li.active a {
     color:#ffc800;
 }
 .header .header-nav a {
     display: flex; align-items: center;
     font-size: 20px;
+    font-weight: bold
 }
 .header .header-nav a img {
     margin-right:8px;
