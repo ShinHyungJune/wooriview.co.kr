@@ -448,7 +448,7 @@ input,textarea {
     text-align: center;
 }
 .main .section1-1 .box-wrap {
-    padding:64px;
+    padding:50px 100px 20px 100px;
 }
 .main .section1-1 .box {
     display: block;
@@ -458,13 +458,13 @@ input,textarea {
 }
 .main .section1-1 .box .img-wrap {
     display: flex; align-items: center; justify-content: center;
-    width:110px; height:110px;
+    width:80px; height:80px;
     border:1px solid #FFF4DE; border-radius:20px;
     background-color:#FFF4DE;
 }
 .main .section1-1 .box img {
     display: block;
-    width:80px;
+    width:50px;
     margin:0 auto;
 }
 .main .section1-1 .box .title {
