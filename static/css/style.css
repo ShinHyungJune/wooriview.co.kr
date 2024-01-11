@@ -356,7 +356,7 @@ input,textarea {
 .Pagination-wrap .Pagination-num a.now { border-radius: 8px; box-shadow: 0 0 8px 0 rgba(255, 203, 46, 0.7); border: solid 1px #f8bf12; background-color: #ffc800; color: #fff; }
 
 /* 메인===================================================================== */
-.main .campaign-item-wrap { padding: 64px 0; }
+.main .campaign-item-wrap { padding: 24px 0; }
 .main .h2-wrap { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 24px; margin-bottom: 32px; }
 .main .h2-wrap h2 { font-size: 32px; font-weight: bold; }
 .main .h2-wrap h2 span { font-weight: bold; color: #ffc800; }
@@ -381,7 +381,7 @@ input,textarea {
 
 .main .section1 { padding-top: 24px; }
 .main .section1 .mySwiper1-wrap {
-    padding:0 60px;
+    padding:0 20px;
     position: relative;
 }
 .main .section1 .mySwiper1-wrap .swiper-btn {
@@ -409,10 +409,10 @@ input,textarea {
     display: none;
     content: ''; width: 100%; padding-top: 34.22%;
 }
-.main .section1 .mySwiper1 .swiper-slide img { width: 100%; transition: all 0.5s; }
+.main .section1 .mySwiper1 .swiper-slide img { width: 100%; border-radius: 20px; transition: all 0.5s; }
 .main .section1 .mySwiper1 .swiper-slide img.mb { display: none; }
 
-.main .section1 .mySwiper1 .swiper-slide a { position: absolute; width: 100s%; height: 100%; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: all 0.5s; }
+.main .section1 .mySwiper1 .swiper-slide a { position: absolute; width: 100%; height: 100%; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: all 0.5s; }
 .main .section1 .mySwiper1 .swiper-slide.swiper-slide-active a { width: 100%; height: 100%; }
 .main .section1 .swiper-pagination {
     display: flex; width: 100%;
@@ -439,7 +439,7 @@ input,textarea {
 }
 
 .main .section1-1 {
-    padding:60px 0;
+    padding:20px 0;
 }
 .main .section1-1 .boxes {
     display:flex;
@@ -458,9 +458,9 @@ input,textarea {
 }
 .main .section1-1 .box .img-wrap {
     display: flex; align-items: center; justify-content: center;
-    width:120px; height:120px;
-    border:1px solid #e1e1e1; border-radius:5px;
-    background-color:#fff;
+    width:110px; height:110px;
+    border:1px solid #FFF4DE; border-radius:20px;
+    background-color:#FFF4DE;
 }
 .main .section1-1 .box img {
     display: block;
@@ -495,7 +495,7 @@ input,textarea {
     }
 
     .main .section1-1 .box-wrap {
-        padding:20px 10px;
+        padding:20px 20px;
     }
     .main .section1-1 .box {
 
@@ -3074,7 +3074,7 @@ input,textarea {
 .main .section6 .h2-wrap { justify-content: normal; align-items: center; gap: 32px; margin-bottom: 32px; }
 .main .section6 .see-more { font-size: 16px; color: #313131; font-weight: normal; }
 .main .section6 .mySwiper2 { position: relative; padding: 24px; overflow: hidden; margin-left: calc((100% - 1680px) / 2); }
-.main .section6 .swiper-slide { display: flex; flex-direction: column; width: 232px; border-radius: 16px; box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.16); background-color: #ffdd78; padding: 12px 12px 16px; }
+.main .section6 .swiper-slide { display: flex; flex-direction: column; width: 292px; border-radius: 16px; box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.16); background-color: #ffdd78; padding: 12px 12px 16px; }
 .main .section6 .swiper-slide .img-wrap { width: 100%; height: 208px; position: relative; border-radius: 8px; background-color: #f5f5f5; overflow: hidden; margin-bottom: 16px; }
 .main .section6 .swiper-slide .img-wrap .sns_wrap { position: absolute; right: 8px; top: 8px; width: 26px; }
 .main .section6 .swiper-slide .title_p { width: 100%; padding: 0 8px; margin-bottom: 12px; }
