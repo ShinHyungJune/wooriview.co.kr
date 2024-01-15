@@ -456,19 +456,4 @@ body{ -ms-overflow-style: none; }
 
 }
 
-.m-tabs.type01 {
-    display: flex;
-    border-bottom:1px solid #e1e1e1;
-}
-.m-tabs.type01 .m-tab {
-    flex:1; padding:16px 10px;
-    font-size:16px; font-weight:600;
-    color:#999;
-    border-left:1px solid #e1e1e1; border-bottom:3px solid transparent;
-}
-.m-tabs.type01 .m-tab:first-of-type {
-    border-left:none;
-}
-.m-tabs.type01 .m-tab.active {
-    color:#000; border-bottom-color:#ffc800;
-}
+

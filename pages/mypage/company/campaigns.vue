@@ -19,117 +19,120 @@
         <div class="table-section">
             <div class="container3">
                 <div class="table-tab-wrap influencer-table_1 advertiser-table_1">
-                    <div class="filter-wrap">
-                        <div class="filter-hd">
-                            <p>FILTER</p>
-                            <i class="xi-angle-down"></i>
-                        </div>
-                        <div class="filter-bd">
-                            <div class="filter-li">
-                                <p class="filter-title">캠페인</p>
-                                <ul class="filter-ck-wrap">
-                                    <li class="filter-ck">
-                                        <input type="checkbox" name="" id="VISIT" value="VISIT" v-model="form.type_campaigns" @change="() => getCampaigns()">
-                                        <label for="VISIT">
-                                            <i class="xi-check-square"></i>
-                                            <i class="xi-checkbox-blank"></i>
-                                            방문 캠페인
-                                        </label>
-                                    </li>
-                                    <li class="filter-ck">
-                                        <input type="checkbox" name="" id="DELIVERY" value="DELIVERY" v-model="form.type_campaigns" @change="() => getCampaigns()">
-                                        <label for="DELIVERY">
-                                            <i class="xi-check-square"></i>
-                                            <i class="xi-checkbox-blank"></i>
-                                            배송 캠페인
-                                        </label>
-                                    </li>
-                                    <li class="filter-ck">
-                                        <input type="checkbox" name="" id="REPORTER" value="REPORTER" v-model="form.type_campaigns" @change="() => getCampaigns()">
-                                        <label for="REPORTER">
-                                            <i class="xi-check-square"></i>
-                                            <i class="xi-checkbox-blank"></i>
-                                            기자단 캠페인
-                                        </label>
-                                    </li>
-                                    <li class="filter-ck">
-                                        <input type="checkbox" name="" id="REALTIME" value="REALTIME" v-model="form.type_campaigns" @change="() => getCampaigns()">
-                                        <label for="REALTIME">
-                                            <i class="xi-check-square"></i>
-                                            <i class="xi-checkbox-blank"></i>
-                                            실시간 캠페인
-                                        </label>
-                                    </li>
-                                </ul>
+
+                    <div class="m-states type01">
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">총 캠페인</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.all}}</h3> <span class="unit">건</span>
+                                </div>
                             </div>
-                            <div class="bar"></div>
-                            <div class="filter-li">
-                                <p class="filter-title">인플루언서</p>
-                                <ul class="filter-ck-wrap">
-                                    <li class="filter-ck">
-                                        <input type="checkbox" name="" id="INSTAGRAM" value="INSTAGRAM" v-model="form.type_snses" @change="() => getCampaigns()">
-                                        <label for="INSTAGRAM">
-                                            <i class="xi-check-square"></i>
-                                            <i class="xi-checkbox-blank"></i>
-                                            인스타그램
-                                        </label>
-                                    </li>
-                                    <li class="filter-ck">
-                                        <input type="checkbox" name="" id="NAVER" value="NAVER" v-model="form.type_snses" @change="() => getCampaigns()">
-                                        <label for="NAVER">
-                                            <i class="xi-check-square"></i>
-                                            <i class="xi-checkbox-blank"></i>
-                                            네이버 블로그
-                                        </label>
-                                    </li>
-                                </ul>
+                        </div>
+
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">심사 대기 중</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.wait}}</h3> <span class="unit">건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">모집 중</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.ongoingHire}}</h3> <span class="unit">건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">선정 중</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.ongoingSelect}}</h3> <span class="unit">건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">체험 중</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.ongoingReview}}</h3> <span class="unit">건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">마감 및 보고서</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.finishReview}}</h3> <span class="unit">건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">반려</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.deny}}</h3> <span class="unit">건</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div style="margin-top:40px;"></div>
+                    <div class="mt-20"></div>
 
-                    <div class="scroll-wrap">
-                        <ul class="table-tab-list">
-                            <li :class="`tab-link ${state === 'beforeAccept' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('beforeAccept')">
-                                심사중인 캠페인
-                                <i class="xi-help-o" @click="openPop('beforeAccept')"></i>
-                                <span>{{ counts.unaccept }}</span>
-                            </li>
-
-                            <li :class="`tab-link ${state === 'ongoingHire' ? 'Active' : ''}`" data-tab="tab-2" @click="changeState('ongoingHire')">
-                                모집중인 캠페인
-                                <i class="xi-help-o" @click="openPop('ongoingHire')"></i>
-                                <span>{{ counts.ongoingHire }}</span>
-                            </li>
-                            <li :class="`tab-link ${state === 'ongoingSelect' ? 'Active' : ''}`" data-tab="tab-3" @click="changeState('ongoingSelect')">
-                                인플루언서 선정
-                                <i class="xi-help-o" @click="openPop('ongoingSelect')"></i>
-                                <span>{{ counts.ongoingSelect }}</span>
-                            </li>
-                            <!--
-                            <li :class="`tab-link ${form.ongoingReview form.type_campaigns == ['DELIVERY', 'VISIT'] ? 'Active' : ''}`" data-tab="tab-4">배송관리&방문관리 <span>12</span></li>
-                            -->
-                            <li :class="`tab-link ${state === 'ongoingReview' ? 'Active' : ''}`" data-tab="tab-5" @click="changeState('ongoingReview')">
-                                체험중인 캠페인
-                                <i class="xi-help-o" @click="openPop('ongoingReview')"></i>
-                                <span>{{ counts.ongoingReview }}</span>
-                            </li>
-                            <li :class="`tab-link ${state === 'finishReview' ? 'Active' : ''}`" data-tab="tab-6" @click="changeState('finishReview')">
-                                마감 및 보고서 확인
-                                <i class="xi-help-o" @click="openPop('finishReview')"></i>
-                                <span>{{ counts.finishReview }}</span>
-                            </li>
-                            <li :class="`tab-link ${state === 'afterAccept' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('afterAccept')">
-                                모든 캠페인
-                                <i class="xi-help-o" @click="openPop('afterAccept')"></i>
-                                <span>{{ counts.accept }}</span>
-                            </li>
-                        </ul>
+                    <div class="m-tabs type03">
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === '' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = ''; getCampaigns();}">전체</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'INSTAGRAM' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'INSTAGRAM'; getCampaigns();}">인스타그램</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'NAVER' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'NAVER'; getCampaigns();}">블로그</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'YOUTUBE_SHORTS' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'YOUTUBE_SHORTS'; getCampaigns();}">유튜브</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'TIKTOK' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'TIKTOK'; getCampaigns();}">틱톡</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'SHOP_SMART' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'SHOP_SMART'; getCampaigns();}">스마트 스토어</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'SHOP_COUPANG' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'SHOP_COUPANG'; getCampaigns();}">쿠팡</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'SHOP_OTHER' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'SHOP_OTHER'; getCampaigns();}">기타 쇼핑몰</button>
                     </div>
+
+                    <div class="mt-20"></div>
+
+                    <div class="search-wrap">
+                        <div class="m-tabs type02">
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'all' ? 'active' : ''}`" @click="changeState('all')">전체</button>
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'beforeAccept' ? 'active' : ''}`" @click="changeState('beforeAccept')">심사 대기</button>
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'ongoingHire' ? 'active' : ''}`" @click="changeState('ongoingHire')">모집 중</button>
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'ongoingSelect' ? 'active' : ''}`" @click="changeState('ongoingSelect')">선정 중</button>
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'ongoingReview' ? 'active' : ''}`" @click="changeState('ongoingReview')">체험 중</button>
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'finishReview' ? 'active' : ''}`" @click="changeState('finishReview')">마감 및 보고서</button>
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'deny' ? 'active' : ''}`" @click="changeState('deny')">반려</button>
+                        </div>
+
+                        <form @submit.prevent="() => {form.page = 1; getCampaigns()}" class="search-wrap">
+                            <div class="m-input-text type01 with-deco">
+                                <input type="text" placeholder="검색어" v-model="form.word">
+
+                                <button type="submit" class="deco">
+                                    <i class="xi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="mt-20"></div>
 
                     <!-- 심사중인 캠페인 -->
-                    <div id="tab-1" class="table-wrap tab-content Active" v-if="state === 'beforeAccept'">
+                    <div id="tab-1" class="table-wrap tab-content Active" v-if="this.form.state === 'beforeAccept'">
                         <ul class="thead">
                             <li class="th">
                                 캠페인 등록일
@@ -166,7 +169,7 @@
                     <!-- //심사중인 캠페인 -->
 
                     <!-- 인플루언서 모집 -->
-                    <div id="tab-2" class="table-wrap tab-content Active" v-if="state === 'ongoingHire'">
+                    <div id="tab-2" class="table-wrap tab-content Active" v-if="this.form.state === 'ongoingHire'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 모집 기간
@@ -211,7 +214,7 @@
                     </div>
 
                     <!-- 인플루언서 선정 -->
-                    <div id="tab-3" class="table-wrap tab-content Active" v-if="state === 'ongoingSelect'">
+                    <div id="tab-3" class="table-wrap tab-content Active" v-if="this.form.state === 'ongoingSelect'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 선정 기간
@@ -260,7 +263,7 @@
                     </div>
 
                     <!-- 체험중인 캠페인 -->
-                    <div id="tab-4" class="table-wrap tab-content Active" v-if="state === 'ongoingReview'">
+                    <div id="tab-4" class="table-wrap tab-content Active" v-if="this.form.state === 'ongoingReview'">
                         <ul class="thead">
                             <li class="th">
                                 리뷰어 컨텐츠 등록기간
@@ -317,7 +320,7 @@
                     </div>
 
                     <!-- 마감및보고서확인 -->
-                    <div  id="tab-5" class="table-finishReview table-wrap tab-content Active" v-if="state === 'finishReview'">
+                    <div  id="tab-5" class="table-finishReview table-wrap tab-content Active" v-if="this.form.state === 'finishReview'">
                         <ul class="thead">
                             <li class="th">
                                 캠페인 정보
@@ -365,7 +368,7 @@
                     </div>
 
                     <!-- 모든 캠페인 -->
-                    <div id="tab-6" class="table-wrap tab-content Active" v-if="state === 'afterAccept'">
+                    <div id="tab-6" class="table-wrap tab-content Active" v-if="this.form.state === 'all'">
                         <ul class="thead">
                             <li class="th">
                                 캠페인 등록일
@@ -400,6 +403,43 @@
                         <!-- //그룹 -->
                     </div>
                     <!-- // 모든 캠페인  -->
+
+                    <!-- 반려 캠페인 -->
+                    <div id="tab-7" class="table-wrap tab-content Active" v-if="this.form.state === 'deny'">
+                        <ul class="thead">
+                            <li class="th">
+                                캠페인 등록일
+                            </li>
+                            <li class="th">
+                                캠페인 정보
+                            </li>
+                            <li class="th">
+                                모집
+                            </li>
+                        </ul>
+
+                        <!-- 리스트 그룹 -->
+                        <empty v-if="campaigns.data.length == 0" />
+
+                        <ul class="tbody" v-for="campaign in campaigns.data" :key="campaign.id">
+                            <li class="date">
+                                <span class="unit mb">캠페인 등록일</span>
+                                {{ campaign.format_created_at }}
+                            </li>
+
+                            <!-- 캠페인 정보 -->
+                            <campaign :campaign="campaign" />
+
+                            <!-- //캠페인 정보 -->
+                            <li class="recruit-num num-re-po">
+                                <span class="unit mb">모집</span>
+                                <span class="num">{{ campaign.max_participant.toLocaleString() }}</span>
+                                <span class="unit">명</span>
+                            </li>
+                        </ul>
+                        <!-- //그룹 -->
+                    </div>
+                    <!-- //반려 캠페인 -->
                 </div>
 
                 <pagination :meta="campaigns.meta" @paginate="(page) => {form.page = page; getCampaigns()}" />
@@ -408,7 +448,9 @@
         </div>
     </main>
 </template>
+<style>
 
+</style>
 <script>
 import Campaign from "../../../components/mypage/Campaign";
 import Form from "../../../utils/Form";
@@ -420,13 +462,9 @@ export default {
         return {
             form: new Form(this.$axios, {
                 user_id: this.$auth.user.data.id,
-                accept: 0,
-                ongoingHire: 0,
-                ongoingSelect: 0,
-                ongoingReview: 0,
-                ongoingFinishReview: 0,
-                type_campaigns: ["VISIT", "REALTIME", "DELIVERY", "REPORTER"],
-                type_snses: ["NAVER", "INSTAGRAM"],
+                state: "all",
+                type_campaign: "",
+                type_sns: "",
             }),
 
             campaigns: {
@@ -436,14 +474,14 @@ export default {
             },
 
             counts: {
-                unaccept: 0,
+                all: 0,
+                wait: 0,
                 ongoingHire: 0,
                 ongoingSelect: 0,
                 ongoingReview: 0,
                 finishReview: 0,
+                deny: 0,
             },
-
-            state: "beforeAccept",
         }
     },
     methods: {
@@ -452,37 +490,9 @@ export default {
         },
 
         changeState(state){
-            this.state = state;
+            this.form.state = state;
 
             this.reset();
-
-            if(state === "beforeAccept"){
-                this.form.accept = 0;
-            }
-
-            if(state === "afterAccept"){
-                this.form.accept = 1;
-            }
-
-            if(state === "ongoingHire"){
-                this.form.accept = 1;
-                this.form.ongoingHire = 1;
-            }
-
-            if(state === "ongoingSelect"){
-                this.form.accept = 1;
-                this.form.ongoingSelect = 1;
-            }
-
-            if(state === "ongoingReview"){
-                this.form.accept = 1;
-                this.form.ongoingReview = 1;
-            }
-
-            if(state === "finishReview"){
-                this.form.accept = 1;
-                this.form.finishReview = 1;
-            }
 
             this.getCampaigns();
         },
@@ -490,7 +500,7 @@ export default {
         getCampaigns(){
             this.campaigns.data = [];
 
-            this.$axios.get("/api/campaigns", {
+            this.$axios.get("/api/campaigns/mine", {
                 params: this.form
             }).then(response => {
                 this.campaigns = response.data;
@@ -526,7 +536,7 @@ export default {
                     description: '등록 요청한 캠페인에 허위광고, 과대광고 등 문제가 없는지 운영팀에서 확인하는 단계에요!'
                 }
 
-            if(type === 'afterAccept')
+            if(type === 'all')
                 pop = {
                     title: '모든 캠페인',
                     description: '광고주님께서 지금까지 진행하는 모든 캠페인이에요!'

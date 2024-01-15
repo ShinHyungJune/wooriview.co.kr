@@ -19,21 +19,97 @@
         <div class="table-section">
             <div class="container3">
                 <div class="table-tab-wrap influencer-table_1 influ">
-                    <div class="scroll-wrap">
-                        <ul class="table-tab-list">
-                            <li :class="`tab-link ${state === 'application' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('application')">신청한 캠페인<span>{{ counts.application }}</span></li>
-                            <li :class="`tab-link ${state === 'select' ? 'Active' : ''}`" data-tab="tab-2" @click="changeState('select')">선정된 캠페인 <span>{{ counts.select }}</span></li>
-                            <li :class="`tab-link ${state === 'finish' ? 'Active' : ''}`" data-tab="tab-3" @click="changeState('finish')">체험중인 캠페인 <span>{{ counts.finish }}</span></li>
-                            <li :class="`tab-link ${state === 'like' ? 'Active' : ''}`" data-tab="tab-3" @click="changeState('like')">찜한 캠페인 <span>{{ counts.like }}</span></li>
-                            <li :class="`tab-link ${state === 'all' ? 'Active' : ''}`" data-tab="tab-1" @click="changeState('all')">
-                                모든 캠페인
-                                <span>{{ counts.all }}</span>
-                            </li>
-                        </ul>
+                    <div class="m-states type01">
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">총 캠페인</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.all}}</h3> <span class="unit">건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">신청한 캠페인</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.application}}</h3> <span class="unit">건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">선정된 캠페인</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.select}}</h3> <span class="unit">건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">체험 중</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.finish}}</h3> <span class="unit">건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-state-wrap">
+                            <div class="m-state">
+                                <h3 class="title">찜한 캠페인</h3>
+
+                                <div class="box-count">
+                                    <h3 class="count">{{counts.like}}</h3> <span class="unit">건</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="mt-20"></div>
+
+                    <div class="m-tabs type03">
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === '' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = ''; getCampaigns();}">전체</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'INSTAGRAM' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'INSTAGRAM'; getCampaigns();}">인스타그램</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'NAVER' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'NAVER'; getCampaigns();}">블로그</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'YOUTUBE_SHORTS' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'YOUTUBE_SHORTS'; getCampaigns();}">유튜브</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'TIKTOK' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'TIKTOK'; getCampaigns();}">틱톡</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'SHOP_SMART' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'SHOP_SMART'; getCampaigns();}">스마트 스토어</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'SHOP_COUPANG' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'SHOP_COUPANG'; getCampaigns();}">쿠팡</button>
+                        <button type="button" :class="`m-tabs-tab ${this.form.type_sns === 'SHOP_OTHER' ? 'active' : ''}`" @click="() => {form.page = 1; form.type_sns = 'SHOP_OTHER'; getCampaigns();}">기타 쇼핑몰</button>
+                    </div>
+
+                    <div class="mt-20"></div>
+
+                    <div class="search-wrap">
+                        <div class="m-tabs type02">
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'all' ? 'active' : ''}`" @click="changeState('all')">전체</button>
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'application' ? 'active' : ''}`" @click="changeState('application')">신청한 캠페인</button>
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'select' ? 'active' : ''}`" @click="changeState('select')">선정된 캠페인</button>
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'finish' ? 'active' : ''}`" @click="changeState('finish')">체험 중</button>
+                            <button type="button" :class="`m-tabs-tab ${this.form.state === 'like' ? 'active' : ''}`" @click="changeState('like')">찜한 캠페인</button>
+                        </div>
+
+                        <form @submit.prevent="() => {form.page = 1; getCampaigns()}" class="search-wrap">
+                            <div class="m-input-text type01 with-deco">
+                                <input type="text" placeholder="검색어" v-model="form.word">
+
+                                <button type="submit" class="deco">
+                                    <i class="xi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="mt-20"></div>
+
                     <!--신청한 캠페인-->
-                    <div class="table-wrap tab-content Active" id="tab-1" v-if="state === 'application'">
+                    <div class="table-wrap tab-content Active" id="tab-1" v-if="form.state === 'application'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 모집 기간
@@ -73,7 +149,7 @@
                     </div>
 
                     <!-- 선정된 캠페인 -->
-                    <div class="table-wrap tab-content Active" id="tab-2" v-if="state === 'select'">
+                    <div class="table-wrap tab-content Active" id="tab-2" v-if="form.state === 'select'">
                         <ul class="thead">
                             <li class="th">
                                 인플루언서 선정 기간
@@ -106,7 +182,7 @@
                     </div>
 
                     <!-- 체험중인 캠페인 -->
-                    <div class="table-wrap tab-content Active"  id="tab-3"  v-if="state === 'finish'">
+                    <div class="table-wrap tab-content Active"  id="tab-3"  v-if="form.state === 'finish'">
                         <ul class="thead">
                             <li class="th">
                                 컨텐츠 등록 기간
@@ -150,7 +226,7 @@
                     </div>
 
                     <!-- 찜한 캠페인 -->
-                    <div class="table-wrap tab-content Active" id="tab-4" v-if="state === 'like'">
+                    <div class="table-wrap tab-content Active" id="tab-4" v-if="form.state === 'like'">
                         <ul class="thead">
                             <li class="th">
                                 리뷰어 컨텐츠 등록기간
@@ -191,7 +267,7 @@
                     </div>
 
                     <!-- 모든 캠페인 -->
-                    <div class="table-wrap tab-content Active" id="tab-5" v-if="state === 'all'">
+                    <div class="table-wrap tab-content Active" id="tab-5" v-if="form.state === 'all'">
                         <ul class="thead">
                             <li class="th">
                                 캠페인 등록일
@@ -245,13 +321,10 @@ export default {
     data(){
         return {
             form: new Form(this.$axios, {
-                application: 1,
-                select: 0,
-                finish: 0,
-                like: 0,
-                all: 0,
-                type_campaigns: ["VISIT", "REALTIME", "DELIVERY", "REPORTER"],
-                type_snses: ["NAVER", "INSTAGRAM"],
+                state: "all",
+                type_campaign: "",
+                type_sns: "",
+                word: "",
             }),
 
             campaigns: {
@@ -267,8 +340,6 @@ export default {
                 like: 0,
                 all: 0,
             },
-
-            state: this.$route.query.state ? this.$route.query.state : "application",
         }
     },
     methods: {
@@ -277,29 +348,9 @@ export default {
         },
 
         changeState(state){
-            this.state = state;
+            this.form.state = state;
 
             this.reset();
-
-            if(state === "application"){
-                this.form.application = 1;
-            }
-
-            if(state === "select"){
-                this.form.select = 1;
-            }
-
-            if(state === "finish"){
-                this.form.finish = 1;
-            }
-
-            if(state === "like"){
-                this.form.like = 1;
-            }
-
-            if(state === "all"){
-                this.form.all = 1;
-            }
 
             this.getCampaigns();
         },
@@ -307,7 +358,7 @@ export default {
         getCampaigns(){
             this.campaigns.data = [];
 
-            this.$axios.get("/api/campaigns", {
+            this.$axios.get("/api/campaigns/mine", {
                 params: this.form
             }).then(response => {
                 this.campaigns = response.data;
@@ -324,11 +375,6 @@ export default {
         reset(){
             this.form.set({
                 page:1,
-                application: 0,
-                select: 0,
-                finish: 0,
-                like: 0,
-                all: 0,
             });
         }
     },
