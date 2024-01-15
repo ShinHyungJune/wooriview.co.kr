@@ -421,7 +421,12 @@ input,textarea {
 }
 .main .section1 .swiper-pagination .swiper-pagination-bullet { margin: unset; width: 10px; height: 10px; background-color: #f5f5f5; opacity: 1; }
 .main .section1 .swiper-pagination .swiper-pagination-bullet-active { background-color: #f2951c; }
+
 @media screen and (max-width: 730px) {
+    .main .section1 .mySwiper1-wrap .swiper-btn {
+        display: none;
+    }
+
     .main .section1 {
         padding: unset;
         margin-bottom:0;
@@ -444,11 +449,11 @@ input,textarea {
 .main .section1-1 .boxes {
     display:flex;
     justify-content: center;
-    margin:-24px;
+    margin:-50px;
     text-align: center;
 }
 .main .section1-1 .box-wrap {
-    padding:50px 100px 20px 100px;
+    padding:50px;
 }
 .main .section1-1 .box {
     display: block;
@@ -2576,6 +2581,96 @@ input,textarea {
 .MyPage.payment  .table-section .Pagination-wrap { margin-top: 48px;}
 .MyPage.payment .payment-type-wrap .table-section ul li { flex-direction: row; gap: 5px;}
 
+.MyPage.payment .payments {
+    display: flex; flex-wrap:wrap;
+    margin:-24px;
+}
+.MyPage.payment .payment-wrap {
+    width:25%;
+    padding:24px;
+}
+.MyPage.payment .payment {
+    height:100%;
+    padding:20px;
+    background-color:#fff; box-shadow:0 3px 16px 0 rgba(0, 0, 0, 0.08);
+    border-radius:16px;
+}
+.MyPage.payment .payment > .title {
+    margin-bottom:20px;
+    padding:8px 20px;
+    font-size:24px; font-weight:bold; text-align: center;
+    background-color:#FFFBF5; border-radius:8px;
+}
+.MyPage.payment .payment .body {
+    display: flex; align-items: center;
+    margin-top:16px;
+}
+.MyPage.payment .payment .body:first-child {
+    margin-top:0;
+}
+.MyPage.payment .payment .body .label-wrap {
+    width:18px;
+    margin-right:4px;
+}
+.MyPage.payment .payment .body .icon-wrap {
+    width:20px;
+    margin-right:5px;
+}
+.MyPage.payment .payment .body .icon-wrap img {
+    display: block;
+}
+.MyPage.payment .payment .body .title {
+    font-size:14px; word-break:keep-all;
+}
+.MyPage.payment .payment .box-price {
+    margin-top:28px;
+    text-align: center;
+}
+.MyPage.payment .payment .box-price .title {
+    margin-bottom:8px;
+    font-size:18px; font-weight:600; text-align: left;
+}
+.MyPage.payment .payment .box-price .point {
+    height:22px;
+    margin-bottom:8px;
+    font-size:18px; font-weight:500; color:#FFC800;
+}
+.MyPage.payment .payment .box-price .price-discount {
+    font-size:28px; font-weight:bold; color:#CCCCCC; text-decoration: line-through;
+}
+.MyPage.payment .payment .box-price .price-final {
+    font-size:28px; font-weight:bold;
+}
+.MyPage.payment .payment .btn {
+    width:100%;
+    padding:13px; margin-top:32px;
+    text-align: center; font-weight:bold; color:#FFC800;
+    border:1px solid #FFC800; border-radius:8px;
+}
+
+@media screen and (max-width:1200px){
+    .MyPage.payment .payments {
+        margin:0px; padding: 0 20px;
+    }
+    .MyPage.payment .payment > .title {
+        font-size:16px;
+    }
+    .MyPage.payment .payments .payment-wrap {
+        width:50%; padding:4px;
+    }
+    .MyPage.payment .payment .box-price .title {
+        font-size:16px;
+    }
+    .MyPage.payment .payment .box-price .point {
+        font-size:16px;
+    }
+    .MyPage.payment .payment .box-price .price-discount {
+        font-size:24px;
+    }
+    .MyPage.payment .payment .box-price .price-final {
+        font-size:24px;
+    }
+}
 
 
 @media screen and (max-width: 1180px) {
@@ -4083,6 +4178,35 @@ input,textarea {
     }
 }
 
+.m-tabs.type04 {
+    display: flex; align-items: center; justify-content: center;
+    gap:40px;
+}
+.m-tabs.type04 .m-tabs-tab {
+    display:flex; align-items: center; justify-content: center;
+    width:175px; height:71px;
+    font-size:20px; font-weight:bold;
+    border:2px solid #FFCE1B;
+    border-radius:15px;
+}
+
+.m-tabs.type04 .m-tabs-tab.active {
+    display: block;
+    background-color:#FFCE1B;
+}
+
+@media screen and (max-width:768px) {
+    .m-tabs.type04 {
+        white-space: nowrap;
+        overflow-y:auto;
+        margin-right:-20px;
+    }
+    .m-tabs.type04 .m-tabs-tab {
+        padding:9px 8px;
+        font-size:14px;
+    }
+}
+
 .m-input-text.type01 {
     position: relative;
 }
@@ -4116,6 +4240,10 @@ input,textarea {
     }
 }
 
+.mt-40 {
+    margin-top:40px;
+}
 .mt-20 {
     margin-top:20px;
 }
+

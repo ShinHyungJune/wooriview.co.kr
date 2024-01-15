@@ -28,7 +28,7 @@
                 {{ campaign.title_product ? campaign.title_product : '홍보제품명' }}
             </div>
             <p class="product" v-if="campaign.type_campaign === 'REPORTER'">원고료 {{ campaign.price_write.toLocaleString() }}원 제공</p>
-            <p class="product" v-else>{{ campaign.description_provide }}</p>
+            <p class="product" v-else>{{ campaign.product_and_price }}</p>
         </div>
     </li>
 

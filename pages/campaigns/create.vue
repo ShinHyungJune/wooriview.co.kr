@@ -97,7 +97,7 @@
 
                         <div class="write-box">
                             <div class="write-labal_wrap">
-                                <p class="write-labal">홍보제품명 <span class="Essential">*</span></p>
+                                <p class="write-labal">제공내역 <span class="Essential">*</span></p>
                             </div>
 
                             <div class="input-wrap">
@@ -148,6 +148,7 @@
                             </div>
                         </div>
 
+                        <!--
                         <div class="write-box">
                             <div class="write-labal_wrap">
                                 <p class="write-labal">{{ form.type_campaign === 'REPORTER' ? '참고할 대표 URL' : '제공내역' }} <span class="Essential">*</span></p>
@@ -160,8 +161,9 @@
                                 <error :form="form" name="description_provide" />
                             </div>
                         </div>
+                        -->
 
-                        <div class="write-box" v-if="form.type_campaign === 'DELIVERY'">
+                        <div class="write-box" v-if="form.type_campaign !== 'REVIEW' && form.type_campaign !== 'REPORTER'">
                             <div class="write-labal_wrap">
                                 <p class="write-labal">제공할 제품 및 서비스의 가격을 입력해주세요. <span class="Essential">*</span></p>
                             </div>

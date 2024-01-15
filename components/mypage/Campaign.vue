@@ -26,7 +26,7 @@
             <p class="info-title">
                 [{{ campaign.title_company }}] {{campaign.title_product }}
             </p>
-            <p class="info-sub">{{ campaign.type_campaign === 'REPORTER' ? `원고료 ${campaign.price_write.toLocaleString()}원 제공` : campaign.description_provide }}</p>
+            <p class="info-sub">{{ campaign.type_campaign === 'REPORTER' ? `원고료 ${campaign.price_write.toLocaleString()}원 제공` : campaign.product_and_price }}</p>
         </div>
     </li>
 </template>

@@ -107,7 +107,7 @@
                                 <p>{{item.type_campaign === 'REPORTER' ? '대표 URL' : '제공내역'}}</p>
                             </div>
                             <div class="user">
-                                <textarea name="" id="" v-model="form.description_provide"></textarea>
+                                <textarea name="" id="" v-model="form.product_and_price"></textarea>
                             </div>
                         </li>
                         <li class="col-group" v-if="item.type_campaign === 'REPORTER'">

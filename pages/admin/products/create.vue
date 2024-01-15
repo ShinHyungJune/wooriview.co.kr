@@ -14,6 +14,19 @@
                     <ul class="form-box">
                         <li class="col-group">
                             <div class="default">
+                                <p>등급</p>
+                            </div>
+                            <div class="user">
+                                <select name="" id="" v-model="form.grade">
+                                    <option value="" disabled selected>선택</option>
+                                    <option value="BASIC">BASIC</option>
+                                    <option value="PREMIUM">PREMIUM</option>
+                                </select>
+                                <error :form="form" name="grade" />
+                            </div>
+                        </li>
+                        <li class="col-group">
+                            <div class="default">
                                 <p>제목</p>
                             </div>
                             <div class="user">
@@ -115,6 +128,7 @@ export default {
                 price: "",
                 first_discount_percent: "",
                 files: [],
+                grade: "",
             })
         }
     },

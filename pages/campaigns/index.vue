@@ -399,7 +399,7 @@ export default {
            ${campaign.type_sns === 'NAVER' ? '<img src="/images/Blog-icon.png" alt="">' : ''}
         </div>
         <h3 class="title">${campaign.title_product}</h3>
-        <p class="body">${ campaign.description_provide }</p>
+        <p class="body">${ campaign.product_and_price }</p>
     </div>
 </a>
 <button type="button" class="btn">닫기</button>
