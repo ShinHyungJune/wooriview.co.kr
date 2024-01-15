@@ -4197,9 +4197,7 @@ input,textarea {
 
 @media screen and (max-width:768px) {
     .m-tabs.type04 {
-        white-space: nowrap;
-        overflow-y:auto;
-        margin-right:-20px;
+        gap:16px;
     }
     .m-tabs.type04 .m-tabs-tab {
         padding:9px 8px;
