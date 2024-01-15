@@ -99,9 +99,7 @@
                         </td>
                         -->
                         <td>
-                            <!-- <a :href="item.url_review" target="_blank" v-if="item.url_review" style="white-space: nowrap">리뷰보기</a> -->
-                            <!-- <a :href="item.url_review" target="_blank" v-if="item.url_review" ></a> -->
-                            {{item.url_review}}
+                            <a :href="item.url_review" target="_blank" v-if="item.url_review" style="white-space: nowrap">리뷰보기</a>
                         </td>
                         <td>
                             {{item.url_banner}}
