@@ -78,13 +78,13 @@
                         </li>
                         <li class="col-group">
                             <div class="default">
-                                <p>제품명</p>
+                                <p>제공내역</p>
                             </div>
                             <div class="user">
                                 <input type="text" v-model="form.title_product">
                             </div>
                         </li>
-                        <li class="col-group" v-if="form.type_campaign === 'DELIVERY'">
+                        <li class="col-group" v-if="form.type_campaign !== 'REVIEW' && form.type_campaign !== 'REPORTER'">
                             <div class="default">
                                 <p>제공할 제품 및 서비스 가격</p>
                             </div>

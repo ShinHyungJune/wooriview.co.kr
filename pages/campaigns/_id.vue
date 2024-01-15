@@ -138,8 +138,12 @@
                         <p class="Information-content" v-if="campaign.price_write">{{campaign.price_write.toLocaleString()}}원</p>
                     </div>
                     <div class="Information-box">
-                        <p class="Information-labal">검색 키워드</p>
+                        <p class="Information-labal">메인 검색 키워드</p>
                         <p class="Information-content" style="white-space: pre-line">{{campaign.search_keyword}}</p>
+                    </div>
+                    <div class="Information-box">
+                        <p class="Information-labal">서브 검색 키워드</p>
+                        <p class="Information-content" style="white-space: pre-line">{{campaign.search_keyword_sub}}</p>
                     </div>
                     <div class="Information-box">
                         <p class="Information-labal">캠페인미션</p>
