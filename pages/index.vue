@@ -15,12 +15,12 @@
                     <div class="swiper-pagination"></div>
                 </div>
 
-                <div class="swiper-btns">
-                    <button class="swiper-btn swiper-btn-prev">
-                        <i class="xi-angle-left"></i>
+                <div class="{'swiper-btns','pc'}">
+                    <button class="{'swiper-btn swiper-btn-prev','pc'}">
+                        <i class="{'xi-angle-left','pc'}"></i>
                     </button>
-                    <button class="swiper-btn swiper-btn-next">
-                        <i class="xi-angle-right"></i>
+                    <button class="{'swiper-btn swiper-btn-next','pc'}">
+                        <i class="{'xi-angle-right','pc'}"></i>
                     </button>
                 </div>
             </div>
