@@ -100,7 +100,8 @@
                         -->
                         <td>
                             <!-- <a :href="item.url_review" target="_blank" v-if="item.url_review" style="white-space: nowrap">리뷰보기</a> -->
-                            <a :href="item.url_review" target="_blank" v-if="item.url_review" ></a>
+                            <!-- <a :href="item.url_review" target="_blank" v-if="item.url_review" ></a> -->
+                            {{item.url_review}}
                         </td>
                         <td>
                             {{item.url_banner}}
