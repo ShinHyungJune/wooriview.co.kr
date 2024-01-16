@@ -486,7 +486,7 @@ input,textarea {
     .main .section1-1 .boxes {
         display: block;
         margin:-20px -10px;
-        margin-right:-20px;
+        margin-right:-10px;
         white-space: nowrap;
         overflow-x:auto;
     }
