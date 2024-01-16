@@ -192,7 +192,7 @@
             </div>
         </section>
 
-        <section class="section4">
+        <!-- <section class="section4">
             <div class="container">
                 <div class="campaign-item-wrap">
                     <div class="h2-wrap">
@@ -224,7 +224,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section class="section5">
             <div class="container">
