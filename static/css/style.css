@@ -125,7 +125,7 @@ input,textarea {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 14px; font-weight: 200; color: #888; margin-bottom: 24px;
+    font-size: 14px; font-weight: 200; color: #888; margin-bottom: 8px;
 }
 .campaign-item .State-wrap { display: flex; gap: 8px; }
 .campaign-item .State-wrap > p { font-size: 14px; }
