@@ -1547,7 +1547,7 @@ export default {
             },300)
 
             if(newVal === 'REALTIME' || newVal === 'VISIT'){
-                this.max = 5;
+                this.max = 20;
             }
 
             if(newVal === 'REPORTER' || newVal === 'DELIVERY'){
