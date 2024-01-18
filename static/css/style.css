@@ -665,9 +665,9 @@ input,textarea {
 .campaign_Details .section2 .Period-wrap { display: flex; flex-wrap: wrap; gap: 24px; padding-bottom: 12px; border-bottom: 2px solid #f5f5f5; margin-bottom: 16px; }
 .campaign_Details .section2 .Period-wrap .Period { width: calc((100% - 24px) / 2); }
 .campaign_Details .section2 .Period-wrap .Period:first-child { width: 100%; }
-.campaign_Details .section2 .Period-wrap .Period .Period-labal { font-size: 14px; font-weight: 200; color: #888; padding-left: 12px; margin-bottom: 8px; position: relative; }
+.campaign_Details .section2 .Period-wrap .Period .Period-labal { font-size: 14px; font-weight: 600; color: #202020; padding-left: 12px; margin-bottom: 8px; position: relative; }
 .campaign_Details .section2 .Period-wrap .Period .Period-labal::before { content: ''; width: 2px; height: 13px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); background-color: #ffc800; border-radius: 1px; }
-.campaign_Details .section2 .Period-wrap .Period .Period-date { padding-left: 12px; font-size: 14px; font-weight: 600; color: #888; }
+.campaign_Details .section2 .Period-wrap .Period .Period-date { padding-left: 12px; font-size: 14px; font-weight: 600; color: #202020; }
 .campaign_Details .section2 .advertiser-talk { white-space: pre-line; font-size: 14px; font-weight: 500; line-height: 1.43; color: #202020; }
 .campaign_Details .section2 .recruiting-influencer-labal { font-weight: 600; color: #202020; margin-bottom: 16px; }
 .campaign_Details .section2 .sns-wrap {
