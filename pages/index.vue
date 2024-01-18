@@ -228,8 +228,10 @@
 
         <section class="section5">
             <div class="container">
-                <img src="/images/campaign-banner3.png" alt="" class="pc">
-                <img src="/images/campaign-banner3-m.png" alt="" class="mb">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSejYcDdXucpmhh6fGIlX1r2GSQZr97UZiS8vh294vsAb8TKRQ/viewform" class="box">
+                    <img src="/images/campaign-banner3.png" alt="" class="pc">
+                    <img src="/images/campaign-banner3-m.png" alt="" class="mb">
+                </a>
             </div>
         </section>
 
