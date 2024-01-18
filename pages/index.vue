@@ -228,8 +228,8 @@
 
         <section class="section5">
             <div class="container">
-                <img src="/images/campaign-banner2.png" alt="" class="pc">
-                <img src="/images/campaign-banner2-m.png" alt="" class="mb">
+                <img src="/images/campaign-banner3.png" alt="" class="pc">
+                <img src="/images/campaign-banner3-m.png" alt="" class="mb">
             </div>
         </section>
 
