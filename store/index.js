@@ -1,5 +1,5 @@
 export const state = () => ({
-    domain : process.env.NODE_ENV === "production" ? "https://api-dev.wooriview.co.kr" : "http://localhost",
+    domain : process.env.NODE_ENV === "production" ? "https://api.wooriview.co.kr" : "http://localhost",
     pop: null,
     categories: {
         data: []
