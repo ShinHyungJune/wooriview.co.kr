@@ -8,8 +8,7 @@
             <p class="title">비밀번호를 잊어버리셨나요?</p>
             <p class="sub" style="text-align: center;">
                 비밀번호를 찾으려는 아이디를 입력해주세요.
-                <br/>가입 시 이용했던 휴대폰번호로 임시비밀번호가 발송됩니다.
-                <br/>임시비밀번호로 로그인 후 마이페이지에서 비밀번호를 변경해주세요.
+                <br/>인증 후 비밀번호를 변경할 수 있습니다.
             </p>
         </section>
         <div class="write-section">
@@ -72,7 +71,10 @@ export default {
                         title: "임시비밀번호가 발송되었습니다!"
                     });
 
+                    console.log(response);
                     this.verified = true;
+
+                    this.$router.push("/findPasswords?token=" + response.token);
                 });
         },
     },

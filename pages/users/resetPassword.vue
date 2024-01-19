@@ -1,38 +1,46 @@
 <template>
-    <section class="space-box top top-space">
-        <div class="space-box-inner">
-            <div class="container">
-                <div class="title-box mb72">
-                    <img src="/images/img_page_logo.png" class="logo">
-                    <h2>비밀번호 재설정</h2>
-                </div>
-                <div class="form-box">
-                    <form @submit.prevent="store">
-                        <div class="input-box mb16 mb-lg-10">
-                            <div class="box">
-                                <input type="password" placeholder="새로운 비밀번호를 작성해주세요. 입력해주세요." v-model="form.password_new">
+    <main id="main" class="result-page find-pwd_phone">
+        <div class="yellow-box"></div>
+        <section class="section1">
+            <div class="logo-wrap">
+                <img src="/images/logo.png" alt="">
+            </div>
+            <p class="title">비밀번호 초기화</p>
+        </section>
+        <div class="write-section">
+            <div class="container3">
+                <div class="write-wrap">
+                    <div class="write-box">
+                        <div class="write-bundle">
+                            <div class="input-wrap Add_Features">
+                                <input class="id-input" type="password" placeholder="비밀번호" v-model="form.password">
+                                <error :form="form" name="password" />
                             </div>
-                            <error :form="form" name="password_new" />
-                        </div>
-                        <div class="input-box">
-                            <div class="box">
-                                <input type="password" placeholder="비밀번호를 확인해주세요." v-model="form.password_new_confirmation">
-                            </div>
-                            <error :form="form" name="password_new_confirmation" />
-                            <error :form="form" name="token" />
-                            <div class="message-box mt10 px30 px-lg-15">
-                                <p>8자 이상 문자와 숫자를 섞어서 입력해주세요.<br>단  ‘!, @, #, $, %, ^, &, * ‘이 외의 특수문자는 사용할 수 없습니다. </p>
-                            </div>
-                        </div>
 
-                        <div class="button-box mt60 mt-lg-30">
-                            <button type="submit" class="btn btn-active">확인</button>
+                            <div class="gap"></div>
+
+                            <div class="input-wrap Add_Features">
+                                <input class="id-input" type="password_confirmation" placeholder="비밀번호 확인" v-model="form.password_confirmation">
+                                <error :form="form" name="password_confirmation" />
+                            </div>
+
+                            <!-- 인증번호 발송 후 활성화 -->
+                            <!-- <div class="input-wrap Add_Features">
+                                <input type="text" placeholder="인증번호">
+                                <div class="Add_Features-box">
+                                    <button>인증확인</button>
+                                </div>
+                            </div> -->
+                            <!-- // -->
                         </div>
-                    </form>
+                    </div>
+                    <div class="btn-wrap next">
+                        <button type="button" @click.prevent="store">비밀번호 찾기</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 </template>
 
 <script>
