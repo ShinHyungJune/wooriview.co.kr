@@ -65,16 +65,15 @@ export default {
         store(data){
             this.form.contact = data;
 
-            this.form.post("/api/findPasswords")
+            this.form.post("/api/passwordResets")
                 .then(response => {
                     this.$store.commit("setPop", {
                         title: "임시비밀번호가 발송되었습니다!"
                     });
 
-                    console.log(response);
                     this.verified = true;
 
-                    this.$router.push("/findPasswords?token=" + response.token);
+                    this.$router.push("/users/resetPassword?contact=" + response.data.ids + "&token=" + response.data.token);
                 });
         },
     },
