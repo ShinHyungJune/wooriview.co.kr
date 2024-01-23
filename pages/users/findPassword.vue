@@ -38,9 +38,11 @@
                             <!-- // -->
                         </div>
                     </div>
+                    <!--
                     <div class="btn-wrap next" v-if="verified">
                         <nuxt-link to="/login">로그인하기</nuxt-link>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
@@ -67,9 +69,9 @@ export default {
 
             this.form.post("/api/passwordResets")
                 .then(response => {
-                    this.$store.commit("setPop", {
+                    /*this.$store.commit("setPop", {
                         title: "임시비밀번호가 발송되었습니다!"
-                    });
+                    });*/
 
                     this.verified = true;
 
