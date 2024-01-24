@@ -3462,13 +3462,13 @@ input,textarea {
 .map-select-wrap .m-input-region select {
     height:100%;
     padding-left:20px; padding-right:80px;
-    font-size: 20px; font-weight: 600; color: #ffc800;
+    font-size: 20px; font-weight: 600; color: #303030;
     outline: unset;
     border:none;
     -webkit-appearance:none;   -moz-appearance:none;   appearance:none;   background: url('../images/icons8-expand-arrow-24.png') no-repeat 90%;
 }
 .map-select-wrap select option { padding-left: 128px;  }
-.map-select-wrap select option i {font-size: 20px; font-weight: 600; color: #ffc800; }
+.map-select-wrap select option i {font-size: 20px; font-weight: 600; color: #303030; }
 
 @media screen and (max-width: 768px) {
     .Map-Search-wrap .btn-center {

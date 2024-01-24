@@ -104,9 +104,6 @@
 
                             <!-- {{item.url_review}} -->
 
-                            <!-- <div class="m-ratioBox-wrap">
-                                <div class="m-ratioBox" :style="`background-image:url(${item.campaign.img ? item.campaign.img.url : ''});`"></div>
-                            </div> -->
                         </td>
                         <td>
                             {{item.url_banner}}
@@ -157,11 +154,11 @@ export default {
 
     methods: {
         filter(){
-
             this.$axios.get("/api/admin/applications", {
                 params: this.form
             }).then(response => {
                 this.items = response.data;
+
             });
         },
 

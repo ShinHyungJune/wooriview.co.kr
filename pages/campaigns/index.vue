@@ -116,7 +116,7 @@
                                     <input type="checkbox" name="" id="INSTAGRAM" value="INSTAGRAM" v-model="form.type_snses" @change="() => getCampaigns()">
                                     <label for="INSTAGRAM">
                                         <i class="xi-check-square"></i>
-                                        <i class="xi-checkbox-blank"></i>
+                                        <i class="xi-checkbox-blank"></i>       
                                         인스타그램
                                     </label>
                                 </li>

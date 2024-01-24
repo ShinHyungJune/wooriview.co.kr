@@ -106,7 +106,6 @@ export default {
             this.$axios.get("/api/admin/qnas", {
                 params: this.form
             }).then(response => {
-                console.log(response.data);
                 this.items = response.data;
             });
         },
