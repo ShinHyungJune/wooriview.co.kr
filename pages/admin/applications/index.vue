@@ -100,8 +100,13 @@
                         -->
                         <td>
                             <!-- <a :href="item.url_review" target="_blank" v-if="item.url_review" style="white-space: nowrap">리뷰보기</a> -->
-                            <a :href="item.url_review" target="_blank" v-if="item.url_review" style="white-space: nowrap">{{item.url_review}}</a>
+                            <a :href="item.url_review" target="_blank" v-if="item.url_review" style="white-space: normal">{{item.url_review}}</a>
+
                             <!-- {{item.url_review}} -->
+
+                            <!-- <div class="m-ratioBox-wrap">
+                                <div class="m-ratioBox" :style="`background-image:url(${item.campaign.img ? item.campaign.img.url : ''});`"></div>
+                            </div> -->
                         </td>
                         <td>
                             {{item.url_banner}}
