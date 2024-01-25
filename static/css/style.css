@@ -3465,7 +3465,7 @@ input,textarea {
     font-size: 20px; font-weight: 600; color: #303030;
     outline: unset;
     border:none;
-    -webkit-appearance:none;   -moz-appearance:none;   appearance:none;   background: url('../images/icons8-expand-arrow-48.svg') no-repeat 90%;
+    -webkit-appearance:none;   -moz-appearance:none;   appearance:none;   background: url('../images/icons8-expand-arrow-48.png') no-repeat 90%;
 }
 .map-select-wrap select option { padding-left: 128px;  }
 .map-select-wrap select option i {font-size: 20px; font-weight: 600; color: #303030; }
@@ -3476,7 +3476,7 @@ input,textarea {
     }
     .map-select-wrap { top:12px; left: 30px;}
     .map-select-wrap p { font-size: 12px; margin-left: 20px;}
-    .map-select-wrap select {font-size: 14px; width: 220px; height: 36px;  padding: 0 20px 0 90px; background: url('../images/icons8-expand-arrow-48.svg') no-repeat 60%; background-size: 18px;  background-color: #fff;}
+    .map-select-wrap select {font-size: 14px; width: 220px; height: 36px;  padding: 0 20px 0 90px; background: url('../images/icons8-expand-arrow-48.png') no-repeat 60%; background-size: 18px;  background-color: #fff;}
     .map-select-wrap .m-input-region {
         display: flex;
     }
