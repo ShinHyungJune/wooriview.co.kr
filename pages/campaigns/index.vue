@@ -235,7 +235,7 @@ export default {
                 address: "",
                 word: this.$route.query.word ? this.$route.query.word : "",
                 category_ids: [],
-                type_snses: this.$route.query.type_sns ? [this.$route.query.type_sns] : ["", ""],
+                type_snses: this.$route.query.type_sns ? [this.$route.query.type_sns] : ["INSTAGRAM", "NAVER"],
                 type_campaigns: this.$route.query.type_campaign ? [this.$route.query.type_campaign] : ["REPORTER", "DELIVERY", "VISIT", "REALTIME"],
                 page:1,
                 order_by : this.$route.query.order_by || "hire_finished_at",
