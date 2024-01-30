@@ -91,6 +91,14 @@
                                     </label>
                                 </li>
                                 <li class="filter-ck">
+                                    <input type="checkbox" name="" id="REVIEW" value="REVIEW" v-model="form.type_campaigns" @change="() => getCampaigns()">
+                                    <label for="REVIEW">
+                                        <i class="xi-check-square"></i>
+                                        <i class="xi-checkbox-blank"></i>
+                                        구매평 캠페인
+                                    </label>
+                                </li>
+                                <li class="filter-ck">
                                     <input type="checkbox" name="" id="REPORTER" value="REPORTER" v-model="form.type_campaigns" @change="() => getCampaigns()">
                                     <label for="REPORTER">
                                         <i class="xi-check-square"></i>
@@ -126,14 +134,6 @@
                                         <i class="xi-check-square"></i>
                                         <i class="xi-checkbox-blank"></i>
                                         네이버 블로그
-                                    </label>
-                                </li>
-                                <li class="filter-ck">
-                                    <input type="checkbox" name="" id="REVIEW" value="REVIEW" v-model="form.type_snses" @change="() => getCampaigns()">
-                                    <label for="REVIEW">
-                                        <i class="xi-check-square"></i>
-                                        <i class="xi-checkbox-blank"></i>
-                                        구매평
                                     </label>
                                 </li>
                             </ul>
