@@ -128,6 +128,14 @@
                                         네이버 블로그
                                     </label>
                                 </li>
+                                <li class="filter-ck">
+                                    <input type="checkbox" name="" id="REVIEW" value="REVIEW" v-model="form.type_snses" @change="() => getCampaigns()">
+                                    <label for="REVIEW">
+                                        <i class="xi-check-square"></i>
+                                        <i class="xi-checkbox-blank"></i>
+                                        구매평
+                                    </label>
+                                </li>
                             </ul>
                         </div>
                         <div class="bar"></div>
@@ -235,7 +243,8 @@ export default {
                 address: "",
                 word: this.$route.query.word ? this.$route.query.word : "",
                 category_ids: [],
-                type_snses: this.$route.query.type_sns ? [this.$route.query.type_sns] : ["INSTAGRAM", "NAVER"],
+                type_snses: this.$route.query.type_sns ? [this.$route.query.type_sns] : ["INSTAGRAM", "NAVER", "REVIEW"],
+            
                 type_campaigns: this.$route.query.type_campaign ? [this.$route.query.type_campaign] : ["REPORTER", "DELIVERY", "VISIT", "REALTIME"],
                 page:1,
                 order_by : this.$route.query.order_by || "hire_finished_at",
