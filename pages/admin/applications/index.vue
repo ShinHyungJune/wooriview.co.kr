@@ -109,10 +109,10 @@
                             {{item.url_banner}}
                         </td>
                         <td>
-                            {{ item.created_at}}
+                            {{item.created_at}}
                         </td>
                         <td>
-                            {{ item.campaign.origin_review_finished_at}}
+                            {{item.campaign.origin_review_finished_at}}
                         </td>
                     </tr>
                     </tbody>

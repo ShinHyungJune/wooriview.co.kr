@@ -110,6 +110,16 @@
                                 {{ item.created_at }}
                             </div>
                         </li>
+                        <li class="col-group">
+                            <div class="default">
+                                <p>컨텐츠등록마감기간</p>
+                            </div>
+                            <div class="user">
+                                {{ item.campaign.origin_review_finished_at }}
+                            </div>
+
+                        </li>
+
                     </ul>
 
                     <div class="btns">
@@ -210,6 +220,8 @@ export default {
                     this.form.url_review = this.item.url_review;
 
                     this.loading = false;
+
+                    // this.item.review_finished_at = this.item.origin_review_finished_at;
                 })
         }
 
