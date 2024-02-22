@@ -214,7 +214,7 @@
                                     <img src="/images/Recommended_mark_Bronze.svg" alt="" v-if="application.user.grade === 'BRONZE'">
                                 </div>
                             </div>
-                            <p class="Follow" v-if="application.user && campaign.type_sns === 'INSTAGRAM'">팔로워 <span>{{ application.user.count_follower_instagram.toLocaleString() }} 명</span></p>
+                            <!-- <p class="Follow" v-if="application.user && campaign.type_sns === 'INSTAGRAM'">팔로워 <span>{{ application.user.count_follower_instagram.toLocaleString() }} 명</span></p> -->
 
                             <div v-if="$auth.user && $auth.user.data.id == campaign.user.id">
                                 <a style="display:flex; align-items:center; margin-top:10px; text-decoration: underline;" :href="application.user.naver" class="Follow" v-if="campaign.type_sns === 'NAVER'">
