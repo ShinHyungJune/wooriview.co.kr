@@ -91,6 +91,13 @@
 .manage .table-wrap tbody td a {
     color:blue; text-decoration: underline;
 }
+.manage .table-wrap tbody td .btns {
+    display: flex; align-items: center; justify-content: center;
+    gap:12px;
+}
+.manage .table-wrap tbody td .add-btn {
+    white-space: nowrap;
+}
 .manage .table-wrap tbody> li> a:hover td { font-weight: bold; }
 .manage .table-wrap td img {
     max-width:300px;
