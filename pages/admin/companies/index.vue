@@ -84,6 +84,7 @@
                         </td>
                         <td>
                             <a href="#" class="add-btn" @click.prevent="target = item">비밀번호 변경</a>
+                            <a href="#" class="add-btn" @click.prevent="restore(item)" v-if="item.deleted_at">탈퇴복원</a>
                         </td>
                     </tr>
                     </tbody>
@@ -197,6 +198,13 @@ export default {
 
                     this.target = null;
                 })
+        },
+
+        restore(item){
+            this.form.patch("/api/admin/users/restore/" + item.id)
+                .then(response => {
+                    this.filter();
+                });
         },
 
         up(e, item, index){
