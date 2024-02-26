@@ -82,8 +82,11 @@
                             {{item.deleted_at}}
                         </td>
                         <td>
-                            <a href="#" class="add-btn" @click.prevent="target = item">비밀번호 변경</a>
-                            <a href="#" class="add-btn" @click.prevent="restore(item)" v-if="item.deleted_at">탈퇴복원</a>
+                            <div class="btns">
+                                <a href="#" class="add-btn" @click.prevent="target = item">비밀번호 변경</a>
+                                <a href="#" class="add-btn" @click.prevent="restore(item)" v-if="item.deleted_at">탈퇴복원</a>
+                            </div>
+
                         </td>
                     </tr>
                     </tbody>
