@@ -1977,6 +1977,29 @@ input,textarea {
     .MyPage.review-add .link-add-box .left-wrap .link-input-wrap .send-btn { height: 32px; width: 62px;}
     .MyPage.review-add .link-add-box .left-wrap .link-input-wrap .send-btn i { font-size: 20px;}
     .MyPage.review-add .link-add-box { margin-bottom: 40px;  padding: 11px 12px 64px 12px;}
+
+    .MyPage.review-add {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000000000;
+        background: #fff;
+    }
+
+    .MyPage.review-add {}
+    .MyPage.review-add .route-wrap {
+        margin-top:0;
+    }
+    .MyPage.review-add .route-wrap .container3 {
+        padding:0;
+    }
+    .MyPage.review-add .chat-wrap {
+        max-height: calc(100vh - 411px);
+        height: 100vh;
+    }
+
 }
 
 /* //======================================= */
@@ -2088,7 +2111,7 @@ input,textarea {
 @media screen and (max-width: 768px) {
 .chat-wrap .img-wrap { width: 36px; }
 .chat-wrap .textbox {width: 100%; max-width: 210px; font-size: 12px;}
-.chat .btm-wrap { height: 32px; padding: 2px; margin-top: -15px; margin-bottom: 97px;}
+.chat .btm-wrap { height: 32px; padding: 2px; margin-top: -15px; margin-bottom: 97px; border-radius:0;}
 .chat .btm-wrap .file-btn { width: 22.5px; height: 22.5px;}
 .chat .btm-wrap .file-btn i { font-size: 16px; }
 .chat .btm-wrap .send-btn { width: 47px; height: 24px; }
@@ -2099,7 +2122,7 @@ input,textarea {
 
 .chat .toggle-box .title { font-size: 14px; }
 .chat .toggle-box i { font-size: 14px;}
-.chat .toggle-box { padding: 12px;}
+.chat .toggle-box { padding: 12px; border-radius:0;}
 .chat .route-wrap .white-box { margin-top: -40px;}
 .chat .pop-box .pop-txt .bt-txt { font-size: 16px; margin-bottom: 40px;}
 .chat .pop-box .write-bundle .left-box { min-width: unset;}
@@ -4245,3 +4268,14 @@ input,textarea {
     margin-top:20px;
 }
 
+
+.m-mobile {
+    display: none !important;
+}
+
+@media screen and (max-width:768px) {
+    .m-pc {display: none !important;}
+    .m-mobile {
+        display: block !important;
+    }
+}

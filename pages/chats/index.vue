@@ -4,7 +4,8 @@
             <div class="container3">
                 <div class="toggle-box">
                     <p class="title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}}</p>
-                    <i class="xi-angle-down"></i>
+                    <i class="xi-angle-down m-pc"></i>
+                    <i class="xi-close m-mobile" @click.prevent="()=>$router.back()"></i>
                 </div>
                 <div class="white-box">
                     <div class="left-box">
