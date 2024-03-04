@@ -252,7 +252,7 @@ body{ -ms-overflow-style: none; }
     .header .logo {display: none;}
     .header .logo { max-width: 91px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
     .header .header-nav {
-        width:100%; height: 40px; position: absolute; top: 100%; left: 0; width: 100%; justify-content: space-evenly; overflow-x:auto;
+        width:100%; height: 40px; position: absolute; top: 100%; left: 0; width: 120%; justify-content: space-evenly; overflow-x:auto;
         gap:0;
     }
     .header .header-nav li {  height: 100%; flex:none; width:auto; }
@@ -372,7 +372,8 @@ body{ -ms-overflow-style: none; }
 /* 모바일 하단 바 */
 .header .mb-bottom-Bar { display: none; }
 
-@media screen and (max-width: 730px) {
+/* @media screen and (max-width: 730px) { */
+@media (pointer:coarse) {
     .header .mb-bottom-Bar { display: flex; align-items: center; justify-content: center;
         position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background-color: #fff; border-radius: 20px 20px 0 0 ; box-shadow: 0 -4px 6px 0 rgba(0, 0, 0, 0.04); }
     .header .mb-bottom-Bar > a {

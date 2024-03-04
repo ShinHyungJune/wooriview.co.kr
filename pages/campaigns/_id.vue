@@ -202,7 +202,7 @@
                                 <div class="subscriber-name">
                                     <p class="name">{{application.user.nickname}}</p>
                                     <p class="Address" v-if="application.selected && $auth.user && campaign.user.id == $auth.user.data.id && campaign.type_campaign === 'DELIVERY'">
-                                        {{ application.user.address }}
+                                        {{ application.user.address }}<br>{{ application.user.address_detail}}
                                     </p>
                                     <p class="Address" v-if="application.selected && $auth.user && campaign.user.id == $auth.user.data.id && (campaign.type_campaign === 'VISIT' || campaign.type_campaign === 'REALTIME')">
                                         {{ application.user.contact }}
