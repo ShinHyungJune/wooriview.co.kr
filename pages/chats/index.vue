@@ -4,10 +4,10 @@
             <div class="container3">
                 <div class="toggle-box">
                     <p class="title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}}</p>
-                    <i class="xi-angle-down m-pc"></i>
+                    <i class="xi-angle-down active"></i>
                     <i class="xi-close m-mobile" @click.prevent="()=>$router.back()"></i>
                 </div>
-                <div class="white-box">
+                <div class="white-box hide" style="display: none;">
                     <div class="left-box">
                         <div class="img-box">
                             <img :src="chat.campaign.img.url" alt="" v-if="chat.campaign.img">
@@ -274,6 +274,8 @@ export default {
                 setTimeout(function(){
                     $(".toggle-box").click(function (){
                         $(".white-box").toggle();
+                        $(".white-box").toggleClass("hide");
+
                         if($(".toggle-box i").hasClass("active") === true){
                             $(".toggle-box i").removeClass("active");
                         }else{
