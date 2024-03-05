@@ -59,14 +59,18 @@
                                 고객센터
                             </a>
                         </li>
-                        <li class="" v-if="!$auth.user || $auth.user.data.type === 'COMPANY'">
-                            <a style="color:#ff5757;" href="https://docs.google.com/forms/d/e/1FAIpQLSejYcDdXucpmhh6fGIlX1r2GSQZr97UZiS8vh294vsAb8TKRQ/viewform">
-                                <!-- <img class="client-icon-img" src="/images/enter-icon.png" alt=""> -->
-                                무료체험
-                            </a>
-                        </li>
+                        <!-- <div class="hidden-sm hidden-xs"> -->
+                            <li class="" v-if="!$auth.user || $auth.user.data.type === 'COMPANY'">
+                                <a style="color:#ff5757;" href="https://docs.google.com/forms/d/e/1FAIpQLSejYcDdXucpmhh6fGIlX1r2GSQZr97UZiS8vh294vsAb8TKRQ/viewform">
+                                    <!-- <img class="client-icon-img" src="/images/enter-icon.png" alt=""> -->
+                                    무료체험
+                                </a>
+                            </li>
+                        <!-- </div> -->
                     </ul>
                 </div>
+
+
                 <div class="header-ri">
 
                     <div class="Mobile_Menu_wrap">
