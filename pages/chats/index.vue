@@ -3,7 +3,7 @@
         <div class="route-wrap" v-if="chat">
             <div class="container3">
                 <div class="toggle-box">
-                    <p class="title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}}</p>
+                    <p class="title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}} {{ $auth.user.data.type === 'CUSTOMER' ?  '' : '/  '+$auth.user.data.nickname}}</p>
                     <i class="xi-angle-down active"></i>
                     <i class="xi-close m-mobile" @click.prevent="()=>$router.back()"></i>
                 </div>
@@ -30,7 +30,7 @@
 <!--                                    <p class="time-line">당일 14:00</p>-->
                                 </div>
                                 <p class="info-title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}}</p>
-                                <P class="info-sub">{{chat.campaign.title_product}}</P>
+                                <P class="info-sub">{{chat.campaign.product_and_price}}</P>
                             </div>
 
                             <div class="info-box-btm">
@@ -143,7 +143,7 @@
                         <p class="Address">{{ targetUser.type === 'CUSTOMER' ? targetUser.contact : targetUser.company_contact }}</p>
 
                     </div>
-                    <div class="follower" v-if="targetUser.type === 'CUSTOMER' && chat.campaign.type_sns === 'INSTAGRAM'">
+                    <!-- <div class="follower" v-if="targetUser.type === 'CUSTOMER' && chat.campaign.type_sns === 'INSTAGRAM'">
                         팔로워
                         <span>{{ targetUser.count_follower_instagram }}</span>
                         <span>명</span>
@@ -152,7 +152,7 @@
                         팔로워
                         <span>{{ targetUser.count_follower_naver }}</span>
                         <span>명</span>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -253,8 +253,8 @@ export default {
             });
 
             channel.bind('pusher:subscription_count', (data) => {
-                /*if(data.subscription_count > 2)
-                    self.need_alarm = 1;*/
+                if(data.subscription_count > 2)
+                    self.need_alarm = 1;
             });
         },
 

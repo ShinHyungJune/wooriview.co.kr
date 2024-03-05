@@ -2023,7 +2023,7 @@ input,textarea {
 
 .chat-wrap .img-wrap { width: 56px;   position: relative;   border-radius: 50%;   background-image: url("../images/basic-user.png");  overflow: hidden;   cursor: pointer;}
 .chat-wrap .img-wrap::after  { content: '';  width: 100%;  display: block;   padding-top: 100%;}
-.chat-wrap .img-wrap img {     position: absolute;  left: 0;   top: 0;   width: 100%;   height: 100%; object-fit: cover; object-position: center;}
+.chat-wrap .img-wrap img { position: absolute;  left: 0;   top: 0;   width: 100%;   height: 100%; object-fit: cover; object-position: center;}
 
 
 
