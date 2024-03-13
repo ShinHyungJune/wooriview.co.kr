@@ -3,7 +3,7 @@
         <div class="route-wrap" v-if="chat">
             <div class="container3">
                 <div class="toggle-box">
-                    <p class="title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}} <br>{{ $auth.user.data.type === 'CUSTOMER' ?  '' : $auth.user.data.name+' 인플루언서'}}</p>
+                    <p class="title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}} <br>{{ $auth.user.data.type === 'CUSTOMER' ?  '' : $auth.user.data.nickname+' 인플루언서'}}</p>
                     <i class="xi-angle-down active"></i>
                     <i class="xi-close m-mobile" @click.prevent="()=>$router.back()"></i>
                 </div>
