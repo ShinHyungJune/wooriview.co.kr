@@ -1,9 +1,9 @@
 <template>
     <main id="main" class="MyPage chat review-add">
-        <div class="route-wrap" v-if="chat">
+        <div class="route-wrap" v-if="chat" >
             <div class="container3">
                 <div class="toggle-box">
-                    <p class="title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}} <br>{{ $auth.user.data.type === 'CUSTOMER' ?  '' : $auth.user.data.nickname+' 인플루언서'}}</p>
+                    <p class="title">[{{chat.campaign.title_company}}] {{chat.campaign.title_product}} <br>{{ displayUser ? displayUser.nickname +' 인플루언서' : '' }}</p>
                     <i class="xi-angle-down active"></i>
                     <i class="xi-close m-mobile" @click.prevent="()=>$router.back()"></i>
                 </div>
@@ -207,6 +207,9 @@ export default {
     middleware: ["auth"],
 
     data(){
+        
+
+
         return {
             form: new Form(this.$axios, {
                 page: 1,
@@ -266,10 +269,12 @@ export default {
                 }
             }).then(response => {
                 this.chat = response.data.data;
-
+                this.displayUser = this.chat.application.user
+                console.log(this.chat)
                 this.getMessages(false, this.chat);
 
                 this.setChannel(this.chat);
+
 
                 setTimeout(function(){
                     $(".toggle-box").click(function (){
@@ -378,6 +383,7 @@ export default {
 
     mounted() {
         this.getChat();
+
     }
 }
 </script>
