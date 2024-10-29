@@ -264,8 +264,8 @@
                                     </p>
                                 </div>
 
-<!--                                <button class="btn" @click="$router.push(`/orders/create?product_id=${product.id}`)">구매하기</button>-->
-                                <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSejYcDdXucpmhh6fGIlX1r2GSQZr97UZiS8vh294vsAb8TKRQ/viewform?pli=1" class="btn">구매하기</a>
+                                <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSejYcDdXucpmhh6fGIlX1r2GSQZr97UZiS8vh294vsAb8TKRQ/viewform?pli=1" class="btn" v-if="product.price == 0">상담문의</a>
+                                <button class="btn" @click="$router.push(`/orders/create?product_id=${product.id}`)" v-else>구매하기</button>
                             </div>
                         </div>
                     </div>
