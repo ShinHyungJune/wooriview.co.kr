@@ -1124,7 +1124,7 @@ export default {
                     user_id: this.$auth.user.data.id,
                     temp: 1,
                     open: 1,
-                    accept: "",
+                    accept: "null",
                     take: 10,
                 }
             }).then(response => {
