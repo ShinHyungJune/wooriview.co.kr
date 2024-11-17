@@ -24,7 +24,7 @@
                             <div class="m-state">
                                 <h3 class="title">총 캠페인</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('all')">
                                     <h3 class="count">{{counts.all}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
@@ -34,7 +34,7 @@
                             <div class="m-state">
                                 <h3 class="title">신청한 캠페인</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('application')">
                                     <h3 class="count">{{counts.application}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                             <div class="m-state">
                                 <h3 class="title">선정된 캠페인</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('select')">
                                     <h3 class="count">{{counts.select}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                             <div class="m-state">
                                 <h3 class="title">체험 중</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('finish')">
                                     <h3 class="count">{{counts.finish}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                             <div class="m-state">
                                 <h3 class="title">찜한 캠페인</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('like')">
                                     <h3 class="count">{{counts.like}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>

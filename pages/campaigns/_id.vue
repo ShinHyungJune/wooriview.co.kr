@@ -228,65 +228,77 @@
 
                         </div>
                         <div class="subscriber-ri">
+
                             <div class="subscriber-ri-top">
                                 <ul class="subscriber-tab">
                                     <li class="Active">소개글</li>
                                     <li>추가 정보</li>
                                 </ul>
                             </div>
-                            <div v-if="$auth.user && $auth.user.data.id == campaign.user.id">
-                                <a href="#" class="Application-btn toggle" @click.prevent="" v-if="application.selected == 1">선정됨</a>
-                                <a href="#" class="Application-btn" @click.prevent="select(application)" v-if="campaign.on_select == 1">선정하기</a>
-                            </div>
-                            <div class="Introduction-wrap content-box open">
-                                <p class="Comments">{{ application.description }}</p>
-                                <ul class="category-list">
-                                    <li v-for="(category, index) in application.user.categories" :key="index">
-                                        <img :src="category.active.url" alt="">
-                                        <p class="labal">{{ category.title }}</p>
-                                    </li>
-                                </ul>
-                                <div class="Activity_History-wrap">
-                                    <h4>지난 활동 내역</h4>
-                                    <p style="white-space: pre-line" v-text="application.user.history"></p>
+
+
+                            <template v-if="$auth.user && $auth.user.data.id == campaign.user.id">
+                                <div>
+                                    <a href="#" class="Application-btn toggle" @click.prevent="" v-if="application.selected == 1">선정됨</a>
+                                    <a href="#" class="Application-btn" @click.prevent="select(application)" v-if="campaign.on_select == 1">선정하기</a>
                                 </div>
+
+                                <div class="Introduction-wrap content-box open">
+                                    <p class="Comments">{{ application.description }}</p>
+                                    <ul class="category-list">
+                                        <li v-for="(category, index) in application.user.categories" :key="index">
+                                            <img :src="category.active.url" alt="">
+                                            <p class="labal">{{ category.title }}</p>
+                                        </li>
+                                    </ul>
+                                    <div class="Activity_History-wrap">
+                                        <h4>지난 활동 내역</h4>
+                                        <p style="white-space: pre-line" v-text="application.user.history"></p>
+                                    </div>
+                                </div>
+                                <div class="Additional-wrap content-box">
+                                    <ul class="Whether-list">
+                                        <li v-if="application.user.open_face">얼굴노출</li>
+                                        <li v-if="application.user.camera">카메라</li>
+                                    </ul>
+                                    <ul class="Size-list">
+                                        <li>
+                                            <p class="Size-labal">나이:</p>
+                                            <p class="Size">{{application.user.age}}</p>
+                                        </li>
+                                        <li>
+                                            <p class="Size-labal">성별:</p>
+                                            <p class="Size">{{application.user.sex}}</p>
+                                        </li>
+                                        <li>
+                                            <p class="Size-labal">상의 사이즈:</p>
+                                            <p class="Size">{{application.user.size_top}}</p>
+                                        </li>
+                                        <li>
+                                            <p class="Size-labal">하의 사이즈:</p>
+                                            <p class="Size">{{application.user.size_bottom}}</p>
+                                        </li>
+                                        <li>
+                                            <p class="Size-labal">신발 사이즈:</p>
+                                            <p class="Size">{{application.user.size_shoes}}</p>
+                                        </li>
+                                        <li>
+                                            <p class="Size-labal">키:</p>
+                                            <p class="Size">{{application.user.tall}}</p>
+                                        </li>
+                                        <li>
+                                            <p class="Size-labal">피부타입:</p>
+                                            <p class="Size">{{application.user.skin_type}}</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </template>
+
+                            <div class="Introduction-wrap content-box open" v-else>
+                                <p class="Comments">* 해당 내용은 본 광고주만 확인 가능합니다.</p>
                             </div>
-                            <div class="Additional-wrap content-box">
-                                <ul class="Whether-list">
-                                    <li v-if="application.user.open_face">얼굴노출</li>
-                                    <li v-if="application.user.camera">카메라</li>
-                                </ul>
-                                <ul class="Size-list">
-                                    <li>
-                                        <p class="Size-labal">나이:</p>
-                                        <p class="Size">{{application.user.age}}</p>
-                                    </li>
-                                    <li>
-                                        <p class="Size-labal">성별:</p>
-                                        <p class="Size">{{application.user.sex}}</p>
-                                    </li>
-                                    <li>
-                                        <p class="Size-labal">상의 사이즈:</p>
-                                        <p class="Size">{{application.user.size_top}}</p>
-                                    </li>
-                                    <li>
-                                        <p class="Size-labal">하의 사이즈:</p>
-                                        <p class="Size">{{application.user.size_bottom}}</p>
-                                    </li>
-                                    <li>
-                                        <p class="Size-labal">신발 사이즈:</p>
-                                        <p class="Size">{{application.user.size_shoes}}</p>
-                                    </li>
-                                    <li>
-                                        <p class="Size-labal">키:</p>
-                                        <p class="Size">{{application.user.tall}}</p>
-                                    </li>
-                                    <li>
-                                        <p class="Size-labal">피부타입:</p>
-                                        <p class="Size">{{application.user.skin_type}}</p>
-                                    </li>
-                                </ul>
-                            </div>
+
+
                         </div>
                     </li>
                 </ul>

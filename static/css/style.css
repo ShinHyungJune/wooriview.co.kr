@@ -4096,6 +4096,7 @@ input,textarea {
 }
 .m-states.type01 .m-state .box-count {
     display: flex; align-items: center; justify-content: center;
+    cursor:pointer;
 }
 .m-states.type01 .m-state .count {
     margin-right:8px;

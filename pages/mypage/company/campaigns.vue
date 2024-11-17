@@ -25,7 +25,7 @@
                             <div class="m-state">
                                 <h3 class="title">총 캠페인</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('all')">
                                     <h3 class="count">{{counts.all}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                             <div class="m-state">
                                 <h3 class="title">심사 대기 중</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('beforeAccept')">
                                     <h3 class="count">{{counts.wait}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                             <div class="m-state">
                                 <h3 class="title">모집 중</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('ongoingHire')">
                                     <h3 class="count">{{counts.ongoingHire}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                             <div class="m-state">
                                 <h3 class="title">선정 중</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('ongoingSelect')">
                                     <h3 class="count">{{counts.ongoingSelect}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                             <div class="m-state">
                                 <h3 class="title">체험 중</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('ongoingReview')">
                                     <h3 class="count">{{counts.ongoingReview}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                             <div class="m-state">
                                 <h3 class="title">마감 및 보고서</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('finishReview')">
                                     <h3 class="count">{{counts.finishReview}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                             <div class="m-state">
                                 <h3 class="title">반려</h3>
 
-                                <div class="box-count">
+                                <div class="box-count" @click="changeState('deny')">
                                     <h3 class="count">{{counts.deny}}</h3> <span class="unit">건</span>
                                 </div>
                             </div>
